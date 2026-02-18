@@ -1,0 +1,12 @@
+import type { DpmasmProcessSearchParams, DsCudCiOption, DsCudTypeOption, DsPlantOption, DsProcCdOption, DsProcDtlRow, DsProcRow, DsProcTypeOption, DsPrdCiOption, DsTab2Row } from '../types/DpmasmProcessTypes';
+export declare const fetchProcRows: (filter?: Partial<DpmasmProcessSearchParams>) => Promise<import("@/api/httpClient").ApiResponse<DsProcRow[]>>;
+export declare const fetchProcDtlRows: (filter?: Partial<DpmasmProcessSearchParams>) => Promise<import("@/api/httpClient").ApiResponse<DsProcDtlRow[]>>;
+export declare const fetchTab2Rows: (filter?: Partial<DpmasmProcessSearchParams>) => Promise<import("@/api/httpClient").ApiResponse<DsTab2Row[]>>;
+export declare const saveProcRows: (dsName: string, payload: DsProcRow[]) => Promise<import("@/api/httpClient").ApiResponse<DsProcRow>>;
+export declare const saveProcDtlRows: (dsName: string, payload: DsProcDtlRow[]) => Promise<import("@/api/httpClient").ApiResponse<DsProcDtlRow>>;
+export declare const fetchDsCudTypeOptions: () => Promise<import("@/api/httpClient").ApiResponse<DsCudTypeOption[]>>;
+export declare const fetchDsPlantOptions: () => Promise<import("@/api/httpClient").ApiResponse<DsPlantOption[]>>;
+export declare const fetchDsPrdCiOptions: () => Promise<import("@/api/httpClient").ApiResponse<DsPrdCiOption[]>>;
+export declare const fetchDsProcTypeOptions: () => Promise<import("@/api/httpClient").ApiResponse<DsProcTypeOption[]>>;
+export declare const fetchDsCudCiOptions: () => Promise<import("@/api/httpClient").ApiResponse<DsCudCiOption[]>>;
+export declare const fetchDsProcCdOptions: (filter?: Partial<DpmasmProcessSearchParams>) => Promise<import("@/api/httpClient").ApiResponse<DsProcCdOption[]>>;

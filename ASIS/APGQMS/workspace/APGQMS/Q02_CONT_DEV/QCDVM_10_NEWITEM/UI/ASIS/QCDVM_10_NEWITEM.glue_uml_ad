@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Glue:GlueDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Glue="http://www.glueframework.com/activitydiagram/" id="3" location="0,0" size="-1,-1">
+  <child xsi:type="Glue:Activity" id="7806" location="346,60" size="137,-1" input="//@wire.0" output="//@wire.1" name="SetResultKeys">
+    <property key="class" value="com.Amore.MES.biz.AmoreSetResultKeyList"/>
+    <property key="ResultKeyList" value="SearchResultNewItem|SearchFIELD_SIZE|SearchFIELD_SIZE_MAIN|SearchFREESOGU|SearchFUNCAL_CI|SearchRISKGRADE|SearchMAININFO|SearchMAINFUNCAL|SearchMAINIMAGE|SearchMATR|Search_RTBLM|SearchMNULOCK|SearchNEWINSP|SearchResultMsg"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="7807" location="-81,125" size="1542,-1" input="//@wire.1" output="//@wire.2 //@wire.4 //@wire.8 //@wire.18 //@wire.20 //@wire.6 //@wire.10 //@wire.22 //@wire.25 //@wire.27 //@wire.29 //@wire.32 //@wire.35 //@wire.16 //@wire.14 //@wire.37 //@wire.39 //@wire.41 //@wire.43 //@wire.45 //@wire.47 //@wire.49" name="EventRouter">
+    <property key="class" value="com.Amore.MES.security.activity.SecureRouter"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="7808" location="-89,180" size="122,-1" input="//@wire.2" output="//@wire.3" name="Search_NEW_ITEM_1">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QCDVM_10_NEWITEM.SELECT_1"/>
+    <property key="result-key" value="SearchResultNewItem"/>
+  </child>
+  <child xsi:type="Glue:InitialState" id="7809" location="413,16" size="-1,-1" output="//@wire.0"/>
+  <child xsi:type="Glue:FinalState" id="7810" location="395,534" size="-1,-1" input="//@wire.3 //@wire.5 //@wire.7 //@wire.9 //@wire.12 //@wire.13 //@wire.15 //@wire.17 //@wire.19 //@wire.21 //@wire.24 //@wire.26 //@wire.28 //@wire.31 //@wire.33 //@wire.36 //@wire.38 //@wire.40 //@wire.42 //@wire.44 //@wire.46 //@wire.48 //@wire.51"/>
+  <child xsi:type="Glue:Activity" id="8318" location="771,235" size="110,-1" input="//@wire.4" output="//@wire.5" name="Search_FREESOGU">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QCDVM_10_NEWITEM.SELECT_FREESOGU"/>
+    <property key="result-key" value="SearchFREESOGU"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="8320" location="-18,224" size="122,-1" input="//@wire.6" output="//@wire.7" name="Search_MAIN_INFO">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QCDVM_10_NEWITEM.SELECT_MAIN_INFO"/>
+    <property key="result-key" value="SearchMAININFO"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="8321" location="804,287" size="162,-1" input="//@wire.8" output="//@wire.9" name="Search_QULTY_RISK_GRADE">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QCDVM_10_NEWITEM.SELECT_RISK_GRADE"/>
+    <property key="result-key" value="SearchRISKGRADE"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="8352" location="498,231" size="110,-1" input="//@wire.10" output="//@wire.13 //@wire.11" name="SAVE_UPDATE_NEWITEM">
+    <property key="class" value="com.Amore.MES.Q02_CONT_DEV.QCDVM_10_NEWITEM_SAVE_UPDATE"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="8353" location="519,372" size="79,-1" input="//@wire.11 //@wire.23 //@wire.30 //@wire.34 //@wire.50" output="//@wire.12" name="Error">
+    <property key="class" value="com.Amore.MES.GEN.MGENM_ERROR"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="8354" location="866,344" size="120,-1" input="//@wire.14" output="//@wire.15" name="Search_FUNCAL_CI">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QCDVM_10_NEWITEM.SELECT_FUNCAL_CI"/>
+    <property key="result-key" value="SearchFUNCAL_CI"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="8368" location="15,264" size="145,-1" input="//@wire.16" output="//@wire.17" name="Search_MAIN_FUNCAL">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QCDVM_10_NEWITEM.SELECT_MAIN_FUNCAL"/>
+    <property key="result-key" value="SearchMAINFUNCAL"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="8475" location="975,242" size="122,-1" input="//@wire.18" output="//@wire.19" name="Search_FIELD_SIZE">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QCDVM_10_NEWITEM.SELECT_FIELD_SIZE"/>
+    <property key="result-key" value="SearchFIELD_SIZE"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="8534" location="73,308" size="115,-1" input="//@wire.20" output="//@wire.21" name="Search_MATR">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QCDVM_10_NEWITEM.SELECT_MATR"/>
+    <property key="result-key" value="SearchMATR"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="8535" location="595,291" size="95,-1" input="//@wire.22" output="//@wire.23 //@wire.24" name="SAVE_INSERT_NEWITEM">
+    <property key="class" value="com.Amore.MES.Q02_CONT_DEV.QCDVM_10_NEWITEM_SAVE_INSERT"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="8536" location="112,352" size="142,-1" input="//@wire.25" output="//@wire.26" name="Search_MAIN_IMAGE">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QCDVM_10_NEWITEM.SELECT_IMAGE"/>
+    <property key="result-key" value="SearchMAINIMAGE"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="8537" location="287,229" size="123,-1" input="//@wire.27" output="//@wire.28" name="Search_NEW_ITEM_2">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QCDVM_10_NEWITEM.SELECT_2"/>
+    <property key="result-key" value="SearchResultNewItem"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="8538" location="335,273" size="112,-1" input="//@wire.29" output="//@wire.30 //@wire.31" name="SAVE_UPDATE_NEWITEM2">
+    <property key="class" value="com.Amore.MES.Q02_CONT_DEV.QCDVM_10_NEWITEM_SAVE_UPDATE2"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="8548" location="687,187" size="87,-1" input="//@wire.32" output="//@wire.33 //@wire.34" name="SAVE_UPDATE_RESULT">
+    <property key="class" value="com.Amore.MES.Q02_CONT_DEV.QCDVM_10_NEWITEM_SAVE_UPDATE3"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="8561" location="1025,310" size="115,-1" input="//@wire.35" output="//@wire.36" name="Search_CNT_MATR">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QCDVM_10_NEWITEM.SELECT_MATR"/>
+    <property key="result-key" value="SearchMATR"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="8562" location="1137,270" size="115,-1" input="//@wire.37" output="//@wire.38" name="Search_CHNG_HISTORY">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QCDVM_10_NEWITEM.SELECT_CHNG_HISTORY"/>
+    <property key="result-key" value="SearchMATR"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="8563" location="1207,214" size="115,-1" input="//@wire.39" output="//@wire.40" name="Search_RTBLM">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QCDVM_10_NEWITEM_SEARCH_RTBLM.SELECT"/>
+    <property key="result-key" value="Search_RTBLM"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="8564" location="1264,262" size="115,-1" input="//@wire.41" output="//@wire.42" name="Search_RTBLM_FILE">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QCDVM_10_NEWITEM_SEARCH_RTBLM_ATFL.SELECT"/>
+    <property key="result-key" value="Search_RTBLM"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="8565" location="232,181" size="145,-1" input="//@wire.43" output="//@wire.44" name="Search_MAIN_MNU_LOCK">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QCDVM_10_NEWITEM.SELECT_MAIN_MNU_LOCK"/>
+    <property key="param-bindings" value="DEPTNO=DeptnoP"/>
+    <property key="result-key" value="SearchMNULOCK"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="8566" location="1335,303" size="110,-1" input="//@wire.45" output="//@wire.46" name="Search_NEW_INSP">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QCDVM_10_NEWITEM.SELECT_NEW_INSP"/>
+    <property key="result-key" value="SearchNEWINSP"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="8567" location="1379,344" size="110,-1" input="//@wire.47" output="//@wire.48" name="Search_NEW_INSP2">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QCDVM_10_NEWITEM.SELECT_NEW_INSP2"/>
+    <property key="result-key" value="SearchNEWINSP"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="8568" location="629,239" size="113,-1" input="//@wire.49" output="//@wire.50 //@wire.51" name="SAVE_PIIOT_INSP">
+    <property key="class" value="com.Amore.MES.Q02_CONT_DEV.QCDVM_10_NEWITEM_PILOT_INSP_SAVE"/>
+    <property key="result-key" value="SearchResultMsg"/>
+  </child>
+  <property key="tx1" value="true"/>
+  <property key="description" value=""/>
+  <wire id="819" guardcondition="success" firstRelativePoint="362,89" lastRelativePoint="362,135"/>
+  <wire id="820" guardcondition="success" firstRelativePoint="375,165" lastRelativePoint="375,200"/>
+  <wire id="821" guardcondition="find_New_Item_1" firstRelativePoint="-17,155" lastRelativePoint="-17,299"/>
+  <wire id="822" guardcondition="success" firstRelativePoint="-64,210" lastRelativePoint="394,543">
+    <bendpoint weight="0.5" firstDimension="-36,318" secondDimension="-469,-31"/>
+  </wire>
+  <wire id="1067" guardcondition="find_FREESOGU" firstRelativePoint="820,155" lastRelativePoint="820,235">
+    <bendpoint weight="0.5" firstDimension="130,78" secondDimension="-6,-32"/>
+  </wire>
+  <wire id="1068" guardcondition="success" firstRelativePoint="795,265" lastRelativePoint="414,541">
+    <bendpoint weight="0.5" firstDimension="-31,187" secondDimension="390,-107"/>
+  </wire>
+  <wire id="1069" guardcondition="find_MAIN_INFO" firstRelativePoint="25,155" lastRelativePoint="53,253">
+    <bendpoint weight="0.5" firstDimension="-633,65" secondDimension="45,-49"/>
+  </wire>
+  <wire id="1070" guardcondition="success" firstRelativePoint="0,254" lastRelativePoint="394,541">
+    <bendpoint weight="0.5" firstDimension="-43,222" secondDimension="-405,-83"/>
+  </wire>
+  <wire id="1071" guardcondition="find_QULTY_RISK_GRADE" firstRelativePoint="738,155" lastRelativePoint="738,348">
+    <bendpoint weight="0.5" firstDimension="249,110" secondDimension="-16,-113"/>
+  </wire>
+  <wire id="1072" guardcondition="success" firstRelativePoint="847,317" lastRelativePoint="414,541">
+    <bendpoint weight="0.5" firstDimension="-38,151" secondDimension="442,-91"/>
+  </wire>
+  <wire id="1077" guardcondition="save_UPDATE_NEWITEM" firstRelativePoint="564,155" lastRelativePoint="564,231"/>
+  <wire id="1078" guardcondition="failure" firstRelativePoint="537,284" lastRelativePoint="537,318">
+    <bendpoint weight="0.5" firstDimension="0,33" secondDimension="1,-31"/>
+  </wire>
+  <wire id="1079" guardcondition="success" firstRelativePoint="574,402" lastRelativePoint="413,540">
+    <bendpoint weight="0.5" firstDimension="16,94" secondDimension="169,-63"/>
+  </wire>
+  <wire id="1080" guardcondition="success" firstRelativePoint="509,261" lastRelativePoint="412,537">
+    <bendpoint weight="0.5" firstDimension="-44,211" secondDimension="104,-87"/>
+  </wire>
+  <wire id="1081" guardcondition="find_FUNCAL_CI" firstRelativePoint="963,155" lastRelativePoint="963,344">
+    <bendpoint weight="0.5" firstDimension="273,162" secondDimension="37,-57"/>
+  </wire>
+  <wire id="1082" guardcondition="success" firstRelativePoint="914,374" lastRelativePoint="414,542">
+    <bendpoint weight="0.5" firstDimension="-12,94" secondDimension="509,-91"/>
+  </wire>
+  <wire id="1087" guardcondition="find_MAIN_FUNCAL" firstRelativePoint="136,155" lastRelativePoint="136,264">
+    <bendpoint weight="0.5" firstDimension="-554,105" secondDimension="49,-34"/>
+  </wire>
+  <wire id="1088" guardcondition="success" firstRelativePoint="41,294" lastRelativePoint="394,541">
+    <bendpoint weight="0.5" firstDimension="-46,171" secondDimension="-364,-94"/>
+  </wire>
+  <wire id="1154" guardcondition="find_FIELD_SIZE" firstRelativePoint="1033,155" lastRelativePoint="1033,242"/>
+  <wire id="1155" guardcondition="success" firstRelativePoint="1003,272" lastRelativePoint="414,542">
+    <bendpoint weight="0.5" firstDimension="-33,204" secondDimension="598,-83"/>
+  </wire>
+  <wire id="1183" guardcondition="find_MATR" firstRelativePoint="167,155" lastRelativePoint="167,308"/>
+  <wire id="1184" guardcondition="success" firstRelativePoint="89,338" lastRelativePoint="395,540">
+    <bendpoint weight="0.5" firstDimension="-41,118" secondDimension="-316,-103"/>
+  </wire>
+  <wire id="1185" guardcondition="save_INSERT_NEWITEM" firstRelativePoint="560,243" lastRelativePoint="412,538"/>
+  <wire id="1186" guardcondition="failure" firstRelativePoint="626,321" lastRelativePoint="597,396">
+    <bendpoint weight="0.5" firstDimension="-38,90" secondDimension="68,9"/>
+  </wire>
+  <wire id="1187" guardcondition="success" firstRelativePoint="652,321" lastRelativePoint="413,540">
+    <bendpoint weight="0.5" firstDimension="-12,153" secondDimension="247,-85"/>
+  </wire>
+  <wire id="1188" guardcondition="find_MAIN_IMAGE" firstRelativePoint="225,155" lastRelativePoint="225,352"/>
+  <wire id="1189" guardcondition="success" firstRelativePoint="142,382" lastRelativePoint="395,540">
+    <bendpoint weight="0.5" firstDimension="-41,78" secondDimension="-263,-99"/>
+  </wire>
+  <wire id="1190" guardcondition="find_New_Item_2" firstRelativePoint="396,155" lastRelativePoint="396,246"/>
+  <wire id="1191" guardcondition="success" firstRelativePoint="325,262" lastRelativePoint="396,537">
+    <bendpoint weight="0.5" firstDimension="-45,233" secondDimension="-80,-64"/>
+  </wire>
+  <wire id="1192" guardcondition="save_UPDATE_NEWITEM2" firstRelativePoint="470,155" lastRelativePoint="470,284"/>
+  <wire id="1193" guardcondition="failure" firstRelativePoint="433,314" lastRelativePoint="519,386">
+    <bendpoint weight="0.5" firstDimension="22,87" secondDimension="-125,-1"/>
+  </wire>
+  <wire id="1194" guardcondition="success" firstRelativePoint="405,345" lastRelativePoint="405,533"/>
+  <wire id="1195" guardcondition="save_UPDATE_RESULT" firstRelativePoint="710,155" lastRelativePoint="710,187"/>
+  <wire id="1196" guardcondition="success" firstRelativePoint="742,217" lastRelativePoint="414,540">
+    <bendpoint weight="0.5" firstDimension="31,239" secondDimension="337,-103"/>
+  </wire>
+  <wire id="1197" guardcondition="failure" firstRelativePoint="754,217" lastRelativePoint="598,380">
+    <bendpoint weight="0.5" firstDimension="43,178" secondDimension="196,-7"/>
+  </wire>
+  <wire id="1198" guardcondition="find_CNT_MATR" firstRelativePoint="1123,155" lastRelativePoint="1123,240">
+    <bendpoint weight="0.5" firstDimension="433,66" secondDimension="18,-49"/>
+  </wire>
+  <wire id="1199" guardcondition="success" firstRelativePoint="1094,340" lastRelativePoint="414,542">
+    <bendpoint weight="0.5" firstDimension="12,134" secondDimension="689,-85"/>
+  </wire>
+  <wire id="1200" guardcondition="find_CHNG_HISTORY" firstRelativePoint="1179,155" lastRelativePoint="1179,270"/>
+  <wire id="1201" guardcondition="success" firstRelativePoint="1174,322" lastRelativePoint="414,542">
+    <bendpoint weight="0.5" firstDimension="4,154" secondDimension="769,-83"/>
+  </wire>
+  <wire id="1202" guardcondition="find_RTBLM" firstRelativePoint="1244,155" lastRelativePoint="1244,214">
+    <bendpoint weight="0.5" firstDimension="554,61" secondDimension="-20,-28"/>
+  </wire>
+  <wire id="1203" guardcondition="success" firstRelativePoint="1252,244" lastRelativePoint="414,542">
+    <bendpoint weight="0.5" firstDimension="-12,225" secondDimension="847,-90"/>
+  </wire>
+  <wire id="1204" guardcondition="find_RTBLM_FILE" firstRelativePoint="1212,155" lastRelativePoint="1294,291">
+    <bendpoint weight="0.5" firstDimension="710,66" secondDimension="7,-100"/>
+  </wire>
+  <wire id="1205" guardcondition="success" firstRelativePoint="1279,292" lastRelativePoint="414,543">
+    <bendpoint weight="0.5" firstDimension="-42,187" secondDimension="874,-80"/>
+  </wire>
+  <wire id="1206" guardcondition="find_MAIN_MNU_LOCK" firstRelativePoint="301,155" lastRelativePoint="301,181">
+    <bendpoint weight="0.5" firstDimension="-389,36" secondDimension="-3,-20"/>
+  </wire>
+  <wire id="1207" guardcondition="success" firstRelativePoint="276,211" lastRelativePoint="395,539">
+    <bendpoint weight="0.5" firstDimension="-28,280" secondDimension="-129,-68"/>
+  </wire>
+  <wire id="1208" guardcondition="find_NEW_INSP" firstRelativePoint="1179,155" lastRelativePoint="1179,270"/>
+  <wire id="1209" guardcondition="success" firstRelativePoint="1350,333" lastRelativePoint="414,543">
+    <bendpoint weight="0.5" firstDimension="-40,184" secondDimension="945,-42"/>
+  </wire>
+  <wire id="1210" guardcondition="find_NEW_INSP2" firstRelativePoint="1452,155" lastRelativePoint="1452,344"/>
+  <wire id="1211" guardcondition="success" firstRelativePoint="1445,374" lastRelativePoint="414,543">
+    <bendpoint weight="0.5" firstDimension="11,160" secondDimension="1040,-25"/>
+  </wire>
+  <wire id="1212" guardcondition="save_insp" firstRelativePoint="712,269" lastRelativePoint="413,540"/>
+  <wire id="1213" guardcondition="failure" firstRelativePoint="690,269" lastRelativePoint="598,385">
+    <bendpoint weight="0.5" firstDimension="8,131" secondDimension="132,-2"/>
+  </wire>
+  <wire id="1214" guardcondition="success" firstRelativePoint="712,269" lastRelativePoint="413,540">
+    <bendpoint weight="0.5" firstDimension="30,184" secondDimension="307,-106"/>
+  </wire>
+</Glue:GlueDiagram>

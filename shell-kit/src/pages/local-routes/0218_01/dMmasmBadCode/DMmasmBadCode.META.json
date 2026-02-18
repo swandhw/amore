@@ -1,0 +1,665 @@
+{
+    "Form": {
+        "id": "D_MMASM_BAD_CODE",
+        "height": "559",
+        "left": "0",
+        "onactivate": "Form_onactivate",
+        "onload": "Form_onload",
+        "titletext": "",
+        "top": "0",
+        "width": "1018"
+    },
+    "Datasets": [
+        {
+            "id": "ds_SearchListResult24_Row",
+            "columns": [
+                {
+                    "id": "CODE_KOR_NAME",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "COMM_CODE",
+                    "size": "256",
+                    "type": "STRING"
+                }
+            ],
+            "rows": [
+                {
+                    "CODE_KOR_NAME": "등록",
+                    "COMM_CODE": "C"
+                },
+                {
+                    "CODE_KOR_NAME": "수정",
+                    "COMM_CODE": "U"
+                },
+                {
+                    "CODE_KOR_NAME": "삭제",
+                    "COMM_CODE": "D"
+                }
+            ]
+        },
+        {
+            "id": "ds_SearchListResult535_Row",
+            "columns": [
+                {
+                    "id": "CODE_KOR_NAME",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "COMM_CODE",
+                    "size": "256",
+                    "type": "STRING"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_SearchListResult20_Row",
+            "columns": [
+                {
+                    "id": "CODE_KOR_NAME",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "COMM_CODE",
+                    "size": "256",
+                    "type": "STRING"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_SearchListResult14_Row",
+            "columns": [
+                {
+                    "id": "CODE_KOR_NAME",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "COMM_CODE",
+                    "size": "256",
+                    "type": "STRING"
+                }
+            ],
+            "rows": [
+                {
+                    "CODE_KOR_NAME": "Yes",
+                    "COMM_CODE": "Y"
+                },
+                {
+                    "CODE_KOR_NAME": "No",
+                    "COMM_CODE": "N"
+                }
+            ]
+        },
+        {
+            "id": "ds_datagrid1",
+            "columns": [
+                {
+                    "id": "CUD_TYPE",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "PRD_CI",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "BAD_CI",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "BAD_CODE",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "BAD_CODE_NAME",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "CUD_CI",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "REMARK",
+                    "size": "256",
+                    "type": "STRING"
+                }
+            ],
+            "rows": [],
+            "useclientlayout": "true",
+            "cancolumnchange": "ds_datagrid1_cancolumnchange"
+        },
+        {
+            "id": "ds_combo1",
+            "columns": [
+                {
+                    "id": "CODE_KOR_NAME_RE",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "COMM_CODE",
+                    "size": "256",
+                    "type": "STRING"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_combo2",
+            "columns": [
+                {
+                    "id": "CODE_KOR_NAME_RE",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "COMM_CODE",
+                    "size": "256",
+                    "type": "STRING"
+                }
+            ],
+            "rows": [],
+            "oncolumnchanged": "datagrid1_ongridchanged"
+        }
+    ],
+    "Grids": [
+        {
+            "id": "datagrid1",
+            "binddataset": "ds_datagrid1",
+            "columns": [
+                {
+                    "id": "rowIndex",
+                    "binding": "expr:currow+dataset._startRow",
+                    "edittype": "none",
+                    "head_rowspan": "2",
+                    "celltype": "none",
+                    "style": "background:#eeeeeeff;background2:#eeeeeeff;selectbackground:#eeeeeeff;",
+                    "size": 35
+                },
+                {
+                    "id": "유형",
+                    "binding": "CUD_TYPE",
+                    "edittype": "combo",
+                    "head_rowspan": "2",
+                    "displaytype": "combo",
+                    "combodataset": "g_ds_CudType",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME",
+                    "size": 50
+                },
+                {
+                    "id": "제품구분",
+                    "binding": "PRD_CI",
+                    "edittype": "combo",
+                    "head_rowspan": "2",
+                    "head_displaytype": "normal",
+                    "displaytype": "combo",
+                    "combodataset": "ds_SearchListResult535_Row",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME",
+                    "size": 100
+                },
+                {
+                    "id": "불량코드구분",
+                    "binding": "BAD_CI",
+                    "edittype": "combo",
+                    "head_rowspan": "2",
+                    "displaytype": "combo",
+                    "style": "align:center middle;",
+                    "combodataset": "ds_combo1",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME",
+                    "combodisplaynulltext": "bind:BAD_CI",
+                    "size": 108
+                },
+                {
+                    "id": "불량코드",
+                    "binding": "BAD_CODE",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "editfilter": "upper,number",
+                    "size": 94
+                },
+                {
+                    "id": "불량코드명",
+                    "binding": "BAD_CODE_NAME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:left middle;",
+                    "size": 300
+                },
+                {
+                    "id": "사용유무",
+                    "binding": "CUD_CI",
+                    "edittype": "combo",
+                    "head_rowspan": "2",
+                    "displaytype": "combo",
+                    "style": "align:center middle;",
+                    "expandshow": "hide",
+                    "combodataset": "ds_SearchListResult14_Row",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME",
+                    "size": 75
+                },
+                {
+                    "id": "비고",
+                    "binding": "REMARK",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:left middle;",
+                    "size": 205
+                }
+            ],
+            "columnSizes": [
+                35,
+                50,
+                100,
+                108,
+                94,
+                300,
+                75,
+                205
+            ],
+            "rows": [
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24"
+                }
+            ],
+            "headCells": [
+                {
+                    "rowspan": "2"
+                },
+                {
+                    "col": "1",
+                    "rowspan": "2",
+                    "text": "유형"
+                },
+                {
+                    "col": "2",
+                    "rowspan": "2",
+                    "displaytype": "normal",
+                    "text": "제품구분"
+                },
+                {
+                    "col": "3",
+                    "rowspan": "2",
+                    "text": "불량코드구분"
+                },
+                {
+                    "col": "4",
+                    "rowspan": "2",
+                    "text": "불량코드"
+                },
+                {
+                    "col": "5",
+                    "rowspan": "2",
+                    "text": "불량코드명"
+                },
+                {
+                    "col": "6",
+                    "rowspan": "2",
+                    "text": "사용유무"
+                },
+                {
+                    "col": "7",
+                    "rowspan": "2",
+                    "text": "비고"
+                }
+            ],
+            "bodyCells": [
+                {
+                    "celltype": "none",
+                    "style": "background:#eeeeeeff;background2:#eeeeeeff;selectbackground:#eeeeeeff;",
+                    "expr": "currow+dataset._startRow"
+                },
+                {
+                    "col": "1",
+                    "displaytype": "combo",
+                    "edittype": "combo",
+                    "text": "bind:CUD_TYPE",
+                    "combodataset": "g_ds_CudType",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME"
+                },
+                {
+                    "col": "2",
+                    "displaytype": "combo",
+                    "edittype": "combo",
+                    "text": "bind:PRD_CI",
+                    "combodataset": "ds_SearchListResult535_Row",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME"
+                },
+                {
+                    "col": "3",
+                    "displaytype": "combo",
+                    "edittype": "combo",
+                    "style": "align:center middle;",
+                    "text": "bind:BAD_CI",
+                    "combodataset": "ds_combo1",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME",
+                    "combodisplaynulltext": "bind:BAD_CI"
+                },
+                {
+                    "col": "4",
+                    "displaytype": "normal",
+                    "edittype": "normal",
+                    "editfilter": "upper,number",
+                    "text": "bind:BAD_CODE"
+                },
+                {
+                    "col": "5",
+                    "displaytype": "normal",
+                    "edittype": "normal",
+                    "style": "align:left middle;",
+                    "text": "bind:BAD_CODE_NAME"
+                },
+                {
+                    "col": "6",
+                    "displaytype": "combo",
+                    "edittype": "combo",
+                    "style": "align:center middle;",
+                    "text": "bind:CUD_CI",
+                    "expandshow": "hide",
+                    "combodataset": "ds_SearchListResult14_Row",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME"
+                },
+                {
+                    "col": "7",
+                    "displaytype": "normal",
+                    "edittype": "normal",
+                    "style": "align:left middle;",
+                    "text": "bind:REMARK"
+                }
+            ],
+            "left": "20",
+            "position": "absolute",
+            "top": "105",
+            "oncellclick": "datagrid1_oncellclick",
+            "oncloseup": "datagrid1_oncloseup",
+            "right": "20",
+            "bottom": "20"
+        }
+    ],
+    "Buttons": [
+        {
+            "id": "button1",
+            "taborder": "3",
+            "text": "조회",
+            "onclick": "button1_onclick",
+            "cssclass": "btn_04",
+            "top": "20",
+            "right": "411",
+            "width": "70",
+            "height": "22"
+        },
+        {
+            "id": "button2",
+            "taborder": "4",
+            "text": "등록",
+            "onclick": "button2_onclick",
+            "cssclass": "btn_04",
+            "top": "20",
+            "right": "339",
+            "width": "70",
+            "height": "22"
+        },
+        {
+            "id": "button3",
+            "taborder": "5",
+            "text": "저장",
+            "onclick": "button3_onclick",
+            "cssclass": "btn_04",
+            "top": "20",
+            "right": "267",
+            "width": "70",
+            "height": "22"
+        },
+        {
+            "id": "button4",
+            "taborder": "6",
+            "text": "Excel",
+            "onclick": "button4_onclick",
+            "cssclass": "btn_04",
+            "top": "20",
+            "right": "195",
+            "width": "70",
+            "height": "22"
+        },
+        {
+            "id": "button5",
+            "taborder": "7",
+            "text": "종료",
+            "onclick": "button5_onclick",
+            "cssclass": "btn_04",
+            "top": "20",
+            "right": "123",
+            "width": "70",
+            "height": "22"
+        }
+    ],
+    "Combos": [
+        {
+            "id": "combo1",
+            "codecolumn": "COMM_CODE",
+            "cssclass": "upperSelect",
+            "datacolumn": "CODE_KOR_NAME_RE",
+            "height": "20",
+            "innerdataset": "ds_combo1",
+            "left": "132",
+            "position": "absolute",
+            "top": "50",
+            "width": "194",
+            "index": "-1",
+            "namecolumn": "CODE_KOR_NAME_RE"
+        },
+        {
+            "id": "combo2",
+            "codecolumn": "COMM_CODE",
+            "cssclass": "upperSelect",
+            "datacolumn": "CODE_KOR_NAME_RE",
+            "height": "20",
+            "innerdataset": "ds_combo2",
+            "left": "440",
+            "position": "absolute",
+            "top": "50",
+            "width": "194",
+            "namecolumn": "CODE_KOR_NAME_RE",
+            "label": "사용유무"
+        }
+    ],
+    "Statics": [
+        {
+            "id": "titleName",
+            "taborder": "9",
+            "text": "조회조건",
+            "cssclass": "title",
+            "left": "20",
+            "top": "20",
+            "width": "260",
+            "height": "22"
+        },
+        {
+            "id": "caption6",
+            "cssclass": "data_cell",
+            "height": "26",
+            "left": "129",
+            "position": "absolute",
+            "text": "",
+            "top": "47",
+            "right": "20"
+        },
+        {
+            "id": "caption2",
+            "cssclass": "sub_title",
+            "height": "20",
+            "left": "20",
+            "position": "absolute",
+            "text": "조회내역",
+            "top": "81",
+            "width": "100"
+        },
+        {
+            "id": "caption4",
+            "cssclass": "cell_title",
+            "left": "20",
+            "position": "absolute",
+            "text": "코드타입",
+            "top": "47",
+            "width": "110",
+            "height": "26"
+        },
+        {
+            "id": "caption50",
+            "cssclass": "cell_title",
+            "height": "26",
+            "left": "328",
+            "position": "absolute",
+            "text": "사용유무",
+            "top": "47",
+            "width": "110"
+        },
+        {
+            "id": "caption_cnt",
+            "cssclass": "rtnDataCnt",
+            "height": "18",
+            "left": "376",
+            "position": "absolute",
+            "top": "82",
+            "right": "20"
+        },
+        {
+            "id": "Static34",
+            "taborder": "1",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "42",
+            "width": "436",
+            "height": "4"
+        },
+        {
+            "id": "Static04",
+            "taborder": "2",
+            "cssclass": "sta_WF_schline",
+            "left": "20",
+            "top": "46",
+            "right": "20",
+            "height": "2"
+        },
+        {
+            "id": "Static05",
+            "taborder": "8",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "564",
+            "top": "42",
+            "width": "436",
+            "height": "4"
+        }
+    ],
+    "Scripts": [
+        {
+            "name": "gfn_Transaction",
+            "objForm": "this",
+            "strSvcId": "codeType",
+            "strTransition": "find00",
+            "strSvcNm": "MGENS_CODE_01-service",
+            "strInDatasets": "",
+            "strOutDatasets": "ds_combo1=dsr_SearchListResult",
+            "strArgument": "submitData",
+            "strCallbackFunc": "fn_CallBack",
+            "bAsync": "",
+            "bCompress": "",
+            "bTraceLog": true
+        },
+        {
+            "name": "gfn_Transaction",
+            "objForm": "this",
+            "strSvcId": "useYn",
+            "strTransition": "find00",
+            "strSvcNm": "MGENS_CODE_01-service",
+            "strInDatasets": "",
+            "strOutDatasets": "ds_combo2=dsr_SearchListResult",
+            "strArgument": "submitData",
+            "strCallbackFunc": "fn_CallBack",
+            "bAsync": "",
+            "bCompress": "",
+            "bTraceLog": true
+        },
+        {
+            "name": "gfn_Transaction",
+            "objForm": "this",
+            "strSvcId": "prdCi",
+            "strTransition": "find00",
+            "strSvcNm": "MGENS_CODE_01-service",
+            "strInDatasets": "",
+            "strOutDatasets": "ds_SearchListResult535_Row=dsr_SearchListResult",
+            "strArgument": "submitData",
+            "strCallbackFunc": "fn_CallBack",
+            "bAsync": "",
+            "bCompress": "",
+            "bTraceLog": true
+        },
+        {
+            "name": "gfn_Transaction",
+            "objForm": "this",
+            "strSvcId": "search",
+            "strTransition": "find",
+            "strSvcNm": "D_MMASM_BAD_CODE-service",
+            "strInDatasets": "",
+            "strOutDatasets": "ds_datagrid1=dsr_SearchListResult",
+            "strArgument": "submitData",
+            "strCallbackFunc": "fn_CallBack",
+            "bAsync": "",
+            "bCompress": "",
+            "bTraceLog": true
+        },
+        {
+            "name": "gfn_Transaction",
+            "objForm": "this",
+            "strSvcId": "save",
+            "strTransition": "multi",
+            "strSvcNm": "D_MMASM_BAD_CODE-service",
+            "strInDatasets": "ds_datagrid1=ds_datagrid1:A",
+            "strOutDatasets": "",
+            "strArgument": "submitData",
+            "strCallbackFunc": "fn_CallBack",
+            "bAsync": "",
+            "bCompress": "",
+            "bTraceLog": true
+        }
+    ],
+    "Splitters": [],
+    "Divs": [],
+    "Tabs": [],
+    "hasAuthCheck": true,
+    "hasCloseGuard": true,
+    "saveDsName": "ds_datagrid1"
+}

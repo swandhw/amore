@@ -1,0 +1,506 @@
+{
+  "screen_name": "D_MMASM_BAD_CODE",
+  "xfdl": {
+    "datasets": {
+      "ds_SearchListResult24_Row": {
+        "id": "ds_SearchListResult24_Row",
+        "columns": [
+          {
+            "id": "CODE_KOR_NAME",
+            "type": "STRING",
+            "size": "256"
+          },
+          {
+            "id": "COMM_CODE",
+            "type": "STRING",
+            "size": "256"
+          }
+        ],
+        "values": [
+          {
+            "CODE_KOR_NAME": "등록",
+            "COMM_CODE": "C"
+          },
+          {
+            "CODE_KOR_NAME": "수정",
+            "COMM_CODE": "U"
+          },
+          {
+            "CODE_KOR_NAME": "삭제",
+            "COMM_CODE": "D"
+          }
+        ]
+      },
+      "ds_SearchListResult535_Row": {
+        "id": "ds_SearchListResult535_Row",
+        "columns": [
+          {
+            "id": "CODE_KOR_NAME",
+            "type": "STRING",
+            "size": "256"
+          },
+          {
+            "id": "COMM_CODE",
+            "type": "STRING",
+            "size": "256"
+          }
+        ],
+        "values": []
+      },
+      "ds_SearchListResult20_Row": {
+        "id": "ds_SearchListResult20_Row",
+        "columns": [
+          {
+            "id": "CODE_KOR_NAME",
+            "type": "STRING",
+            "size": "256"
+          },
+          {
+            "id": "COMM_CODE",
+            "type": "STRING",
+            "size": "256"
+          }
+        ],
+        "values": []
+      },
+      "ds_SearchListResult14_Row": {
+        "id": "ds_SearchListResult14_Row",
+        "columns": [
+          {
+            "id": "CODE_KOR_NAME",
+            "type": "STRING",
+            "size": "256"
+          },
+          {
+            "id": "COMM_CODE",
+            "type": "STRING",
+            "size": "256"
+          }
+        ],
+        "values": [
+          {
+            "CODE_KOR_NAME": "Yes",
+            "COMM_CODE": "Y"
+          },
+          {
+            "CODE_KOR_NAME": "No",
+            "COMM_CODE": "N"
+          }
+        ]
+      },
+      "ds_datagrid1": {
+        "id": "ds_datagrid1",
+        "columns": [
+          {
+            "id": "CUD_TYPE",
+            "type": "STRING",
+            "size": "256"
+          },
+          {
+            "id": "PRD_CI",
+            "type": "STRING",
+            "size": "256"
+          },
+          {
+            "id": "BAD_CI",
+            "type": "STRING",
+            "size": "256"
+          },
+          {
+            "id": "BAD_CODE",
+            "type": "STRING",
+            "size": "256"
+          },
+          {
+            "id": "BAD_CODE_NAME",
+            "type": "STRING",
+            "size": "256"
+          },
+          {
+            "id": "CUD_CI",
+            "type": "STRING",
+            "size": "256"
+          },
+          {
+            "id": "REMARK",
+            "type": "STRING",
+            "size": "256"
+          }
+        ],
+        "values": []
+      },
+      "ds_combo1": {
+        "id": "ds_combo1",
+        "columns": [
+          {
+            "id": "CODE_KOR_NAME_RE",
+            "type": "STRING",
+            "size": "256"
+          },
+          {
+            "id": "COMM_CODE",
+            "type": "STRING",
+            "size": "256"
+          }
+        ],
+        "values": []
+      },
+      "ds_combo2": {
+        "id": "ds_combo2",
+        "columns": [
+          {
+            "id": "CODE_KOR_NAME_RE",
+            "type": "STRING",
+            "size": "256"
+          },
+          {
+            "id": "COMM_CODE",
+            "type": "STRING",
+            "size": "256"
+          }
+        ],
+        "values": []
+      }
+    },
+    "controls": {
+      "titleName": {
+        "id": "titleName",
+        "type": "static",
+        "left": "20",
+        "top": "20",
+        "width": "260",
+        "height": "22",
+        "text": "조회조건",
+        "onclick": ""
+      },
+      "caption6": {
+        "id": "caption6",
+        "type": "static",
+        "left": "129",
+        "top": "47",
+        "width": null,
+        "height": "26",
+        "text": "",
+        "onclick": ""
+      },
+      "caption2": {
+        "id": "caption2",
+        "type": "static",
+        "left": "20",
+        "top": "81",
+        "width": "100",
+        "height": "20",
+        "text": "조회내역",
+        "onclick": ""
+      },
+      "caption4": {
+        "id": "caption4",
+        "type": "static",
+        "left": "20",
+        "top": "47",
+        "width": "110",
+        "height": "26",
+        "text": "코드타입",
+        "onclick": ""
+      },
+      "datagrid1": {
+        "id": "datagrid1",
+        "type": "grid",
+        "left": "20",
+        "top": "105",
+        "width": null,
+        "height": null,
+        "text": "",
+        "onclick": "",
+        "binddataset": "ds_datagrid1",
+        "oncellclick": "datagrid1_oncellclick",
+        "oncloseup": "datagrid1_oncloseup",
+        "columns": [
+          {
+            "id": "",
+            "text": "",
+            "displaytype": "",
+            "edittype": "",
+            "combodataset": "",
+            "combocodecol": "",
+            "combodatacol": "",
+            "expr": "currow+dataset._startRow"
+          },
+          {
+            "id": "CUD_TYPE",
+            "text": "bind:CUD_TYPE",
+            "displaytype": "combo",
+            "edittype": "combo",
+            "combodataset": "g_ds_CudType",
+            "combocodecol": "COMM_CODE",
+            "combodatacol": "CODE_KOR_NAME",
+            "expr": ""
+          },
+          {
+            "id": "PRD_CI",
+            "text": "bind:PRD_CI",
+            "displaytype": "combo",
+            "edittype": "combo",
+            "combodataset": "ds_SearchListResult535_Row",
+            "combocodecol": "COMM_CODE",
+            "combodatacol": "CODE_KOR_NAME",
+            "expr": ""
+          },
+          {
+            "id": "BAD_CI",
+            "text": "bind:BAD_CI",
+            "displaytype": "combo",
+            "edittype": "combo",
+            "combodataset": "ds_combo1",
+            "combocodecol": "COMM_CODE",
+            "combodatacol": "CODE_KOR_NAME",
+            "expr": ""
+          },
+          {
+            "id": "BAD_CODE",
+            "text": "bind:BAD_CODE",
+            "displaytype": "normal",
+            "edittype": "normal",
+            "combodataset": "",
+            "combocodecol": "",
+            "combodatacol": "",
+            "expr": ""
+          },
+          {
+            "id": "BAD_CODE_NAME",
+            "text": "bind:BAD_CODE_NAME",
+            "displaytype": "normal",
+            "edittype": "normal",
+            "combodataset": "",
+            "combocodecol": "",
+            "combodatacol": "",
+            "expr": ""
+          },
+          {
+            "id": "CUD_CI",
+            "text": "bind:CUD_CI",
+            "displaytype": "combo",
+            "edittype": "combo",
+            "combodataset": "ds_SearchListResult14_Row",
+            "combocodecol": "COMM_CODE",
+            "combodatacol": "CODE_KOR_NAME",
+            "expr": ""
+          },
+          {
+            "id": "REMARK",
+            "text": "bind:REMARK",
+            "displaytype": "normal",
+            "edittype": "normal",
+            "combodataset": "",
+            "combocodecol": "",
+            "combodatacol": "",
+            "expr": ""
+          }
+        ]
+      },
+      "combo1": {
+        "id": "combo1",
+        "type": "combo",
+        "left": "132",
+        "top": "50",
+        "width": "194",
+        "height": "20",
+        "text": "",
+        "onclick": "",
+        "innerdataset": "ds_combo1",
+        "codecolumn": "COMM_CODE",
+        "datacolumn": "CODE_KOR_NAME_RE"
+      },
+      "caption50": {
+        "id": "caption50",
+        "type": "static",
+        "left": "328",
+        "top": "47",
+        "width": "110",
+        "height": "26",
+        "text": "사용유무",
+        "onclick": ""
+      },
+      "combo2": {
+        "id": "combo2",
+        "type": "combo",
+        "left": "440",
+        "top": "50",
+        "width": "194",
+        "height": "20",
+        "text": "",
+        "onclick": "",
+        "innerdataset": "ds_combo2",
+        "codecolumn": "COMM_CODE",
+        "datacolumn": "CODE_KOR_NAME_RE"
+      },
+      "caption_cnt": {
+        "id": "caption_cnt",
+        "type": "static",
+        "left": "376",
+        "top": "82",
+        "width": null,
+        "height": "18",
+        "text": "",
+        "onclick": ""
+      },
+      "Static34": {
+        "id": "Static34",
+        "type": "static",
+        "left": "20",
+        "top": "42",
+        "width": "436",
+        "height": "4",
+        "text": "h4",
+        "onclick": ""
+      },
+      "Static04": {
+        "id": "Static04",
+        "type": "static",
+        "left": "20",
+        "top": "46",
+        "width": null,
+        "height": "2",
+        "text": "",
+        "onclick": ""
+      },
+      "button1": {
+        "id": "button1",
+        "type": "button",
+        "left": null,
+        "top": "20",
+        "width": "70",
+        "height": "22",
+        "text": "조회",
+        "onclick": "button1_onclick"
+      },
+      "button2": {
+        "id": "button2",
+        "type": "button",
+        "left": null,
+        "top": "20",
+        "width": "70",
+        "height": "22",
+        "text": "등록",
+        "onclick": "button2_onclick"
+      },
+      "button3": {
+        "id": "button3",
+        "type": "button",
+        "left": null,
+        "top": "20",
+        "width": "70",
+        "height": "22",
+        "text": "저장",
+        "onclick": "button3_onclick"
+      },
+      "button4": {
+        "id": "button4",
+        "type": "button",
+        "left": null,
+        "top": "20",
+        "width": "70",
+        "height": "22",
+        "text": "Excel",
+        "onclick": "button4_onclick"
+      },
+      "button5": {
+        "id": "button5",
+        "type": "button",
+        "left": null,
+        "top": "20",
+        "width": "70",
+        "height": "22",
+        "text": "종료",
+        "onclick": "button5_onclick"
+      },
+      "Static05": {
+        "id": "Static05",
+        "type": "static",
+        "left": "564",
+        "top": "42",
+        "width": "436",
+        "height": "4",
+        "text": "h4",
+        "onclick": ""
+      }
+    },
+    "scripts": [
+      "Form_onload",
+      "button1_onclick",
+      "button2_onclick",
+      "button3_onclick",
+      "button4_onclick",
+      "button5_onclick",
+      "fn_CallBack",
+      "ds_datagrid1_cancolumnchange",
+      "datagrid1_oncellclick",
+      "datagrid1_oncloseup"
+    ],
+    "transactions": [
+      {
+        "svcId": "search",
+        "url": "find",
+        "service": "D_MMASM_BAD_CODE-service",
+        "inDs": "",
+        "outDs": "ds_datagrid1=dsr_SearchListResult"
+      },
+      {
+        "svcId": "save",
+        "url": "multi",
+        "service": "D_MMASM_BAD_CODE-service",
+        "inDs": "ds_datagrid1=ds_datagrid1:A",
+        "outDs": ""
+      }
+    ]
+  },
+  "xml": [
+    {
+      "name": "success",
+      "target_activity": "end",
+      "source_activity": "Search",
+      "class": "com.Amore.MES.common.GridFilterProc"
+    },
+    {
+      "name": "find",
+      "target_activity": "Search",
+      "source_activity": "EventRouter",
+      "class": "com.Amore.MES.security.activity.SecureRouter"
+    },
+    {
+      "name": "multi",
+      "target_activity": "SaveStates",
+      "source_activity": "EventRouter",
+      "class": "com.Amore.MES.security.activity.SecureRouter"
+    },
+    {
+      "name": "success",
+      "target_activity": "EventRouter",
+      "source_activity": "SetResultKeys",
+      "class": "com.Amore.MES.biz.AmoreSetResultKeyList"
+    },
+    {
+      "name": "failure",
+      "target_activity": "Error",
+      "source_activity": "SaveStates",
+      "class": "com.Amore.MES.MAS.D_MMASM_BAD_CODE_SAVE"
+    },
+    {
+      "name": "success",
+      "target_activity": "end",
+      "source_activity": "SaveStates",
+      "class": "com.Amore.MES.MAS.D_MMASM_BAD_CODE_SAVE"
+    },
+    {
+      "name": "success",
+      "target_activity": "end",
+      "source_activity": "Error",
+      "class": "com.Amore.MES.GEN.MGENM_ERROR"
+    }
+  ],
+  "java": [
+    "INSERT found",
+    "UPDATE found",
+    "DELETE found"
+  ]
+}

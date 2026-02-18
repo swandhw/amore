@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service name="D_MWRKR_LINE_FP_MONI-service" initial="SetResultKeys" xmlns="http://www.poscoict.com/glueframework/service">
+    <transaction-manager id="tx1" commit="true"/>
+    <activity name="SetResultKeys" class="com.Amore.MES.biz.AmoreSetResultKeyList">
+        <transition name="success" value="EventRouter"/>
+        <property name="ResultKeyList" value="SearchListResult01|SearchListResult02"/>
+    </activity>
+    <activity name="EventRouter" class="com.Amore.MES.security.activity.SecureRouter">
+        <transition name="find_head" value="Search_head"/>
+        <transition name="find_row_cnt" value="Search_body_cnt"/>
+        <transition name="find" value="Search"/>
+    </activity>
+    <activity name="Search" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="param-bindings" value="DEPTNO=DeptnoP"/>
+        <property name="sql-key" value="D_MWRKR_LINE_FP_MONI_MAIN.SELECT"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="result-key" value="SearchListResult01"/>
+    </activity>
+    <activity name="Search_head" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="param-bindings" value="DEPTNO=DeptnoP"/>
+        <property name="sql-key" value="D_MWRKR_LINE_FP_MONI_HEAD.SELECT"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="result-key" value="SearchListResult01"/>
+    </activity>
+    <activity name="Search_body_cnt" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="sql-key" value="D_MWRKR_LINE_FP_MONI_BODY_CNT.SELECT"/>
+        <property name="result-key" value="SearchListResult01"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="param-bindings" value="DEPTNO=DeptnoP"/>
+    </activity>
+</service>

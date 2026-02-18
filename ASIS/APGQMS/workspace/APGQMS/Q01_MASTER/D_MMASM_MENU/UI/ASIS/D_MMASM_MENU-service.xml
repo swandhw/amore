@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service name="D_MMASM_MENU-service" initial="SetResultKeys" xmlns="http://www.poscoict.com/glueframework/service">
+    <transaction-manager id="tx1" commit="true"/>
+    <activity name="EventRouter" class="com.Amore.MES.security.activity.SecureRouter">
+        <transition name="find1" value="Search01"/>
+        <transition name="find2" value="Search02"/>
+        <transition name="multi" value="SaveStates"/>
+    </activity>
+    <activity name="Search01" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="sql-key" value="D_MMASM_MENU_01.SELECT"/>
+        <property name="result-key" value="SearchListResult01"/>
+        <property name="dao" value="apgqms_dao"/>
+    </activity>
+    <activity name="SetResultKeys" class="com.Amore.MES.biz.AmoreSetResultKeyList">
+        <transition name="success" value="EventRouter"/>
+        <property name="ResultKeyList" value="SearchListResult01|SearchListResult02|UpdatedCount|InsertedCount|DeletedCount"/>
+    </activity>
+    <activity name="SaveStates" class="com.Amore.MES.CFG.D_MMASM_MENU_SAVE">
+        <transition name="failure" value="Error"/>
+        <transition name="success" value="end"/>
+    </activity>
+    <activity name="Error" class="com.Amore.MES.GEN.MGENM_ERROR">
+        <transition name="success" value="end"/>
+    </activity>
+    <activity name="Search02" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="sql-key" value="D_MMASM_MENU_02.SELECT"/>
+        <property name="result-key" value="SearchListResult02"/>
+        <property name="dao" value="apgqms_dao"/>
+        <property name="param-bindings" value="USER_ID=CHNG_ID"/>
+    </activity>
+</service>

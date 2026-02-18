@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Glue:GlueDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Glue="http://www.glueframework.com/activitydiagram/" id="2" location="20,20" size="100,100">
+  <child xsi:type="Glue:InitialState" id="15" location="392,34" size="-1,-1" output="//@wire.1"/>
+  <child xsi:type="Glue:Activity" id="16" location="94,150" size="616,-1" input="//@wire.2" output="//@wire.0 //@wire.3 //@wire.9" name="EventRouter">
+    <property key="class" value="com.Amore.MES.security.activity.SecureRouter"/>
+    <property key="description" value=""/>
+  </child>
+  <child xsi:type="Glue:Activity" id="17" location="176,293" size="133,-1" input="//@wire.0" output="//@wire.8" name="Search01">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="D_MMASM_MENU_01.SELECT"/>
+    <property key="result-key" value="SearchListResult01"/>
+  </child>
+  <child xsi:type="Glue:FinalState" id="18" location="406,460" size="-1,-1" input="//@wire.5 //@wire.6 //@wire.7 //@wire.8"/>
+  <child xsi:type="Glue:Activity" id="25" location="336,76" size="137,-1" input="//@wire.1" output="//@wire.2" name="SetResultKeys">
+    <property key="ResultKeyList" value="SearchListResult01|SearchListResult02|UpdatedCount|InsertedCount|DeletedCount"/>
+    <property key="class" value="com.Amore.MES.biz.AmoreSetResultKeyList"/>
+    <property key="description" value=""/>
+  </child>
+  <child xsi:type="Glue:Activity" id="36" location="325,232" size="346,-1" input="//@wire.3" output="//@wire.4 //@wire.7" name="SaveStates">
+    <property key="class" value="com.Amore.MES.CFG.D_MMASM_MENU_SAVE"/>
+    <property key="description" value=""/>
+  </child>
+  <child xsi:type="Glue:Activity" id="199" location="536,309" size="136,-1" input="//@wire.4" output="//@wire.5" name="Error">
+    <property key="class" value="com.Amore.MES.GEN.MGENM_ERROR"/>
+    <property key="description" value=""/>
+  </child>
+  <child xsi:type="Glue:Activity" id="292" location="95,347" size="128,-1" input="//@wire.9" output="//@wire.6" name="Search02">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="D_MMASM_MENU_02.SELECT"/>
+    <property key="param-bindings" value="USER_ID=CHNG_ID"/>
+    <property key="result-key" value="SearchListResult02"/>
+  </child>
+  <property key="tx1" value="true"/>
+  <property key="description" value=""/>
+  <wire id="12" guardcondition="find1" firstRelativePoint="245,180" lastRelativePoint="245,293">
+    <bendpoint weight="0.5" firstDimension="-157,107" secondDimension="3,-36"/>
+  </wire>
+  <wire id="14" guardcondition="success" firstRelativePoint="241,57" lastRelativePoint="241,80"/>
+  <wire id="15" guardcondition="success" firstRelativePoint="404,106" lastRelativePoint="404,137">
+    <bendpoint weight="0.5" firstDimension="0,33" secondDimension="4,-28"/>
+  </wire>
+  <wire id="16" guardcondition="multi" firstRelativePoint="488,180" lastRelativePoint="488,232">
+    <bendpoint weight="0.5" firstDimension="86,47" secondDimension="-10,-35"/>
+  </wire>
+  <wire id="103" guardcondition="failure" firstRelativePoint="608,262" lastRelativePoint="608,309"/>
+  <wire id="104" guardcondition="success" firstRelativePoint="608,339" lastRelativePoint="426,469">
+    <bendpoint weight="0.5" firstDimension="4,145" secondDimension="192,-1"/>
+  </wire>
+  <wire id="109" guardcondition="success" firstRelativePoint="163,377" lastRelativePoint="405,469">
+    <bendpoint weight="0.5" firstDimension="4,83" secondDimension="-253,-25"/>
+  </wire>
+  <wire id="113" guardcondition="success" firstRelativePoint="416,262" lastRelativePoint="416,459"/>
+  <wire id="114" guardcondition="success" firstRelativePoint="249,323" lastRelativePoint="406,466">
+    <bendpoint weight="0.5" firstDimension="8,106" secondDimension="-166,-56"/>
+  </wire>
+  <wire id="757" guardcondition="find2" firstRelativePoint="160,180" lastRelativePoint="160,347">
+    <bendpoint weight="0.5" firstDimension="-242,116" secondDimension="1,-81"/>
+  </wire>
+</Glue:GlueDiagram>

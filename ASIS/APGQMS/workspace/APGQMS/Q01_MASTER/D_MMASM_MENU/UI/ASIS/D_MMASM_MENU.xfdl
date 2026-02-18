@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<FDL version="1.5">
+  <TypeDefinition url="../default_typedef.xml"/>
+  <Form height="768" id="D_MMASM_MENU" left="0" onload="Form_onload" titletext="My Menu 등록" top="0" width="1018" onsize="D_MMASM_MENU_onsize">
+    <Layouts>
+      <Layout>
+        <Static id="titleName" taborder="3" text="My Menu 등록" cssclass="title" left="20" top="20" width="531" height="22"/>
+        <Static cssclass="data_cell" height="26" id="caption5" left="129" position="absolute" text="" top="47" right="20"/>
+        <Combo codecolumn="COMM_CODE" datacolumn="CODE_KOR_NAME_RE" height="20" id="combo2" innerdataset="ds_combo2" left="440" position="absolute" top="50" width="194" type="filterlike" onkeydown="button1_onclick" onlbuttondown="combo2_onlbuttondown"/>
+        <Static cssclass="sub_title" height="20" id="caption2" left="20" position="absolute" text="전체 Menu List" top="81" width="116"/>
+        <Static cssclass="cell_title" height="26" id="caption3" left="328" position="absolute" text="화면레벨2" top="47" width="110"/>
+        <Static cssclass="cell_title" height="26" id="caption4" left="20" position="absolute" text="화면레벨1" top="47" width="110"/>
+        <Grid binddataset="ds_datagrid1" id="datagrid1" left="20" ontextchanged="datagrid1_ontextchanged" position="absolute" top="104" width="481" bottom="20">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="34"/>
+                <Column size="36"/>
+                <Column size="185"/>
+                <Column size="200"/>
+                <Column size="199"/>
+              </Columns>
+              <Rows>
+                <Row size="48" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell/>
+                <Cell col="1" text="추가"/>
+                <Cell col="2" text="레벨"/>
+                <Cell col="3" text="화면명"/>
+                <Cell col="4" text="화면ID"/>
+              </Band>
+              <Band id="body">
+                <Cell expr="currow+1"/>
+                <Cell col="1" displaytype="checkbox" edittype="checkbox" style="align:center middle;" text="bind:CUD_TYPE"/>
+                <Cell col="2" style="align:left middle;" text="bind:BIZ_CI"/>
+                <Cell col="3" style="align:left middle;" text="bind:PROGRAM_NAME"/>
+                <Cell col="4" style="align:left middle;" text="bind:PROGRAM_ID"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Combo codecolumn="COMM_CODE" datacolumn="CODE_KOR_NAME_RE" height="20" id="combo1" innerdataset="ds_combo1" left="132" onchanged="combo1_onchanged" position="absolute" top="50" width="194" type="filterlike" onlbuttondown="combo1_onlbuttondown"/>
+        <Grid binddataset="ds_datagrid2" id="datagrid2" left="517" ontextchanged="datagrid2_ontextchanged" position="absolute" top="104" width="481" bottom="20">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="34"/>
+                <Column size="36"/>
+                <Column size="185"/>
+                <Column size="200"/>
+                <Column size="200"/>
+              </Columns>
+              <Rows>
+                <Row size="48" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell/>
+                <Cell col="1" text="삭제"/>
+                <Cell col="2" text="레벨"/>
+                <Cell col="3" text="화면명"/>
+                <Cell col="4" text="화면ID"/>
+              </Band>
+              <Band id="body">
+                <Cell expr="currow+1"/>
+                <Cell col="1" displaytype="checkbox" edittype="checkbox" style="align:center middle;" text="bind:CUD_TYPE"/>
+                <Cell col="2" style="align:left middle;" text="bind:BIZ_CI"/>
+                <Cell col="3" style="align:left middle;" text="bind:PROGRAM_NAME"/>
+                <Cell col="4" style="align:left middle;" text="bind:PROGRAM_ID"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static cssclass="sub_title" height="20" id="caption7" left="517" position="absolute" text="My Menu List" top="81" width="112"/>
+        <Static id="Static12" taborder="1" text="h20" cssclass="Guide_color2" visible="false" left="20" top="0" right="20" height="20"/>
+        <Static id="Static10" taborder="2" text="w20" cssclass="Guide_color2" visible="false" left="0" top="0" width="20" height="590"/>
+        <Button id="button1" taborder="4" text="조회" onclick="button1_onclick" cssclass="btn_04" enable="false" top="20" right="339" width="70" height="22"/>
+        <Button id="button3" taborder="5" text="저장" onclick="button3_onclick" cssclass="btn_04" enable="false" top="20" right="267" width="70" height="22"/>
+        <Button id="button4" taborder="6" text="Excel" onclick="button4_onclick" cssclass="btn_04" top="20" right="195" width="70" height="22"/>
+        <Button id="button5" taborder="7" text="종료" onclick="button5_onclick" cssclass="btn_04" top="20" right="123" width="70" height="22"/>
+        <Static id="Static34" taborder="8" text="h4" cssclass="Guide_color" visible="false" left="20" top="42" width="436" height="4"/>
+        <Static id="Static04" taborder="9" cssclass="sta_WF_schline" left="20" top="46" right="20" height="2"/>
+        <Static id="Static06" taborder="10" text="h8" cssclass="Guide_color" visible="false" left="20" top="73" width="436" height="8"/>
+        <Static id="Static07" taborder="11" text="h8" cssclass="Guide_color" visible="false" left="20" top="101" width="436" height="4"/>
+        <Static id="caption_cnt1" taborder="12" cssclass="rtnDataCnt" left="217" top="81" right="517" height="20"/>
+        <Static id="caption_cnt2" taborder="13" cssclass="rtnDataCnt" left="714" top="81" right="20" height="20"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_combo2">
+        <ColumnInfo>
+          <Column id="CODE_KOR_NAME_RE" size="256" type="STRING"/>
+          <Column id="COMM_CODE" size="256" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_datagrid1" useclientlayout="true" oncolumnchanged="ds_datagrid1_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="CUD_TYPE" size="256" type="STRING"/>
+          <Column id="BIZ_CI" size="256" type="STRING"/>
+          <Column id="PROGRAM_NAME" size="256" type="STRING"/>
+          <Column id="PROGRAM_ID" size="256" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_combo1">
+        <ColumnInfo>
+          <Column id="CODE_KOR_NAME_RE" size="256" type="STRING"/>
+          <Column id="COMM_CODE" size="256" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_datagrid2" useclientlayout="true" oncolumnchanged="ds_datagrid2_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="CUD_TYPE" size="256" type="STRING"/>
+          <Column id="BIZ_CI" size="256" type="STRING"/>
+          <Column id="PROGRAM_NAME" size="256" type="STRING"/>
+          <Column id="PROGRAM_ID" size="256" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_search" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_search_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="PLANT" type="STRING" size="256"/>
+          <Column id="BIZ_CI1" type="STRING" size="256"/>
+          <Column id="BIZ_CI2" type="STRING" size="256"/>
+          <Column id="PROC_ID" type="STRING" size="256"/>
+          <Column id="LANG_TYPE" type="STRING" size="256"/>
+          <Column id="CHNG_ID" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="combo1" propid="value" datasetid="ds_search" columnid="BIZ_CI1"/>
+      <BindItem id="item1" compid="combo2" propid="value" datasetid="ds_search" columnid="BIZ_CI2"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/*************************   Program description   ****************************
+ File Name      : D_MMASM_MENU
+ File Desc.     : 
+ Author         : SSH
+ Create Date    : 2015/04/20
+ Change History :
+*******************************************************************************/
+
+/*****************************
+ *  공통 Script Include      *
+ ****************************/
+include "js::QMS_COMMON.xjs"
+
+/***************************************************************************************************
+ *                                   화면 공통 Event 처리 부분                                    *
+ ***************************************************************************************************/
+this.Form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_FormLoadSetting(obj);
+	this.fn_expression();
+	this.gfn_GridSetting(this);
+	
+	//Document Title 설정
+	
+	// 화면 권한 체크 (버튼 활성,비활성 설정)
+	this.gfn_QmsCommL3AuthChk(true,"3");
+	this.gfn_GetTranSearch(this.ds_search, "PLANT|LANG_TYPE|PROC_ID|CHNG_ID");
+	
+ 	var codeArr = [   
+					  ["QMS_COMM_CODE_LANG_PLANT"	, "MES01"	, "find01"		, "combo1"					, "SearchListResult"			] // 화면레벨 1
+					, ["QMS_COMM_CODE_LANG_PLANT"	, "MES02"	, "find01"		, "combo2"					, "SearchListResult"			] // 화면레벨 2
+				];
+	this.gfn_QmsCode_Transaction(this, codeArr);
+	
+	this.value_change_flag = false;
+	this.D_MMASM_MENU_onsize();
+}
+
+this.button1_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sSvcNm = "D_MMASM_MENU-service"; 
+	var sTransition = "find1";              
+	var sInDataSet  = "ds_search=ds_search";
+	var sOutDataSet = "ds_datagrid1=dsr_SearchListResult01";	
+	var sArgument = this.gfn_GetFilterParam(this.datagrid1)
+					+ this.gfn_DsToArqument(this.ds_search,0)
+					;
+	this.gfn_Transaction(this, "find01", sTransition, sSvcNm ,sInDataSet, sOutDataSet, sArgument, "fn_CallBack", false,false,false);
+	
+	sTransition = "find2";              
+	sOutDataSet = "ds_datagrid2=dsr_SearchListResult02";	
+	sArgument = this.gfn_GetFilterParam(this.datagrid2)
+				+ this.gfn_DsToArqument(this.ds_search,0)
+				;
+	this.gfn_Transaction(this, "find02", sTransition, sSvcNm ,sInDataSet, sOutDataSet, sArgument, "fn_CallBack", true,false,false);
+}
+
+this.button3_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	// 실제로 변경된 데이터가 있는지 확인.
+	var j = this.gfn_IsEmptyDataSetColumn(this, this.ds_datagrid1, []);
+	var k = this.gfn_IsEmptyDataSetColumn(this, this.ds_datagrid2, []);
+	if (j>0 || k>0)
+	{
+		var sSvcNm = "D_MMASM_MENU-service"; 
+		var sTransition = "multi";              
+		var sInDataSet = "ds_datagrid1=ds_datagrid1 ds_datagrid2=ds_datagrid2";
+		var sOutDataSet = "";	
+		var sArgument = this.gfn_GetTranInfo("CHNG_ID|PROC_ID|PLANT"); //변수값들;
+		this.gfn_Transaction(this, "multi", sTransition, sSvcNm ,sInDataSet, sOutDataSet, sArgument, "fn_CallBack", true,false,false);
+	}
+	else
+	{
+		this.gfn_Message("1353", "OK"); // 수정 또는 등록 된 데이터가 없습니다. 다시 확인해 주십시요.
+	}
+}
+
+this.button4_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_ExportExcel();		
+}
+
+this.button5_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_Button5(this.value_change_flag);	
+}
+
+/***************************************************************************************************
+ *                                 화면 공통 Function 처리 부분                                  *
+ ***************************************************************************************************/
+this.fn_CallBack = function (sSvcID, nErrorCode, sErrorMsg)
+{
+	//transaction Error 처리
+	if(!this.gfn_CheckTranResult(this, sSvcID, nErrorCode, sErrorMsg)) return;
+	
+	switch(this.gfn_GetSvcId(sSvcID))//get service id 
+	{
+		case "find01" :
+			this.caption_cnt1.set_text(this.gfn_GetMessage("1016", this.ds_datagrid1.rowcount));
+			this.value_change_flag = false;
+			break;
+		
+		case "find02" :
+			this.caption_cnt2.set_text(this.gfn_GetMessage("1016", this.ds_datagrid2.rowcount));
+			this.value_change_flag = false;
+			break;
+			
+		case "multi" :
+			this.button1.click();
+			application.FRMLEFT.form.fn_ShowMyMenu();
+			break;
+	}
+}
+/***************************************************************************************************
+ *                                사용자 정의  Function 처리 부분                                  *
+ ***************************************************************************************************/
+this.fn_expression = function()
+{
+	var girdObjArr = [this.datagrid1, this.datagrid2];
+	
+	//for_(var idx in girdObjArr)
+	for (var idx=0; idx<girdObjArr.length; idx++)
+	{
+		var gridObj = girdObjArr[idx];
+		
+		for(var i=0; i<gridObj.getCellCount("body"); i++)
+		{
+			var expr     	= gridObj.getCellProperty("Body", i, "expr");
+			var displaytype	= gridObj.getCellProperty("Body", i, "displaytype");
+			var cellName	= this.gfn_getColId(gridObj, i);
+			var sExpStr2	= null;
+			
+			// rownum 에 해당 하는 부분
+			if (this.gfn_IndexOf(expr, "currow")>-1)
+			{
+				sExpStr2 = "'" + application.C_ROWNUMCOLOR + "'";
+			}
+			else
+			{
+				sExpStr2 = "EXPR((CUD_TYPE=='C'||CUD_TYPE=='D')?'"+application.C_CUDCOLOR +"':'default')";
+			}
+			
+			gridObj.setCellProperty("Body" , i, "style", "background:"+sExpStr2+";background2:"+sExpStr2+";selectbackground:"+sExpStr2+";");
+		}
+	}
+}
+
+/***************************************************************************************************
+ *                                  사용자 정의  Event 처리 부분                                   *
+ ***************************************************************************************************/
+this.D_MMASM_MENU_onsize = function(obj:Form, e:nexacro.SizeEventInfo)
+{
+	var size = (this.width-40-10)/2;
+	
+	this.caption_cnt1.set_right(size+30);
+	this.datagrid1.set_width(size);
+	
+	this.caption7.set_left(size+30);
+	this.datagrid2.set_left(size+30);
+	this.datagrid2.set_width(size);
+}
+
+this.ds_search_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	if (e.columnid=="BIZ_CI1")
+	{					  
+		var codeArr = [   ["QMS_COMM_CODE_LANG_PLANT"	, "MES02"	, "find02"		, "combo2"					, "SearchListResult"			] // 화면레벨 2
+		];
+		this.gfn_QmsCode_Transaction(this, codeArr);
+		obj.setColumn(0, "BIZ_CI2", "");
+	}
+}
+
+this.ds_datagrid1_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	if (e.columnid=="CUD_TYPE" && e.newvalue=="1")
+	{
+		obj.setColumn(e.row, "CUD_TYPE", application.C_CUDINSERT);
+		this.value_change_flag = true;
+	}
+}
+
+this.ds_datagrid2_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	if (e.columnid=="CUD_TYPE" && e.newvalue=="1")
+	{
+		obj.setColumn(e.row, "CUD_TYPE", application.C_CUDDELETE);
+		this.value_change_flag = true;
+	}
+}
+
+this.combo1_onlbuttondown = function(obj:Combo, e:nexacro.MouseEventInfo)
+{
+	if(this.gfn_IsEmpty(e.posttext)) {
+        this.ds_search.setColumn(0, "BIZ_CI1", "");
+    }		
+}
+
+this.combo2_onlbuttondown = function(obj:Combo, e:nexacro.MouseEventInfo)
+{
+	if(this.gfn_IsEmpty(e.posttext)) {
+        this.ds_search.setColumn(0, "BIZ_CI2", "");
+    }		
+}
+]]></Script>
+  </Form>
+</FDL>

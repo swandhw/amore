@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Glue:GlueDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Glue="http://www.glueframework.com/activitydiagram/" id="0" location="0,0" size="-1,-1">
+  <child xsi:type="Glue:Activity" id="9022" location="81,123" size="1095,-1" input="//@wire.1" output="//@wire.2 //@wire.4 //@wire.6 //@wire.10 //@wire.12 //@wire.15 //@wire.17 //@wire.19" name="EventRouter">
+    <property key="class" value="com.Amore.MES.security.activity.SecureRouter"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="9023" location="218,69" size="137,-1" input="//@wire.0" output="//@wire.1" name="SetResultKeys">
+    <property key="class" value="com.Amore.MES.biz.AmoreSetResultKeyList"/>
+    <property key="ResultKeyList" value="SearchResult|SearchResultValue"/>
+  </child>
+  <child xsi:type="Glue:InitialState" id="9024" location="277,33" size="-1,-1" output="//@wire.0"/>
+  <child xsi:type="Glue:FinalState" id="9025" location="286,376" size="-1,-1" input="//@wire.3 //@wire.5 //@wire.8 //@wire.9 //@wire.11 //@wire.14 //@wire.16 //@wire.18"/>
+  <child xsi:type="Glue:Activity" id="9243" location="292,274" size="133,-1" input="//@wire.2 //@wire.19" output="//@wire.3" name="Search_MATR">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QSEAR_35_CONT_COLOR_CHART_N.SELECT_MATR"/>
+    <property key="result-key" value="SearchResult"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="9245" location="375,203" size="142,-1" input="//@wire.4" output="//@wire.5" name="Search_MAIN_CHART">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QSEAR_35_CONT_COLOR_CHART_N.SELECT_CHART"/>
+    <property key="result-key" value="SearchResult"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="9349" location="102,241" size="88,-1" input="//@wire.6" output="//@wire.7 //@wire.9" name="Save_CONT">
+    <property key="class" value="com.Amore.MES.Q07_SEARCH.QSEAR_35_CONT_COLOR_CHART_CONT_SAVE"/>
+    <property key="result-key" value="SearchResultMsg"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="9350" location="195,297" size="48,-1" input="//@wire.7 //@wire.13" output="//@wire.8" name="Error">
+    <property key="class" value="com.Amore.MES.GEN.MGENM_ERROR"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="9351" location="519,203" size="168,-1" input="//@wire.10" output="//@wire.11" name="Search_MAIN_CODE_TALBE">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QSEAR_35_CONT_COLOR_CHART_N.SELECT_CODE_TABLE"/>
+    <property key="result-key" value="SearchResult"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="9352" location="192,242" size="88,-1" input="//@wire.12" output="//@wire.13 //@wire.14" name="Del_CONT">
+    <property key="class" value="com.Amore.MES.Q07_SEARCH.QSEAR_35_CONT_COLOR_CHART_CONT_DEL"/>
+    <property key="result-key" value="SearchResultMsg"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="9353" location="691,200" size="180,-1" input="//@wire.15" output="//@wire.16" name="Search_MAIN_CHART_LINE">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QSEAR_35_CONT_COLOR_CHART_N.SELECT_CHART_LINE"/>
+    <property key="result-key" value="SearchResult"/>
+  </child>
+  <child xsi:type="Glue:Activity" id="9354" location="884,201" size="121,-1" input="//@wire.17" output="//@wire.18" name="Search_CHART_MX">
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="dao" value="apgqms_dao"/>
+    <property key="sql-key" value="QSEAR_35_CONT_COLOR_CHART_N.SELECT_CHART_MX"/>
+    <property key="result-key" value="SearchResult"/>
+  </child>
+  <property key="tx1" value="true"/>
+  <property key="description" value=""/>
+  <wire id="1562" guardcondition="success" firstRelativePoint="254,33" lastRelativePoint="254,68"/>
+  <wire id="1563" guardcondition="success" firstRelativePoint="296,99" lastRelativePoint="296,124"/>
+  <wire id="1756" guardcondition="find_main" firstRelativePoint="981,266" lastRelativePoint="305,385"/>
+  <wire id="1761" guardcondition="success" firstRelativePoint="350,260" lastRelativePoint="302,378">
+    <bendpoint weight="0.5" firstDimension="10,84" secondDimension="54,-57"/>
+  </wire>
+  <wire id="1764" guardcondition="find_main_chart" firstRelativePoint="361,153" lastRelativePoint="361,230"/>
+  <wire id="1765" guardcondition="success" firstRelativePoint="590,254" lastRelativePoint="305,384">
+    <bendpoint weight="0.5" firstDimension="-52,90" secondDimension="294,-57"/>
+  </wire>
+  <wire id="1797" guardcondition="save_code_table" firstRelativePoint="492,261" lastRelativePoint="305,383"/>
+  <wire id="1798" guardcondition="failure" firstRelativePoint="163,271" lastRelativePoint="195,308">
+    <bendpoint weight="0.5" firstDimension="17,52" secondDimension="-56,-4"/>
+  </wire>
+  <wire id="1799" guardcondition="success" firstRelativePoint="207,327" lastRelativePoint="285,383">
+    <bendpoint weight="0.5" firstDimension="-12,51" secondDimension="-89,-23"/>
+  </wire>
+  <wire id="1800" guardcondition="success" firstRelativePoint="137,271" lastRelativePoint="285,383">
+    <bendpoint weight="0.5" firstDimension="-9,89" secondDimension="-159,-41"/>
+  </wire>
+  <wire id="1801" guardcondition="find_code_table" firstRelativePoint="600,261" lastRelativePoint="305,384"/>
+  <wire id="1802" guardcondition="success" firstRelativePoint="601,261" lastRelativePoint="305,384">
+    <bendpoint weight="0.5" firstDimension="6,81" secondDimension="304,-59"/>
+  </wire>
+  <wire id="1803" guardcondition="delete_code_table" firstRelativePoint="222,272" lastRelativePoint="222,297"/>
+  <wire id="1804" guardcondition="failure" firstRelativePoint="271,272" lastRelativePoint="296,375"/>
+  <wire id="1805" guardcondition="success" firstRelativePoint="268,272" lastRelativePoint="291,376">
+    <bendpoint weight="0.5" firstDimension="32,69" secondDimension="-28,-60"/>
+  </wire>
+  <wire id="1806" guardcondition="find_main_chart_line" firstRelativePoint="758,153" lastRelativePoint="758,200"/>
+  <wire id="1807" guardcondition="success" firstRelativePoint="765,230" lastRelativePoint="305,384">
+    <bendpoint weight="0.5" firstDimension="-16,109" secondDimension="469,-62"/>
+  </wire>
+  <wire id="1808" guardcondition="find_chart_minmax" firstRelativePoint="234,272" lastRelativePoint="234,297"/>
+  <wire id="1809" guardcondition="success" firstRelativePoint="956,231" lastRelativePoint="305,385">
+    <bendpoint weight="0.5" firstDimension="-19,107" secondDimension="659,-63"/>
+  </wire>
+  <wire id="1810" guardcondition="find_matr" firstRelativePoint="366,153" lastRelativePoint="366,274"/>
+</Glue:GlueDiagram>

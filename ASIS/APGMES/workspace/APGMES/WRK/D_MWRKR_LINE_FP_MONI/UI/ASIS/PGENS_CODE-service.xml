@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service name="PGENS_CODE-service" initial="SetResultKeys" xmlns="http://www.poscoict.com/glueframework/service">
+    <transaction-manager id="tx1" commit="true"/>
+    <activity name="EventRouter" class="com.Amore.MES.security.activity.SecureRouter">
+        <transition name="find_proc_code" value="Search_Proc_Cd"/>
+        <transition name="find09" value="Search09"/>
+        <transition name="find_wrk_area" value="Search_wrk_area"/>
+        <transition name="find07" value="Search07"/>
+        <transition name="find08" value="Search08"/>
+        <transition name="find_prd_type_tree" value="Search_Prd_Type_Tree"/>
+        <transition name="find_wrk_proc" value="Search001_copy"/>
+        <transition name="find_prd_grp" value="Search_Prd_Grp"/>
+        <transition name="find_wrk_proc_dtl" value="Search002_copy"/>
+        <transition name="find002" value="Search002"/>
+        <transition name="find01" value="Search01"/>
+        <transition name="find001" value="Search001"/>
+        <transition name="find02" value="Search02"/>
+        <transition name="find_wrk_center" value="Search_wrk_center"/>
+        <transition name="find_prd_type_cd" value="Search_Prd_Type"/>
+        <transition name="find03" value="Search03"/>
+        <transition name="find04" value="Search04"/>
+        <transition name="find05" value="Search05"/>
+        <transition name="find06" value="Search06"/>
+        <transition name="find_type_code" value="Search_Type_Cd"/>
+        <transition name="find_wrk_area_tree" value="Search_wrk_area_tree"/>
+        <transition name="find11" value="Search11"/>
+        <transition name="find10" value="Search10"/>
+    </activity>
+    <activity name="Search_Proc_Cd" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="sql-key" value="P_MAS_COMM_PROC.SELECT_proCd"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="result-key" value="SearchListResult"/>
+    </activity>
+    <activity name="SetResultKeys" class="com.Amore.MES.biz.AmoreSetResultKeyList">
+        <transition name="success" value="EventRouter"/>
+        <property name="ResultKeyList" value="SearchListResult|SearchListResult01|SearchListResult04"/>
+    </activity>
+    <activity name="Search01" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="result-key" value="SearchListResult01"/>
+        <property name="sql-key" value="P_MAS_COMM_PRD_TYPE.SELECT"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="param-count" value="1"/>
+        <property name="param0" value="PLANT"/>
+    </activity>
+    <activity name="Search02" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="result-key" value="SearchListResult"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="sql-key" value="P_MAS_COMM_CODE.SELECT"/>
+        <property name="param0" value="CODE_TYPE"/>
+        <property name="param1" value="PLANT"/>
+        <property name="param-count" value="2"/>
+    </activity>
+    <activity name="Search03" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="sql-key" value="P_MAS_COMM_PLC_LIST.SELECT"/>
+        <property name="result-key" value="SearchListResult01"/>
+        <property name="param-count" value="7"/>
+        <property name="param0" value="PLANT"/>
+        <property name="param1" value="WRK_AREA"/>
+        <property name="param2" value="WRK_CENTER"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="param3" value="PLC_ID"/>
+        <property name="param4" value="CUD_CI1"/>
+        <property name="param5" value="CUD_CI2"/>
+        <property name="param6" value="CUD_CI3"/>
+    </activity>
+    <activity name="Search04" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="param-count" value="4"/>
+        <property name="param0" value="PLANT"/>
+        <property name="param1" value="WRK_AREA"/>
+        <property name="param2" value="PLANT"/>
+        <property name="result-key" value="SearchListResult04"/>
+        <property name="param3" value="USER_PRD_CI"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="sql-key" value="P_MAS_COMM_WRK_CENTER_P.SELECT"/>
+    </activity>
+    <activity name="Search05" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="sql-key" value="P_MAS_COMM_PROC_DTL.SELECT"/>
+        <property name="param-count" value="5"/>
+        <property name="result-key" value="SearchListResult"/>
+        <property name="param0" value="PLANT"/>
+        <property name="param1" value="PRD_CI"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="param2" value="PROC_CODE"/>
+        <property name="param3" value="CUD_CI2"/>
+        <property name="param4" value="CUD_CI1"/>
+    </activity>
+    <activity name="Search06" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="param20" value="MATR_CODE19"/>
+        <property name="param21" value="MATR_CODE20"/>
+        <property name="result-key" value="SearchListResult"/>
+        <property name="param10" value="MATR_CODE9"/>
+        <property name="param11" value="MATR_CODE10"/>
+        <property name="param12" value="MATR_CODE11"/>
+        <property name="param13" value="MATR_CODE12"/>
+        <property name="param14" value="MATR_CODE13"/>
+        <property name="param15" value="MATR_CODE14"/>
+        <property name="param16" value="MATR_CODE15"/>
+        <property name="param17" value="MATR_CODE16"/>
+        <property name="param18" value="MATR_CODE17"/>
+        <property name="param19" value="MATR_CODE18"/>
+        <property name="param-count" value="21"/>
+        <property name="param0" value="PLANT"/>
+        <property name="param2" value="MATR_CODE1"/>
+        <property name="param3" value="MATR_CODE2"/>
+        <property name="sql-key" value="P_MAS_COMM_MATR.SELECT"/>
+        <property name="param4" value="MATR_CODE3"/>
+        <property name="param5" value="MATR_CODE4"/>
+        <property name="param6" value="MATR_CODE5"/>
+        <property name="param7" value="MATR_CODE6"/>
+        <property name="param8" value="MATR_CODE7"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="param9" value="MATR_CODE8"/>
+    </activity>
+    <activity name="Search001" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="sql-key" value="P_MAS_COMM_WRK_CENTER_PROC.SELECT"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="result-key" value="SearchListResult"/>
+    </activity>
+    <activity name="Search07" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="result-key" value="SearchListResult"/>
+        <property name="param-count" value="6"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="sql-key" value="P_MAS_COMM_PROC_PARAM.SELECT"/>
+        <property name="param0" value="PLANT"/>
+        <property name="param1" value="PROC_CODE"/>
+        <property name="param2" value="PROC_DTL_CODE"/>
+        <property name="param3" value="CUD_CI1"/>
+        <property name="param4" value="CUD_CI2"/>
+        <property name="param5" value="CUD_CI3"/>
+    </activity>
+    <activity name="Search08" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="result-key" value="SearchListResult"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="sql-key" value="P_MAS_COMM_PRD_TYPE.SELECT02"/>
+        <property name="param0" value="PLANT"/>
+        <property name="param1" value="TYPE_CODE"/>
+        <property name="param-count" value="2"/>
+    </activity>
+    <activity name="Search09" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="param1" value="GRP_LEVEL"/>
+        <property name="result-key" value="SearchListResult"/>
+        <property name="sql-key" value="P_MAS_COMM_SOURCING_GRP.SELECT"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="param-count" value="2"/>
+        <property name="param0" value="PLANT"/>
+    </activity>
+    <activity name="Search10" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="param-count" value="4"/>
+        <property name="param0" value="PLANT"/>
+        <property name="param1" value="PLANT"/>
+        <property name="param2" value="PAC_CI"/>
+        <property name="result-key" value="SearchListResult"/>
+        <property name="param3" value="WRK_CENTER_GRP_CODE"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="sql-key" value="P_MAS_PROC_DTL_CODE.SELECT"/>
+    </activity>
+    <activity name="Search11" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="param-count" value="5"/>
+        <property name="param0" value="PLANT"/>
+        <property name="param1" value="WRK_AREA_START"/>
+        <property name="param2" value="WRK_AREA_END"/>
+        <property name="result-key" value="SearchListResult"/>
+        <property name="param3" value="PLANT"/>
+        <property name="param4" value="USER_PRD_CI"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="sql-key" value="P_MAS_WRK_AREA_CENTER.SELECT"/>
+    </activity>
+    <activity name="Search002" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="sql-key" value="P_MAS_COMM_WRK_CENTER_PROC_DTL.SELECT"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="result-key" value="SearchListResult"/>
+    </activity>
+    <activity name="Search_Prd_Type" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="sql-key" value="P_MAS_COMM_PRD_TYPE.SELECT_prdtype"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="result-key" value="SearchListResult"/>
+    </activity>
+    <activity name="Search_wrk_area_tree" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="sql-key" value="P_MAS_MMASTM_WRK_TREE.SELECT"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="result-key" value="SearchListResult"/>
+    </activity>
+    <activity name="Search_wrk_area" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="sql-key" value="P_MAS_MMASTM_WRK_AREA.SELECT"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="result-key" value="SearchListResult"/>
+    </activity>
+    <activity name="Search_Prd_Grp" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="sql-key" value="P_MAS_COMM_PRD_GRP.SELECT"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="result-key" value="SearchListResult"/>
+    </activity>
+    <activity name="Search_wrk_center" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="sql-key" value="P_MAS_MMASTM_WRK_CENTER.SELECT"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="result-key" value="SearchListResult"/>
+    </activity>
+    <activity name="Search_Prd_Type_Tree" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="sql-key" value="D_PMASM_ROUTING_PRD.SELECT_prdtypeTree"/>
+        <property name="result-key" value="SearchListResult"/>
+    </activity>
+    <activity name="Search_Type_Cd" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="sql-key" value="P_MAS_COMM_TYPE_CODE.SELECT"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="result-key" value="SearchListResult"/>
+    </activity>
+    <activity name="Search001_copy" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="sql-key" value="P_MAS_COMM_WRK_CENTER_PROC.SELECT"/>
+        <property name="result-key" value="SearchListResult"/>
+        <property name="dao" value="apmes_dao"/>
+    </activity>
+    <activity name="Search002_copy" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="sql-key" value="P_MAS_COMM_WRK_CENTER_PROC_DTL.SELECT"/>
+        <property name="result-key" value="SearchListResult"/>
+        <property name="dao" value="apmes_dao"/>
+    </activity>
+</service>

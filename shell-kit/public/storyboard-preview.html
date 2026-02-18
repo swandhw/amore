@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Section Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class= bg-background "bg-slate-50">
+    <main class="mx-auto flex max-w-5xl flex-col gap-6 px-6 py-8">
+      <header>
+        <h1 class="text-2xl font-semibold text-primary ">카탈로그 관리</h1>
+        <p class="mt-1 text-sm text-primary ">공통 검색 섹션과 목록 예시</p>
+      </header>
+      <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <header class="flex flex-col gap-1">
+          <h2 class="text-lg font-semibold text-primary ">카탈로그 검색</h2>
+          <p class="text-sm text-primary ">제품명, 브랜드, 출시일로 카탈로그를 조회합니다.</p>
+        </header>
+        <div class="mt-5 grid gap-4 md:grid-cols-3">
+          <label class="flex flex-col gap-2 text-sm text-primary ">
+            <span class="font-medium text-primary ">제품명</span>
+            <input
+              type="text"
+              placeholder="예: 루미너스 립스틱"
+              class="h-10 rounded-md border border-slate-200 px-3 text-sm text-primary "
+            />
+          </label>
+          <label class="flex flex-col gap-2 text-sm text-primary ">
+            <span class="font-medium text-primary ">브랜드</span>
+            <select class="h-10 rounded-md border border-slate-200 bg-white px-3 text-sm text-primary ">
+              <option>브랜드 선택</option>
+              <option>에이모레</option>
+              <option>오로라</option>
+              <option>모던라인</option>
+            </select>
+          </label>
+          <label class="flex flex-col gap-2 text-sm text-primary ">
+            <span class="font-medium text-primary ">출시일</span>
+            <input type="date" class="h-10 rounded-md border border-slate-200 px-3 text-sm text-primary " />
+          </label>
+        </div>
+        <div class="mt-6 flex justify-end">
+          <button
+            type="button"
+            class="inline-flex h-10 items-center justify-center rounded-md bg-indigo-600 px-5 text-sm font-semibold text-white"
+          >
+            검색
+          </button>
+        </div>
+      </section>
+      <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 class="text-lg font-semibold text-primary ">검색 결과</h2>
+        <ul class="mt-4 space-y-3">
+          <li class="rounded-lg border border-slate-100 px-4 py-3">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm font-semibold text-primary ">루미너스 립스틱</p>
+                <p class="text-xs text-primary ">에이모레</p>
+              </div>
+              <span class="rounded-full bg-background  bg-slate-100 px-3 py-1 text-xs text-primary ">립스틱</span>
+            </div>
+            <p class="mt-2 text-xs text-primary ">출시일: 2024-02-01</p>
+          </li>
+          <li class="rounded-lg border border-slate-100 px-4 py-3">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm font-semibold text-primary ">글로우 파운데이션</p>
+                <p class="text-xs text-primary ">오로라</p>
+              </div>
+              <span class="rounded-full bg-background  bg-slate-100 px-3 py-1 text-xs text-primary ">베이스</span>
+            </div>
+            <p class="mt-2 text-xs text-primary ">출시일: 2024-05-18</p>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

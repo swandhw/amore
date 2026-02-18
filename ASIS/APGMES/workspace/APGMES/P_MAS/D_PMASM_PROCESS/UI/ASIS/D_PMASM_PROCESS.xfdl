@@ -1,0 +1,879 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form height="559" id="D_PMASM_PROCESS" left="0" onactivatradio1e="Form_onactivate" onload="Form_onload" titletext="표준공정 등록" top="0" width="1018">
+    <Layouts>
+      <Layout>
+        <Static cssclass="data_cell" height="26" id="caption5" left="20" position="absolute" text="" top="47" right="20"/>
+        <Static cssclass="barTitle" height="24" id="top_bar" left="0" position="absolute" text="" top="0" width="960"/>
+        <Static cssclass="title" height="22" id="titleName" left="20" position="absolute" text="표준공정 등록" top="20" width="220" onclick="titleName_onclick"/>
+        <Button cssclass="btn_04" height="22" id="button1" onclick="button1_onclick" position="absolute" text="조회" top="20" width="70" right="411"/>
+        <Button cssclass="btn_04" height="22" id="button3" onclick="button3_onclick" position="absolute" text="저장" top="20" width="70" right="267"/>
+        <Button cssclass="btn_04" height="22" id="button4" onclick="button4_onclick" position="absolute" text="Excel" top="20" width="70" right="195"/>
+        <Button cssclass="btn_04" height="22" id="button5" onclick="button5_onclick" position="absolute" text="종료" top="20" width="70" right="123"/>
+        <Static cssclass="btn_min" height="18" id="button18" left="105" onclick="button18_onclick" position="absolute" top="5" width="14"/>
+        <Static cssclass="btn_max" height="18" id="button19" left="121" onclick="button19_onclick" position="absolute" top="5" width="14"/>
+        <Static cssclass="btn_close" height="18" id="button20" left="138" onclick="button20_onclick" position="absolute" top="5" width="14"/>
+        <Static id="Static12" taborder="1" text="h20" cssclass="Guide_color2" visible="false" left="20" top="0" right="20" height="20"/>
+        <Static id="Static11" taborder="2" text="w20" cssclass="Guide_color2" visible="false" top="0" right="0" bottom="0" width="20"/>
+        <Static id="Static10" taborder="3" text="w20" cssclass="Guide_color2" visible="false" left="0" top="0" width="20" height="559"/>
+        <Button id="button2" taborder="6" text="등록" onclick="button2_onclick" cssclass="btn_04" top="20" right="339" width="70" height="22"/>
+        <Static id="caption_ProcCd" taborder="11" text="대공정" cssclass="cell_title" left="328" top="47" width="110" height="26"/>
+        <Static id="caption_CudCi" taborder="16" text="사용유무" cssclass="cell_title" left="636" top="47" width="110" height="26"/>
+        <Combo id="combo_CudCi" taborder="17" innerdataset="@ds_CudCi" codecolumn="COMM_CODE" datacolumn="CODE_KOR_NAME" type="dropdown" cssclass="upperSelect" left="748" top="50" width="100" height="20" index="-1"/>
+        <Combo id="combo_ProcCd" taborder="21" innerdataset="@ds_ProcCd" codecolumn="PROC_CODE" datacolumn="PROC_NAME" type="filterlike" cssclass="upperSelect" left="440" top="50" width="194" height="20" onlbuttondown="combo_ProcCd_onlbuttondown"/>
+        <Static id="Static34" taborder="24" text="h4" cssclass="Guide_color" visible="false" left="20" top="42" height="4" right="20"/>
+        <Static id="Static06" taborder="25" text="h8" cssclass="Guide_color" visible="false" left="20" top="73" height="8" right="20"/>
+        <Static id="Static01" taborder="28" text="h20" cssclass="Guide_color2" visible="false" left="20" top="539" right="20" height="20"/>
+        <Tab id="Tab" taborder="29" left="20" top="81" right="20" bottom="20" tabindex="0" scrollbars="autoboth" onchanged="Tab_onchanged" ondragmove="Tab_ondragmove" onlbuttonup="Tab_onlbuttonup">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="표준공정 등록">
+              <Layouts>
+                <Layout>
+                  <Div id="Div00" taborder="2" left="0" top="8" width="450" bottom="0">
+                    <Layouts>
+                      <Layout width="200" height="150">
+                        <Grid id="grd_Proc" taborder="0" binddataset="ds_Proc" useinputpanel="false" autofittype="none" onlbuttondown="Tab_tabpage1_grd_Proc_onlbuttondown" onrbuttondown="Tab_tabpage1_grd_Proc_onrbuttondown" oncellclick="Tab_tabpage1_grd_Proc_oncellclick" ondropdown="Tab_tabpage1_grd_Proc_ondropdown" oncloseup="Tab_tabpage1_grd_Proc_oncloseup" left="0" top="0" bottom="0" right="0">
+                          <Formats>
+                            <Format id="default">
+                              <Columns>
+                                <Column size="35" band="left"/>
+                                <Column size="40" band="left"/>
+                                <Column size="0"/>
+                                <Column size="60"/>
+                                <Column size="120"/>
+                                <Column size="80"/>
+                                <Column size="50"/>
+                                <Column size="50"/>
+                                <Column size="0"/>
+                              </Columns>
+                              <Rows>
+                                <Row size="24" band="head"/>
+                                <Row size="24" band="head"/>
+                                <Row size="24"/>
+                              </Rows>
+                              <Band id="head">
+                                <Cell rowspan="2" displaytype="checkbox" edittype="checkbox" text="1"/>
+                                <Cell col="1" rowspan="2" displaytype="normal" edittype="none" text="유형"/>
+                                <Cell col="2" rowspan="2" text="사업장"/>
+                                <Cell col="3" colspan="2" text="대공정"/>
+                                <Cell col="5" rowspan="2" text="제품구분"/>
+                                <Cell col="6" rowspan="2" text="순번"/>
+                                <Cell col="7" rowspan="2" text="사용유무"/>
+                                <Cell col="8" rowspan="2" text="비고"/>
+                                <Cell row="1" col="3" text="코드"/>
+                                <Cell row="1" col="4" text="공정명"/>
+                              </Band>
+                              <Band id="body">
+                                <Cell style="background:#eeeeeeff;background2:#eeeeeeff;selectbackground:#eeeeeeff;" expr="currow+1"/>
+                                <Cell col="1" displaytype="combo" edittype="combo" style="background:EXPR(COLOR == 'Y'?application.C_COLOR_04:'');background2:EXPR(COLOR == 'Y'?application.C_COLOR_04:'');selectbackground:EXPR(COLOR == 'Y'?application.C_COLOR_04:'');" text="bind:CUD_TYPE" combodataset="g_ds_CudType" combocodecol="COMM_CODE" combodatacol="CODE_KOR_NAME"/>
+                                <Cell col="2" displaytype="combo" edittype="none" style="background:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?(PLANT==null||PLANT==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));background2:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?(PLANT==null||PLANT==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));selectbackground:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?(PLANT==null||PLANT==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));" text="bind:PLANT" combodataset="ds_Plant" combocodecol="COMM_CODE" combodatacol="CODE_KOR_NAME"/>
+                                <Cell col="3" displaytype="normal" edittype="expr:CUD_TYPE=='C'?'normal':'none'" style="align:center;background:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PROC_CODE==null||PROC_CODE==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));background2:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PROC_CODE==null||PROC_CODE==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));selectbackground:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PROC_NAME==null||PROC_NAME==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));" text="bind:PROC_CODE" editlimit="5" expandshow="hide" expandsize="20" combodisplay="edit"/>
+                                <Cell col="4" edittype="expr:CUD_TYPE=='C'?'normal':'none'" style="align:left;background:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PROC_NAME==null||PROC_NAME==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));background2:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PROC_NAME==null||PROC_NAME==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));selectbackground:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PROC_NAME==null||PROC_NAME==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));" text="bind:PROC_NAME" editlimit="50"/>
+                                <Cell col="5" displaytype="combo" edittype="expr:CUD_TYPE=='C'?'combo':'none'" style="align:left;background:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PRD_CI==null||PRD_CI==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));background2:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PRD_CI==null||PRD_CI==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));selectbackground:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PRD_CI==null||PRD_CI==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));" text="bind:PRD_CI" editdisplay="display" combodataset="ds_PrdCi" combocodecol="COMM_CODE" combodatacol="CODE_KOR_NAME" combodisplay="edit"/>
+                                <Cell col="6" displaytype="normal" edittype="expr:CUD_TYPE=='D'?'none':'masknumber'" style="align:center;background:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?(ROUTE_SEQ==null||ROUTE_SEQ==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));background2:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?(ROUTE_SEQ==null||ROUTE_SEQ==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));selectbackground:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?(ROUTE_SEQ==null||ROUTE_SEQ==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));" text="bind:ROUTE_SEQ" editlimitbymask="decimal"/>
+                                <Cell col="7" displaytype="combo" edittype="expr:CUD_TYPE=='D'?'none':'combo'" style="align:center;background:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?application.C_CUDCOLOR:''));background2:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?application.C_CUDCOLOR:''));selectbackground:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?application.C_CUDCOLOR:''));" text="bind:CUD_CI" combodataset="ds_CudCi" combocodecol="COMM_CODE" combodatacol="CODE_KOR_NAME"/>
+                                <Cell col="8" edittype="normal" style="align:left;" text="bind:REMARK" editlimit="200" editimemode="none" editautoselect="true"/>
+                              </Band>
+                            </Format>
+                          </Formats>
+                        </Grid>
+                      </Layout>
+                    </Layouts>
+                  </Div>
+                  <Div id="Div01" taborder="3" left="461" top="8" right="0" bottom="0">
+                    <Layouts>
+                      <Layout width="200" height="150">
+                        <Grid id="grd_ProcDtl" taborder="0" binddataset="ds_ProcDtl" useinputpanel="false" onlbuttondown="Tab_tabpage1_grd_ProcDtl_onlbuttondown" onrbuttondown="Tab_tabpage1_grd_ProcDtl_onrbuttondown" oncloseup="Tab_tabpage1_grd_ProcDtl_oncloseup" left="0" top="0" right="0" bottom="0">
+                          <Formats>
+                            <Format id="default">
+                              <Columns>
+                                <Column size="35" band="left"/>
+                                <Column size="40" band="left"/>
+                                <Column size="0"/>
+                                <Column size="0"/>
+                                <Column size="0"/>
+                                <Column size="50"/>
+                                <Column size="250"/>
+                                <Column size="70"/>
+                                <Column size="50"/>
+                                <Column size="300"/>
+                                <Column size="60"/>
+                              </Columns>
+                              <Rows>
+                                <Row size="24" band="head"/>
+                                <Row size="24" band="head"/>
+                                <Row size="24"/>
+                              </Rows>
+                              <Band id="head">
+                                <Cell rowspan="2" displaytype="checkbox" edittype="checkbox"/>
+                                <Cell col="1" rowspan="2" text="유형"/>
+                                <Cell col="2" rowspan="2" text="사업장"/>
+                                <Cell col="3" rowspan="2" text="제품구분"/>
+                                <Cell col="4" rowspan="2" text="대공정"/>
+                                <Cell col="5" colspan="2" text="소공정"/>
+                                <Cell col="7" rowspan="2" text="공정유형"/>
+                                <Cell col="8" rowspan="2" text="순번"/>
+                                <Cell col="9" rowspan="2" text="작업내용"/>
+                                <Cell col="10" rowspan="2" text="사용유무"/>
+                                <Cell row="1" col="5" text="코드"/>
+                                <Cell row="1" col="6" text="공정명"/>
+                              </Band>
+                              <Band id="body">
+                                <Cell displaytype="normal" edittype="none" style="background:#eeeeeeff;background2:#eeeeeeff;selectbackground:#eeeeeeff;" expr="currow+1"/>
+                                <Cell col="1" displaytype="combo" edittype="combo" text="bind:CUD_TYPE" combodataset="g_ds_CudType" combocodecol="COMM_CODE" combodatacol="CODE_KOR_NAME"/>
+                                <Cell col="2" displaytype="combo" edittype="combo" text="bind:PLANT" combodataset="ds_Plant" combocodecol="COMM_CODE" combodatacol="CODE_KOR_NAME"/>
+                                <Cell col="3" displaytype="combo" text="bind:PRD_CI" combodataset="ds_PrdCi" combocodecol="COMM_CODE" combodatacol="CODE_KOR_NAME_RE"/>
+                                <Cell col="4" displaytype="combo" edittype="combo" style="align:left;" text="bind:PROC_CODE" editdisplay="display" combodataset="ds_ProcCd" combocodecol="PROC_CODE" combodatacol="PROC_NAME"/>
+                                <Cell col="5" displaytype="normal" edittype="normal" editfilter="digit" style="align:center;" text="bind:PROC_DTL_CODE" editlimit="3" expandshow="hide" expandsize="20"/>
+                                <Cell col="6" displaytype="normal" edittype="normal" style="align:left;" text="bind:PROC_DTL_NAME"/>
+                                <Cell col="7" displaytype="combo" edittype="combo" style="align:center;" text="bind:PROC_TYPE" editdisplay="edit" combodataset="ds_ProcType" combocodecol="COMM_CODE" combodatacol="CODE_KOR_NAME" combodisplay="edit"/>
+                                <Cell col="8" displaytype="normal" edittype="normal" style="align:center;" text="bind:ROUTE_SEQ"/>
+                                <Cell col="9" edittype="normal" style="align:left;" text="bind:REMARK" editautoselect="true"/>
+                                <Cell col="10" displaytype="combo" edittype="combo" style="align:center;" text="bind:CUD_CI" editdisplay="display" combodataset="ds_CudCi" combocodecol="COMM_CODE" combodatacol="CODE_KOR_NAME"/>
+                              </Band>
+                            </Format>
+                          </Formats>
+                        </Grid>
+                      </Layout>
+                    </Layouts>
+                  </Div>
+                  <ImageViewer id="div_verticalBar_move" taborder="4" image="URL('theme://images\btn_MDI_hM.png')" cssclass="img_GWF_SplitterV" top="0" style="background:#eeeeeeff;border:0 solid #e0e0e0ff ;cursor:e-resize;" ondrag="div_verticalBar_move_ondrag" bottom="0" width="5" left="453"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage2" text="표준공정 현황">
+              <Layouts>
+                <Layout>
+                  <Grid id="grd_GridT2" taborder="0" binddataset="ds_Tab2" autoupdatetype="none" useinputpanel="false" left="0%" top="8" right="0%" bottom="0" oncloseup="Tab_tabpage2_grd_GridT2_oncloseup" onrbuttondown="Tab_tabpage2_grd_GridT2_onrbuttondown">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="35" band="left"/>
+                          <Column size="0"/>
+                          <Column size="130"/>
+                          <Column size="0"/>
+                          <Column size="200"/>
+                          <Column size="0"/>
+                          <Column size="320"/>
+                          <Column size="90"/>
+                          <Column size="350"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell rowspan="2"/>
+                          <Cell col="1" rowspan="2" text="사업장"/>
+                          <Cell col="2" rowspan="2" text="제품구분"/>
+                          <Cell col="3" colspan="5" text="공정"/>
+                          <Cell col="8" rowspan="2" text="작업내용"/>
+                          <Cell row="1" col="3" text="대공정 코드"/>
+                          <Cell row="1" col="4" text="대공정"/>
+                          <Cell row="1" col="5" text="소공정 코드"/>
+                          <Cell row="1" col="6" text="소공정"/>
+                          <Cell row="1" col="7" text="공정유형"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell style="background:#eeeeeeff;background2:#eeeeeeff;selectbackground:#eeeeeeff;" expr="currow+1"/>
+                          <Cell col="1" displaytype="combo" edittype="combo" style="align:center;" text="bind:PLANT" combodataset="ds_Plant" combocodecol="COMM_CODE" combodatacol="CODE_KOR_NAME"/>
+                          <Cell col="2" displaytype="combo" style="align:left;" text="bind:PRD_CI" combodataset="ds_PrdCi" combocodecol="COMM_CODE" combodatacol="CODE_KOR_NAME_RE"/>
+                          <Cell col="3" style="align:center;" text="bind:PROC_CODE"/>
+                          <Cell col="4" displaytype="normal" edittype="none" style="align:left;" text="bind:PROC_NAME" editdisplay="display"/>
+                          <Cell col="5" displaytype="normal" edittype="none" style="align:center;" text="bind:PROC_DTL_CODE" editlimit="5" expandshow="hide" expandsize="20"/>
+                          <Cell col="6" displaytype="normal" edittype="none" style="align:left;" text="bind:PROC_DTL_NAME"/>
+                          <Cell col="7" displaytype="combo" edittype="none" style="align:center;" text="bind:PROC_TYPE" editdisplay="edit" combodataset="ds_ProcType" combocodecol="COMM_CODE" combodatacol="CODE_KOR_NAME" combodisplay="edit"/>
+                          <Cell col="8" edittype="none" style="align:left;" text="bind:REMARK" editautoselect="true"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+        <Static id="Static02" taborder="30" text="h8" cssclass="Guide_color" visible="false" left="1.96%" top="107" right="1.96%" height="8"/>
+        <Static id="caption_PrdCi" taborder="31" text="제품구분" cssclass="cell_title" left="20" top="47" height="26" width="110"/>
+        <Combo id="combo_PrdCi" taborder="32" innerdataset="@ds_PrdCi" codecolumn="COMM_CODE" datacolumn="CODE_KOR_NAME_RE" type="dropdown" cssclass="upperSelect" left="132" top="50" height="20" width="194" onitemchanged="combo_PrdCi_onitemchanged"/>
+        <Static id="Static04" taborder="5" cssclass="sta_WF_schline" left="20" top="46" right="20" height="2"/>
+        <Static id="resultCntMain" taborder="33" cssclass="rtnDataCnt" top="87" width="130" height="20" left="334"/>
+        <Static id="resultCntDtl" taborder="34" cssclass="rtnDataCnt" top="87" right="27" width="130" height="20"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_Service" firefirstcount="0" firenextcount="0" useclientlayout="true" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Transition" type="STRING" size="256"/>
+          <Column id="SvcId" type="STRING" size="256"/>
+          <Column id="SvcNm" type="STRING" size="256"/>
+          <Column id="InDatasets" type="STRING" size="256"/>
+          <Column id="OutDatasets" type="STRING" size="256"/>
+          <Column id="CallbackFunc" type="STRING" size="256"/>
+          <Column id="Async" type="STRING" size="256"/>
+          <Column id="Compress" type="STRING" size="256"/>
+          <Column id="TraceLog" type="STRING" size="256"/>
+          <Column id="ShowLoadingForSync" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Transition">find_proc_code</Col>
+            <Col id="SvcId">find_proc_code</Col>
+            <Col id="SvcNm">PGENS_CODE-service</Col>
+            <Col id="OutDatasets">ds_ProcCd=dsr_SearchListResult</Col>
+            <Col id="CallbackFunc">fn_CallBack</Col>
+          </Row>
+          <Row>
+            <Col id="Transition">find_proc</Col>
+            <Col id="SvcId">find_proc</Col>
+            <Col id="SvcNm">D_PMASM_PROCESS-service</Col>
+            <Col id="InDatasets"/>
+            <Col id="OutDatasets">ds_Proc=dsr_SearchListResult_Proc</Col>
+            <Col id="CallbackFunc">fn_CallBack</Col>
+            <Col id="Async"/>
+            <Col id="Compress"/>
+            <Col id="TraceLog"/>
+            <Col id="ShowLoadingForSync"/>
+          </Row>
+          <Row>
+            <Col id="Transition">find_proc_dtl</Col>
+            <Col id="SvcId">find_proc_dtl</Col>
+            <Col id="SvcNm">D_PMASM_PROCESS-service</Col>
+            <Col id="CallbackFunc">fn_CallBack</Col>
+            <Col id="OutDatasets">ds_ProcDtl=dsr_SearchListResult_ProcDtl</Col>
+          </Row>
+          <Row>
+            <Col id="Transition">save_proc</Col>
+            <Col id="SvcId">save_proc</Col>
+            <Col id="SvcNm">D_PMASM_PROCESS-service</Col>
+            <Col id="InDatasets">ds_Proc=ds_Proc</Col>
+            <Col id="OutDatasets"/>
+            <Col id="CallbackFunc">fn_CallBack</Col>
+            <Col id="Async"/>
+            <Col id="Compress"/>
+            <Col id="TraceLog"/>
+            <Col id="ShowLoadingForSync"/>
+          </Row>
+          <Row>
+            <Col id="Transition">save_proc_dtl</Col>
+            <Col id="SvcId">save_proc_dtl</Col>
+            <Col id="SvcNm">D_PMASM_PROCESS-service</Col>
+            <Col id="InDatasets">ds_ProcDtl=ds_ProcDtl</Col>
+            <Col id="OutDatasets"/>
+            <Col id="CallbackFunc">fn_CallBack</Col>
+            <Col id="Async"/>
+            <Col id="Compress"/>
+            <Col id="TraceLog"/>
+            <Col id="ShowLoadingForSync"/>
+          </Row>
+          <Row>
+            <Col id="Transition">find_t2</Col>
+            <Col id="SvcId">find_t2</Col>
+            <Col id="SvcNm">D_PMASM_PROCESS-service</Col>
+            <Col id="OutDatasets">ds_Tab2=dsr_SearchListResult_T2</Col>
+            <Col id="CallbackFunc">fn_CallBack</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Param" firefirstcount="0" firenextcount="0" useclientlayout="true" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="PLANT" type="STRING" size="256"/>
+          <Column id="PROC_CODE" type="STRING" size="256"/>
+          <Column id="CUD_CI" type="STRING" size="256"/>
+          <Column id="PRD_CI" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CUD_CI"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Proc" useclientlayout="true" oncolumnchanged="ds_Proc_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="CUD_TYPE" type="STRING" size="256"/>
+          <Column id="PLANT" type="STRING" size="256"/>
+          <Column id="PRD_CI" type="STRING" size="256"/>
+          <Column id="PROC_CODE" type="STRING" size="256"/>
+          <Column id="PROC_NAME" type="STRING" size="256"/>
+          <Column id="ROUTE_SEQ" type="STRING" size="256"/>
+          <Column id="REMARK" type="STRING" size="256"/>
+          <Column id="CUD_CI" type="STRING" size="256"/>
+          <Column id="COLOR" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_ProcDtl" useclientlayout="true" oncolumnchanged="ds_ProcDtl_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="CUD_TYPE" type="STRING" size="256"/>
+          <Column id="PLANT" type="STRING" size="256"/>
+          <Column id="PRD_CI" type="STRING" size="256"/>
+          <Column id="PROC_CODE" type="STRING" size="256"/>
+          <Column id="PROC_DTL_CODE" type="STRING" size="256"/>
+          <Column id="PROC_DTL_NAME" type="STRING" size="256"/>
+          <Column id="ROUTE_SEQ" type="STRING" size="256"/>
+          <Column id="PROC_TYPE" type="STRING" size="256"/>
+          <Column id="CUD_CI" type="STRING" size="256"/>
+          <Column id="REMARK" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_CudCi">
+        <ColumnInfo>
+          <Column id="COMM_CODE" type="STRING" size="256"/>
+          <Column id="CODE_KOR_NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_ProcCd">
+        <ColumnInfo>
+          <Column id="PROC_CODE" type="STRING" size="256"/>
+          <Column id="PROC_NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_PrdCi">
+        <ColumnInfo>
+          <Column id="COMM_CODE" type="STRING" size="256"/>
+          <Column id="CODE_KOR_NAME" type="STRING" size="256"/>
+          <Column id="CODE_KOR_NAME_RE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_ProcType">
+        <ColumnInfo>
+          <Column id="COMM_CODE" type="STRING" size="256"/>
+          <Column id="CODE_KOR_NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_Plant">
+        <ColumnInfo>
+          <Column id="COMM_CODE" type="STRING" size="256"/>
+          <Column id="CODE_KOR_NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_Tab2" useclientlayout="true" oncolumnchanged="ds_Tab2_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="PLANT" type="STRING" size="256"/>
+          <Column id="PRD_CI" type="STRING" size="256"/>
+          <Column id="PROC_CODE" type="STRING" size="256"/>
+          <Column id="PROC_NAME" type="STRING" size="256"/>
+          <Column id="PROC_DTL_CODE" type="STRING" size="256"/>
+          <Column id="PROC_DTL_NAME" type="STRING" size="256"/>
+          <Column id="PROC_TYPE" type="STRING" size="256"/>
+          <Column id="REMARK" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_ParamProcDtl" firefirstcount="0" firenextcount="0" useclientlayout="true" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="PLANT" type="STRING" size="256"/>
+          <Column id="PROC_CODE" type="STRING" size="256"/>
+          <Column id="CUD_CI" type="STRING" size="256"/>
+          <Column id="PRD_CI" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CUD_CI"/>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="combo_ProcCd" propid="value" datasetid="ds_Param" columnid="PROC_CODE"/>
+      <BindItem id="item1" compid="combo_CudCi" propid="value" datasetid="ds_Param" columnid="CUD_CI"/>
+      <BindItem id="item3" compid="combo_PrdCi" propid="value" datasetid="ds_Param" columnid="PRD_CI"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/*************************   Program description   ****************************
+ File Name      : D_PMASM_PROCESS
+ File Desc.     : 공정코드 등록
+ Author         : 
+ Create Date    : 
+ Change History : 
+*******************************************************************************/
+/*****************************
+ *  공통 Script Include      *
+ ****************************/
+include "js::MES_COMMON.xjs"
+
+/*****************************
+ *  화면 변수 선언부       *
+ ****************************/
+this.vsPlant = "";
+this.vsChngID = "";
+this.vsChngName = "";
+this.vsLangType = "";
+this.viTabIndex = 0;
+this.vsPrdCi = "";
+this.vsProcPlant = "";
+this.vsProcPrdCi = "";
+this.vsProcProcCd = "";
+this.viProcSelectRow = -1;
+this.viSaveReq = "";
+this.voFocusGrid = this.Tab.tabpage1.Div00.grd_Proc;
+this.voFilterGrid = this.Tab.tabpage1.Div00.grd_Proc;
+this.value_change_flag = false;	// 화면 변경 data 유무 check flag
+/***************************************************************************************************
+ *                                   화면 공통 Event 처리 부분                                    *
+ ***************************************************************************************************/
+this.Form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_CommL3AuthChk(true,"1");	// 권한
+	this.gfn_FormLoadSetting(obj);		// 폼 세팅
+	this.gfn_GridSetting(this,true);	// 그리드세팅
+	this.vsPlant = application.g_ds_Session.getColumn(0,"PLANT");
+	this.vsChngID = application.g_ds_Session.getColumn(0,"CHNG_ID");
+	this.vsChngName = application.g_ds_Session.getColumn(0,"USER_NAME");
+	this.vsLangType = application.g_ds_Session.getColumn(0,"LANG_TYPE");
+	this.vsPrdCi = this.gfn_SetPrdCi(this.vsPlant);
+	this.ds_Param.setColumn(0,"PLANT",this.vsPlant);
+	this.ds_Param.setColumn(0,"CUD_CI","Y");
+
+	//this.gfn_CreateGridExpression(this, this.Tab.tabpage1.grd_Proc, ["PLANT","PRD_CI","PROC_CODE","PROC_NAME","ROUTE_SEQ"], [""]);
+	this.gfn_CreateGridExpression(this, this.Tab.tabpage1.Div01.grd_ProcDtl, ["PLANT","PROC_CODE","PROC_CODE","PROC_DTL_CODE","PROC_DTL_NAME","ROUTE_SEQ","PROC_TYPE"], [""]);
+	this.getCommonCode(); // 공통코드
+}
+
+//조회
+this.button1_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.viTabIndex == 0)
+	{
+		this.fn_Find("find_proc", this.ds_Param);
+	}
+	else if(this.viTabIndex == 1)
+	{	
+		this.fn_Find("find_t2", this.ds_Param);
+	}
+	this.value_change_flag = false;
+}
+
+//등록
+this.button2_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(!(this.voFocusGrid instanceof Grid)) return;
+	var objDs = eval("this."+this.voFocusGrid.binddataset);
+	if(this.viProcSelectRow < 0 && objDs.name == "ds_ProcDtl")
+	{
+		return;
+	}
+	this.gfn_GridAddRow(this, e, objDs, this.fn_AddRowAfter);
+}
+
+//저장
+this.button3_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_Proc.filter("CUD_TYPE=='C'||CUD_TYPE=='U'||CUD_TYPE=='D'");
+	this.ds_ProcDtl.filter("CUD_TYPE=='C'||CUD_TYPE=='U'||CUD_TYPE=='D'");
+	var iProcCud = this.ds_Proc.rowcount;
+	var iProcDtlCud = this.ds_ProcDtl.rowcount;
+	this.ds_Proc.filter("");
+	this.ds_ProcDtl.filter("");
+	// 1:ds_Proc단독, 2:ds_ProcDtl단독, 3:ds_Proc,ds_ProcDtl
+	if(iProcCud <= 0 && iProcDtlCud <= 0)
+	{
+		return;
+	}
+	else if(iProcCud > 0 && iProcDtlCud > 0)
+	{
+		this.viSaveReq = 3;
+		this.fn_Save("save_proc", this.ds_Proc, ["PLANT","PRD_CI","PROC_CODE","PROC_NAME","ROUTE_SEQ"]);
+	}
+	else if(iProcCud > 0 && iProcDtlCud <= 0)
+	{
+		this.viSaveReq = 1;
+		this.fn_Save("save_proc", this.ds_Proc, ["PLANT","PRD_CI","PROC_CODE","PROC_NAME","ROUTE_SEQ"]);
+	}
+	else if(iProcCud <= 0 && iProcDtlCud > 0)
+	{
+		this.viSaveReq = 2;
+		this.fn_Save("save_proc_dtl", this.ds_ProcDtl, ["PLANT","PROC_CODE","PROC_DTL_CODE","PROC_DTL_NAME","ROUTE_SEQ","PROC_TYPE"]);
+	}
+}
+
+//엑셀
+this.button4_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_ExportExcel();
+}
+
+//종료
+this.button5_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_Button5( this.value_change_flag );
+}
+
+/***************************************************************************************************
+ *                                 화면 공통 Function 처리 부분                                    *
+ ***************************************************************************************************/
+// Transaction 후 처리 해야 할 내용!
+this.fn_CallBack = function (sSvcID, nErrorCode, sErrorMsg)
+{
+	//transaction Error 처리
+	if(!this.gfn_CheckTranResult(this, sSvcID, nErrorCode, sErrorMsg)) return;
+	
+	switch(this.gfn_GetSvcId(sSvcID)) //get service id 
+	{
+		case "code_008": 
+			this.ds_Param.setColumn(0,"PRD_CI",this.vsPrdCi);
+			if(this.vsPrdCi != "X")
+			{
+				this.combo_PrdCi.set_enable(false);
+			}
+			else
+			{
+				this.combo_PrdCi.set_index(0);
+			}
+			this.fn_Find("find_proc_code", this.ds_Param); //대공정 코드
+		break;
+		case "code_014": 
+			this.button1_onclick();
+		break;
+		case "find_proc": 
+			this.ds_ProcDtl.clearData();
+			this.value_change_flag = false;
+			this.setCaptionCnt(this.resultCntMain, this.ds_Proc);
+			this.setCaptionCnt(this.resultCntDtl, this.ds_ProcDtl);
+			if(!this.gfn_IsEmpty(this.ds_Param.getColumn(0,"PROC_CODE")))
+			{
+				this.viProcSelectRow = 0;
+				this.ds_Proc.set_enableevent(false);
+				this.ds_Proc.setColumn(0 ,"COLOR" , "Y");
+				this.ds_Proc.set_enableevent(true);
+				this.vsProcPlant = this.ds_Proc.getColumn(0,"PLANT");
+				this.vsProcPrdCi = this.ds_Proc.getColumn(0,"PRD_CI");
+				this.vsProcProcCd = this.ds_Proc.getColumn(0,"PROC_CODE");
+				this.ds_ParamProcDtl.setColumn(0,"PLANT",this.vsProcPlant);
+				this.ds_ParamProcDtl.setColumn(0,"PRD_CI",this.vsProcPrdCi);
+				this.ds_ParamProcDtl.setColumn(0,"PROC_CODE",this.vsProcProcCd);
+				this.ds_ParamProcDtl.setColumn(0,"CUD_CI",this.ds_Param.getColumn(0,"CUD_CI"));
+				this.fn_Find("find_proc_dtl", this.ds_Param);
+			}
+			else
+			{
+				this.viProcSelectRow = -1;
+			}
+		break;
+		case "find_proc_dtl":
+			this.setCaptionCnt(this.resultCntMain, this.ds_Proc);
+			this.setCaptionCnt(this.resultCntDtl, this.ds_ProcDtl);
+			this.value_change_flag = false;
+		break;		
+		case "find_proc_code":
+			this.ds_Param.setColumn(0,"PROC_CODE","");
+		break;
+		case "save_proc": 
+			if(this.viSaveReq == 3)
+			{
+				this.fn_Save2("save_proc_dtl", this.ds_ProcDtl, ["PLANT","PROC_CODE","PROC_DTL_CODE","PROC_DTL_NAME","ROUTE_SEQ","PROC_TYPE"]);
+			}
+			else 
+			{
+				this.gfn_Message("1558", "OK");		// 저장되었습니다.
+				
+			}
+			this.fn_Find("find_proc_code", this.ds_Param);
+			this.fn_Find("find_proc", this.ds_Param);
+		break;
+		case "save_proc_dtl": 
+			this.gfn_Message("1558", "OK");		// 저장되었습니다.
+			this.fn_Find("find_proc_dtl", this.ds_ParamProcDtl);
+		break;
+		case "find_t2":
+			this.setCaptionCnt(this.resultCntDtl, this.ds_Tab2);
+			this.value_change_flag = false;
+		break;
+		default:
+			break;
+	}
+}
+
+this.fn_AddRowAfter = function(form, dsSet, event, row)
+{
+	if(dsSet.name == "ds_Proc")
+	{
+		dsSet.setColumn(row, "CUD_TYPE", application.C_CUDINSERT);
+		dsSet.setColumn(row, "CUD_CI", application.C_USEY);
+		dsSet.setColumn(row, "PLANT", form.vsPlant);
+	}
+	else if(dsSet.name == "ds_ProcDtl")
+	{
+		dsSet.setColumn(row, "CUD_TYPE", application.C_CUDINSERT);
+		dsSet.setColumn(row, "CUD_CI", application.C_USEY);
+		dsSet.setColumn(row, "PLANT", form.vsProcPlant);
+		dsSet.setColumn(row, "PRD_CI", form.vsProcPrdCi);
+		dsSet.setColumn(row, "PROC_CODE", form.vsProcProcCd);
+	}
+	// 화면 변경 data 유무 check flag
+	form.value_change_flag = true;
+}
+
+
+/*조회건수 display*/
+this.setCaptionCnt = function(stResult, oDsSet)
+{
+	stResult.set_text(this.gfn_GetMessage("1016", oDsSet.rowcount));  // (조회건수:  {@} 건)
+}
+/***************************************************************************************************
+ *                                사용자 정의  Function 처리 부분                                  *
+ ***************************************************************************************************/
+//공통코드 조회
+this.getCommonCode = function()
+{
+	var codeArr = [["MGENS_CODE_01" , "005" , "find00" , "Plant" , "SearchListResult"] // 사업장
+	              ,["PGENS_CODE" , "008" , "find02" , "PrdCi" , "SearchListResult"] // 제품구분
+				  ,["PGENS_CODE" , "011" , "find02" , "ProcType" , "SearchListResult"] // 공정유형
+	              ,["PGENS_CODE" , "014" , "find02" , "CudCi" , "SearchListResult"] // 사용구분
+				  ];
+	this.gfn_Code_Transaction(this, codeArr, "X", this.gfn_GetTranInfo("PLANT|LANG_TYPE|CHNG_ID"));
+	
+}
+
+//조회
+this.fn_Find = function(sTransition, oDsSet)
+{
+	this.gfn_DsSetTransaction(this, sTransition, this.ds_Service, this.gfn_GetDatasetToPram(this,oDsSet)+this.gfn_GetFilterParam(this.voFilterGrid));
+}
+
+//저장
+this.fn_Save = function(sTransition, oDsSet, aChkEmpty)
+{	
+	var chkCnt = this.gfn_IsEmptyDataSetColumn(this, oDsSet, aChkEmpty);
+	if(chkCnt > 0)
+	{
+		if(this.gfn_Message( "1549", "YESNO" ))	// 저장 하시겠습니까?
+		{
+			this.gfn_DsSetTransaction(this, sTransition,this.ds_Service, this.gfn_GetTranInfo("CHNG_ID|PROC_ID|LANG_TYPE||PLANT"));
+		}
+	}
+	else if(chkCnt == 0)
+	{
+		this.gfn_Message("1353", "OK"); // 수정 또는 등록 된 데이터가 없습니다. 다시 확인해 주십시요.
+		return;
+	}	
+}
+
+//저장
+this.fn_Save2 = function(sTransition, oDsSet, aChkEmpty)
+{	
+	var chkCnt = this.gfn_IsEmptyDataSetColumn(this, oDsSet, aChkEmpty);
+	if(chkCnt > 0)
+	{
+		this.gfn_DsSetTransaction(this, sTransition,this.ds_Service, this.gfn_GetTranInfo("CHNG_ID|PROC_ID|LANG_TYPE||PLANT"));
+	}
+	else if(chkCnt == 0)
+	{
+		this.gfn_Message("1353", "OK"); // 수정 또는 등록 된 데이터가 없습니다. 다시 확인해 주십시요.
+		return;
+	}	
+}
+
+this.fn_SetFucusGrd = function(grdNum, grdNum2)
+{
+	var aGrd = new Array(this.Tab.tabpage1.Div00.grd_Proc,this.Tab.tabpage1.Div01.grd_ProcDtl);
+	var oCurGrd = aGrd[grdNum];
+	var oGrd = aGrd[grdNum2];
+	
+	var sChk = oCurGrd.getCellProperty("Head", 0, "text");
+	if(this.gfn_IsEmpty(sChk) || sChk=="0" )
+	{
+		sChk = "1";
+		this.voFocusGrid = oCurGrd;
+		oGrd.setCellProperty("Head", 0, "text", "0");
+	}
+// 	else // 선택안된 그리드 자동 체크해제, 선택된 그리드가 이미 체크였으면 자동해제
+// 	{
+// 		sChk = "0";
+// 		voFocusGrid = oGrd;
+// 		oGrd.setCellProperty("Head", 0, "text", "1");
+// 	}
+	oCurGrd.setCellProperty("Head", 0, "text", sChk);
+}
+
+/***************************************************************************************************
+ *                                  사용자 정의  Event 처리 부분                                   *
+ ***************************************************************************************************/
+this.Tab_onchanged = function(obj:Tab, e:nexacro.TabIndexChangeEventInfo)
+{
+	this.viTabIndex = obj.tabindex;
+	if(this.viTabIndex == 0)
+	{
+		this.resultCntMain.set_visible(true);
+	}
+	else if(this.viTabIndex == 1)
+	{
+		this.resultCntMain.set_visible(false);
+	}
+	this.button1_onclick();
+}
+
+this.Tab_tabpage1_grd_Proc_oncloseup = function(obj:Grid, e:nexacro.GridEditEventInfo)
+{
+	if(e.col == obj.getBindCellIndex("body","CUD_TYPE"))
+	{
+		this.value_change_flag = true;
+		this.gfn_GridComboOncloseup(this, obj, e, this.ds_Proc, this.fn_AddRowAfter);
+	}
+}
+
+this.Tab_tabpage1_grd_ProcDtl_oncloseup = function(obj:Grid, e:nexacro.GridEditEventInfo)
+{
+	if(e.col == obj.getBindCellIndex("body","CUD_TYPE"))
+	{
+		this.gfn_GridComboOncloseup(this, obj, e, this.ds_ProcDtl, this.fn_AddRowAfter);
+	}
+}
+
+this.ds_Proc_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	if(e.columnid == "COLOR")
+	{
+		return;
+	}
+	this.gfn_GridComboOncloseupCallback(this, obj, e);
+	this.value_change_flag = true;
+}
+
+this.ds_ProcDtl_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	this.gfn_GridComboOncloseupCallback(this, obj, e);
+	this.value_change_flag = true;
+}
+
+this.combo_PrdCi_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	this.fn_Find("find_proc_code", this.ds_Param); //대공정 코드
+}
+
+this.Tab_tabpage1_grd_Proc_onrbuttondown = function(obj:Grid, e:nexacro.GridMouseEventInfo)
+{
+	this.voFilterGrid = this.Tab.tabpage1.Div00.grd_Proc;
+}
+
+this.Tab_tabpage1_grd_ProcDtl_onrbuttondown = function(obj:Grid, e:nexacro.GridMouseEventInfo)
+{
+	this.voFilterGrid = this.Tab.tabpage1.Div01.grd_ProcDtl;
+}
+
+this.Tab_tabpage2_grd_GridT2_onrbuttondown = function(obj:Grid, e:nexacro.GridMouseEventInfo)
+{
+	this.voFilterGrid = this.Tab.tabpage2.grd_GridT2;
+}
+
+this.Tab_tabpage1_grd_Proc_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var sCudType = this.ds_Proc.getColumn(e.row,"CUD_TYPE");
+	if(sCudType == "C" || obj.getBindCellIndex("body","CUD_TYPE") == e.col)
+	{
+		return;
+	}
+	for(var i=0 ; i < this.ds_Proc.rowcount ; i++)
+	{
+		if(e.row == i)
+		{
+			this.ds_Proc.setColumn(i ,"COLOR" , "Y");
+		}
+		else
+		{
+			this.ds_Proc.setColumn(i ,"COLOR" , "");
+		}
+	}
+	this.vsProcPlant = this.ds_Proc.getColumn(e.row,"PLANT");
+	this.vsProcPrdCi = this.ds_Proc.getColumn(e.row,"PRD_CI");
+	this.vsProcProcCd = this.ds_Proc.getColumn(e.row,"PROC_CODE");
+	this.viProcSelectRow = e.row;
+	this.ds_ParamProcDtl.setColumn(0,"PLANT",this.vsProcPlant);
+	this.ds_ParamProcDtl.setColumn(0,"PRD_CI",this.vsProcPrdCi);
+	this.ds_ParamProcDtl.setColumn(0,"PROC_CODE",this.vsProcProcCd);
+	this.ds_ParamProcDtl.setColumn(0,"CUD_CI",this.ds_Param.getColumn(0,"CUD_CI"));
+	this.fn_Find("find_proc_dtl", this.ds_ParamProcDtl);
+}
+
+this.Tab_tabpage1_grd_Proc_ondropdown = function(obj:Grid, e:nexacro.GridEditEventInfo)
+{
+	//this.ds_PrdCi.filter("");
+	if(e.col == obj.getBindCellIndex("body","PRD_CI") && this.vsPlant == "1110" && this.vsPrdCi!= "X")
+	{
+		this.ds_PrdCi.filter("COMM_CODE=='"+this.vsPrdCi+"'");
+	}
+}
+
+this.Tab_tabpage1_grd_Proc_onlbuttondown = function(obj:Grid, e:nexacro.GridMouseEventInfo)
+{
+	this.fn_SetFucusGrd("0","1");
+}
+
+this.Tab_tabpage1_grd_ProcDtl_onlbuttondown = function(obj:Grid, e:nexacro.GridMouseEventInfo)
+{
+	this.fn_SetFucusGrd("1","0");
+}
+
+this.Tab_ondragmove = function(obj:Tab,  e:nexacro.TabDragEventInfo)
+{
+	if ( this.f_drag == false ) 	return;
+
+	var nPosX, nPosY;
+
+	if ( e.button == "lbutton" )
+	{	
+		 if ( this.currArrange == "vertical"   )		{ 	nPosX = nexacro.toNumber(e.clientX);		}
+		
+		try 
+		{		
+			 if ( this.currArrange == "vertical"   )	{	this.Tab.tabpage1.div_verticalBar_move.setOffsetLeft(nPosX);	}
+		}
+		catch( ex ) {
+		}
+	}
+}
+
+
+this.div_verticalBar_move_ondrag = function(obj:ImageViewer, e:nexacro.DragEventInfo)
+{
+	this.currArrange = "vertical";
+	
+	this.nMoveX = nexacro.toNumber(obj.left);
+	this.nMoveY = nexacro.toNumber(obj.top);
+
+	this.f_drag = true;
+	
+	return true;
+}
+this.Tab_onlbuttonup = function(obj:Tab, e:nexacro.TabMouseEventInfo)
+{
+	if ( this.f_drag == false ) return;
+	
+	this.f_drag = false;
+
+	var nMoveValue;
+	
+	 if ( this.currArrange == "vertical" )
+	{
+		
+		this.Tab.tabpage1.div_verticalBar_move.setOffsetLeft(e.clientX);
+		nMoveValue = nexacro.toNumber(nexacro.toNumber(this.Tab.tabpage1.div_verticalBar_move.left) - this.nMoveX);		
+
+		this.Tab.tabpage1.Div00.set_width(nexacro.toNumber(this.Tab.tabpage1.Div00.width) + nMoveValue);	
+		this.Tab.tabpage1.Div01.set_left(nexacro.toNumber(this.Tab.tabpage1.Div01.left) + nMoveValue);
+		this.resultCntMain.setOffsetLeft(this.Tab.tabpage1.div_verticalBar_move.left-119);
+
+		if(this.Tab.tabpage1.div_verticalBar_move.getOffsetLeft(e.clientX) <= this.getOffsetLeft())
+		{
+			
+			this.Tab.tabpage1.div_verticalBar_move.set_left(this.getOffsetLeft()+10);
+			this.Tab.tabpage1.Div00.setOffsetRight(this.Tab.tabpage1.div_verticalBar_move.getOffsetLeft()-3);
+			this.Tab.tabpage1.Div01.setOffsetLeft(this.Tab.tabpage1.div_verticalBar_move.getOffsetLeft()+8);
+		}
+		else if (this.Tab.tabpage1.div_verticalBar_move.getOffsetRight(e.clientX) >= this.Tab.tabpage1.getOffsetRight()){
+			this.Tab.tabpage1.div_verticalBar_move.setOffsetLeft(this.Tab.tabpage1.getOffsetRight()-10);
+			this.Tab.tabpage1.Div00.setOffsetRight(this.Tab.tabpage1.div_verticalBar_move.getOffsetLeft()-3);
+			this.Tab.tabpage1.Div01.setOffsetLeft(this.Tab.tabpage1.div_verticalBar_move.getOffsetLeft()+8);
+		}
+	}
+}
+
+this.combo_ProcCd_onlbuttondown = function(obj:Combo, e:nexacro.MouseEventInfo)
+{
+	if(this.gfn_IsEmpty(e.posttext))
+	{
+        this.ds_Param.setColumn(0, "PROC_CODE", "");
+    }	
+}
+]]></Script>
+  </Form>
+</FDL>

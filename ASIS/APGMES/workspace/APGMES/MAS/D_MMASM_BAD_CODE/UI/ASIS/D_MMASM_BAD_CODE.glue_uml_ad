@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Glue:GlueDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Glue="http://www.glueframework.com/activitydiagram/" id="2" location="20,20" size="100,100">
+  <child xsi:type="Glue:InitialState" id="15" location="392,34" size="-1,-1" output="//@wire.2"/>
+  <child xsi:type="Glue:Activity" id="16" location="92,137" size="616,-1" input="//@wire.3" output="//@wire.0 //@wire.6" name="EventRouter">
+    <property key="class" value="com.Amore.MES.security.activity.SecureRouter"/>
+    <property key="description" value=""/>
+  </child>
+  <child xsi:type="Glue:Activity" id="17" location="177,250" size="133,-1" input="//@wire.0" output="//@wire.1" name="Search">
+    <property key="result-key" value="SearchListResult"/>
+    <property key="param-count" value="7"/>
+    <property key="class" value="com.Amore.MES.common.GridFilterProc"/>
+    <property key="param0" value="PLANT"/>
+    <property key="param1" value="COMM_CODE"/>
+    <property key="dao" value="apmes_dao"/>
+    <property key="param2" value="CUD_CI1"/>
+    <property key="sql-key" value="D_MMASM_BAD_CODE.SELECT"/>
+    <property key="param3" value="CUD_CI2"/>
+    <property key="param4" value="CUD_CI3"/>
+    <property key="param5" value="PLANT"/>
+    <property key="param6" value="USER_PRD_CI"/>
+    <property key="description" value=""/>
+  </child>
+  <child xsi:type="Glue:FinalState" id="18" location="402,437" size="-1,-1" input="//@wire.1 //@wire.5 //@wire.7"/>
+  <child xsi:type="Glue:Activity" id="25" location="336,76" size="137,-1" input="//@wire.2" output="//@wire.3" name="SetResultKeys">
+    <property key="ResultKeyList" value="SearchListResult|UpdatedCount|InsertedCount|DeletedCount"/>
+    <property key="class" value="com.Amore.MES.biz.AmoreSetResultKeyList"/>
+    <property key="description" value=""/>
+  </child>
+  <child xsi:type="Glue:Activity" id="36" location="363,250" size="287,-1" input="//@wire.6" output="//@wire.4 //@wire.7" name="SaveStates">
+    <property key="class" value="com.Amore.MES.MAS.D_MMASM_BAD_CODE_SAVE"/>
+    <property key="description" value=""/>
+  </child>
+  <child xsi:type="Glue:Activity" id="199" location="465,357" size="193,-1" input="//@wire.4" output="//@wire.5" name="Error">
+    <property key="class" value="com.Amore.MES.GEN.MGENM_ERROR"/>
+    <property key="description" value=""/>
+  </child>
+  <property key="tx1" value="true"/>
+  <property key="description" value=""/>
+  <wire id="12" guardcondition="find" firstRelativePoint="242,167" lastRelativePoint="242,250"/>
+  <wire id="13" guardcondition="success" firstRelativePoint="243,280" lastRelativePoint="401,446">
+    <bendpoint weight="0.5" firstDimension="0,180" secondDimension="-169,-2"/>
+  </wire>
+  <wire id="14" guardcondition="success" firstRelativePoint="241,57" lastRelativePoint="241,80"/>
+  <wire id="15" guardcondition="success" firstRelativePoint="404,106" lastRelativePoint="404,137">
+    <bendpoint weight="0.5" firstDimension="0,33" secondDimension="4,-28"/>
+  </wire>
+  <wire id="103" guardcondition="failure" firstRelativePoint="563,280" lastRelativePoint="563,357"/>
+  <wire id="104" guardcondition="success" firstRelativePoint="564,387" lastRelativePoint="422,446">
+    <bendpoint weight="0.5" firstDimension="3,74" secondDimension="152,-1"/>
+  </wire>
+  <wire id="111" guardcondition="multi" firstRelativePoint="561,167" lastRelativePoint="561,250"/>
+  <wire id="112" guardcondition="success" firstRelativePoint="412,280" lastRelativePoint="412,436"/>
+</Glue:GlueDiagram>

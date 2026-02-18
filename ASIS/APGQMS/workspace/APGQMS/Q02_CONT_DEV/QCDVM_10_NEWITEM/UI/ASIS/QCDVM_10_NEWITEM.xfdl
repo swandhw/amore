@@ -1,0 +1,760 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="QCDVM_10_NEWITEM" classname="QSOPM_20_SOP_CHANGE" left="0" top="0" width="1240" height="559" titletext="(내용물) 신제품 관리" onload="QCDVM_10_NEWITEM_onload" scrollbars="none" onsetfocus="QCDVM_10_NEWITEM_onsetfocus">
+    <Layouts>
+      <Layout>
+        <Static id="Static11" taborder="2" text="w20" cssclass="Guide_color2" visible="false" left="1220" top="0" right="0" height="559"/>
+        <Static id="Static10" taborder="1" text="w20" cssclass="Guide_color2" visible="false" left="0" top="0" width="20" height="559"/>
+        <Static id="Static12" taborder="0" text="h20" cssclass="Guide_color2" visible="false" left="20" top="0" right="20" height="20"/>
+        <Static id="titleName" taborder="3" text="(내용물) 신제품 관리" cssclass="title" left="20" top="20" width="249" height="22"/>
+        <Button id="button4" taborder="5" text="Excel" onclick="button4_onclick" cssclass="btn_WF_CRUD" top="20" right="195" width="70" height="22"/>
+        <Button id="button5" taborder="6" text="종료" onclick="button5_onclick" cssclass="btn_WF_CRUD" top="20" right="123" width="70" height="22"/>
+        <Button id="button1" taborder="7" text="조회" onclick="btnSearch_onclick" top="20" right="339" width="70" height="22" cssclass="btn_WF_CRUD"/>
+        <Button id="button2" taborder="8" text="등록" onclick="btnReset_onclick" cssclass="btn_WF_CRUD" top="20" right="267" width="70" height="22"/>
+        <Static id="Static34" taborder="9" text="h4" cssclass="Guide_color" visible="false" left="20" top="42" width="436" height="4"/>
+        <Static id="Static05" taborder="10" text="h4" cssclass="Guide_color" visible="false" left="564" top="42" width="436" height="4"/>
+        <Static id="Static00" taborder="33" text="h8" cssclass="Guide_color" visible="false" left="20" top="73" width="986" height="8"/>
+        <Static id="rectangle1" taborder="47" cssclass="spline" left="20" top="46" right="20" height="2"/>
+        <Div id="DivS" taborder="52" left="0" top="48" right="0" height="34" style="border:1 solid red ;" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Static id="caption00" taborder="29" cssclass="data_cell" left="414" top="0" right="20" height="26"/>
+              <Static id="Static00" taborder="27" text="h8" cssclass="Guide_color" visible="false" left="20" top="26" right="20" height="8"/>
+              <Static id="caption5" taborder="28" cssclass="data_cell" left="109" top="0" width="868" height="26"/>
+              <Radio id="rdoSearch_CI" taborder="30" columncount="2" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" cssclass="select1" left="985" top="5" width="226" height="18">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="datacolumn">Pilot 전체보기</Col>
+                      <Col id="codecolumn">1</Col>
+                    </Row>
+                    <Row>
+                      <Col id="datacolumn">Pilot 최종보기</Col>
+                      <Col id="codecolumn">2</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Combo id="cmbCUD_CI" taborder="31" value="C" text="사용" codecolumn="codecolumn" datacolumn="datacolumn" index="1" cssclass="upperSelect" left="894" top="3" width="80" height="20">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn"/>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">C</Col>
+                      <Col id="datacolumn">사용</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">D</Col>
+                      <Col id="datacolumn">사용안함</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="caption04" taborder="32" text="사용여부" cssclass="cell_title" left="814" top="0" width="78" height="26"/>
+              <Static id="labMATR_CODE" taborder="34" text="내용물코드" cssclass="cell_title" left="373" top="0" width="93" height="26"/>
+              <Calendar id="calDATE2" taborder="35" dateformat="yyyy-MM-dd" cssclass="upperInput" left="266" top="3" width="105" height="20" onkeyup="txt_Search_onkeyup" readonly="true"/>
+              <Static id="caption7" taborder="36" text="~" cssclass="cell_data" left="247" top="0" width="20" height="24" style="align:center middle;"/>
+              <Combo id="cmbDATE_CI" taborder="38" value="NI.RPT_DATE" text="발행일자" codecolumn="codecolumn" datacolumn="datacolumn" index="0" left="20" top="-1" width="100" height="27" style="background:#f3f3f3ff;">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">NI.RPT_DATE</Col>
+                      <Col id="datacolumn">발행일자</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">NP.PILOT_DATE</Col>
+                      <Col id="datacolumn">Pilot일자</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Edit id="txtMATR_CODE" taborder="39" left="468" top="3" width="80" height="20" onkeyup="txt_Search_onkeyup"/>
+              <Button id="btnExpandSearch" taborder="40" text="확장검색" onclick="btnExpandSearch_onclick" left="550" top="3" width="65" height="20"/>
+              <Static id="labMATR_CODE00" taborder="41" text="내용물명" cssclass="cell_title" left="617" top="0" width="93" height="26"/>
+              <Edit id="txtMATR_NAME" taborder="42" left="712" top="3" width="100" height="20" onkeyup="txt_Search_onkeyup"/>
+              <CheckBox id="chk_DATE" taborder="43" left="123" top="3" width="16" height="20" value="false" onchanged="DivS_chk_DATE_onchanged"/>
+              <Calendar id="calDATE1" taborder="37" dateformat="yyyy-MM-dd" cssclass="upperInput" left="142" top="3" width="105" height="20" onkeyup="txt_Search_onkeyup" readonly="true"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="DivR" taborder="53" left="0" top="82" right="0" bottom="0" style="border:1 solid red ;" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Tab id="Tab00" taborder="0" left="20" top="0" right="20" bottom="20" tabindex="0" scrollbars="autoboth" onchanged="DivR_Tab00_onchanged">
+                <Tabpages>
+                  <Tabpage id="tabpage1" text="조회">
+                    <Layouts>
+                      <Layout width="980" height="456">
+                        <Static id="caption2" taborder="11" text="조회내역" cssclass="sub_title" left="0" top="8" width="436" height="20"/>
+                        <Static id="Static07" taborder="12" text="h4" cssclass="Guide_color" visible="false" left="0" top="28" width="979" height="4"/>
+                        <Static id="Static06" taborder="13" text="h8" cssclass="Guide_color" visible="false" left="0" top="0" width="979" height="8"/>
+                        <Grid id="grd_NEWITEM_LIST" taborder="14" binddataset="ds_NEWITEM_LIST" useinputpanel="false" selecttype="cell" left="0" top="32" right="0" bottom="0" oncelldblclick="grd_NEWITEM_LIST_oncelldblclick">
+                          <Formats>
+                            <Format id="default">
+                              <Columns>
+                                <Column size="40"/>
+                                <Column size="80"/>
+                                <Column size="300"/>
+                                <Column size="80"/>
+                                <Column size="80"/>
+                                <Column size="200"/>
+                                <Column size="90"/>
+                                <Column size="200"/>
+                                <Column size="120"/>
+                                <Column size="70"/>
+                                <Column size="70"/>
+                                <Column size="60"/>
+                                <Column size="60"/>
+                                <Column size="50"/>
+                                <Column size="50"/>
+                                <Column size="50"/>
+                                <Column size="50"/>
+                                <Column size="80"/>
+                                <Column size="60"/>
+                                <Column size="80"/>
+                                <Column size="80"/>
+                                <Column size="80"/>
+                                <Column size="0"/>
+                                <Column size="100"/>
+                                <Column size="200"/>
+                                <Column size="250"/>
+                                <Column size="70"/>
+                                <Column size="250"/>
+                                <Column size="250"/>
+                                <Column size="500"/>
+                                <Column size="500"/>
+                              </Columns>
+                              <Rows>
+                                <Row size="24" band="head"/>
+                                <Row size="24" band="head"/>
+                                <Row size="24"/>
+                              </Rows>
+                              <Band id="head">
+                                <Cell rowspan="2"/>
+                                <Cell col="1" rowspan="2" text="내용물코드"/>
+                                <Cell col="2" rowspan="2" text="내용물명"/>
+                                <Cell col="3" rowspan="2" text="발행일"/>
+                                <Cell col="4" rowspan="2" text="연구원"/>
+                                <Cell col="5" rowspan="2" text="제형"/>
+                                <Cell col="6" rowspan="2" text="기능성"/>
+                                <Cell col="7" rowspan="2" text="성상"/>
+                                <Cell col="8" rowspan="2" text="신원료"/>
+                                <Cell col="9" rowspan="2" text="종합판정"/>
+                                <Cell col="10" rowspan="2" text="혁신상품&#13;&#10;특성분류"/>
+                                <Cell col="11" rowspan="2" text="사용&#13;&#10;기한"/>
+                                <Cell col="12" rowspan="2" text="SAP&#13;&#10;사용기한"/>
+                                <Cell col="13" rowspan="2" text="규격서"/>
+                                <Cell col="14" rowspan="2" text="4주&#13;&#10;안정도"/>
+                                <Cell col="15" colspan="10" text="Pilot"/>
+                                <Cell col="25" rowspan="2" text="카운터"/>
+                                <Cell col="26" colspan="2" text="연계홋수"/>
+                                <Cell col="28" rowspan="2" text="기능성 원료리스트"/>
+                                <Cell col="29" rowspan="2" text="제품특징"/>
+                                <Cell col="30" rowspan="2" text="기타정보"/>
+                                <Cell row="1" col="15" text="차수"/>
+                                <Cell row="1" col="16" text="의뢰"/>
+                                <Cell row="1" col="17" text="일자"/>
+                                <Cell row="1" col="18" text="구분"/>
+                                <Cell row="1" col="19" text="오더번호"/>
+                                <Cell row="1" col="20" text="제조번호"/>
+                                <Cell row="1" col="21" text="익일판정"/>
+                                <Cell row="1" col="22" text="1주차 안정도판정"/>
+                                <Cell row="1" col="23" text="안정도판정"/>
+                                <Cell row="1" col="24" text="MES 진행사항"/>
+                                <Cell row="1" col="26" text="상위"/>
+                                <Cell row="1" col="27" text="하위"/>
+                              </Band>
+                              <Band id="body">
+                                <Cell celltype="head" expr="currow+1"/>
+                                <Cell col="1" text="bind:MATR_CODE" suppress="1"/>
+                                <Cell col="2" style="align:left;" text="bind:MATR_NAME" suppress="2"/>
+                                <Cell col="3" displaytype="date" text="bind:RPT_DATE" suppress="3" calendardisplaynulltype="none"/>
+                                <Cell col="4" text="bind:RESEARCH_USER" suppress="4"/>
+                                <Cell col="5" style="align:left;" text="bind:CODE_NAME" suppress="5"/>
+                                <Cell col="6" text="bind:FUNCTION_NAME" suppress="6"/>
+                                <Cell col="7" style="align:left;" text="bind:SHAPE_TEXT" suppress="9"/>
+                                <Cell col="8" style="align:left;" text="bind:NEW_MATR" suppress="10"/>
+                                <Cell col="9" text="bind:RESULT_FINAL_JUDG" suppress="11"/>
+                                <Cell col="10" text="bind:INNO_PRD_CI" suppress="12"/>
+                                <Cell col="11" displaytype="combo" text="bind:USE_LIMIT" suppress="13" combodataset="ds_LIMIT" combocodecol="CODE" combodatacol="CODE_NAME"/>
+                                <Cell col="12" displaytype="combo" text="bind:SAP_USE_LIMIT" suppress="14" combodataset="ds_LIMIT" combocodecol="CODE" combodatacol="CODE_NAME"/>
+                                <Cell col="13" text="bind:SPEC_YN" suppress="15"/>
+                                <Cell col="14" text="bind:STAB_YN" suppress="16"/>
+                                <Cell col="15" text="bind:PILOT_SEQ"/>
+                                <Cell col="16" displaytype="combo" text="bind:STAB_REQ_CI" combodataset="ds_STAB_REQ_CI" combocodecol="CODE" combodatacol="CODE_NAME"/>
+                                <Cell col="17" displaytype="date" text="bind:PILOT_DATE" calendardisplaynulltype="none"/>
+                                <Cell col="18" text="bind:MNU_TYPE"/>
+                                <Cell col="19" text="bind:MNU_ORDER"/>
+                                <Cell col="20" text="bind:MNU_NO"/>
+                                <Cell col="21" text="bind:NEXTDAY_JUDG"/>
+                                <Cell col="22" style="align:center middle;" text="bind:WK1_QMS_PLOT_STAB_JUDG_CD"/>
+                                <Cell col="23" style="align:center middle;" text="bind:STAB_JUDG"/>
+                                <Cell col="24" displaytype="text" style="align:left top;" text="bind:ETC"/>
+                                <Cell col="25" style="align:left middle;" text="bind:CNT"/>
+                                <Cell col="26" text="bind:CONN_MATR_CODE"/>
+                                <Cell col="27" style="align:left middle;" text="bind:DOWN_CONN_MATR_CODE"/>
+                                <Cell col="28" displaytype="text" style="align:left;" text="bind:CMNT"/>
+                                <Cell col="29" displaytype="text" style="align:left top;" text="bind:PRD_CHAR" suppress="17" suppressalign="first,over"/>
+                                <Cell col="30" displaytype="text" style="align:left top;" text="bind:ETC_INFO" suppress="18" suppressalign="first,over"/>
+                              </Band>
+                            </Format>
+                          </Formats>
+                        </Grid>
+                        <Static id="txtSearch_Count" taborder="15" text="(조회건수 : 0건)" cssclass="cell_title" top="8" right="8" width="229" height="20" style="background:transparent;border:0 solid #d9d9d9ff ;align:right middle;"/>
+                      </Layout>
+                    </Layouts>
+                  </Tabpage>
+                  <Tabpage id="tabpage2" text="상세내역" url="Q02_CONT_DEV::QCDVM_10_NEWITEM_DTL.xfdl" scrollbars="alwaysvert" dragscrolltype="none"/>
+                  <Tabpage id="tabpage3" text="안정성검사" url="Q02_CONT_DEV::QCDVM_11_NEWITEM_STAB_DTL.xfdl"/>
+                  <Tabpage id="tabpage4" text="BOM 연결">
+                    <Layouts>
+                      <Layout>
+                        <Div id="bom_Div" taborder="0" left="0" top="0" right="0" bottom="0" url="Q02_CONT_DEV::QCDVM_11_NEWITEM_STAB_BOM.xfdl"/>
+                      </Layout>
+                    </Layouts>
+                  </Tabpage>
+                  <Tabpage id="tabpage5" text="변경이력" url="Q02_CONT_DEV::QCDVM_11_NEWITEM_CHNG_HISTORY.xfdl"/>
+                </Tabpages>
+              </Tab>
+            </Layout>
+          </Layouts>
+        </Div>
+        <WebBrowser id="webRd01" left="1271" top="168" taborder="54" visible="false" width="50" height="50"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_NEWITEM_LIST" firefirstcount="0" firenextcount="0" useclientlayout="true" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MATR_CODE" size="256" type="STRING"/>
+          <Column id="MATR_NAME" size="256" type="STRING"/>
+          <Column id="RPT_DATE" size="256" type="STRING"/>
+          <Column id="RESEARCH_USER" size="256" type="STRING"/>
+          <Column id="CODE_NAME" size="256" type="STRING"/>
+          <Column id="FUNCTION_NAME" size="256" type="STRING"/>
+          <Column id="SHAPE_TEXT" size="256" type="STRING"/>
+          <Column id="RESULT_FINAL_JUDG" size="256" type="STRING"/>
+          <Column id="INNO_PRD_CI" size="256" type="STRING"/>
+          <Column id="PILOT_SEQ" size="256" type="STRING"/>
+          <Column id="PILOT_DATE" size="256" type="STRING"/>
+          <Column id="MNU_TYPE" size="256" type="STRING"/>
+          <Column id="MNU_ORDER" size="256" type="STRING"/>
+          <Column id="MNU_NO" size="256" type="STRING"/>
+          <Column id="JUDG" size="256" type="STRING"/>
+          <Column id="STAB_JUDG" size="256" type="STRING"/>
+          <Column id="NEXTDAY_JUDG" type="STRING" size="256"/>
+          <Column id="NEW_MATR" type="STRING" size="256"/>
+          <Column id="USE_LIMIT" type="STRING" size="256"/>
+          <Column id="CNT" type="STRING" size="256"/>
+          <Column id="CONN_MATR_CODE" type="STRING" size="256"/>
+          <Column id="DOWN_CONN_MATR_CODE" type="STRING" size="256"/>
+          <Column id="CMNT" type="STRING" size="256"/>
+          <Column id="SAP_USE_LIMIT" type="STRING" size="256"/>
+          <Column id="STAB_REQ_CI" type="STRING" size="256"/>
+          <Column id="SPEC_YN" type="STRING" size="256"/>
+          <Column id="STAB_YN" type="STRING" size="256"/>
+          <Column id="PRD_CHAR" type="STRING" size="256"/>
+          <Column id="ETC_INFO" type="STRING" size="256"/>
+          <Column id="ETC" type="STRING" size="256"/>
+          <Column id="WK1_QMS_PLOT_STAB_JUDG_CD" size="256" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_LIMIT" firefirstcount="0" firenextcount="0" useclientlayout="true" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="CODE_NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">6</Col>
+            <Col id="CODE_NAME">6M</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">12</Col>
+            <Col id="CODE_NAME">12M</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">15</Col>
+            <Col id="CODE_NAME">15M</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">18</Col>
+            <Col id="CODE_NAME">18M</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">20</Col>
+            <Col id="CODE_NAME">20M</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">24</Col>
+            <Col id="CODE_NAME">24M</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">36</Col>
+            <Col id="CODE_NAME">36M</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_STAB_REQ_CI" firefirstcount="0" firenextcount="0" useclientlayout="true" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="CODE_NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/*************************   Program description   ****************************
+ File Name      : QCDVM_10_NEWITEM
+ File Desc.     : 
+ Author         : SMKWON
+ Create Date    : 2015/05/28
+ Change History :
+*******************************************************************************/
+
+/*****************************
+ *  공통 Script Include      *
+ ****************************/
+include "js::QMS_COMMON.xjs"
+
+/*****************************
+ *  화면 변수 선언부       *
+ ****************************/
+
+/***************************************************************************************************
+ *                                   화면 onload Event 처리 부분                                    *
+ ***************************************************************************************************/
+this.QCDVM_10_NEWITEM_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_FormLoadSetting(obj);	
+	this.gfn_GridSetting(obj);
+	this.gfn_DivBorderSetting(obj);
+	
+	// 화면 권한 체크 (버튼 활성,비활성 설정 // 1. 조회, 등록, 저장, 종료)
+	this.gfn_QmsCommL3AuthChk(true , "1");
+	
+	if (application.g_ds_Session.getColumn(0,"PLANT") != "CN20"){
+		this.DivR.Tab00.tabpage1.grd_NEWITEM_LIST.setFormatColProperty(this.DivR.Tab00.tabpage1.grd_NEWITEM_LIST.getBindCellIndex("body", "SAP_USE_LIMIT"), "size", 0); 
+	}
+		
+	// 뷰티만 안정성 의뢰 보이게 변경
+	if (application.g_ds_Session.getColumn(0,"PLANT") == "1110"){
+		if (application.g_ds_Session.getColumn(0,"USER_PRD_CI") != "MU"){
+			this.DivR.Tab00.tabpage1.grd_NEWITEM_LIST.setFormatColProperty(this.DivR.Tab00.tabpage1.grd_NEWITEM_LIST.getBindCellIndex("body", "SPEC_YN"), "size", 0); 
+			this.DivR.Tab00.tabpage1.grd_NEWITEM_LIST.setFormatColProperty(this.DivR.Tab00.tabpage1.grd_NEWITEM_LIST.getBindCellIndex("body", "STAB_YN"), "size", 0); 
+		}
+	
+		// ds_STAB_REQ_CI :: PILOT 안정성 의뢰
+		var sSvcNm = "QMS_COMM_CODE_LANG-service"; 
+		var sTransition = "find";
+		var sInDataSet  = "";
+		var sOutDataSet = "ds_STAB_REQ_CI=dsr_SearchListResult";
+		var sArgument =  this.gfn_ParamSetting("CODE_TABLE_ID", "NEW29")
+						+this.gfn_ParamSetting("HIGH_CODE", "") 
+						+this.gfn_ParamSetting("LANG_TYPE", application.g_ds_Session.getColumn(0,"LANG_TYPE"))
+						+this.gfn_ParamSetting("ADDQUEERYSTRING", "")
+						;					
+		this.gfn_Transaction(this, "find_STAB_REQ_CI", sTransition, sSvcNm ,sInDataSet, sOutDataSet, sArgument, "fn_CallBack");
+	}else{	
+		this.DivR.Tab00.tabpage1.grd_NEWITEM_LIST.setFormatColProperty(this.DivR.Tab00.tabpage1.grd_NEWITEM_LIST.getBindCellIndex("body", "STAB_REQ_CI"), "size", 0);
+	
+	}
+	
+	// 데일리 뷰티만 제품특징, 기타정보, 파일럿-MES진행사항 보이게 변경
+	if (application.g_ds_Session.getColumn(0,"PLANT") != "1111")
+	{
+		this.DivR.Tab00.tabpage1.grd_NEWITEM_LIST.setFormatColProperty(this.DivR.Tab00.tabpage1.grd_NEWITEM_LIST.getBindCellIndex("body", "PRD_CHAR"), "size", 0); 
+		this.DivR.Tab00.tabpage1.grd_NEWITEM_LIST.setFormatColProperty(this.DivR.Tab00.tabpage1.grd_NEWITEM_LIST.getBindCellIndex("body", "ETC_INFO"), "size", 0); 
+		this.DivR.Tab00.tabpage1.grd_NEWITEM_LIST.setFormatColProperty(this.DivR.Tab00.tabpage1.grd_NEWITEM_LIST.getBindCellIndex("body", "ETC"), "size", 0); 
+	}
+	
+	if (application.g_ds_Session.getColumn(0,"PLANT") == "1111")
+	{
+		// 데일리뷰티만 1주차 안정도 판정 보이게 변경
+		this.DivR.Tab00.tabpage1.grd_NEWITEM_LIST.setFormatColProperty(this.DivR.Tab00.tabpage1.grd_NEWITEM_LIST.getBindCellIndex("body", "WK1_QMS_PLOT_STAB_JUDG_CD"), "size", 100); 
+
+ 		// 데일리뷰티만 안정도 판정 -> 2주차 안정도 판정으로 보이게 변경
+ 		this.DivR.Tab00.tabpage1.grd_NEWITEM_LIST.setCellProperty("Head",28,"text", "2주차 안정도판정");
+	}
+	
+	//Create Date
+	var sDate  = new Date();
+	//Create Date String(YYYYMMDD)
+	var strday  =  sDate.getFullYear() + "";
+		strday += this.gfn_Right("0" + ( sDate.getMonth() - 0), 2);
+		strday += this.gfn_Right("0" +  sDate.getDate(), 2); 
+		
+	this.DivS.calDATE1.set_value( sDate.getFullYear() + "0101");	
+	this.DivS.calDATE2.set_value(this.gfn_Today());
+	
+	
+	// 뷰티(1110/1111) 변경이력 Tab에 focus 한번 준다.
+	if(application.g_ds_Session.getColumn(0,"PLANT") == "1110" || application.g_ds_Session.getColumn(0,"PLANT") == "1111"){
+		this.DivR.Tab00.set_tabindex(4); 
+		
+	// 뷰티(1110/1111)이 아니면 변경이력 Tab 삭제한다.
+	}else{
+		this.DivR.Tab00.removeTabpage(4);
+	}
+	this.DivR.Tab00.set_tabindex(2); 
+	this.DivR.Tab00.set_tabindex(1); 
+	
+//	this.gfn_LeftFrameShowHide("show");
+	this.gfn_LeftFrameShowHide("hide");
+	
+	//this.QCDVM_10_NEWITEM_onsetfocus();
+}
+
+/***************************************************************************************************
+ *                                 btnSearch_onclick( 조회 )                                      *
+ ***************************************************************************************************/
+this.btnSearch_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_Search("no");
+}
+
+this.fn_Search = function(sExpandSearch) {
+	var addQueryString="";
+	
+	//확장검색 (자재코드)
+	if( sExpandSearch == "ok" ){
+		if(application.g_ds_Param.rowcount > 0){
+			var addString = this.gfn_dsParamQuarryStr(application.g_ds_Param);
+			addQueryString = " AND NI.MATR_CODE IN(" + addString + ")";	
+		}
+	}
+	// 조회조건 활성화
+	if( this.DivS.visible == false ){
+		this.DivS.set_visible(true);
+		this.DivR.set_top(this.belowPosition);
+	}
+
+	//첫번째 탭 활성화
+	if(this.DivR.Tab00.tabindex != "0") {	
+		this.DivR.Tab00.set_tabindex(0);
+		return;
+	}
+	
+	if( this.DivS.chk_DATE.value == true){
+		var START_DATE = this.DivS.calDATE1.value;
+		var END_DATE = this.DivS.calDATE2.value;
+		var DATE_CI = this.DivS.cmbDATE_CI.value;
+	}else{
+		var START_DATE = "00000000";
+		var END_DATE = "99999999";
+		var DATE_CI = "NVL(NI.RPT_DATE,^00000000^)";	// 날짜 조건이 빠지면 무조건 발행일자 기준으로 조회하게 한다. pilot 일자는 null이 많음. 발행일자도 NULL이 많네 .. ㅠㅠ
+		
+		if( this.gfn_IsEmpty(addQueryString) && this.gfn_IsEmpty(this.DivS.txtMATR_CODE.value) && this.gfn_IsEmpty(this.DivS.txtMATR_NAME.value) ){
+			//5672	조회조건이 없으면 속도가 오래걸릴수 있습니다. 계속하시겠습니까?
+			var saveMsg = this.gfn_Message("5672", "YESNO");  
+			if (saveMsg == false) {
+				return;
+			}
+		}
+	}
+	
+	
+	
+	this.ds_NEWITEM_LIST.clearData();
+	
+	if( this.DivS.rdoSearch_CI.value == "1"){
+		// Pilot 전체보기
+		var sTransition = "find_New_Item_1";
+	}else{
+		// Pilot 최종보기
+		var sTransition = "find_New_Item_2";
+	}
+	var sSvcNm = "QCDVM_10_NEWITEM-service"; 	
+	var sInDataSet  = "";
+	var sOutDataSet = "ds_NEWITEM_LIST=dsr_SearchResultNewItem";
+	var sArgument = this.gfn_ParamSetting("PLANT", 			application.g_ds_Session.getColumn(0,"PLANT")) 
+					+this.gfn_ParamSetting("PRD_CI", 		application.g_ds_Session.getColumn(0,"USER_PRD_CI"))
+					+this.gfn_ParamSetting("CUD_CI", 		this.DivS.cmbCUD_CI.value) 
+					+this.gfn_ParamSetting("MATR_CODE", 	this.DivS.txtMATR_CODE.value)
+					+this.gfn_ParamSetting("MATR_NAME", 	this.DivS.txtMATR_NAME.value)
+					+this.gfn_ParamSetting("START_DATE",	START_DATE)
+					+this.gfn_ParamSetting("END_DATE", 		END_DATE) 
+					+this.gfn_ParamSetting("ADDQUEERYSTRING", 	addQueryString)
+					+this.gfn_ParamSetting("ADDQUEERYSTRING2", 	DATE_CI)	/* 발행일자:NI.RPT_DATE/ PILOT일자:NP.PILOT_DATE (전체보기에서만 사용함)*/
+					;
+	//필터적용				
+	sArgument += this.gfn_GetFilterParam(this.DivR.Tab00.tabpage1.grd_NEWITEM_LIST);
+	
+	this.gfn_Transaction(this, "find_New_Item", sTransition, sSvcNm ,sInDataSet, sOutDataSet, sArgument, "fn_CallBack");
+	
+	
+	
+}
+
+
+/***************************************************************************************************
+ *                                 grd_NEWITEM_LIST_oncelldblclick( 선택 )                                      *
+ ***************************************************************************************************/
+this.grd_NEWITEM_LIST_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{	
+	this.fn_matr_search(this.ds_NEWITEM_LIST.getColumn(e.row, "MATR_CODE"));
+}
+this.fn_matr_search = function (strCode) {
+	// 조회조건 비활성화
+	if( this.DivS.visible == true ){
+		this.belowPosition = this.DivR.top;//이전 top position 저장
+		
+		this.DivS.set_visible(false);
+		this.DivR.set_top(51);
+	}
+	
+	//두번째 탭 활성화
+	if(this.DivR.Tab00.tabindex != "1") {	
+		this.DivR.Tab00.set_tabindex(1); 
+	}
+	this.DivR.Tab00.tabpage2.btnReset_onclick("ALL");
+	this.DivR.Tab00.tabpage2.txt_MATR_CODE.set_value(strCode);
+	this.DivR.Tab00.tabpage2.fn_MATR_SEARCH();
+}
+/***************************************************************************************************
+ *										btnSave_onclick( 저장 )										*
+ ***************************************************************************************************/
+this.btnSave_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	if(this.DivR.Tab00.tabindex != "1") {	
+		this.DivR.Tab00.set_tabindex(1); 
+	}
+	
+	this.DivR.Tab00.tabpage2.btnSave_onclick();
+}
+
+/***************************************************************************************************
+ *										btnReset_onclick( 리셋 )									*
+ ***************************************************************************************************/
+this.btnReset_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	// 조회조건 비활성화
+	if( this.DivS.visible == true ){
+		this.belowPosition = this.DivR.top;//이전 top position 저장
+		
+		this.DivS.set_visible(false);
+		this.DivR.set_top(51);
+	}
+	
+	//두번째 탭 활성화
+	if(this.DivR.Tab00.tabindex != "1") {	
+		this.DivR.Tab00.set_tabindex(1); 
+	}
+	
+	this.DivR.Tab00.tabpage2.btnReset_onclick("ALL");
+}
+
+
+/***************************************************************************************************
+ *                                fn_CallBack                               *
+ ***************************************************************************************************/
+// Transaction 후 처리 해야 할 내용!
+
+this.fn_CallBack = function (sSvcID, nErrorCode, sErrorMsg) {
+
+	//transaction Error 처리
+	if(!this.gfn_CheckTranResult(this, sSvcID, nErrorCode, sErrorMsg)) return;
+	
+	switch(this.gfn_GetSvcId(sSvcID)) {//get service id 
+
+		case "find_New_Item":
+			// 조회건수 : 0건
+			this.DivR.Tab00.tabpage1.txtSearch_Count.set_text(this.gfn_GetMessage("1000",this.ds_NEWITEM_LIST.getRowCount()));
+			break;
+		case "find_STAB_REQ_CI":
+			break;
+		default:
+			break;
+	}
+}
+
+
+this.DivR_Tab00_onchanged = function(obj:Tab, e:nexacro.TabIndexChangeEventInfo)
+{
+	if(this.DivR.Tab00.tabindex == "0") {
+		// 조회
+		// 조회조건 활성화
+		if( this.DivS.visible == false ){
+			this.DivS.set_visible(true);
+			this.DivR.set_top(this.belowPosition);
+		}
+	}else{
+		// 상세내역
+		// 조회조건 비활성화
+		if( this.DivS.visible == true ){
+			this.belowPosition = this.DivR.top;//이전 top position 저장
+			
+			this.DivS.set_visible(false);
+			this.DivR.set_top(51);
+		}
+	}
+	
+	//안정성검사 탭 선택 시
+	//상세내역이 정보가 없으면 안정성 검사정보도 없다. 즉 상세내역을 먼저 조회해야 한다.
+	if(this.DivR.Tab00.tabindex == "2") {
+	
+		if( this.gfn_IsEmpty(this.DivR.Tab00.tabpage2.txt_MATR_CODE.value) ){
+			this.DivR.Tab00.tabpage3.txt_MATR_CODE.set_value("");
+			this.DivR.Tab00.tabpage3.fn_RESET();
+		}else if( this.gfn_Trim(this.DivR.Tab00.tabpage2.txt_MATR_CODE.value) != this.gfn_Trim(this.DivR.Tab00.tabpage3.txt_MATR_CODE.value)){
+			this.DivR.Tab00.tabpage3.txt_MATR_CODE.set_value(this.DivR.Tab00.tabpage2.txt_MATR_CODE.value);
+			this.DivR.Tab00.tabpage3.fn_MAIN_STAB_SETTING();
+		}
+	}
+	
+	
+	// BOM
+	if(this.DivR.Tab00.tabindex == "3") {
+		if( this.gfn_IsEmpty(this.DivR.Tab00.tabpage2.txt_MATR_CODE.value) ){
+			this.DivR.Tab00.tabpage4.bom_Div.txt_MATR_CODE.set_value("");
+			this.DivR.Tab00.tabpage4.bom_Div.txt_MATR_NAME.set_value("");
+			this.DivR.Tab00.tabpage4.bom_Div.ds_MAIN_BOM.clearData(); 
+		}else if( this.gfn_Trim(this.DivR.Tab00.tabpage2.txt_MATR_CODE.value) != this.gfn_Trim(this.DivR.Tab00.tabpage4.bom_Div.txt_MATR_CODE.value)){
+			this.DivR.Tab00.tabpage4.bom_Div.txt_MATR_CODE.set_value(this.DivR.Tab00.tabpage2.txt_MATR_CODE.value);
+			this.DivR.Tab00.tabpage4.bom_Div.txt_MATR_NAME.set_value(this.DivR.Tab00.tabpage2.txt_MATR_NAME.value); 
+			this.DivR.Tab00.tabpage4.bom_Div.btn_BOM_Refresh_onclick(); 			
+		}
+	}
+	
+	
+	// 이력조회
+	if(this.DivR.Tab00.tabindex == "4") {
+		if( this.gfn_IsEmpty(this.DivR.Tab00.tabpage2.txt_MATR_CODE.value) ){
+			this.DivR.Tab00.tabpage5.txt_MATR_CODE.set_value("");
+			this.DivR.Tab00.tabpage5.txt_MATR_NAME.set_value("");
+			this.DivR.Tab00.tabpage5.calDATE2.set_value(this.gfn_Today());
+			this.DivR.Tab00.tabpage5.calDATE1.set_value(this.gfn_AddDate(this.gfn_Today(), -365));
+			this.DivR.Tab00.tabpage5.ds_CHNG_INFO.clearData(); 			
+			
+		}else if( this.gfn_Trim(this.DivR.Tab00.tabpage2.txt_MATR_CODE.value) != this.gfn_Trim(this.DivR.Tab00.tabpage5.txt_MATR_CODE.value)){
+			this.DivR.Tab00.tabpage5.txt_MATR_CODE.set_value(this.DivR.Tab00.tabpage2.txt_MATR_CODE.value);
+			this.DivR.Tab00.tabpage5.txt_MATR_NAME.set_value(this.DivR.Tab00.tabpage2.txt_MATR_NAME.value); 
+			this.DivR.Tab00.tabpage5.txt_PLANT.set_value(application.g_ds_Session.getColumn(0,"PLANT"));
+			this.DivR.Tab00.tabpage5.calDATE2.set_value(this.gfn_Today());
+			this.DivR.Tab00.tabpage5.calDATE1.set_value(this.gfn_AddDate(this.gfn_Today(), -365));
+			this.DivR.Tab00.tabpage5.btn_Refresh_onclick(); 
+			
+		}else{
+			if( this.DivR.Tab00.tabpage2.vsChngHistoryFlag == true){
+				this.DivR.Tab00.tabpage2.vsChngHistoryFlag = false;
+				this.DivR.Tab00.tabpage5.btn_Refresh_onclick();
+			}
+		}
+	}
+	
+
+}
+
+
+/***************************************************************************************************
+ *                                 btnExpandSearch_onclick( 자재코드 확장검색 )                            *
+ ***************************************************************************************************/
+this.btnExpandSearch_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    this.gfn_OpenPopup("comExpandSearch","COMMON::comExpandSearch.xfdl",{title: this.DivS.labMATR_CODE.text },"fn_popupAfter");	
+}
+
+// 팝업 Callback
+this.fn_popupAfter = function(sPopupId, Variant)
+{
+	// 반환받은 문자열데이타 형변환(String, Array, Object) 처리
+	var rtn = this.gfn_GetPopupRtn();
+	
+	switch(sPopupId){
+		// 확장검색
+		case "comExpandSearch": 
+			if(rtn=="ok"){
+				if(application.g_ds_Param.rowcount > 0){
+					this.fn_Search("ok");
+				}
+			}
+			break;	
+		default:
+			break;
+	}
+}
+
+
+/***************************************************************************************************
+*					                            출력	                                           	*
+***************************************************************************************************/
+
+this.btnPRINT_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	if(this.gfn_IsEmpty(this.txt_MATR_CODE.value))
+	{
+		this.gfn_Message("5762","OK"); //5762	항목을 선택하여 주십시오.
+		return;
+	}
+    var sFileName = "QCDVM_10_NEWITEM_DTL_PRINT";
+	var sResultFileName="";
+	var sDirectPrint="";   
+	
+	var sParam1 = application.g_ds_Session.getColumn(0,"PLANT");
+	var sParam2 = this.txt_MATR_CODE.value;
+	
+	var sParam = "FILENAME="+sFileName+"&RESULTFILENAME="+sResultFileName+"&PARAM1="+sParam1+"&PARAM2="+sParam2+"&DIRECTPRINT="+this.gfn_DeleteUndefine(sDirectPrint)+"&LANG_TYPE="+application.g_ds_Session.getColumn(0,"LANG_TYPE");
+	this.webRd01.set_url(application.services["URL"].url + "callReport.jsp?"+encodeURI(sParam));
+}
+/***************************************************************************************************
+ *									button4_onclick( Excel Export )									*
+ ***************************************************************************************************/
+this.button4_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_ExportExcel();
+}
+/***************************************************************************************************
+ *										button5_onclick( 종료 )										*
+ ***************************************************************************************************/
+this.button5_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+/***************************************************************************************************
+ *							txt_Search_onkeyup(조회조건 입력후 Enter)							*
+ **************************************************************************************************/
+this.txt_Search_onkeyup = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	// Enter Key
+	if(e.keycode == 13){
+		this.btnSearch_onclick();
+	}
+}
+this.DivS_chk_DATE_onchanged = function(obj:CheckBox, e:nexacro.CheckBoxChangeEventInfo)
+{
+	if( this.DivS.chk_DATE.value == true){
+		this.DivS.calDATE1.set_readonly(false);
+		this.DivS.calDATE2.set_readonly(false);
+	}else{
+		this.DivS.calDATE1.set_readonly(true);
+		this.DivS.calDATE2.set_readonly(true);
+	}
+}
+/***************************************************************************************************
+ *										focus												*
+ **************************************************************************************************/
+this.QCDVM_10_NEWITEM_onsetfocus = function(obj:Form, e:nexacro.SetFocusEventInfo)
+{
+	if( !this.gfn_IsEmpty(application.g_Page_Param) ) {
+		var strCode = application.g_Page_Param;
+		//alert(strCode);
+		this.fn_matr_search(strCode);
+		application.g_Page_Param = "";
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

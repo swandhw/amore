@@ -1,0 +1,37 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+
+# OS
+.DS_Store
+*.suo
+*.sw?
+nul
+
+# IDE
+.vscode/
+.idea/
+
+# Temp/Backup
+temp_compare/
+p_backup/
+*.local
+
+# Claude
+.claude/
+
+# Backups / Old
+20260202/
+20260209/
+20260210/
+ASIS - */
+react/
+p_backup/
+temp_compare/

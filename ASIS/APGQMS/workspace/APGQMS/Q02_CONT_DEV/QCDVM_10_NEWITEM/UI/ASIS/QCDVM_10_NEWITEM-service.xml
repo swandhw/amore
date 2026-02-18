@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service name="QCDVM_10_NEWITEM-service" initial="SetResultKeys" xmlns="http://www.poscoict.com/glueframework/service">
+    <transaction-manager id="tx1" commit="true"/>
+    <activity name="SetResultKeys" class="com.Amore.MES.biz.AmoreSetResultKeyList">
+        <transition name="success" value="EventRouter"/>
+        <property name="ResultKeyList" value="SearchResultNewItem|SearchFIELD_SIZE|SearchFIELD_SIZE_MAIN|SearchFREESOGU|SearchFUNCAL_CI|SearchRISKGRADE|SearchMAININFO|SearchMAINFUNCAL|SearchMAINIMAGE|SearchMATR|Search_RTBLM|SearchMNULOCK|SearchNEWINSP|SearchResultMsg"/>
+    </activity>
+    <activity name="EventRouter" class="com.Amore.MES.security.activity.SecureRouter">
+        <transition name="find_RTBLM_FILE" value="Search_RTBLM_FILE"/>
+        <transition name="find_CHNG_HISTORY" value="Search_CHNG_HISTORY"/>
+        <transition name="find_MAIN_FUNCAL" value="Search_MAIN_FUNCAL"/>
+        <transition name="find_MAIN_MNU_LOCK" value="Search_MAIN_MNU_LOCK"/>
+        <transition name="find_RTBLM" value="Search_RTBLM"/>
+        <transition name="save_INSERT_NEWITEM" value="SAVE_INSERT_NEWITEM"/>
+        <transition name="find_FREESOGU" value="Search_FREESOGU"/>
+        <transition name="find_New_Item_2" value="Search_NEW_ITEM_2"/>
+        <transition name="find_New_Item_1" value="Search_NEW_ITEM_1"/>
+        <transition name="find_MAIN_IMAGE" value="Search_MAIN_IMAGE"/>
+        <transition name="find_NEW_INSP2" value="Search_NEW_INSP2"/>
+        <transition name="find_QULTY_RISK_GRADE" value="Search_QULTY_RISK_GRADE"/>
+        <transition name="save_UPDATE_RESULT" value="SAVE_UPDATE_RESULT"/>
+        <transition name="find_NEW_INSP" value="Search_NEW_INSP"/>
+        <transition name="find_FIELD_SIZE" value="Search_FIELD_SIZE"/>
+        <transition name="save_UPDATE_NEWITEM" value="SAVE_UPDATE_NEWITEM"/>
+        <transition name="find_MAIN_INFO" value="Search_MAIN_INFO"/>
+        <transition name="find_CNT_MATR" value="Search_CNT_MATR"/>
+        <transition name="find_FUNCAL_CI" value="Search_FUNCAL_CI"/>
+        <transition name="find_MATR" value="Search_MATR"/>
+        <transition name="save_UPDATE_NEWITEM2" value="SAVE_UPDATE_NEWITEM2"/>
+        <transition name="save_insp" value="SAVE_PIIOT_INSP"/>
+    </activity>
+    <activity name="Search_NEW_ITEM_1" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="apgqms_dao"/>
+        <property name="sql-key" value="QCDVM_10_NEWITEM.SELECT_1"/>
+        <property name="result-key" value="SearchResultNewItem"/>
+    </activity>
+    <activity name="Search_FREESOGU" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="apgqms_dao"/>
+        <property name="sql-key" value="QCDVM_10_NEWITEM.SELECT_FREESOGU"/>
+        <property name="result-key" value="SearchFREESOGU"/>
+    </activity>
+    <activity name="Search_MAIN_INFO" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="apgqms_dao"/>
+        <property name="sql-key" value="QCDVM_10_NEWITEM.SELECT_MAIN_INFO"/>
+        <property name="result-key" value="SearchMAININFO"/>
+    </activity>
+    <activity name="Search_QULTY_RISK_GRADE" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="apgqms_dao"/>
+        <property name="sql-key" value="QCDVM_10_NEWITEM.SELECT_RISK_GRADE"/>
+        <property name="result-key" value="SearchRISKGRADE"/>
+    </activity>
+    <activity name="SAVE_UPDATE_NEWITEM" class="com.Amore.MES.Q02_CONT_DEV.QCDVM_10_NEWITEM_SAVE_UPDATE">
+        <transition name="failure" value="Error"/>
+        <transition name="success" value="end"/>
+    </activity>
+    <activity name="Error" class="com.Amore.MES.GEN.MGENM_ERROR">
+        <transition name="success" value="end"/>
+    </activity>
+    <activity name="Search_FUNCAL_CI" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="apgqms_dao"/>
+        <property name="sql-key" value="QCDVM_10_NEWITEM.SELECT_FUNCAL_CI"/>
+        <property name="result-key" value="SearchFUNCAL_CI"/>
+    </activity>
+    <activity name="Search_MAIN_FUNCAL" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="apgqms_dao"/>
+        <property name="sql-key" value="QCDVM_10_NEWITEM.SELECT_MAIN_FUNCAL"/>
+        <property name="result-key" value="SearchMAINFUNCAL"/>
+    </activity>
+    <activity name="Search_FIELD_SIZE" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="apgqms_dao"/>
+        <property name="sql-key" value="QCDVM_10_NEWITEM.SELECT_FIELD_SIZE"/>
+        <property name="result-key" value="SearchFIELD_SIZE"/>
+    </activity>
+    <activity name="Search_MATR" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="apgqms_dao"/>
+        <property name="sql-key" value="QCDVM_10_NEWITEM.SELECT_MATR"/>
+        <property name="result-key" value="SearchMATR"/>
+    </activity>
+    <activity name="SAVE_INSERT_NEWITEM" class="com.Amore.MES.Q02_CONT_DEV.QCDVM_10_NEWITEM_SAVE_INSERT">
+        <transition name="failure" value="Error"/>
+        <transition name="success" value="end"/>
+    </activity>
+    <activity name="Search_MAIN_IMAGE" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="apgqms_dao"/>
+        <property name="sql-key" value="QCDVM_10_NEWITEM.SELECT_IMAGE"/>
+        <property name="result-key" value="SearchMAINIMAGE"/>
+    </activity>
+    <activity name="Search_NEW_ITEM_2" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="apgqms_dao"/>
+        <property name="sql-key" value="QCDVM_10_NEWITEM.SELECT_2"/>
+        <property name="result-key" value="SearchResultNewItem"/>
+    </activity>
+    <activity name="SAVE_UPDATE_NEWITEM2" class="com.Amore.MES.Q02_CONT_DEV.QCDVM_10_NEWITEM_SAVE_UPDATE2">
+        <transition name="failure" value="Error"/>
+        <transition name="success" value="end"/>
+    </activity>
+    <activity name="SAVE_UPDATE_RESULT" class="com.Amore.MES.Q02_CONT_DEV.QCDVM_10_NEWITEM_SAVE_UPDATE3">
+        <transition name="failure" value="Error"/>
+        <transition name="success" value="end"/>
+    </activity>
+    <activity name="Search_CNT_MATR" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="apgqms_dao"/>
+        <property name="sql-key" value="QCDVM_10_NEWITEM.SELECT_MATR"/>
+        <property name="result-key" value="SearchMATR"/>
+    </activity>
+    <activity name="Search_CHNG_HISTORY" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="apgqms_dao"/>
+        <property name="sql-key" value="QCDVM_10_NEWITEM.SELECT_CHNG_HISTORY"/>
+        <property name="result-key" value="SearchMATR"/>
+    </activity>
+    <activity name="Search_RTBLM" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="apgqms_dao"/>
+        <property name="sql-key" value="QCDVM_10_NEWITEM_SEARCH_RTBLM.SELECT"/>
+        <property name="result-key" value="Search_RTBLM"/>
+    </activity>
+    <activity name="Search_RTBLM_FILE" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="apgqms_dao"/>
+        <property name="sql-key" value="QCDVM_10_NEWITEM_SEARCH_RTBLM_ATFL.SELECT"/>
+        <property name="result-key" value="Search_RTBLM"/>
+    </activity>
+    <activity name="Search_MAIN_MNU_LOCK" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="param-bindings" value="DEPTNO=DeptnoP"/>
+        <property name="sql-key" value="QCDVM_10_NEWITEM.SELECT_MAIN_MNU_LOCK"/>
+        <property name="dao" value="apgqms_dao"/>
+        <property name="result-key" value="SearchMNULOCK"/>
+    </activity>
+    <activity name="Search_NEW_INSP" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="apgqms_dao"/>
+        <property name="sql-key" value="QCDVM_10_NEWITEM.SELECT_NEW_INSP"/>
+        <property name="result-key" value="SearchNEWINSP"/>
+    </activity>
+    <activity name="Search_NEW_INSP2" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="apgqms_dao"/>
+        <property name="sql-key" value="QCDVM_10_NEWITEM.SELECT_NEW_INSP2"/>
+        <property name="result-key" value="SearchNEWINSP"/>
+    </activity>
+    <activity name="SAVE_PIIOT_INSP" class="com.Amore.MES.Q02_CONT_DEV.QCDVM_10_NEWITEM_PILOT_INSP_SAVE">
+        <transition name="failure" value="Error"/>
+        <transition name="success" value="end"/>
+        <property name="result-key" value="SearchResultMsg"/>
+    </activity>
+</service>

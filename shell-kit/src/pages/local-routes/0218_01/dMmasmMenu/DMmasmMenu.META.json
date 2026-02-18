@@ -1,0 +1,599 @@
+{
+    "Form": {
+        "id": "D_MMASM_MENU",
+        "height": "768",
+        "left": "0",
+        "onload": "Form_onload",
+        "titletext": "My Menu 등록",
+        "top": "0",
+        "width": "1018",
+        "onsize": "D_MMASM_MENU_onsize"
+    },
+    "Datasets": [
+        {
+            "id": "ds_combo2",
+            "columns": [
+                {
+                    "id": "CODE_KOR_NAME_RE",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "COMM_CODE",
+                    "size": "256",
+                    "type": "STRING"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_datagrid1",
+            "columns": [
+                {
+                    "id": "CUD_TYPE",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "BIZ_CI",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "PROGRAM_NAME",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "PROGRAM_ID",
+                    "size": "256",
+                    "type": "STRING"
+                }
+            ],
+            "rows": [],
+            "useclientlayout": "true",
+            "oncolumnchanged": "ds_datagrid1_oncolumnchanged"
+        },
+        {
+            "id": "ds_combo1",
+            "columns": [
+                {
+                    "id": "CODE_KOR_NAME_RE",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "COMM_CODE",
+                    "size": "256",
+                    "type": "STRING"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_datagrid2",
+            "columns": [
+                {
+                    "id": "CUD_TYPE",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "BIZ_CI",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "PROGRAM_NAME",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "PROGRAM_ID",
+                    "size": "256",
+                    "type": "STRING"
+                }
+            ],
+            "rows": [],
+            "useclientlayout": "true",
+            "oncolumnchanged": "ds_datagrid2_oncolumnchanged"
+        },
+        {
+            "id": "ds_search",
+            "columns": [
+                {
+                    "id": "PLANT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BIZ_CI1",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BIZ_CI2",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PROC_ID",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "LANG_TYPE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CHNG_ID",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "false",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false",
+            "oncolumnchanged": "ds_search_oncolumnchanged"
+        }
+    ],
+    "Grids": [
+        {
+            "id": "datagrid1",
+            "binddataset": "ds_datagrid1",
+            "columns": [
+                {
+                    "id": "rowIndex",
+                    "binding": "expr:currow+1",
+                    "edittype": "none",
+                    "size": 34
+                },
+                {
+                    "id": "추가",
+                    "binding": "CUD_TYPE",
+                    "edittype": "checkbox",
+                    "displaytype": "checkbox",
+                    "style": "align:center middle;",
+                    "size": 36
+                },
+                {
+                    "id": "레벨",
+                    "binding": "BIZ_CI",
+                    "edittype": "normal",
+                    "style": "align:left middle;",
+                    "size": 185
+                },
+                {
+                    "id": "화면명",
+                    "binding": "PROGRAM_NAME",
+                    "edittype": "normal",
+                    "style": "align:left middle;",
+                    "size": 200
+                },
+                {
+                    "id": "화면ID",
+                    "binding": "PROGRAM_ID",
+                    "edittype": "normal",
+                    "style": "align:left middle;",
+                    "size": 199
+                }
+            ],
+            "columnSizes": [
+                34,
+                36,
+                185,
+                200,
+                199
+            ],
+            "rows": [
+                {
+                    "size": "48",
+                    "band": "head"
+                },
+                {
+                    "size": "24"
+                }
+            ],
+            "headCells": [
+                {},
+                {
+                    "col": "1",
+                    "text": "추가"
+                },
+                {
+                    "col": "2",
+                    "text": "레벨"
+                },
+                {
+                    "col": "3",
+                    "text": "화면명"
+                },
+                {
+                    "col": "4",
+                    "text": "화면ID"
+                }
+            ],
+            "bodyCells": [
+                {
+                    "expr": "currow+1"
+                },
+                {
+                    "col": "1",
+                    "displaytype": "checkbox",
+                    "edittype": "checkbox",
+                    "style": "align:center middle;",
+                    "text": "bind:CUD_TYPE"
+                },
+                {
+                    "col": "2",
+                    "style": "align:left middle;",
+                    "text": "bind:BIZ_CI"
+                },
+                {
+                    "col": "3",
+                    "style": "align:left middle;",
+                    "text": "bind:PROGRAM_NAME"
+                },
+                {
+                    "col": "4",
+                    "style": "align:left middle;",
+                    "text": "bind:PROGRAM_ID"
+                }
+            ],
+            "left": "20",
+            "ontextchanged": "datagrid1_ontextchanged",
+            "position": "absolute",
+            "top": "104",
+            "width": "481",
+            "bottom": "20"
+        },
+        {
+            "id": "datagrid2",
+            "binddataset": "ds_datagrid2",
+            "columns": [
+                {
+                    "id": "rowIndex",
+                    "binding": "expr:currow+1",
+                    "edittype": "none",
+                    "size": 34
+                },
+                {
+                    "id": "삭제",
+                    "binding": "CUD_TYPE",
+                    "edittype": "checkbox",
+                    "displaytype": "checkbox",
+                    "style": "align:center middle;",
+                    "size": 36
+                },
+                {
+                    "id": "레벨",
+                    "binding": "BIZ_CI",
+                    "edittype": "normal",
+                    "style": "align:left middle;",
+                    "size": 185
+                },
+                {
+                    "id": "화면명",
+                    "binding": "PROGRAM_NAME",
+                    "edittype": "normal",
+                    "style": "align:left middle;",
+                    "size": 200
+                },
+                {
+                    "id": "화면ID",
+                    "binding": "PROGRAM_ID",
+                    "edittype": "normal",
+                    "style": "align:left middle;",
+                    "size": 200
+                }
+            ],
+            "columnSizes": [
+                34,
+                36,
+                185,
+                200,
+                200
+            ],
+            "rows": [
+                {
+                    "size": "48",
+                    "band": "head"
+                },
+                {
+                    "size": "24"
+                }
+            ],
+            "headCells": [
+                {},
+                {
+                    "col": "1",
+                    "text": "삭제"
+                },
+                {
+                    "col": "2",
+                    "text": "레벨"
+                },
+                {
+                    "col": "3",
+                    "text": "화면명"
+                },
+                {
+                    "col": "4",
+                    "text": "화면ID"
+                }
+            ],
+            "bodyCells": [
+                {
+                    "expr": "currow+1"
+                },
+                {
+                    "col": "1",
+                    "displaytype": "checkbox",
+                    "edittype": "checkbox",
+                    "style": "align:center middle;",
+                    "text": "bind:CUD_TYPE"
+                },
+                {
+                    "col": "2",
+                    "style": "align:left middle;",
+                    "text": "bind:BIZ_CI"
+                },
+                {
+                    "col": "3",
+                    "style": "align:left middle;",
+                    "text": "bind:PROGRAM_NAME"
+                },
+                {
+                    "col": "4",
+                    "style": "align:left middle;",
+                    "text": "bind:PROGRAM_ID"
+                }
+            ],
+            "left": "517",
+            "ontextchanged": "datagrid2_ontextchanged",
+            "position": "absolute",
+            "top": "104",
+            "width": "481",
+            "bottom": "20"
+        }
+    ],
+    "Buttons": [
+        {
+            "id": "button1",
+            "taborder": "4",
+            "text": "조회",
+            "onclick": "button1_onclick",
+            "cssclass": "btn_04",
+            "enable": "false",
+            "top": "20",
+            "right": "339",
+            "width": "70",
+            "height": "22"
+        },
+        {
+            "id": "button3",
+            "taborder": "5",
+            "text": "저장",
+            "onclick": "button3_onclick",
+            "cssclass": "btn_04",
+            "enable": "false",
+            "top": "20",
+            "right": "267",
+            "width": "70",
+            "height": "22"
+        },
+        {
+            "id": "button4",
+            "taborder": "6",
+            "text": "Excel",
+            "onclick": "button4_onclick",
+            "cssclass": "btn_04",
+            "top": "20",
+            "right": "195",
+            "width": "70",
+            "height": "22"
+        },
+        {
+            "id": "button5",
+            "taborder": "7",
+            "text": "종료",
+            "onclick": "button5_onclick",
+            "cssclass": "btn_04",
+            "top": "20",
+            "right": "123",
+            "width": "70",
+            "height": "22"
+        }
+    ],
+    "Combos": [
+        {
+            "id": "combo2",
+            "codecolumn": "COMM_CODE",
+            "datacolumn": "CODE_KOR_NAME_RE",
+            "height": "20",
+            "innerdataset": "ds_combo2",
+            "left": "440",
+            "position": "absolute",
+            "top": "50",
+            "width": "194",
+            "type": "filterlike",
+            "onkeydown": "button1_onclick",
+            "onlbuttondown": "combo2_onlbuttondown",
+            "namecolumn": "CODE_KOR_NAME_RE",
+            "label": "화면레벨2"
+        },
+        {
+            "id": "combo1",
+            "codecolumn": "COMM_CODE",
+            "datacolumn": "CODE_KOR_NAME_RE",
+            "height": "20",
+            "innerdataset": "ds_combo1",
+            "left": "132",
+            "onchanged": "combo1_onchanged",
+            "position": "absolute",
+            "top": "50",
+            "width": "194",
+            "type": "filterlike",
+            "onlbuttondown": "combo1_onlbuttondown",
+            "namecolumn": "CODE_KOR_NAME_RE"
+        }
+    ],
+    "Statics": [
+        {
+            "id": "titleName",
+            "taborder": "3",
+            "text": "My Menu 등록",
+            "cssclass": "title",
+            "left": "20",
+            "top": "20",
+            "width": "531",
+            "height": "22"
+        },
+        {
+            "id": "caption5",
+            "cssclass": "data_cell",
+            "height": "26",
+            "left": "129",
+            "position": "absolute",
+            "text": "",
+            "top": "47",
+            "right": "20"
+        },
+        {
+            "id": "caption2",
+            "cssclass": "sub_title",
+            "height": "20",
+            "left": "20",
+            "position": "absolute",
+            "text": "전체 Menu List",
+            "top": "81",
+            "width": "116"
+        },
+        {
+            "id": "caption3",
+            "cssclass": "cell_title",
+            "height": "26",
+            "left": "328",
+            "position": "absolute",
+            "text": "화면레벨2",
+            "top": "47",
+            "width": "110"
+        },
+        {
+            "id": "caption4",
+            "cssclass": "cell_title",
+            "height": "26",
+            "left": "20",
+            "position": "absolute",
+            "text": "화면레벨1",
+            "top": "47",
+            "width": "110"
+        },
+        {
+            "id": "caption7",
+            "cssclass": "sub_title",
+            "height": "20",
+            "left": "517",
+            "position": "absolute",
+            "text": "My Menu List",
+            "top": "81",
+            "width": "112"
+        },
+        {
+            "id": "Static12",
+            "taborder": "1",
+            "text": "h20",
+            "cssclass": "Guide_color2",
+            "visible": "false",
+            "left": "20",
+            "top": "0",
+            "right": "20",
+            "height": "20"
+        },
+        {
+            "id": "Static10",
+            "taborder": "2",
+            "text": "w20",
+            "cssclass": "Guide_color2",
+            "visible": "false",
+            "left": "0",
+            "top": "0",
+            "width": "20",
+            "height": "590"
+        },
+        {
+            "id": "Static34",
+            "taborder": "8",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "42",
+            "width": "436",
+            "height": "4"
+        },
+        {
+            "id": "Static04",
+            "taborder": "9",
+            "cssclass": "sta_WF_schline",
+            "left": "20",
+            "top": "46",
+            "right": "20",
+            "height": "2"
+        },
+        {
+            "id": "Static06",
+            "taborder": "10",
+            "text": "h8",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "73",
+            "width": "436",
+            "height": "8"
+        },
+        {
+            "id": "Static07",
+            "taborder": "11",
+            "text": "h8",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "101",
+            "width": "436",
+            "height": "4"
+        },
+        {
+            "id": "caption_cnt1",
+            "taborder": "12",
+            "cssclass": "rtnDataCnt",
+            "left": "217",
+            "top": "81",
+            "right": "517",
+            "height": "20"
+        },
+        {
+            "id": "caption_cnt2",
+            "taborder": "13",
+            "cssclass": "rtnDataCnt",
+            "left": "714",
+            "top": "81",
+            "right": "20",
+            "height": "20"
+        }
+    ],
+    "Scripts": [],
+    "Splitters": [],
+    "Divs": [],
+    "Tabs": [],
+    "hasAuthCheck": false,
+    "hasCloseGuard": true,
+    "saveDsName": ""
+}

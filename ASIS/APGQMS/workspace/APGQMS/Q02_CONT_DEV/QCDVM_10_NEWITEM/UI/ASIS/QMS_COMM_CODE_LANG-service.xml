@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service name="QMS_COMM_CODE_LANG-service" initial="SetResultKeys" xmlns="http://www.poscoict.com/glueframework/service">
+    <transaction-manager id="tx1" commit="true"/>
+    <activity name="Search_Code_Table" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="apgqms_dao"/>
+        <property name="sql-key" value="CODE_TABLE_SELECT_LANG"/>
+        <property name="result-key" value="SearchListResult"/>
+    </activity>
+    <activity name="SetResultKeys" class="com.Amore.MES.biz.AmoreSetResultKeyList">
+        <transition name="success" value="EventRouter"/>
+        <property name="ResultKeyList" value="SearchListResult"/>
+    </activity>
+    <activity name="EventRouter" class="com.Amore.MES.security.activity.SecureRouter">
+        <transition name="find01" value="SearchMenuTopCode"/>
+        <transition name="find" value="Search_Code_Table"/>
+        <transition name="find2" value="Search_Code_Table2"/>
+        <transition name="find_tot" value="Search_Code_Table_Tot"/>
+    </activity>
+    <activity name="SearchMenuTopCode" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="apgqms_dao"/>
+        <property name="sql-key" value="MENU_TOP_CODE.SELECT"/>
+        <property name="result-key" value="SearchListResult"/>
+    </activity>
+    <activity name="Search_Code_Table2" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="apgqms_dao"/>
+        <property name="sql-key" value="CODE_TABLE_SELECT_LANG_COMM"/>
+        <property name="result-key" value="SearchListResult"/>
+    </activity>
+    <activity name="Search_Code_Table_Tot" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="sql-key" value="CODE_TABLE_SELECT_LANG_TOT"/>
+        <property name="result-key" value="SearchListResult"/>
+        <property name="dao" value="apgqms_dao"/>
+    </activity>
+</service>

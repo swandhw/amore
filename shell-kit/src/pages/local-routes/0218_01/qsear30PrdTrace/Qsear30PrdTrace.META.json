@@ -1,0 +1,5603 @@
+{
+    "Form": {
+        "id": "QSEAR_30_PRD_TRACE",
+        "classname": "QSEAR_30_PRD_TRACE",
+        "left": "0",
+        "top": "0",
+        "width": "1018",
+        "height": "559",
+        "titletext": "제품추적조회",
+        "onload": "QSEAR_30_PRD_TRACE_onload",
+        "scrollbars": "autoboth"
+    },
+    "Datasets": [
+        {
+            "id": "ds_JUDG",
+            "columns": [
+                {
+                    "id": "CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CODE_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_FER1",
+            "columns": [
+                {
+                    "id": "CHK",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "LOT_CREATE_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ORDER_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ORDER_SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BATCH_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PRD_LOT_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CI_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "JUDG_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "STRG_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_PDTQTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "HAL3_PACQTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CHECK_USER_CMNT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "START_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "END_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_CENTER",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_CENTER_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_MAN",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "REMARK",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SML_PRES_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_BARCODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_1",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_2",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_3",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_RESULT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_JUDG",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_CI",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_ORDER_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SUPP_CMPY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "HAL3_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_HAL3",
+            "columns": [
+                {
+                    "id": "CHK",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "LOT_CREATE_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ORDER_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BATCH_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CI_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "JUDG_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "STRG_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ROH6_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MNU_USER",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MNU_WRKCENTER",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CHECK_USER_CMNT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "STRG_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "START_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "END_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_EQUP01",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_EQUP03",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MNU_ORDERBY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TRAND_START_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TRAND_END_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_BARCODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_1",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_2",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_3",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_RESULT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_JUDG",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_CI",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_ORDER_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "USE_LIMIT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TO_USE_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ROH6_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_ROH6",
+            "columns": [
+                {
+                    "id": "CHK",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "LOT_CREATE_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CI_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "JUDG_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "STRG_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "HAL3_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SUPP_CMPY_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PARTITION_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PARTITION_HYST_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "RETEST_YN",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "RETEST_PERIOD",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CHECK_USER_CMNT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_BARCODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_1",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_2",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_3",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_RESULT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_JUDG",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_CI",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_ORDER_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_TAB0_ROH6",
+            "columns": [
+                {
+                    "id": "CHK",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "LOT_CREATE_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CI_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "JUDG_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "STRG_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "HAL3_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SUPP_CMPY_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PARTITION_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PARTITION_HYST_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "RETEST_YN",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "RETEST_PERIOD",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CHECK_USER_CMNT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_BARCODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_1",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_2",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_3",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_RESULT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_JUDG",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_CI",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_TAB0_FER1",
+            "columns": [
+                {
+                    "id": "CHK",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "LOT_CREATE_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ORDER_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ORDER_SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BATCH_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PRD_LOT_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CI_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "JUDG_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "STRG_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_PDTQTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "HAL3_PACQTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CHECK_USER_CMNT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "START_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "END_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_CENTER",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_CENTER_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_MAN",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "REMARK",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SML_PRES_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_BARCODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_1",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_2",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_3",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_RESULT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_JUDG",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_CI",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SUPP_CMPY",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_TAB0_HAL3",
+            "columns": [
+                {
+                    "id": "CHK",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "LOT_CREATE_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ORDER_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BATCH_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CI_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "JUDG_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "STRG_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ROH6_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MNU_USER",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MNU_WRKCENTER",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CHECK_USER_CMNT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "STRG_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "START_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "END_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_EQUP01",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_EQUP03",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MNU_ORDERBY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TRAND_START_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TRAND_END_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_BARCODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_1",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_2",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_3",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_RESULT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_JUDG",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_CI",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_TAB1_ROH6",
+            "columns": [
+                {
+                    "id": "CHK",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "LOT_CREATE_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CI_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "JUDG_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "STRG_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "HAL3_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SUPP_CMPY_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PARTITION_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PARTITION_HYST_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "RETEST_YN",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "RETEST_PERIOD",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CHECK_USER_CMNT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_BARCODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_1",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_2",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_3",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_RESULT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_JUDG",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_CI",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_TAB1_FER1",
+            "columns": [
+                {
+                    "id": "CHK",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "LOT_CREATE_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ORDER_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ORDER_SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BATCH_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PRD_LOT_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CI_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "JUDG_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "STRG_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_PDTQTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "HAL3_PACQTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CHECK_USER_CMNT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "START_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "END_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_CENTER",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_CENTER_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_MAN",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "REMARK",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SML_PRES_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_BARCODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_1",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_2",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_3",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_RESULT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_JUDG",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_CI",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SUPP_CMPY",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_TAB1_HAL3",
+            "columns": [
+                {
+                    "id": "CHK",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "LOT_CREATE_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ORDER_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BATCH_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CI_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "JUDG_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "STRG_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ROH6_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MNU_USER",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MNU_WRKCENTER",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CHECK_USER_CMNT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "STRG_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "START_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "END_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_EQUP01",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_EQUP03",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MNU_ORDERBY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TRAND_START_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TRAND_END_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_BARCODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_1",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_2",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_3",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_RESULT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_JUDG",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_CI",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "USE_LIMIT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TO_USE_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_TAB2_HAL3",
+            "columns": [
+                {
+                    "id": "CHK",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "LOT_CREATE_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ORDER_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BATCH_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CI_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "JUDG_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "STRG_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ROH6_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MNU_USER",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MNU_WRKCENTER",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CHECK_USER_CMNT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "STRG_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "START_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "END_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_EQUP01",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_EQUP03",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MNU_ORDERBY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TRAND_START_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TRAND_END_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_BARCODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_1",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_2",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_3",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_RESULT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_JUDG",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_CI",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "USE_LIMIT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TO_USE_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ROH6_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_TAB2_FER1",
+            "columns": [
+                {
+                    "id": "CHK",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "LOT_CREATE_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ORDER_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ORDER_SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BATCH_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PRD_LOT_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CI_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "JUDG_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "STRG_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_PDTQTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "HAL3_PACQTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CHECK_USER_CMNT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "START_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "END_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_CENTER",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_CENTER_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_MAN",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "REMARK",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SML_PRES_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_BARCODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_1",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_2",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_3",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_RESULT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_JUDG",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_CI",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SUPP_CMPY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "HAL3_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_TAB2_ROH6",
+            "columns": [
+                {
+                    "id": "CHK",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "LOT_CREATE_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CI_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "JUDG_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "STRG_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "HAL3_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SUPP_CMPY_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PARTITION_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PARTITION_HYST_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "RETEST_YN",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "RETEST_PERIOD",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CHECK_USER_CMNT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_BARCODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_1",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_2",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_3",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_RESULT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_JUDG",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_CI",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_RETEST_YN",
+            "columns": [
+                {
+                    "id": "CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CODE_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [
+                {
+                    "CODE": "Y",
+                    "CODE_NAME": "Retest Date"
+                },
+                {
+                    "CODE": "N",
+                    "CODE_NAME": "Expiry Date"
+                }
+            ],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_AuthPrdCI",
+            "columns": [
+                {
+                    "id": "CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CODE_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "USER_DEFINE0",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_QMS51",
+            "columns": [
+                {
+                    "id": "CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CODE_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "HIGH_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "USER_DEFINE0",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "USER_DEFINE1",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "useclientlayout": "true"
+        },
+        {
+            "id": "ds_QMS52",
+            "columns": [
+                {
+                    "id": "CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CODE_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "HIGH_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "USER_DEFINE0",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "USER_DEFINE1",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "useclientlayout": "true"
+        },
+        {
+            "id": "ds_FER_PRT",
+            "columns": [
+                {
+                    "id": "CHK",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "LOT_CREATE_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ORDER_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ORDER_SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BATCH_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PRD_LOT_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CI_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "JUDG_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "STRG_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_PDTQTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "HAL3_PACQTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CHECK_USER_CMNT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "START_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "END_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_CENTER",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_CENTER_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_MAN",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "REMARK",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SML_PRES_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_BARCODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_1",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_2",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_3",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_RESULT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_JUDG",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_CI",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_ORDER_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_PRT_RETURN",
+            "columns": [
+                {
+                    "id": "PRT_SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TOT_CNT",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_Param",
+            "columns": [
+                {
+                    "id": "PLANT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PRD_CI",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "START_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "END_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ADDQUEERYSTRING",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ADDQUEERYSTRING2",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ORDER_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BATCH_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PRD_LOT_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ViewPage",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_DETECT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FACTORY_CI",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "HAL3_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "HAL3_BATCH_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ROH6_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_ORDER_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PRD_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_ORDER",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_ORDER_SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MNU_ORDER",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MULTI_SEL",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "HAL1_2_TYPE",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [
+                {}
+            ]
+        },
+        {
+            "id": "ds_Service",
+            "columns": [
+                {
+                    "id": "Transition",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SvcId",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SvcNm",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "InDatasets",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "OutDatasets",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CallbackFunc",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "Async",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "Compress",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TraceLog",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ShowLoadingForSync",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [
+                {
+                    "Transition": "find_FER1",
+                    "SvcId": "find_FER1",
+                    "SvcNm": "QSEAR_30_PRD_TRACE-service",
+                    "InDatasets": "ds_Param=ds_Param",
+                    "OutDatasets": "ds_FER1=dsr_SearchResultFER1",
+                    "CallbackFunc": "fn_CallBack",
+                    "Async": null,
+                    "Compress": null,
+                    "TraceLog": null,
+                    "ShowLoadingForSync": null
+                },
+                {
+                    "Transition": "find_HAL3",
+                    "SvcNm": "QSEAR_30_PRD_TRACE-service",
+                    "SvcId": "find_HAL3",
+                    "OutDatasets": "ds_HAL3=dsr_SearchResultHAL3",
+                    "CallbackFunc": "fn_CallBack",
+                    "InDatasets": "ds_Param=ds_Param"
+                },
+                {
+                    "SvcNm": "QSEAR_30_PRD_TRACE-service",
+                    "Transition": "find_ROH6",
+                    "InDatasets": "ds_Param=ds_Param",
+                    "SvcId": "find_ROH6",
+                    "OutDatasets": "ds_ROH6=dsr_SearchResultROH6",
+                    "CallbackFunc": "fn_CallBack"
+                },
+                {
+                    "Transition": "find_HAL1_2",
+                    "SvcId": "find_HAL1_2",
+                    "SvcNm": "QSEAR_30_PRD_TRACE-service",
+                    "InDatasets": "ds_Param=ds_Param",
+                    "OutDatasets": "ds_HAL1_2=dsr_SearchResultHAL1_2",
+                    "CallbackFunc": "fn_CallBack",
+                    "Async": null
+                }
+            ],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_HAL1_2",
+            "columns": [
+                {
+                    "id": "CHK",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "LOT_CREATE_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ORDER_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ORDER_SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BATCH_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PRD_LOT_NO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CI_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "JUDG_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "STRG_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_PDTQTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "HAL3_PACQTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CHECK_USER_CMNT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "START_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "END_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_CENTER",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_CENTER_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_MAN",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "REMARK",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SML_PRES_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PAC_SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MICRO_TEST_BARCODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_1",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_2",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "BTRA_TEST_RESULT_3",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_RESULT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "FINAL_TEST_JUDG",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TEST_CI",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_ORDER_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "HAL3_TEST_LOT",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        }
+    ],
+    "Grids": [
+        {
+            "id": "grd_HAL1_2",
+            "binddataset": "ds_HAL1_2",
+            "columns": [
+                {
+                    "id": "rowIndex",
+                    "binding": "expr:currow+1",
+                    "edittype": "none",
+                    "head_rowspan": "2",
+                    "celltype": "head",
+                    "size": 30
+                },
+                {
+                    "id": "",
+                    "binding": "CHK",
+                    "edittype": "checkbox",
+                    "head_rowspan": "2",
+                    "head_displaytype": "checkbox",
+                    "displaytype": "checkbox",
+                    "size": 30
+                },
+                {
+                    "id": "자재구분",
+                    "binding": "TEST_CI",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 60
+                },
+                {
+                    "id": "검사로트",
+                    "binding": "TEST_LOT",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 90
+                },
+                {
+                    "id": "로트생성일",
+                    "binding": "LOT_CREATE_DATE",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "date",
+                    "calendardisplaynulltype": "none",
+                    "size": 80
+                },
+                {
+                    "id": "오더번호",
+                    "binding": "ORDER_NO",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 70
+                },
+                {
+                    "id": "오더\r\n순번",
+                    "binding": "ORDER_SEQ",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 40
+                },
+                {
+                    "id": "제조번호",
+                    "binding": "BATCH_NO",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left;padding:0 4 0 4;",
+                    "size": 100
+                },
+                {
+                    "id": "완제품LOT",
+                    "binding": "PRD_LOT_NO",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 101
+                },
+                {
+                    "id": "자재코드",
+                    "binding": "MATR_CODE",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 80
+                },
+                {
+                    "id": "자재명",
+                    "binding": "MATR_NAME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left;padding:0 0 0 4;",
+                    "size": 300
+                },
+                {
+                    "id": "판정",
+                    "binding": "JUDG_CODE",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "combo",
+                    "combodataset": "ds_JUDG",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME",
+                    "size": 80
+                },
+                {
+                    "id": "생산량\r\n(EA)",
+                    "binding": "STRG_QTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:right;padding:4 4 4 4;",
+                    "size": 60
+                },
+                {
+                    "id": "포장수량\r\n(EA)",
+                    "binding": "PAC_PDTQTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:right;padding:4 4 4 4;",
+                    "size": 60
+                },
+                {
+                    "id": "포장량\r\n(g)",
+                    "binding": "PAC_QTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:right;padding:4 4 4 4;",
+                    "size": 60
+                },
+                {
+                    "id": "내용물\r\n출고량(g)",
+                    "binding": "HAL3_PACQTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:right;padding:4 4 4 4;",
+                    "size": 60
+                },
+                {
+                    "id": "확인자\r\nComment",
+                    "binding": "CHECK_USER_CMNT",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left;padding:0 0 0 4;",
+                    "size": 120
+                },
+                {
+                    "id": "포장일자",
+                    "binding": "PAC_DATE",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 80
+                },
+                {
+                    "id": "작업시간",
+                    "binding": "START_TIME",
+                    "edittype": "normal",
+                    "head_colspan": "2",
+                    "size": 60
+                },
+                {
+                    "id": "종료",
+                    "binding": "END_TIME",
+                    "edittype": "normal",
+                    "size": 60
+                },
+                {
+                    "id": "설비코드",
+                    "binding": "WRK_CENTER",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 80
+                },
+                {
+                    "id": "포장설비",
+                    "binding": "WRK_CENTER_NAME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left;",
+                    "size": 150
+                },
+                {
+                    "id": "작업자",
+                    "binding": "WRK_MAN",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 60
+                },
+                {
+                    "id": "포장\r\n순번",
+                    "binding": "PAC_SEQ",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 38
+                },
+                {
+                    "id": "특이사항",
+                    "binding": "REMARK",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 80
+                },
+                {
+                    "id": "제조업체",
+                    "binding": "SML_PRES_CODE",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 80
+                },
+                {
+                    "id": "미생물 시험번호",
+                    "binding": "MICRO_TEST_LOT",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 110
+                },
+                {
+                    "id": "미생물 검사결과",
+                    "binding": "BTRA_TEST_RESULT_1",
+                    "edittype": "normal",
+                    "head_colspan": "5",
+                    "size": 40
+                },
+                {
+                    "id": "2일차",
+                    "binding": "BTRA_TEST_RESULT_2",
+                    "edittype": "normal",
+                    "size": 40
+                },
+                {
+                    "id": "2일+",
+                    "binding": "BTRA_TEST_RESULT_3",
+                    "edittype": "normal",
+                    "size": 40
+                },
+                {
+                    "id": "최종",
+                    "binding": "FINAL_TEST_RESULT",
+                    "edittype": "normal",
+                    "size": 40
+                },
+                {
+                    "id": "판정",
+                    "binding": "FINAL_TEST_JUDG",
+                    "edittype": "normal",
+                    "displaytype": "combo",
+                    "combodataset": "ds_JUDG",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME",
+                    "size": 40
+                }
+            ],
+            "columnSizes": [
+                30,
+                30,
+                60,
+                90,
+                80,
+                70,
+                40,
+                100,
+                101,
+                80,
+                300,
+                80,
+                60,
+                60,
+                60,
+                60,
+                120,
+                80,
+                60,
+                60,
+                80,
+                150,
+                60,
+                38,
+                80,
+                80,
+                110,
+                40,
+                40,
+                40,
+                40,
+                40
+            ],
+            "rows": [
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24"
+                }
+            ],
+            "headCells": [
+                {
+                    "rowspan": "2"
+                },
+                {
+                    "col": "1",
+                    "rowspan": "2",
+                    "displaytype": "checkbox",
+                    "edittype": "checkbox"
+                },
+                {
+                    "col": "2",
+                    "rowspan": "2",
+                    "text": "자재구분"
+                },
+                {
+                    "col": "3",
+                    "rowspan": "2",
+                    "text": "검사로트"
+                },
+                {
+                    "col": "4",
+                    "rowspan": "2",
+                    "text": "로트생성일"
+                },
+                {
+                    "col": "5",
+                    "rowspan": "2",
+                    "text": "오더번호"
+                },
+                {
+                    "col": "6",
+                    "rowspan": "2",
+                    "text": "오더\r\n순번"
+                },
+                {
+                    "col": "7",
+                    "rowspan": "2",
+                    "text": "제조번호"
+                },
+                {
+                    "col": "8",
+                    "rowspan": "2",
+                    "text": "완제품LOT"
+                },
+                {
+                    "col": "9",
+                    "rowspan": "2",
+                    "text": "자재코드"
+                },
+                {
+                    "col": "10",
+                    "rowspan": "2",
+                    "text": "자재명"
+                },
+                {
+                    "col": "11",
+                    "rowspan": "2",
+                    "text": "판정"
+                },
+                {
+                    "col": "12",
+                    "rowspan": "2",
+                    "text": "생산량\r\n(EA)"
+                },
+                {
+                    "col": "13",
+                    "rowspan": "2",
+                    "text": "포장수량\r\n(EA)"
+                },
+                {
+                    "col": "14",
+                    "rowspan": "2",
+                    "text": "포장량\r\n(g)"
+                },
+                {
+                    "col": "15",
+                    "rowspan": "2",
+                    "text": "내용물\r\n출고량(g)"
+                },
+                {
+                    "col": "16",
+                    "rowspan": "2",
+                    "text": "확인자\r\nComment"
+                },
+                {
+                    "col": "17",
+                    "rowspan": "2",
+                    "text": "포장일자"
+                },
+                {
+                    "col": "18",
+                    "colspan": "2",
+                    "text": "작업시간"
+                },
+                {
+                    "col": "20",
+                    "rowspan": "2",
+                    "text": "설비코드"
+                },
+                {
+                    "col": "21",
+                    "rowspan": "2",
+                    "text": "포장설비"
+                },
+                {
+                    "col": "22",
+                    "rowspan": "2",
+                    "text": "작업자"
+                },
+                {
+                    "col": "23",
+                    "rowspan": "2",
+                    "text": "포장\r\n순번"
+                },
+                {
+                    "col": "24",
+                    "rowspan": "2",
+                    "text": "특이사항"
+                },
+                {
+                    "col": "25",
+                    "rowspan": "2",
+                    "text": "제조업체"
+                },
+                {
+                    "col": "26",
+                    "rowspan": "2",
+                    "text": "미생물 시험번호"
+                },
+                {
+                    "col": "27",
+                    "colspan": "5",
+                    "text": "미생물 검사결과"
+                },
+                {
+                    "row": "1",
+                    "col": "18",
+                    "text": "시작"
+                },
+                {
+                    "row": "1",
+                    "col": "19",
+                    "text": "종료"
+                },
+                {
+                    "row": "1",
+                    "col": "27",
+                    "text": "1일차"
+                },
+                {
+                    "row": "1",
+                    "col": "28",
+                    "text": "2일차"
+                },
+                {
+                    "row": "1",
+                    "col": "29",
+                    "text": "2일+"
+                },
+                {
+                    "row": "1",
+                    "col": "30",
+                    "text": "최종"
+                },
+                {
+                    "row": "1",
+                    "col": "31",
+                    "text": "판정"
+                }
+            ],
+            "bodyCells": [
+                {
+                    "celltype": "head",
+                    "expr": "currow+1"
+                },
+                {
+                    "col": "1",
+                    "displaytype": "checkbox",
+                    "edittype": "checkbox",
+                    "text": "bind:CHK"
+                },
+                {
+                    "col": "2",
+                    "text": "bind:TEST_CI"
+                },
+                {
+                    "col": "3",
+                    "text": "bind:TEST_LOT"
+                },
+                {
+                    "col": "4",
+                    "displaytype": "date",
+                    "text": "bind:LOT_CREATE_DATE",
+                    "calendardisplaynulltype": "none"
+                },
+                {
+                    "col": "5",
+                    "text": "bind:ORDER_NO"
+                },
+                {
+                    "col": "6",
+                    "text": "bind:ORDER_SEQ"
+                },
+                {
+                    "col": "7",
+                    "style": "align:left;padding:0 4 0 4;",
+                    "text": "bind:BATCH_NO"
+                },
+                {
+                    "col": "8",
+                    "text": "bind:PRD_LOT_NO"
+                },
+                {
+                    "col": "9",
+                    "text": "bind:MATR_CODE"
+                },
+                {
+                    "col": "10",
+                    "style": "align:left;padding:0 0 0 4;",
+                    "text": "bind:MATR_NAME"
+                },
+                {
+                    "col": "11",
+                    "displaytype": "combo",
+                    "text": "bind:JUDG_CODE",
+                    "combodataset": "ds_JUDG",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME"
+                },
+                {
+                    "col": "12",
+                    "displaytype": "normal",
+                    "style": "align:right;padding:4 4 4 4;",
+                    "text": "bind:STRG_QTY"
+                },
+                {
+                    "col": "13",
+                    "displaytype": "normal",
+                    "style": "align:right;padding:4 4 4 4;",
+                    "text": "bind:PAC_PDTQTY"
+                },
+                {
+                    "col": "14",
+                    "displaytype": "normal",
+                    "style": "align:right;padding:4 4 4 4;",
+                    "text": "bind:PAC_QTY"
+                },
+                {
+                    "col": "15",
+                    "displaytype": "normal",
+                    "style": "align:right;padding:4 4 4 4;",
+                    "text": "bind:HAL3_PACQTY"
+                },
+                {
+                    "col": "16",
+                    "style": "align:left;padding:0 0 0 4;",
+                    "text": "bind:CHECK_USER_CMNT"
+                },
+                {
+                    "col": "17",
+                    "text": "bind:PAC_DATE"
+                },
+                {
+                    "col": "18",
+                    "text": "bind:START_TIME"
+                },
+                {
+                    "col": "19",
+                    "text": "bind:END_TIME"
+                },
+                {
+                    "col": "20",
+                    "text": "bind:WRK_CENTER"
+                },
+                {
+                    "col": "21",
+                    "style": "align:left;",
+                    "text": "bind:WRK_CENTER_NAME"
+                },
+                {
+                    "col": "22",
+                    "text": "bind:WRK_MAN"
+                },
+                {
+                    "col": "23",
+                    "text": "bind:PAC_SEQ"
+                },
+                {
+                    "col": "24",
+                    "text": "bind:REMARK"
+                },
+                {
+                    "col": "25",
+                    "text": "bind:SML_PRES_CODE"
+                },
+                {
+                    "col": "26",
+                    "text": "bind:MICRO_TEST_LOT"
+                },
+                {
+                    "col": "27",
+                    "text": "bind:BTRA_TEST_RESULT_1"
+                },
+                {
+                    "col": "28",
+                    "text": "bind:BTRA_TEST_RESULT_2"
+                },
+                {
+                    "col": "29",
+                    "text": "bind:BTRA_TEST_RESULT_3"
+                },
+                {
+                    "col": "30",
+                    "text": "bind:FINAL_TEST_RESULT"
+                },
+                {
+                    "col": "31",
+                    "displaytype": "combo",
+                    "text": "bind:FINAL_TEST_JUDG",
+                    "combodataset": "ds_JUDG",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME"
+                }
+            ],
+            "taborder": "26",
+            "useinputpanel": "false",
+            "selecttype": "cell",
+            "onheadclick": "Div_HAL1_2_grd_HAL1_2_onheadclick",
+            "left": "20",
+            "top": "114",
+            "right": "20",
+            "bottom": "10",
+            "visible": "false"
+        },
+        {
+            "id": "grd_ROH6",
+            "binddataset": "ds_ROH6",
+            "columns": [
+                {
+                    "id": "rowIndex",
+                    "binding": "expr:currow+1",
+                    "edittype": "none",
+                    "head_rowspan": "2",
+                    "celltype": "head",
+                    "size": 30
+                },
+                {
+                    "id": "",
+                    "binding": "CHK",
+                    "edittype": "checkbox",
+                    "head_rowspan": "2",
+                    "head_displaytype": "checkbox",
+                    "displaytype": "checkbox",
+                    "size": 30
+                },
+                {
+                    "id": "자재구분",
+                    "binding": "TEST_CI",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 60
+                },
+                {
+                    "id": "검사로트",
+                    "binding": "TEST_LOT",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 90
+                },
+                {
+                    "id": "로트생성일",
+                    "binding": "LOT_CREATE_DATE",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "date",
+                    "calendardisplaynulltype": "none",
+                    "size": 80
+                },
+                {
+                    "id": "자재코드",
+                    "binding": "MATR_CODE",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 60
+                },
+                {
+                    "id": "자재명",
+                    "binding": "MATR_NAME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left;padding:0 0 0 4;",
+                    "size": 250
+                },
+                {
+                    "id": "판정",
+                    "binding": "JUDG_CODE",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "combo",
+                    "combodataset": "ds_JUDG",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME",
+                    "size": 80
+                },
+                {
+                    "id": "입고량",
+                    "binding": "STRG_QTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "size": 70
+                },
+                {
+                    "id": "내용물\r\n투입량(g)",
+                    "binding": "HAL3_QTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 70
+                },
+                {
+                    "id": "구입처",
+                    "binding": "SUPP_CMPY_NAME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left;padding:0 0 0 4;",
+                    "size": 120
+                },
+                {
+                    "id": "로트번호",
+                    "binding": "PARTITION_NO",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 90
+                },
+                {
+                    "id": "이력번호",
+                    "binding": "PARTITION_HYST_NO",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 90
+                },
+                {
+                    "id": "원료\r\n구분",
+                    "binding": "RETEST_YN",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "combo",
+                    "combodataset": "ds_RETEST_YN",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME",
+                    "size": 70
+                },
+                {
+                    "id": "유통\r\n기한",
+                    "binding": "RETEST_PERIOD",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 50
+                },
+                {
+                    "id": "확인자\r\nComment",
+                    "binding": "CHECK_USER_CMNT",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 80
+                },
+                {
+                    "id": "미생물 시험번호",
+                    "binding": "MICRO_TEST_LOT",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 110
+                },
+                {
+                    "id": "미생물 검사결과",
+                    "binding": "BTRA_TEST_RESULT_1",
+                    "edittype": "normal",
+                    "head_colspan": "5",
+                    "size": 40
+                },
+                {
+                    "id": "2일차",
+                    "binding": "BTRA_TEST_RESULT_2",
+                    "edittype": "normal",
+                    "size": 40
+                },
+                {
+                    "id": "2일+",
+                    "binding": "BTRA_TEST_RESULT_3",
+                    "edittype": "normal",
+                    "size": 40
+                },
+                {
+                    "id": "최종",
+                    "binding": "FINAL_TEST_RESULT",
+                    "edittype": "normal",
+                    "size": 40
+                },
+                {
+                    "id": "판정",
+                    "binding": "FINAL_TEST_JUDG",
+                    "edittype": "normal",
+                    "displaytype": "combo",
+                    "combodataset": "ds_JUDG",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME",
+                    "size": 40
+                }
+            ],
+            "columnSizes": [
+                30,
+                30,
+                60,
+                90,
+                80,
+                60,
+                250,
+                80,
+                70,
+                70,
+                120,
+                90,
+                90,
+                70,
+                50,
+                80,
+                110,
+                40,
+                40,
+                40,
+                40,
+                40
+            ],
+            "rows": [
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24"
+                }
+            ],
+            "headCells": [
+                {
+                    "rowspan": "2"
+                },
+                {
+                    "col": "1",
+                    "rowspan": "2",
+                    "displaytype": "checkbox",
+                    "edittype": "checkbox"
+                },
+                {
+                    "col": "2",
+                    "rowspan": "2",
+                    "text": "자재구분"
+                },
+                {
+                    "col": "3",
+                    "rowspan": "2",
+                    "text": "검사로트"
+                },
+                {
+                    "col": "4",
+                    "rowspan": "2",
+                    "text": "로트생성일"
+                },
+                {
+                    "col": "5",
+                    "rowspan": "2",
+                    "text": "자재코드"
+                },
+                {
+                    "col": "6",
+                    "rowspan": "2",
+                    "text": "자재명"
+                },
+                {
+                    "col": "7",
+                    "rowspan": "2",
+                    "text": "판정"
+                },
+                {
+                    "col": "8",
+                    "rowspan": "2",
+                    "text": "입고량"
+                },
+                {
+                    "col": "9",
+                    "rowspan": "2",
+                    "text": "내용물\r\n투입량(g)"
+                },
+                {
+                    "col": "10",
+                    "rowspan": "2",
+                    "text": "구입처"
+                },
+                {
+                    "col": "11",
+                    "rowspan": "2",
+                    "text": "로트번호"
+                },
+                {
+                    "col": "12",
+                    "rowspan": "2",
+                    "text": "이력번호"
+                },
+                {
+                    "col": "13",
+                    "rowspan": "2",
+                    "text": "원료\r\n구분"
+                },
+                {
+                    "col": "14",
+                    "rowspan": "2",
+                    "text": "유통\r\n기한"
+                },
+                {
+                    "col": "15",
+                    "rowspan": "2",
+                    "text": "확인자\r\nComment"
+                },
+                {
+                    "col": "16",
+                    "rowspan": "2",
+                    "text": "미생물 시험번호"
+                },
+                {
+                    "col": "17",
+                    "colspan": "5",
+                    "text": "미생물 검사결과"
+                },
+                {
+                    "row": "1",
+                    "col": "17",
+                    "text": "1일차"
+                },
+                {
+                    "row": "1",
+                    "col": "18",
+                    "text": "2일차"
+                },
+                {
+                    "row": "1",
+                    "col": "19",
+                    "text": "2일+"
+                },
+                {
+                    "row": "1",
+                    "col": "20",
+                    "text": "최종"
+                },
+                {
+                    "row": "1",
+                    "col": "21",
+                    "text": "판정"
+                }
+            ],
+            "bodyCells": [
+                {
+                    "celltype": "head",
+                    "expr": "currow+1"
+                },
+                {
+                    "col": "1",
+                    "displaytype": "checkbox",
+                    "edittype": "checkbox",
+                    "text": "bind:CHK"
+                },
+                {
+                    "col": "2",
+                    "text": "bind:TEST_CI"
+                },
+                {
+                    "col": "3",
+                    "text": "bind:TEST_LOT"
+                },
+                {
+                    "col": "4",
+                    "displaytype": "date",
+                    "text": "bind:LOT_CREATE_DATE",
+                    "calendardisplaynulltype": "none"
+                },
+                {
+                    "col": "5",
+                    "text": "bind:MATR_CODE"
+                },
+                {
+                    "col": "6",
+                    "style": "align:left;padding:0 0 0 4;",
+                    "text": "bind:MATR_NAME"
+                },
+                {
+                    "col": "7",
+                    "displaytype": "combo",
+                    "text": "bind:JUDG_CODE",
+                    "combodataset": "ds_JUDG",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME"
+                },
+                {
+                    "col": "8",
+                    "displaytype": "normal",
+                    "text": "bind:STRG_QTY"
+                },
+                {
+                    "col": "9",
+                    "text": "bind:HAL3_QTY"
+                },
+                {
+                    "col": "10",
+                    "style": "align:left;padding:0 0 0 4;",
+                    "text": "bind:SUPP_CMPY_NAME"
+                },
+                {
+                    "col": "11",
+                    "text": "bind:PARTITION_NO"
+                },
+                {
+                    "col": "12",
+                    "text": "bind:PARTITION_HYST_NO"
+                },
+                {
+                    "col": "13",
+                    "displaytype": "combo",
+                    "text": "bind:RETEST_YN",
+                    "combodataset": "ds_RETEST_YN",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME"
+                },
+                {
+                    "col": "14",
+                    "text": "bind:RETEST_PERIOD"
+                },
+                {
+                    "col": "15",
+                    "text": "bind:CHECK_USER_CMNT"
+                },
+                {
+                    "col": "16",
+                    "text": "bind:MICRO_TEST_LOT"
+                },
+                {
+                    "col": "17",
+                    "text": "bind:BTRA_TEST_RESULT_1"
+                },
+                {
+                    "col": "18",
+                    "text": "bind:BTRA_TEST_RESULT_2"
+                },
+                {
+                    "col": "19",
+                    "text": "bind:BTRA_TEST_RESULT_3"
+                },
+                {
+                    "col": "20",
+                    "text": "bind:FINAL_TEST_RESULT"
+                },
+                {
+                    "col": "21",
+                    "displaytype": "combo",
+                    "text": "bind:FINAL_TEST_JUDG",
+                    "combodataset": "ds_JUDG",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME"
+                }
+            ],
+            "taborder": "28",
+            "useinputpanel": "false",
+            "selecttype": "cell",
+            "onheadclick": "Div_ROH6_grd_ROH6_onheadclick",
+            "oncelldblclick": "Div_ROH6_grd_ROH6_oncelldblclick",
+            "left": "20",
+            "top": "114",
+            "right": "20",
+            "bottom": "10",
+            "visible": "false"
+        },
+        {
+            "id": "grd_HAL3",
+            "binddataset": "ds_HAL3",
+            "columns": [
+                {
+                    "id": "rowIndex",
+                    "binding": "expr:currow+1",
+                    "edittype": "none",
+                    "head_rowspan": "2",
+                    "celltype": "head",
+                    "size": 30
+                },
+                {
+                    "id": "",
+                    "binding": "CHK",
+                    "edittype": "checkbox",
+                    "head_rowspan": "2",
+                    "head_displaytype": "checkbox",
+                    "displaytype": "checkbox",
+                    "size": 30
+                },
+                {
+                    "id": "자재구분",
+                    "binding": "TEST_CI",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 60
+                },
+                {
+                    "id": "검사로트",
+                    "binding": "TEST_LOT",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 90
+                },
+                {
+                    "id": "로트생성일",
+                    "binding": "LOT_CREATE_DATE",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "date",
+                    "calendardisplaynulltype": "none",
+                    "size": 80
+                },
+                {
+                    "id": "오더번호",
+                    "binding": "ORDER_NO",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 60
+                },
+                {
+                    "id": "배치번호",
+                    "binding": "BATCH_NO",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 60
+                },
+                {
+                    "id": "자재코드",
+                    "binding": "MATR_CODE",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 80
+                },
+                {
+                    "id": "자재명",
+                    "binding": "MATR_NAME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left;padding:0 0 0 4;",
+                    "size": 250
+                },
+                {
+                    "id": "판정",
+                    "binding": "JUDG_CODE",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "combo",
+                    "combodataset": "ds_JUDG",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME",
+                    "size": 60
+                },
+                {
+                    "id": "제조량(g)",
+                    "binding": "STRG_QTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:right;",
+                    "size": 70
+                },
+                {
+                    "id": "포장\r\n출고량(g)",
+                    "binding": "PAC_QTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:right;",
+                    "size": 70
+                },
+                {
+                    "id": "원료\r\n투입량(g)",
+                    "binding": "ROH6_QTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:right;",
+                    "size": 70
+                },
+                {
+                    "id": "작업자",
+                    "binding": "MNU_USER",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 60
+                },
+                {
+                    "id": "제조장",
+                    "binding": "MNU_WRKCENTER",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 95
+                },
+                {
+                    "id": "확인자\r\nComment",
+                    "binding": "CHECK_USER_CMNT",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left;padding:0 0 0 4;",
+                    "size": 80
+                },
+                {
+                    "id": "제조일자",
+                    "binding": "STRG_DATE",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "date",
+                    "calendardisplaynulltype": "none",
+                    "size": 80
+                },
+                {
+                    "id": "작업시간",
+                    "binding": "START_TIME",
+                    "edittype": "normal",
+                    "head_colspan": "2",
+                    "size": 60
+                },
+                {
+                    "id": "종료",
+                    "binding": "END_TIME",
+                    "edittype": "normal",
+                    "size": 60
+                },
+                {
+                    "id": "제조설비",
+                    "binding": "WRK_EQUP01",
+                    "edittype": "normal",
+                    "head_colspan": "2",
+                    "size": 60
+                },
+                {
+                    "id": "냉각기",
+                    "binding": "WRK_EQUP03",
+                    "edittype": "normal",
+                    "size": 60
+                },
+                {
+                    "id": "제조\r\n순번",
+                    "binding": "MNU_ORDERBY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 40
+                },
+                {
+                    "id": "트렌드",
+                    "binding": "",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "button",
+                    "size": 51
+                },
+                {
+                    "id": "미생물 시험번호",
+                    "binding": "MICRO_TEST_LOT",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 110
+                },
+                {
+                    "id": "미생물 검사결과",
+                    "binding": "BTRA_TEST_RESULT_1",
+                    "edittype": "normal",
+                    "head_colspan": "5",
+                    "size": 40
+                },
+                {
+                    "id": "2일차",
+                    "binding": "BTRA_TEST_RESULT_2",
+                    "edittype": "normal",
+                    "size": 40
+                },
+                {
+                    "id": "2일+",
+                    "binding": "BTRA_TEST_RESULT_3",
+                    "edittype": "normal",
+                    "size": 40
+                },
+                {
+                    "id": "최종",
+                    "binding": "FINAL_TEST_RESULT",
+                    "edittype": "normal",
+                    "size": 40
+                },
+                {
+                    "id": "판정",
+                    "binding": "FINAL_TEST_JUDG",
+                    "edittype": "normal",
+                    "displaytype": "combo",
+                    "combodataset": "ds_JUDG",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME",
+                    "size": 40
+                }
+            ],
+            "columnSizes": [
+                30,
+                30,
+                60,
+                90,
+                80,
+                60,
+                60,
+                80,
+                250,
+                60,
+                70,
+                70,
+                70,
+                60,
+                95,
+                80,
+                80,
+                60,
+                60,
+                60,
+                60,
+                40,
+                51,
+                110,
+                40,
+                40,
+                40,
+                40,
+                40
+            ],
+            "rows": [
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24"
+                }
+            ],
+            "headCells": [
+                {
+                    "rowspan": "2"
+                },
+                {
+                    "col": "1",
+                    "rowspan": "2",
+                    "displaytype": "checkbox",
+                    "edittype": "checkbox"
+                },
+                {
+                    "col": "2",
+                    "rowspan": "2",
+                    "text": "자재구분"
+                },
+                {
+                    "col": "3",
+                    "rowspan": "2",
+                    "text": "검사로트"
+                },
+                {
+                    "col": "4",
+                    "rowspan": "2",
+                    "text": "로트생성일"
+                },
+                {
+                    "col": "5",
+                    "rowspan": "2",
+                    "text": "오더번호"
+                },
+                {
+                    "col": "6",
+                    "rowspan": "2",
+                    "text": "배치번호"
+                },
+                {
+                    "col": "7",
+                    "rowspan": "2",
+                    "text": "자재코드"
+                },
+                {
+                    "col": "8",
+                    "rowspan": "2",
+                    "text": "자재명"
+                },
+                {
+                    "col": "9",
+                    "rowspan": "2",
+                    "text": "판정"
+                },
+                {
+                    "col": "10",
+                    "rowspan": "2",
+                    "text": "제조량(g)"
+                },
+                {
+                    "col": "11",
+                    "rowspan": "2",
+                    "text": "포장\r\n출고량(g)"
+                },
+                {
+                    "col": "12",
+                    "rowspan": "2",
+                    "text": "원료\r\n투입량(g)"
+                },
+                {
+                    "col": "13",
+                    "rowspan": "2",
+                    "text": "작업자"
+                },
+                {
+                    "col": "14",
+                    "rowspan": "2",
+                    "text": "제조장"
+                },
+                {
+                    "col": "15",
+                    "rowspan": "2",
+                    "text": "확인자\r\nComment"
+                },
+                {
+                    "col": "16",
+                    "rowspan": "2",
+                    "text": "제조일자"
+                },
+                {
+                    "col": "17",
+                    "colspan": "2",
+                    "text": "작업시간"
+                },
+                {
+                    "col": "19",
+                    "colspan": "2",
+                    "text": "제조설비"
+                },
+                {
+                    "col": "21",
+                    "rowspan": "2",
+                    "text": "제조\r\n순번"
+                },
+                {
+                    "col": "22",
+                    "rowspan": "2",
+                    "text": "트렌드"
+                },
+                {
+                    "col": "23",
+                    "rowspan": "2",
+                    "text": "미생물 시험번호"
+                },
+                {
+                    "col": "24",
+                    "colspan": "5",
+                    "text": "미생물 검사결과"
+                },
+                {
+                    "row": "1",
+                    "col": "17",
+                    "text": "시작"
+                },
+                {
+                    "row": "1",
+                    "col": "18",
+                    "text": "종료"
+                },
+                {
+                    "row": "1",
+                    "col": "19",
+                    "text": "믹서기"
+                },
+                {
+                    "row": "1",
+                    "col": "20",
+                    "text": "냉각기"
+                },
+                {
+                    "row": "1",
+                    "col": "24",
+                    "text": "1일차"
+                },
+                {
+                    "row": "1",
+                    "col": "25",
+                    "text": "2일차"
+                },
+                {
+                    "row": "1",
+                    "col": "26",
+                    "text": "2일+"
+                },
+                {
+                    "row": "1",
+                    "col": "27",
+                    "text": "최종"
+                },
+                {
+                    "row": "1",
+                    "col": "28",
+                    "text": "판정"
+                }
+            ],
+            "bodyCells": [
+                {
+                    "celltype": "head",
+                    "expr": "currow+1"
+                },
+                {
+                    "col": "1",
+                    "displaytype": "checkbox",
+                    "edittype": "checkbox",
+                    "text": "bind:CHK"
+                },
+                {
+                    "col": "2",
+                    "text": "bind:TEST_CI"
+                },
+                {
+                    "col": "3",
+                    "text": "bind:TEST_LOT"
+                },
+                {
+                    "col": "4",
+                    "displaytype": "date",
+                    "text": "bind:LOT_CREATE_DATE",
+                    "calendardisplaynulltype": "none"
+                },
+                {
+                    "col": "5",
+                    "text": "bind:ORDER_NO"
+                },
+                {
+                    "col": "6",
+                    "text": "bind:BATCH_NO"
+                },
+                {
+                    "col": "7",
+                    "text": "bind:MATR_CODE"
+                },
+                {
+                    "col": "8",
+                    "style": "align:left;padding:0 0 0 4;",
+                    "text": "bind:MATR_NAME"
+                },
+                {
+                    "col": "9",
+                    "displaytype": "combo",
+                    "text": "bind:JUDG_CODE",
+                    "combodataset": "ds_JUDG",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME"
+                },
+                {
+                    "col": "10",
+                    "displaytype": "normal",
+                    "style": "align:right;",
+                    "text": "bind:STRG_QTY"
+                },
+                {
+                    "col": "11",
+                    "displaytype": "normal",
+                    "style": "align:right;",
+                    "text": "bind:PAC_QTY"
+                },
+                {
+                    "col": "12",
+                    "displaytype": "normal",
+                    "style": "align:right;",
+                    "text": "bind:ROH6_QTY"
+                },
+                {
+                    "col": "13",
+                    "text": "bind:MNU_USER"
+                },
+                {
+                    "col": "14",
+                    "text": "bind:MNU_WRKCENTER"
+                },
+                {
+                    "col": "15",
+                    "style": "align:left;padding:0 0 0 4;",
+                    "text": "bind:CHECK_USER_CMNT"
+                },
+                {
+                    "col": "16",
+                    "displaytype": "date",
+                    "text": "bind:STRG_DATE",
+                    "calendardisplaynulltype": "none"
+                },
+                {
+                    "col": "17",
+                    "text": "bind:START_TIME"
+                },
+                {
+                    "col": "18",
+                    "text": "bind:END_TIME"
+                },
+                {
+                    "col": "19",
+                    "text": "bind:WRK_EQUP01"
+                },
+                {
+                    "col": "20",
+                    "text": "bind:WRK_EQUP03"
+                },
+                {
+                    "col": "21",
+                    "text": "bind:MNU_ORDERBY"
+                },
+                {
+                    "col": "22",
+                    "displaytype": "button",
+                    "text": "TRAND"
+                },
+                {
+                    "col": "23",
+                    "text": "bind:MICRO_TEST_LOT"
+                },
+                {
+                    "col": "24",
+                    "text": "bind:BTRA_TEST_RESULT_1"
+                },
+                {
+                    "col": "25",
+                    "text": "bind:BTRA_TEST_RESULT_2"
+                },
+                {
+                    "col": "26",
+                    "text": "bind:BTRA_TEST_RESULT_3"
+                },
+                {
+                    "col": "27",
+                    "text": "bind:FINAL_TEST_RESULT"
+                },
+                {
+                    "col": "28",
+                    "displaytype": "combo",
+                    "text": "bind:FINAL_TEST_JUDG",
+                    "combodataset": "ds_JUDG",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME"
+                }
+            ],
+            "taborder": "27",
+            "useinputpanel": "false",
+            "selecttype": "cell",
+            "onheadclick": "Div_HAL3_grd_HAL3_onheadclick",
+            "oncelldblclick": "Div_HAL3_grd_HAL3_oncelldblclick",
+            "left": "20",
+            "top": "114",
+            "right": "20",
+            "bottom": "10",
+            "visible": "false"
+        },
+        {
+            "id": "grd_FER1",
+            "binddataset": "ds_FER1",
+            "columns": [
+                {
+                    "id": "rowIndex",
+                    "binding": "expr:currow+1",
+                    "edittype": "none",
+                    "head_rowspan": "2",
+                    "celltype": "head",
+                    "size": 30
+                },
+                {
+                    "id": "",
+                    "binding": "CHK",
+                    "edittype": "checkbox",
+                    "head_rowspan": "2",
+                    "head_displaytype": "checkbox",
+                    "displaytype": "checkbox",
+                    "size": 30
+                },
+                {
+                    "id": "자재구분",
+                    "binding": "TEST_CI",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 60
+                },
+                {
+                    "id": "내용물\r\n검사로트",
+                    "binding": "HAL3_TEST_LOT",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 0
+                },
+                {
+                    "id": "검사로트",
+                    "binding": "TEST_LOT",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 90
+                },
+                {
+                    "id": "로트생성일",
+                    "binding": "LOT_CREATE_DATE",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "date",
+                    "calendardisplaynulltype": "none",
+                    "size": 80
+                },
+                {
+                    "id": "오더번호",
+                    "binding": "ORDER_NO",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 70
+                },
+                {
+                    "id": "오더\r\n순번",
+                    "binding": "ORDER_SEQ",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 40
+                },
+                {
+                    "id": "제조번호",
+                    "binding": "BATCH_NO",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left;padding:0 4 0 4;",
+                    "size": 100
+                },
+                {
+                    "id": "완제품LOT",
+                    "binding": "PRD_LOT_NO",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 101
+                },
+                {
+                    "id": "자재코드",
+                    "binding": "MATR_CODE",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 80
+                },
+                {
+                    "id": "자재명",
+                    "binding": "MATR_NAME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left;padding:0 0 0 4;",
+                    "size": 300
+                },
+                {
+                    "id": "판정",
+                    "binding": "JUDG_CODE",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "combo",
+                    "combodataset": "ds_JUDG",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME",
+                    "size": 80
+                },
+                {
+                    "id": "생산량\r\n(EA)",
+                    "binding": "STRG_QTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:right;padding:4 4 4 4;",
+                    "size": 60
+                },
+                {
+                    "id": "포장수량\r\n(EA)",
+                    "binding": "PAC_PDTQTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:right;padding:4 4 4 4;",
+                    "size": 60
+                },
+                {
+                    "id": "포장량\r\n(g)",
+                    "binding": "PAC_QTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:right;padding:4 4 4 4;",
+                    "size": 60
+                },
+                {
+                    "id": "내용물\r\n출고량(g)",
+                    "binding": "HAL3_PACQTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:right;padding:4 4 4 4;",
+                    "size": 60
+                },
+                {
+                    "id": "확인자\r\nComment",
+                    "binding": "CHECK_USER_CMNT",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left;padding:0 0 0 4;",
+                    "size": 120
+                },
+                {
+                    "id": "포장일자",
+                    "binding": "PAC_DATE",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 80
+                },
+                {
+                    "id": "작업시간",
+                    "binding": "START_TIME",
+                    "edittype": "normal",
+                    "head_colspan": "2",
+                    "size": 60
+                },
+                {
+                    "id": "종료",
+                    "binding": "END_TIME",
+                    "edittype": "normal",
+                    "size": 60
+                },
+                {
+                    "id": "설비코드",
+                    "binding": "WRK_CENTER",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 80
+                },
+                {
+                    "id": "포장설비",
+                    "binding": "WRK_CENTER_NAME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left;",
+                    "size": 150
+                },
+                {
+                    "id": "작업자",
+                    "binding": "WRK_MAN",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 60
+                },
+                {
+                    "id": "포장\r\n순번",
+                    "binding": "PAC_SEQ",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 38
+                },
+                {
+                    "id": "특이사항",
+                    "binding": "REMARK",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 80
+                },
+                {
+                    "id": "제조업체",
+                    "binding": "SML_PRES_CODE",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 80
+                },
+                {
+                    "id": "미생물 시험번호",
+                    "binding": "MICRO_TEST_LOT",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "size": 110
+                },
+                {
+                    "id": "미생물 검사결과",
+                    "binding": "BTRA_TEST_RESULT_1",
+                    "edittype": "normal",
+                    "head_colspan": "5",
+                    "size": 40
+                },
+                {
+                    "id": "2일차",
+                    "binding": "BTRA_TEST_RESULT_2",
+                    "edittype": "normal",
+                    "size": 40
+                },
+                {
+                    "id": "2일+",
+                    "binding": "BTRA_TEST_RESULT_3",
+                    "edittype": "normal",
+                    "size": 40
+                },
+                {
+                    "id": "최종",
+                    "binding": "FINAL_TEST_RESULT",
+                    "edittype": "normal",
+                    "size": 40
+                },
+                {
+                    "id": "판정",
+                    "binding": "FINAL_TEST_JUDG",
+                    "edittype": "normal",
+                    "displaytype": "combo",
+                    "combodataset": "ds_JUDG",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME",
+                    "size": 40
+                }
+            ],
+            "columnSizes": [
+                30,
+                30,
+                60,
+                0,
+                90,
+                80,
+                70,
+                40,
+                100,
+                101,
+                80,
+                300,
+                80,
+                60,
+                60,
+                60,
+                60,
+                120,
+                80,
+                60,
+                60,
+                80,
+                150,
+                60,
+                38,
+                80,
+                80,
+                110,
+                40,
+                40,
+                40,
+                40,
+                40
+            ],
+            "rows": [
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24"
+                }
+            ],
+            "headCells": [
+                {
+                    "rowspan": "2"
+                },
+                {
+                    "col": "1",
+                    "rowspan": "2",
+                    "displaytype": "checkbox",
+                    "edittype": "checkbox"
+                },
+                {
+                    "col": "2",
+                    "rowspan": "2",
+                    "text": "자재구분"
+                },
+                {
+                    "col": "3",
+                    "rowspan": "2",
+                    "text": "내용물\r\n검사로트"
+                },
+                {
+                    "col": "4",
+                    "rowspan": "2",
+                    "text": "검사로트"
+                },
+                {
+                    "col": "5",
+                    "rowspan": "2",
+                    "text": "로트생성일"
+                },
+                {
+                    "col": "6",
+                    "rowspan": "2",
+                    "text": "오더번호"
+                },
+                {
+                    "col": "7",
+                    "rowspan": "2",
+                    "text": "오더\r\n순번"
+                },
+                {
+                    "col": "8",
+                    "rowspan": "2",
+                    "text": "제조번호"
+                },
+                {
+                    "col": "9",
+                    "rowspan": "2",
+                    "text": "완제품LOT"
+                },
+                {
+                    "col": "10",
+                    "rowspan": "2",
+                    "text": "자재코드"
+                },
+                {
+                    "col": "11",
+                    "rowspan": "2",
+                    "text": "자재명"
+                },
+                {
+                    "col": "12",
+                    "rowspan": "2",
+                    "text": "판정"
+                },
+                {
+                    "col": "13",
+                    "rowspan": "2",
+                    "text": "생산량\r\n(EA)"
+                },
+                {
+                    "col": "14",
+                    "rowspan": "2",
+                    "text": "포장수량\r\n(EA)"
+                },
+                {
+                    "col": "15",
+                    "rowspan": "2",
+                    "text": "포장량\r\n(g)"
+                },
+                {
+                    "col": "16",
+                    "rowspan": "2",
+                    "text": "내용물\r\n출고량(g)"
+                },
+                {
+                    "col": "17",
+                    "rowspan": "2",
+                    "text": "확인자\r\nComment"
+                },
+                {
+                    "col": "18",
+                    "rowspan": "2",
+                    "text": "포장일자"
+                },
+                {
+                    "col": "19",
+                    "colspan": "2",
+                    "text": "작업시간"
+                },
+                {
+                    "col": "21",
+                    "rowspan": "2",
+                    "text": "설비코드"
+                },
+                {
+                    "col": "22",
+                    "rowspan": "2",
+                    "text": "포장설비"
+                },
+                {
+                    "col": "23",
+                    "rowspan": "2",
+                    "text": "작업자"
+                },
+                {
+                    "col": "24",
+                    "rowspan": "2",
+                    "text": "포장\r\n순번"
+                },
+                {
+                    "col": "25",
+                    "rowspan": "2",
+                    "text": "특이사항"
+                },
+                {
+                    "col": "26",
+                    "rowspan": "2",
+                    "text": "제조업체"
+                },
+                {
+                    "col": "27",
+                    "rowspan": "2",
+                    "text": "미생물 시험번호"
+                },
+                {
+                    "col": "28",
+                    "colspan": "5",
+                    "text": "미생물 검사결과"
+                },
+                {
+                    "row": "1",
+                    "col": "19",
+                    "text": "시작"
+                },
+                {
+                    "row": "1",
+                    "col": "20",
+                    "text": "종료"
+                },
+                {
+                    "row": "1",
+                    "col": "28",
+                    "text": "1일차"
+                },
+                {
+                    "row": "1",
+                    "col": "29",
+                    "text": "2일차"
+                },
+                {
+                    "row": "1",
+                    "col": "30",
+                    "text": "2일+"
+                },
+                {
+                    "row": "1",
+                    "col": "31",
+                    "text": "최종"
+                },
+                {
+                    "row": "1",
+                    "col": "32",
+                    "text": "판정"
+                }
+            ],
+            "bodyCells": [
+                {
+                    "celltype": "head",
+                    "expr": "currow+1"
+                },
+                {
+                    "col": "1",
+                    "displaytype": "checkbox",
+                    "edittype": "checkbox",
+                    "text": "bind:CHK"
+                },
+                {
+                    "col": "2",
+                    "text": "bind:TEST_CI"
+                },
+                {
+                    "col": "3",
+                    "text": "bind:HAL3_TEST_LOT"
+                },
+                {
+                    "col": "4",
+                    "text": "bind:TEST_LOT"
+                },
+                {
+                    "col": "5",
+                    "displaytype": "date",
+                    "text": "bind:LOT_CREATE_DATE",
+                    "calendardisplaynulltype": "none"
+                },
+                {
+                    "col": "6",
+                    "text": "bind:ORDER_NO"
+                },
+                {
+                    "col": "7",
+                    "text": "bind:ORDER_SEQ"
+                },
+                {
+                    "col": "8",
+                    "style": "align:left;padding:0 4 0 4;",
+                    "text": "bind:BATCH_NO"
+                },
+                {
+                    "col": "9",
+                    "text": "bind:PRD_LOT_NO"
+                },
+                {
+                    "col": "10",
+                    "text": "bind:MATR_CODE"
+                },
+                {
+                    "col": "11",
+                    "style": "align:left;padding:0 0 0 4;",
+                    "text": "bind:MATR_NAME"
+                },
+                {
+                    "col": "12",
+                    "displaytype": "combo",
+                    "text": "bind:JUDG_CODE",
+                    "combodataset": "ds_JUDG",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME"
+                },
+                {
+                    "col": "13",
+                    "displaytype": "normal",
+                    "style": "align:right;padding:4 4 4 4;",
+                    "text": "bind:STRG_QTY"
+                },
+                {
+                    "col": "14",
+                    "displaytype": "normal",
+                    "style": "align:right;padding:4 4 4 4;",
+                    "text": "bind:PAC_PDTQTY"
+                },
+                {
+                    "col": "15",
+                    "displaytype": "normal",
+                    "style": "align:right;padding:4 4 4 4;",
+                    "text": "bind:PAC_QTY"
+                },
+                {
+                    "col": "16",
+                    "displaytype": "normal",
+                    "style": "align:right;padding:4 4 4 4;",
+                    "text": "bind:HAL3_PACQTY"
+                },
+                {
+                    "col": "17",
+                    "style": "align:left;padding:0 0 0 4;",
+                    "text": "bind:CHECK_USER_CMNT"
+                },
+                {
+                    "col": "18",
+                    "text": "bind:PAC_DATE"
+                },
+                {
+                    "col": "19",
+                    "text": "bind:START_TIME"
+                },
+                {
+                    "col": "20",
+                    "text": "bind:END_TIME"
+                },
+                {
+                    "col": "21",
+                    "text": "bind:WRK_CENTER"
+                },
+                {
+                    "col": "22",
+                    "style": "align:left;",
+                    "text": "bind:WRK_CENTER_NAME"
+                },
+                {
+                    "col": "23",
+                    "text": "bind:WRK_MAN"
+                },
+                {
+                    "col": "24",
+                    "text": "bind:PAC_SEQ"
+                },
+                {
+                    "col": "25",
+                    "text": "bind:REMARK"
+                },
+                {
+                    "col": "26",
+                    "text": "bind:SML_PRES_CODE"
+                },
+                {
+                    "col": "27",
+                    "text": "bind:MICRO_TEST_LOT"
+                },
+                {
+                    "col": "28",
+                    "text": "bind:BTRA_TEST_RESULT_1"
+                },
+                {
+                    "col": "29",
+                    "text": "bind:BTRA_TEST_RESULT_2"
+                },
+                {
+                    "col": "30",
+                    "text": "bind:BTRA_TEST_RESULT_3"
+                },
+                {
+                    "col": "31",
+                    "text": "bind:FINAL_TEST_RESULT"
+                },
+                {
+                    "col": "32",
+                    "displaytype": "combo",
+                    "text": "bind:FINAL_TEST_JUDG",
+                    "combodataset": "ds_JUDG",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME"
+                }
+            ],
+            "taborder": "20",
+            "useinputpanel": "false",
+            "left": "20",
+            "top": "114",
+            "right": "20",
+            "autofittype": "none",
+            "oncelldblclick": "Div_FER1_grd_FER1_oncelldblclick",
+            "onheadclick": "Div_FER1_grd_FER1_onheadclick",
+            "selecttype": "cell",
+            "bottom": "10"
+        }
+    ],
+    "Buttons": [
+        {
+            "id": "button1",
+            "taborder": "6",
+            "text": "조회",
+            "onclick": "btnSearch_onclick",
+            "cssclass": "btn_04",
+            "top": "20",
+            "right": "267",
+            "width": "70",
+            "height": "22"
+        },
+        {
+            "id": "button4",
+            "taborder": "7",
+            "text": "Excel",
+            "onclick": "button4_onclick",
+            "cssclass": "btn_04",
+            "top": "20",
+            "right": "195",
+            "width": "70",
+            "height": "22"
+        },
+        {
+            "id": "button5",
+            "taborder": "8",
+            "text": "종료",
+            "onclick": "button5_onclick",
+            "cssclass": "btn_04",
+            "top": "20",
+            "right": "123",
+            "width": "70",
+            "height": "22"
+        },
+        {
+            "id": "btnExpandSearch",
+            "taborder": "67",
+            "text": "확장검색",
+            "left": "521",
+            "top": "3",
+            "width": "65",
+            "height": "20",
+            "onclick": "btnExpandSearch_onclick"
+        },
+        {
+            "id": "btnContMultiSearch",
+            "taborder": "35",
+            "text": "조회",
+            "top": "546",
+            "right": "207",
+            "width": "67",
+            "height": "20",
+            "onclick": "Div_HAL3_btnContMultiSearch_onclick",
+            "visible": "false"
+        },
+        {
+            "id": "btnMatrMultiSearch",
+            "taborder": "35",
+            "text": "조회",
+            "top": "701",
+            "width": "67",
+            "height": "20",
+            "right": "207",
+            "onclick": "Div_ROH6_btnMatrMultiSearch_onclick",
+            "visible": "false"
+        },
+        {
+            "id": "btnExpandSearch02",
+            "taborder": "95",
+            "text": "확장검색",
+            "left": "802",
+            "top": "3",
+            "height": "20",
+            "width": "67",
+            "onclick": "btnExpandSearch02_onclick"
+        },
+        {
+            "id": "btnAllPrint",
+            "taborder": "96",
+            "text": "LOT 추적 성적서 출력",
+            "left": "198",
+            "top": "57",
+            "height": "20",
+            "width": "120",
+            "onclick": "btnAllPrint_onclick",
+            "visible": "false"
+        },
+        {
+            "id": "btn_OK",
+            "taborder": "21",
+            "text": "닫기",
+            "cssclass": "btn_grid07",
+            "left": "84.09%",
+            "top": "87",
+            "right": "0.76%",
+            "height": "25",
+            "onclick": "Pdiv_MSG_btn_OK_onclick"
+        },
+        {
+            "id": "btn_link",
+            "taborder": "102",
+            "text": "내용물별 원료 LOT비교",
+            "visible": "false",
+            "left": "321",
+            "top": "57",
+            "width": "134",
+            "height": "20",
+            "onclick": "btn_link_onclick"
+        },
+        {
+            "id": "btn_link2",
+            "taborder": "103",
+            "text": "동일 원료구성 내용물 함량분석",
+            "visible": "false",
+            "left": "457",
+            "top": "57",
+            "width": "176",
+            "height": "20",
+            "onclick": "btn_link2_onclick"
+        },
+        {
+            "id": "btn_link3",
+            "taborder": "104",
+            "text": "원료LOT별 내용물 검사결과분석",
+            "onclick": "btn_link3_onclick",
+            "left": "635",
+            "top": "57",
+            "width": "178",
+            "height": "20"
+        },
+        {
+            "id": "btn_link4",
+            "taborder": "105",
+            "text": "원료LOT별 검사결과 트렌드",
+            "onclick": "btn_link4_onclick",
+            "left": "815",
+            "top": "57",
+            "width": "158",
+            "height": "20"
+        },
+        {
+            "id": "btnExpandSearch03",
+            "taborder": "106",
+            "text": "확장검색",
+            "onclick": "btnExpandSearch03_onclick",
+            "left": "802",
+            "top": "28",
+            "width": "67",
+            "height": "20"
+        }
+    ],
+    "Combos": [
+        {
+            "id": "cmb_AuthPrdCI",
+            "taborder": "89",
+            "innerdataset": "ds_AuthPrdCI",
+            "codecolumn": "USER_DEFINE0",
+            "datacolumn": "CODE_NAME",
+            "left": "963",
+            "top": "28",
+            "width": "120",
+            "height": "20",
+            "type": "filter",
+            "onlbuttondown": "cmb_AuthPrdCI_onlbuttondown",
+            "namecolumn": "CODE_NAME",
+            "label": "권한사업장"
+        }
+    ],
+    "Statics": [
+        {
+            "id": "Static12",
+            "taborder": "1",
+            "text": "h20",
+            "cssclass": "Guide_color2",
+            "visible": "false",
+            "left": "20",
+            "top": "0",
+            "right": "20",
+            "height": "20"
+        },
+        {
+            "id": "rectangle1",
+            "taborder": "2",
+            "cssclass": "spline",
+            "left": "20",
+            "top": "46",
+            "right": "20",
+            "height": "2"
+        },
+        {
+            "id": "Static05",
+            "taborder": "3",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "564",
+            "top": "42",
+            "width": "436",
+            "height": "4"
+        },
+        {
+            "id": "Static34",
+            "taborder": "4",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "42",
+            "width": "436",
+            "height": "4"
+        },
+        {
+            "id": "titleName",
+            "taborder": "5",
+            "text": "제품추적조회",
+            "cssclass": "title",
+            "left": "20",
+            "top": "20",
+            "width": "215",
+            "height": "22"
+        },
+        {
+            "id": "caption01",
+            "taborder": "18",
+            "text": "완제품",
+            "cssclass": "sub_title",
+            "left": "20",
+            "top": "90",
+            "width": "200",
+            "height": "20",
+            "onclick": "Div_FER1_caption01_onclick"
+        },
+        {
+            "id": "Static02",
+            "taborder": "19",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "110",
+            "height": "4",
+            "right": "20"
+        },
+        {
+            "id": "Static03",
+            "taborder": "23",
+            "text": "h8",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "86",
+            "width": "980",
+            "height": "4"
+        },
+        {
+            "id": "txtSearch_Count",
+            "taborder": "24",
+            "text": "(조회건수 : 0건)",
+            "cssclass": "cell_title",
+            "top": "91",
+            "right": "205",
+            "width": "150",
+            "height": "20",
+            "style": "background:transparent;border:0 solid #d9d9d9ff ;align:right middle;"
+        },
+        {
+            "id": "Static117",
+            "taborder": "46",
+            "cssclass": "sta_WF_schLabel",
+            "left": "20",
+            "top": "0",
+            "right": "20",
+            "height": "26"
+        },
+        {
+            "id": "Static11",
+            "taborder": "2",
+            "text": "w20",
+            "cssclass": "Guide_color2",
+            "visible": "false",
+            "top": "0",
+            "width": "20",
+            "right": "0",
+            "bottom": "48"
+        },
+        {
+            "id": "Static00",
+            "taborder": "33",
+            "text": "h8",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "51",
+            "width": "986",
+            "height": "4"
+        },
+        {
+            "id": "Static110",
+            "taborder": "39",
+            "text": "로트생성일",
+            "cssclass": "sta_WF_schTitle",
+            "left": "20",
+            "top": "0",
+            "width": "90",
+            "height": "26",
+            "style": "padding:6 6 0 6;align:left top;"
+        },
+        {
+            "id": "lab_MATR_CODE",
+            "taborder": "65",
+            "text": "자재코드",
+            "cssclass": "cell_title",
+            "left": "337",
+            "top": "0",
+            "width": "90",
+            "height": "26"
+        },
+        {
+            "id": "lab_BATCH_CODE",
+            "taborder": "77",
+            "text": "제조번호",
+            "cssclass": "cell_title",
+            "left": "588",
+            "top": "0",
+            "width": "90",
+            "height": "26"
+        },
+        {
+            "id": "lab_MATR_CODE01",
+            "taborder": "79",
+            "text": "오더번호",
+            "cssclass": "cell_title",
+            "left": "337",
+            "top": "25",
+            "width": "90",
+            "height": "26"
+        },
+        {
+            "id": "Static01",
+            "taborder": "83",
+            "text": "자재명",
+            "cssclass": "sta_WF_schTitle",
+            "left": "20",
+            "top": "25",
+            "width": "90",
+            "height": "26"
+        },
+        {
+            "id": "lab_TEST_RESULT",
+            "taborder": "86",
+            "text": "--------------",
+            "left": "22",
+            "top": "707",
+            "width": "138",
+            "height": "12"
+        },
+        {
+            "id": "Static10",
+            "taborder": "1",
+            "text": "w20",
+            "cssclass": "Guide_color2",
+            "visible": "false",
+            "left": "0",
+            "top": "0",
+            "width": "20",
+            "bottom": "48"
+        },
+        {
+            "id": "lab_PRD_LOT_NO",
+            "taborder": "87",
+            "text": "완제품LOT",
+            "cssclass": "cell_title",
+            "left": "588",
+            "top": "25",
+            "width": "90",
+            "height": "26"
+        },
+        {
+            "id": "static_authprd",
+            "taborder": "90",
+            "text": "권한사업장",
+            "cssclass": "cell_title",
+            "left": "871",
+            "top": "25",
+            "width": "90",
+            "height": "26"
+        }
+    ],
+    "Scripts": [],
+    "Splitters": [],
+    "Divs": [
+        {
+            "id": "QSEAR_30_PRD_TRACE",
+            "left": "0",
+            "top": "46",
+            "right": "0",
+            "bottom": "0",
+            "width": "",
+            "height": ""
+        },
+        {
+            "id": "Div_FER1",
+            "left": "20",
+            "top": "86",
+            "right": "20",
+            "bottom": "",
+            "width": "",
+            "height": "225"
+        },
+        {
+            "id": "Div_Test_Report",
+            "left": "",
+            "top": "90",
+            "right": "20",
+            "bottom": "",
+            "width": "185",
+            "height": "23"
+        },
+        {
+            "id": "Div_HAL3",
+            "left": "20",
+            "top": "541",
+            "right": "20",
+            "bottom": "",
+            "width": "",
+            "height": "150"
+        },
+        {
+            "id": "Div_Test_Report",
+            "left": "",
+            "top": "545",
+            "right": "20",
+            "bottom": "",
+            "width": "185",
+            "height": "22"
+        },
+        {
+            "id": "Div_ROH6",
+            "left": "20",
+            "top": "696",
+            "right": "20",
+            "bottom": "",
+            "width": "",
+            "height": "150"
+        },
+        {
+            "id": "Div_Test_Report",
+            "left": "",
+            "top": "700",
+            "right": "20",
+            "bottom": "",
+            "width": "185",
+            "height": "22"
+        },
+        {
+            "id": "Pdiv_MSG",
+            "left": "29.86%",
+            "top": "84",
+            "right": "",
+            "bottom": "",
+            "width": "450",
+            "height": "200"
+        },
+        {
+            "id": "Div_HAL1_2",
+            "left": "20",
+            "top": "314",
+            "right": "20",
+            "bottom": "",
+            "width": "",
+            "height": "225"
+        },
+        {
+            "id": "Div_Test_Report",
+            "left": "",
+            "top": "318",
+            "right": "20",
+            "bottom": "",
+            "width": "185",
+            "height": "23"
+        }
+    ],
+    "Tabs": [
+        {
+            "id": "Tab_MATR_CI",
+            "left": "20",
+            "top": "55",
+            "right": "20",
+            "bottom": "",
+            "width": "",
+            "height": "28",
+            "tabpages": [
+                {
+                    "id": "tabpage1",
+                    "text": "완제품",
+                    "url": ""
+                },
+                {
+                    "id": "tabpage2",
+                    "text": "내용물",
+                    "url": ""
+                },
+                {
+                    "id": "tabpage3",
+                    "text": "원료",
+                    "url": ""
+                }
+            ]
+        }
+    ],
+    "hasAuthCheck": false,
+    "hasCloseGuard": false,
+    "saveDsName": ""
+}

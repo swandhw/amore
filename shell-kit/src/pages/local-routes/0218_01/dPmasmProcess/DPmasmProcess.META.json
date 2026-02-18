@@ -1,0 +1,1677 @@
+{
+    "Form": {
+        "id": "D_PMASM_PROCESS",
+        "height": "559",
+        "left": "0",
+        "onactivatradio1e": "Form_onactivate",
+        "onload": "Form_onload",
+        "titletext": "표준공정 등록",
+        "top": "0",
+        "width": "1018"
+    },
+    "Datasets": [
+        {
+            "id": "ds_Service",
+            "columns": [
+                {
+                    "id": "Transition",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SvcId",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SvcNm",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "InDatasets",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "OutDatasets",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CallbackFunc",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "Async",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "Compress",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "TraceLog",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ShowLoadingForSync",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [
+                {
+                    "Transition": "find_proc_code",
+                    "SvcId": "find_proc_code",
+                    "SvcNm": "PGENS_CODE-service",
+                    "OutDatasets": "ds_ProcCd=dsr_SearchListResult",
+                    "CallbackFunc": "fn_CallBack"
+                },
+                {
+                    "Transition": "find_proc",
+                    "SvcId": "find_proc",
+                    "SvcNm": "D_PMASM_PROCESS-service",
+                    "InDatasets": null,
+                    "OutDatasets": "ds_Proc=dsr_SearchListResult_Proc",
+                    "CallbackFunc": "fn_CallBack",
+                    "Async": null,
+                    "Compress": null,
+                    "TraceLog": null,
+                    "ShowLoadingForSync": null
+                },
+                {
+                    "Transition": "find_proc_dtl",
+                    "SvcId": "find_proc_dtl",
+                    "SvcNm": "D_PMASM_PROCESS-service",
+                    "CallbackFunc": "fn_CallBack",
+                    "OutDatasets": "ds_ProcDtl=dsr_SearchListResult_ProcDtl"
+                },
+                {
+                    "Transition": "save_proc",
+                    "SvcId": "save_proc",
+                    "SvcNm": "D_PMASM_PROCESS-service",
+                    "InDatasets": "ds_Proc=ds_Proc",
+                    "OutDatasets": null,
+                    "CallbackFunc": "fn_CallBack",
+                    "Async": null,
+                    "Compress": null,
+                    "TraceLog": null,
+                    "ShowLoadingForSync": null
+                },
+                {
+                    "Transition": "save_proc_dtl",
+                    "SvcId": "save_proc_dtl",
+                    "SvcNm": "D_PMASM_PROCESS-service",
+                    "InDatasets": "ds_ProcDtl=ds_ProcDtl",
+                    "OutDatasets": null,
+                    "CallbackFunc": "fn_CallBack",
+                    "Async": null,
+                    "Compress": null,
+                    "TraceLog": null,
+                    "ShowLoadingForSync": null
+                },
+                {
+                    "Transition": "find_t2",
+                    "SvcId": "find_t2",
+                    "SvcNm": "D_PMASM_PROCESS-service",
+                    "OutDatasets": "ds_Tab2=dsr_SearchListResult_T2",
+                    "CallbackFunc": "fn_CallBack"
+                }
+            ],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_Param",
+            "columns": [
+                {
+                    "id": "PLANT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PROC_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CUD_CI",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PRD_CI",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [
+                {
+                    "CUD_CI": null
+                }
+            ],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_Proc",
+            "columns": [
+                {
+                    "id": "CUD_TYPE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PLANT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PRD_CI",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PROC_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PROC_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ROUTE_SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "REMARK",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CUD_CI",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "COLOR",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "useclientlayout": "true",
+            "oncolumnchanged": "ds_Proc_oncolumnchanged"
+        },
+        {
+            "id": "ds_ProcDtl",
+            "columns": [
+                {
+                    "id": "CUD_TYPE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PLANT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PRD_CI",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PROC_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PROC_DTL_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PROC_DTL_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ROUTE_SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PROC_TYPE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CUD_CI",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "REMARK",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "useclientlayout": "true",
+            "oncolumnchanged": "ds_ProcDtl_oncolumnchanged"
+        },
+        {
+            "id": "ds_CudCi",
+            "columns": [
+                {
+                    "id": "COMM_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CODE_KOR_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_ProcCd",
+            "columns": [
+                {
+                    "id": "PROC_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PROC_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_PrdCi",
+            "columns": [
+                {
+                    "id": "COMM_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CODE_KOR_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CODE_KOR_NAME_RE",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_ProcType",
+            "columns": [
+                {
+                    "id": "COMM_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CODE_KOR_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_Plant",
+            "columns": [
+                {
+                    "id": "COMM_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CODE_KOR_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_Tab2",
+            "columns": [
+                {
+                    "id": "PLANT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PRD_CI",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PROC_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PROC_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PROC_DTL_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PROC_DTL_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PROC_TYPE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "REMARK",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "useclientlayout": "true",
+            "oncolumnchanged": "ds_Tab2_oncolumnchanged"
+        },
+        {
+            "id": "ds_ParamProcDtl",
+            "columns": [
+                {
+                    "id": "PLANT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PROC_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CUD_CI",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PRD_CI",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [
+                {
+                    "CUD_CI": null
+                }
+            ],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        }
+    ],
+    "Grids": [
+        {
+            "id": "grd_Proc",
+            "binddataset": "ds_Proc",
+            "columns": [
+                {
+                    "id": "rowIndex",
+                    "binding": "expr:currow+1",
+                    "edittype": "none",
+                    "head_rowspan": "2",
+                    "head_displaytype": "checkbox",
+                    "style": "background:#eeeeeeff;background2:#eeeeeeff;selectbackground:#eeeeeeff;",
+                    "size": 35
+                },
+                {
+                    "id": "유형",
+                    "binding": "CUD_TYPE",
+                    "edittype": "combo",
+                    "head_rowspan": "2",
+                    "head_displaytype": "normal",
+                    "displaytype": "combo",
+                    "style": "background:EXPR(COLOR == 'Y'?application.C_COLOR_04:'');background2:EXPR(COLOR == 'Y'?application.C_COLOR_04:'');selectbackground:EXPR(COLOR == 'Y'?application.C_COLOR_04:'');",
+                    "combodataset": "g_ds_CudType",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME",
+                    "size": 40
+                },
+                {
+                    "id": "사업장",
+                    "binding": "PLANT",
+                    "edittype": "none",
+                    "head_rowspan": "2",
+                    "displaytype": "combo",
+                    "style": "background:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?(PLANT==null||PLANT==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));background2:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?(PLANT==null||PLANT==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));selectbackground:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?(PLANT==null||PLANT==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));",
+                    "combodataset": "ds_Plant",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME",
+                    "size": 0
+                },
+                {
+                    "id": "대공정",
+                    "binding": "PROC_CODE",
+                    "edittype": "expr:CUD_TYPE=='C'?'normal':'none'",
+                    "head_colspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:center;background:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PROC_CODE==null||PROC_CODE==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));background2:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PROC_CODE==null||PROC_CODE==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));selectbackground:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PROC_NAME==null||PROC_NAME==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));",
+                    "editlimit": "5",
+                    "expandshow": "hide",
+                    "expandsize": "20",
+                    "combodisplay": "edit",
+                    "size": 60
+                },
+                {
+                    "id": "공정명",
+                    "binding": "PROC_NAME",
+                    "edittype": "expr:CUD_TYPE=='C'?'normal':'none'",
+                    "style": "align:left;background:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PROC_NAME==null||PROC_NAME==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));background2:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PROC_NAME==null||PROC_NAME==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));selectbackground:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PROC_NAME==null||PROC_NAME==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));",
+                    "editlimit": "50",
+                    "size": 120
+                },
+                {
+                    "id": "제품구분",
+                    "binding": "PRD_CI",
+                    "edittype": "expr:CUD_TYPE=='C'?'combo':'none'",
+                    "head_rowspan": "2",
+                    "displaytype": "combo",
+                    "style": "align:left;background:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PRD_CI==null||PRD_CI==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));background2:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PRD_CI==null||PRD_CI==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));selectbackground:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PRD_CI==null||PRD_CI==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));",
+                    "editdisplay": "display",
+                    "combodataset": "ds_PrdCi",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME",
+                    "combodisplay": "edit",
+                    "size": 80
+                },
+                {
+                    "id": "순번",
+                    "binding": "ROUTE_SEQ",
+                    "edittype": "expr:CUD_TYPE=='D'?'none':'masknumber'",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:center;background:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?(ROUTE_SEQ==null||ROUTE_SEQ==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));background2:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?(ROUTE_SEQ==null||ROUTE_SEQ==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));selectbackground:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?(ROUTE_SEQ==null||ROUTE_SEQ==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));",
+                    "editlimitbymask": "decimal",
+                    "size": 50
+                },
+                {
+                    "id": "사용유무",
+                    "binding": "CUD_CI",
+                    "edittype": "expr:CUD_TYPE=='D'?'none':'combo'",
+                    "head_rowspan": "2",
+                    "displaytype": "combo",
+                    "style": "align:center;background:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?application.C_CUDCOLOR:''));background2:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?application.C_CUDCOLOR:''));selectbackground:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?application.C_CUDCOLOR:''));",
+                    "combodataset": "ds_CudCi",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME",
+                    "size": 50
+                },
+                {
+                    "id": "비고",
+                    "binding": "REMARK",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left;",
+                    "editlimit": "200",
+                    "editimemode": "none",
+                    "editautoselect": "true",
+                    "size": 0
+                }
+            ],
+            "columnSizes": [
+                35,
+                40,
+                0,
+                60,
+                120,
+                80,
+                50,
+                50,
+                0
+            ],
+            "rows": [
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24"
+                }
+            ],
+            "headCells": [
+                {
+                    "rowspan": "2",
+                    "displaytype": "checkbox",
+                    "edittype": "checkbox",
+                    "text": "1"
+                },
+                {
+                    "col": "1",
+                    "rowspan": "2",
+                    "displaytype": "normal",
+                    "edittype": "none",
+                    "text": "유형"
+                },
+                {
+                    "col": "2",
+                    "rowspan": "2",
+                    "text": "사업장"
+                },
+                {
+                    "col": "3",
+                    "colspan": "2",
+                    "text": "대공정"
+                },
+                {
+                    "col": "5",
+                    "rowspan": "2",
+                    "text": "제품구분"
+                },
+                {
+                    "col": "6",
+                    "rowspan": "2",
+                    "text": "순번"
+                },
+                {
+                    "col": "7",
+                    "rowspan": "2",
+                    "text": "사용유무"
+                },
+                {
+                    "col": "8",
+                    "rowspan": "2",
+                    "text": "비고"
+                },
+                {
+                    "row": "1",
+                    "col": "3",
+                    "text": "코드"
+                },
+                {
+                    "row": "1",
+                    "col": "4",
+                    "text": "공정명"
+                }
+            ],
+            "bodyCells": [
+                {
+                    "style": "background:#eeeeeeff;background2:#eeeeeeff;selectbackground:#eeeeeeff;",
+                    "expr": "currow+1"
+                },
+                {
+                    "col": "1",
+                    "displaytype": "combo",
+                    "edittype": "combo",
+                    "style": "background:EXPR(COLOR == 'Y'?application.C_COLOR_04:'');background2:EXPR(COLOR == 'Y'?application.C_COLOR_04:'');selectbackground:EXPR(COLOR == 'Y'?application.C_COLOR_04:'');",
+                    "text": "bind:CUD_TYPE",
+                    "combodataset": "g_ds_CudType",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME"
+                },
+                {
+                    "col": "2",
+                    "displaytype": "combo",
+                    "edittype": "none",
+                    "style": "background:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?(PLANT==null||PLANT==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));background2:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?(PLANT==null||PLANT==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));selectbackground:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?(PLANT==null||PLANT==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));",
+                    "text": "bind:PLANT",
+                    "combodataset": "ds_Plant",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME"
+                },
+                {
+                    "col": "3",
+                    "displaytype": "normal",
+                    "edittype": "expr:CUD_TYPE=='C'?'normal':'none'",
+                    "style": "align:center;background:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PROC_CODE==null||PROC_CODE==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));background2:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PROC_CODE==null||PROC_CODE==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));selectbackground:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PROC_NAME==null||PROC_NAME==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));",
+                    "text": "bind:PROC_CODE",
+                    "editlimit": "5",
+                    "expandshow": "hide",
+                    "expandsize": "20",
+                    "combodisplay": "edit"
+                },
+                {
+                    "col": "4",
+                    "edittype": "expr:CUD_TYPE=='C'?'normal':'none'",
+                    "style": "align:left;background:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PROC_NAME==null||PROC_NAME==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));background2:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PROC_NAME==null||PROC_NAME==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));selectbackground:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PROC_NAME==null||PROC_NAME==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));",
+                    "text": "bind:PROC_NAME",
+                    "editlimit": "50"
+                },
+                {
+                    "col": "5",
+                    "displaytype": "combo",
+                    "edittype": "expr:CUD_TYPE=='C'?'combo':'none'",
+                    "style": "align:left;background:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PRD_CI==null||PRD_CI==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));background2:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PRD_CI==null||PRD_CI==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));selectbackground:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'?(PRD_CI==null||PRD_CI==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));",
+                    "text": "bind:PRD_CI",
+                    "editdisplay": "display",
+                    "combodataset": "ds_PrdCi",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME",
+                    "combodisplay": "edit"
+                },
+                {
+                    "col": "6",
+                    "displaytype": "normal",
+                    "edittype": "expr:CUD_TYPE=='D'?'none':'masknumber'",
+                    "style": "align:center;background:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?(ROUTE_SEQ==null||ROUTE_SEQ==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));background2:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?(ROUTE_SEQ==null||ROUTE_SEQ==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));selectbackground:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?(ROUTE_SEQ==null||ROUTE_SEQ==''?application.C_ERRORCOLOR:application.C_CUDCOLOR):''));",
+                    "text": "bind:ROUTE_SEQ",
+                    "editlimitbymask": "decimal"
+                },
+                {
+                    "col": "7",
+                    "displaytype": "combo",
+                    "edittype": "expr:CUD_TYPE=='D'?'none':'combo'",
+                    "style": "align:center;background:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?application.C_CUDCOLOR:''));background2:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?application.C_CUDCOLOR:''));selectbackground:EXPR(COLOR == 'Y'?application.C_COLOR_04:(CUD_TYPE == 'C'||CUD_TYPE == 'U'?application.C_CUDCOLOR:''));",
+                    "text": "bind:CUD_CI",
+                    "combodataset": "ds_CudCi",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME"
+                },
+                {
+                    "col": "8",
+                    "edittype": "normal",
+                    "style": "align:left;",
+                    "text": "bind:REMARK",
+                    "editlimit": "200",
+                    "editimemode": "none",
+                    "editautoselect": "true"
+                }
+            ],
+            "taborder": "0",
+            "useinputpanel": "false",
+            "autofittype": "none",
+            "onlbuttondown": "Tab_tabpage1_grd_Proc_onlbuttondown",
+            "onrbuttondown": "Tab_tabpage1_grd_Proc_onrbuttondown",
+            "oncellclick": "Tab_tabpage1_grd_Proc_oncellclick",
+            "ondropdown": "Tab_tabpage1_grd_Proc_ondropdown",
+            "oncloseup": "Tab_tabpage1_grd_Proc_oncloseup",
+            "left": "20",
+            "top": "89",
+            "bottom": "20",
+            "right": "20"
+        },
+        {
+            "id": "grd_ProcDtl",
+            "binddataset": "ds_ProcDtl",
+            "columns": [
+                {
+                    "id": "rowIndex",
+                    "binding": "expr:currow+1",
+                    "edittype": "none",
+                    "head_rowspan": "2",
+                    "head_displaytype": "checkbox",
+                    "displaytype": "normal",
+                    "style": "background:#eeeeeeff;background2:#eeeeeeff;selectbackground:#eeeeeeff;",
+                    "size": 35
+                },
+                {
+                    "id": "유형",
+                    "binding": "CUD_TYPE",
+                    "edittype": "combo",
+                    "head_rowspan": "2",
+                    "displaytype": "combo",
+                    "combodataset": "g_ds_CudType",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME",
+                    "size": 40
+                },
+                {
+                    "id": "사업장",
+                    "binding": "PLANT",
+                    "edittype": "combo",
+                    "head_rowspan": "2",
+                    "displaytype": "combo",
+                    "combodataset": "ds_Plant",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME",
+                    "size": 0
+                },
+                {
+                    "id": "제품구분",
+                    "binding": "PRD_CI",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "combo",
+                    "combodataset": "ds_PrdCi",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME_RE",
+                    "size": 0
+                },
+                {
+                    "id": "대공정",
+                    "binding": "PROC_CODE",
+                    "edittype": "combo",
+                    "head_rowspan": "2",
+                    "displaytype": "combo",
+                    "style": "align:left;",
+                    "editdisplay": "display",
+                    "combodataset": "ds_ProcCd",
+                    "combocodecol": "PROC_CODE",
+                    "combodatacol": "PROC_NAME",
+                    "size": 0
+                },
+                {
+                    "id": "소공정",
+                    "binding": "PROC_DTL_CODE",
+                    "edittype": "normal",
+                    "head_colspan": "2",
+                    "displaytype": "normal",
+                    "editfilter": "digit",
+                    "style": "align:center;",
+                    "editlimit": "3",
+                    "expandshow": "hide",
+                    "expandsize": "20",
+                    "size": 50
+                },
+                {
+                    "id": "공정명",
+                    "binding": "PROC_DTL_NAME",
+                    "edittype": "normal",
+                    "displaytype": "normal",
+                    "style": "align:left;",
+                    "size": 250
+                },
+                {
+                    "id": "공정유형",
+                    "binding": "PROC_TYPE",
+                    "edittype": "combo",
+                    "head_rowspan": "2",
+                    "displaytype": "combo",
+                    "style": "align:center;",
+                    "editdisplay": "edit",
+                    "combodataset": "ds_ProcType",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME",
+                    "combodisplay": "edit",
+                    "size": 70
+                },
+                {
+                    "id": "순번",
+                    "binding": "ROUTE_SEQ",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:center;",
+                    "size": 50
+                },
+                {
+                    "id": "작업내용",
+                    "binding": "REMARK",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left;",
+                    "editautoselect": "true",
+                    "size": 300
+                },
+                {
+                    "id": "사용유무",
+                    "binding": "CUD_CI",
+                    "edittype": "combo",
+                    "head_rowspan": "2",
+                    "displaytype": "combo",
+                    "style": "align:center;",
+                    "editdisplay": "display",
+                    "combodataset": "ds_CudCi",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME",
+                    "size": 60
+                }
+            ],
+            "columnSizes": [
+                35,
+                40,
+                0,
+                0,
+                0,
+                50,
+                250,
+                70,
+                50,
+                300,
+                60
+            ],
+            "rows": [
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24"
+                }
+            ],
+            "headCells": [
+                {
+                    "rowspan": "2",
+                    "displaytype": "checkbox",
+                    "edittype": "checkbox"
+                },
+                {
+                    "col": "1",
+                    "rowspan": "2",
+                    "text": "유형"
+                },
+                {
+                    "col": "2",
+                    "rowspan": "2",
+                    "text": "사업장"
+                },
+                {
+                    "col": "3",
+                    "rowspan": "2",
+                    "text": "제품구분"
+                },
+                {
+                    "col": "4",
+                    "rowspan": "2",
+                    "text": "대공정"
+                },
+                {
+                    "col": "5",
+                    "colspan": "2",
+                    "text": "소공정"
+                },
+                {
+                    "col": "7",
+                    "rowspan": "2",
+                    "text": "공정유형"
+                },
+                {
+                    "col": "8",
+                    "rowspan": "2",
+                    "text": "순번"
+                },
+                {
+                    "col": "9",
+                    "rowspan": "2",
+                    "text": "작업내용"
+                },
+                {
+                    "col": "10",
+                    "rowspan": "2",
+                    "text": "사용유무"
+                },
+                {
+                    "row": "1",
+                    "col": "5",
+                    "text": "코드"
+                },
+                {
+                    "row": "1",
+                    "col": "6",
+                    "text": "공정명"
+                }
+            ],
+            "bodyCells": [
+                {
+                    "displaytype": "normal",
+                    "edittype": "none",
+                    "style": "background:#eeeeeeff;background2:#eeeeeeff;selectbackground:#eeeeeeff;",
+                    "expr": "currow+1"
+                },
+                {
+                    "col": "1",
+                    "displaytype": "combo",
+                    "edittype": "combo",
+                    "text": "bind:CUD_TYPE",
+                    "combodataset": "g_ds_CudType",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME"
+                },
+                {
+                    "col": "2",
+                    "displaytype": "combo",
+                    "edittype": "combo",
+                    "text": "bind:PLANT",
+                    "combodataset": "ds_Plant",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME"
+                },
+                {
+                    "col": "3",
+                    "displaytype": "combo",
+                    "text": "bind:PRD_CI",
+                    "combodataset": "ds_PrdCi",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME_RE"
+                },
+                {
+                    "col": "4",
+                    "displaytype": "combo",
+                    "edittype": "combo",
+                    "style": "align:left;",
+                    "text": "bind:PROC_CODE",
+                    "editdisplay": "display",
+                    "combodataset": "ds_ProcCd",
+                    "combocodecol": "PROC_CODE",
+                    "combodatacol": "PROC_NAME"
+                },
+                {
+                    "col": "5",
+                    "displaytype": "normal",
+                    "edittype": "normal",
+                    "editfilter": "digit",
+                    "style": "align:center;",
+                    "text": "bind:PROC_DTL_CODE",
+                    "editlimit": "3",
+                    "expandshow": "hide",
+                    "expandsize": "20"
+                },
+                {
+                    "col": "6",
+                    "displaytype": "normal",
+                    "edittype": "normal",
+                    "style": "align:left;",
+                    "text": "bind:PROC_DTL_NAME"
+                },
+                {
+                    "col": "7",
+                    "displaytype": "combo",
+                    "edittype": "combo",
+                    "style": "align:center;",
+                    "text": "bind:PROC_TYPE",
+                    "editdisplay": "edit",
+                    "combodataset": "ds_ProcType",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME",
+                    "combodisplay": "edit"
+                },
+                {
+                    "col": "8",
+                    "displaytype": "normal",
+                    "edittype": "normal",
+                    "style": "align:center;",
+                    "text": "bind:ROUTE_SEQ"
+                },
+                {
+                    "col": "9",
+                    "edittype": "normal",
+                    "style": "align:left;",
+                    "text": "bind:REMARK",
+                    "editautoselect": "true"
+                },
+                {
+                    "col": "10",
+                    "displaytype": "combo",
+                    "edittype": "combo",
+                    "style": "align:center;",
+                    "text": "bind:CUD_CI",
+                    "editdisplay": "display",
+                    "combodataset": "ds_CudCi",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME"
+                }
+            ],
+            "taborder": "0",
+            "useinputpanel": "false",
+            "onlbuttondown": "Tab_tabpage1_grd_ProcDtl_onlbuttondown",
+            "onrbuttondown": "Tab_tabpage1_grd_ProcDtl_onrbuttondown",
+            "oncloseup": "Tab_tabpage1_grd_ProcDtl_oncloseup",
+            "left": "481",
+            "top": "89",
+            "right": "20",
+            "bottom": "20"
+        },
+        {
+            "id": "grd_GridT2",
+            "binddataset": "ds_Tab2",
+            "columns": [
+                {
+                    "id": "rowIndex",
+                    "binding": "expr:currow+1",
+                    "edittype": "none",
+                    "head_rowspan": "2",
+                    "style": "background:#eeeeeeff;background2:#eeeeeeff;selectbackground:#eeeeeeff;",
+                    "size": 35
+                },
+                {
+                    "id": "사업장",
+                    "binding": "PLANT",
+                    "edittype": "combo",
+                    "head_rowspan": "2",
+                    "displaytype": "combo",
+                    "style": "align:center;",
+                    "combodataset": "ds_Plant",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME",
+                    "size": 0
+                },
+                {
+                    "id": "제품구분",
+                    "binding": "PRD_CI",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "combo",
+                    "style": "align:left;",
+                    "combodataset": "ds_PrdCi",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME_RE",
+                    "size": 130
+                },
+                {
+                    "id": "공정",
+                    "binding": "PROC_CODE",
+                    "edittype": "normal",
+                    "head_colspan": "5",
+                    "style": "align:center;",
+                    "size": 0
+                },
+                {
+                    "id": "대공정",
+                    "binding": "PROC_NAME",
+                    "edittype": "none",
+                    "displaytype": "normal",
+                    "style": "align:left;",
+                    "editdisplay": "display",
+                    "size": 200
+                },
+                {
+                    "id": "소공정 코드",
+                    "binding": "PROC_DTL_CODE",
+                    "edittype": "none",
+                    "displaytype": "normal",
+                    "style": "align:center;",
+                    "editlimit": "5",
+                    "expandshow": "hide",
+                    "expandsize": "20",
+                    "size": 0
+                },
+                {
+                    "id": "소공정",
+                    "binding": "PROC_DTL_NAME",
+                    "edittype": "none",
+                    "displaytype": "normal",
+                    "style": "align:left;",
+                    "size": 320
+                },
+                {
+                    "id": "공정유형",
+                    "binding": "PROC_TYPE",
+                    "edittype": "none",
+                    "displaytype": "combo",
+                    "style": "align:center;",
+                    "editdisplay": "edit",
+                    "combodataset": "ds_ProcType",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME",
+                    "combodisplay": "edit",
+                    "size": 90
+                },
+                {
+                    "id": "작업내용",
+                    "binding": "REMARK",
+                    "edittype": "none",
+                    "head_rowspan": "2",
+                    "style": "align:left;",
+                    "editautoselect": "true",
+                    "size": 350
+                }
+            ],
+            "columnSizes": [
+                35,
+                0,
+                130,
+                0,
+                200,
+                0,
+                320,
+                90,
+                350
+            ],
+            "rows": [
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24"
+                }
+            ],
+            "headCells": [
+                {
+                    "rowspan": "2"
+                },
+                {
+                    "col": "1",
+                    "rowspan": "2",
+                    "text": "사업장"
+                },
+                {
+                    "col": "2",
+                    "rowspan": "2",
+                    "text": "제품구분"
+                },
+                {
+                    "col": "3",
+                    "colspan": "5",
+                    "text": "공정"
+                },
+                {
+                    "col": "8",
+                    "rowspan": "2",
+                    "text": "작업내용"
+                },
+                {
+                    "row": "1",
+                    "col": "3",
+                    "text": "대공정 코드"
+                },
+                {
+                    "row": "1",
+                    "col": "4",
+                    "text": "대공정"
+                },
+                {
+                    "row": "1",
+                    "col": "5",
+                    "text": "소공정 코드"
+                },
+                {
+                    "row": "1",
+                    "col": "6",
+                    "text": "소공정"
+                },
+                {
+                    "row": "1",
+                    "col": "7",
+                    "text": "공정유형"
+                }
+            ],
+            "bodyCells": [
+                {
+                    "style": "background:#eeeeeeff;background2:#eeeeeeff;selectbackground:#eeeeeeff;",
+                    "expr": "currow+1"
+                },
+                {
+                    "col": "1",
+                    "displaytype": "combo",
+                    "edittype": "combo",
+                    "style": "align:center;",
+                    "text": "bind:PLANT",
+                    "combodataset": "ds_Plant",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME"
+                },
+                {
+                    "col": "2",
+                    "displaytype": "combo",
+                    "style": "align:left;",
+                    "text": "bind:PRD_CI",
+                    "combodataset": "ds_PrdCi",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME_RE"
+                },
+                {
+                    "col": "3",
+                    "style": "align:center;",
+                    "text": "bind:PROC_CODE"
+                },
+                {
+                    "col": "4",
+                    "displaytype": "normal",
+                    "edittype": "none",
+                    "style": "align:left;",
+                    "text": "bind:PROC_NAME",
+                    "editdisplay": "display"
+                },
+                {
+                    "col": "5",
+                    "displaytype": "normal",
+                    "edittype": "none",
+                    "style": "align:center;",
+                    "text": "bind:PROC_DTL_CODE",
+                    "editlimit": "5",
+                    "expandshow": "hide",
+                    "expandsize": "20"
+                },
+                {
+                    "col": "6",
+                    "displaytype": "normal",
+                    "edittype": "none",
+                    "style": "align:left;",
+                    "text": "bind:PROC_DTL_NAME"
+                },
+                {
+                    "col": "7",
+                    "displaytype": "combo",
+                    "edittype": "none",
+                    "style": "align:center;",
+                    "text": "bind:PROC_TYPE",
+                    "editdisplay": "edit",
+                    "combodataset": "ds_ProcType",
+                    "combocodecol": "COMM_CODE",
+                    "combodatacol": "CODE_KOR_NAME",
+                    "combodisplay": "edit"
+                },
+                {
+                    "col": "8",
+                    "edittype": "none",
+                    "style": "align:left;",
+                    "text": "bind:REMARK",
+                    "editautoselect": "true"
+                }
+            ],
+            "taborder": "0",
+            "autoupdatetype": "none",
+            "useinputpanel": "false",
+            "left": "0%",
+            "top": "89",
+            "right": "0%",
+            "bottom": "20",
+            "oncloseup": "Tab_tabpage2_grd_GridT2_oncloseup",
+            "onrbuttondown": "Tab_tabpage2_grd_GridT2_onrbuttondown"
+        }
+    ],
+    "Buttons": [
+        {
+            "id": "button1",
+            "cssclass": "btn_04",
+            "height": "22",
+            "onclick": "button1_onclick",
+            "position": "absolute",
+            "text": "조회",
+            "top": "20",
+            "width": "70",
+            "right": "411"
+        },
+        {
+            "id": "button3",
+            "cssclass": "btn_04",
+            "height": "22",
+            "onclick": "button3_onclick",
+            "position": "absolute",
+            "text": "저장",
+            "top": "20",
+            "width": "70",
+            "right": "267"
+        },
+        {
+            "id": "button4",
+            "cssclass": "btn_04",
+            "height": "22",
+            "onclick": "button4_onclick",
+            "position": "absolute",
+            "text": "Excel",
+            "top": "20",
+            "width": "70",
+            "right": "195"
+        },
+        {
+            "id": "button5",
+            "cssclass": "btn_04",
+            "height": "22",
+            "onclick": "button5_onclick",
+            "position": "absolute",
+            "text": "종료",
+            "top": "20",
+            "width": "70",
+            "right": "123"
+        },
+        {
+            "id": "button2",
+            "taborder": "6",
+            "text": "등록",
+            "onclick": "button2_onclick",
+            "cssclass": "btn_04",
+            "top": "20",
+            "right": "339",
+            "width": "70",
+            "height": "22"
+        }
+    ],
+    "Combos": [
+        {
+            "id": "combo_CudCi",
+            "taborder": "17",
+            "innerdataset": "@ds_CudCi",
+            "codecolumn": "COMM_CODE",
+            "datacolumn": "CODE_KOR_NAME",
+            "type": "dropdown",
+            "cssclass": "upperSelect",
+            "left": "748",
+            "top": "50",
+            "width": "100",
+            "height": "20",
+            "index": "-1",
+            "namecolumn": "CODE_KOR_NAME"
+        },
+        {
+            "id": "combo_ProcCd",
+            "taborder": "21",
+            "innerdataset": "@ds_ProcCd",
+            "codecolumn": "PROC_CODE",
+            "datacolumn": "PROC_NAME",
+            "type": "filterlike",
+            "cssclass": "upperSelect",
+            "left": "440",
+            "top": "50",
+            "width": "194",
+            "height": "20",
+            "onlbuttondown": "combo_ProcCd_onlbuttondown",
+            "namecolumn": "PROC_NAME"
+        },
+        {
+            "id": "combo_PrdCi",
+            "taborder": "32",
+            "innerdataset": "@ds_PrdCi",
+            "codecolumn": "COMM_CODE",
+            "datacolumn": "CODE_KOR_NAME_RE",
+            "type": "dropdown",
+            "cssclass": "upperSelect",
+            "left": "132",
+            "top": "50",
+            "height": "20",
+            "width": "194",
+            "onitemchanged": "combo_PrdCi_onitemchanged",
+            "namecolumn": "CODE_KOR_NAME_RE"
+        }
+    ],
+    "Statics": [
+        {
+            "id": "caption5",
+            "cssclass": "data_cell",
+            "height": "26",
+            "left": "20",
+            "position": "absolute",
+            "text": "",
+            "top": "47",
+            "right": "20"
+        },
+        {
+            "id": "top_bar",
+            "cssclass": "barTitle",
+            "height": "24",
+            "left": "0",
+            "position": "absolute",
+            "text": "",
+            "top": "0",
+            "width": "960"
+        },
+        {
+            "id": "titleName",
+            "cssclass": "title",
+            "height": "22",
+            "left": "20",
+            "position": "absolute",
+            "text": "표준공정 등록",
+            "top": "20",
+            "width": "220",
+            "onclick": "titleName_onclick"
+        },
+        {
+            "id": "button18",
+            "cssclass": "btn_min",
+            "height": "18",
+            "left": "105",
+            "onclick": "button18_onclick",
+            "position": "absolute",
+            "top": "5",
+            "width": "14"
+        },
+        {
+            "id": "button19",
+            "cssclass": "btn_max",
+            "height": "18",
+            "left": "121",
+            "onclick": "button19_onclick",
+            "position": "absolute",
+            "top": "5",
+            "width": "14"
+        },
+        {
+            "id": "button20",
+            "cssclass": "btn_close",
+            "height": "18",
+            "left": "138",
+            "onclick": "button20_onclick",
+            "position": "absolute",
+            "top": "5",
+            "width": "14"
+        },
+        {
+            "id": "Static12",
+            "taborder": "1",
+            "text": "h20",
+            "cssclass": "Guide_color2",
+            "visible": "false",
+            "left": "20",
+            "top": "0",
+            "right": "20",
+            "height": "20"
+        },
+        {
+            "id": "Static11",
+            "taborder": "2",
+            "text": "w20",
+            "cssclass": "Guide_color2",
+            "visible": "false",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "width": "20"
+        },
+        {
+            "id": "Static10",
+            "taborder": "3",
+            "text": "w20",
+            "cssclass": "Guide_color2",
+            "visible": "false",
+            "left": "0",
+            "top": "0",
+            "width": "20",
+            "height": "559"
+        },
+        {
+            "id": "caption_ProcCd",
+            "taborder": "11",
+            "text": "대공정",
+            "cssclass": "cell_title",
+            "left": "328",
+            "top": "47",
+            "width": "110",
+            "height": "26"
+        },
+        {
+            "id": "caption_CudCi",
+            "taborder": "16",
+            "text": "사용유무",
+            "cssclass": "cell_title",
+            "left": "636",
+            "top": "47",
+            "width": "110",
+            "height": "26"
+        },
+        {
+            "id": "Static34",
+            "taborder": "24",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "42",
+            "height": "4",
+            "right": "20"
+        },
+        {
+            "id": "Static06",
+            "taborder": "25",
+            "text": "h8",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "73",
+            "height": "8",
+            "right": "20"
+        },
+        {
+            "id": "Static01",
+            "taborder": "28",
+            "text": "h20",
+            "cssclass": "Guide_color2",
+            "visible": "false",
+            "left": "20",
+            "top": "539",
+            "right": "20",
+            "height": "20"
+        },
+        {
+            "id": "Static02",
+            "taborder": "30",
+            "text": "h8",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "1.96%",
+            "top": "107",
+            "right": "1.96%",
+            "height": "8"
+        },
+        {
+            "id": "caption_PrdCi",
+            "taborder": "31",
+            "text": "제품구분",
+            "cssclass": "cell_title",
+            "left": "20",
+            "top": "47",
+            "height": "26",
+            "width": "110"
+        },
+        {
+            "id": "Static04",
+            "taborder": "5",
+            "cssclass": "sta_WF_schline",
+            "left": "20",
+            "top": "46",
+            "right": "20",
+            "height": "2"
+        },
+        {
+            "id": "resultCntMain",
+            "taborder": "33",
+            "cssclass": "rtnDataCnt",
+            "top": "87",
+            "width": "130",
+            "height": "20",
+            "left": "334"
+        },
+        {
+            "id": "resultCntDtl",
+            "taborder": "34",
+            "cssclass": "rtnDataCnt",
+            "top": "87",
+            "right": "27",
+            "width": "130",
+            "height": "20"
+        }
+    ],
+    "Scripts": [],
+    "Splitters": [
+        {
+            "id": "div_verticalBar_move",
+            "left": "473",
+            "top": "81",
+            "width": "5",
+            "height": "",
+            "orientation": "vertical",
+            "ondrag": "div_verticalBar_move_ondrag"
+        }
+    ],
+    "Divs": [
+        {
+            "id": "Div00",
+            "left": "20",
+            "top": "89",
+            "right": "",
+            "bottom": "20",
+            "width": "450",
+            "height": ""
+        },
+        {
+            "id": "Div01",
+            "left": "481",
+            "top": "89",
+            "right": "20",
+            "bottom": "20",
+            "width": "",
+            "height": ""
+        }
+    ],
+    "Tabs": [
+        {
+            "id": "Tab",
+            "left": "20",
+            "top": "81",
+            "right": "20",
+            "bottom": "20",
+            "width": "",
+            "height": "",
+            "tabpages": [
+                {
+                    "id": "tabpage1",
+                    "text": "표준공정 등록",
+                    "url": ""
+                },
+                {
+                    "id": "tabpage2",
+                    "text": "표준공정 현황",
+                    "url": ""
+                }
+            ]
+        }
+    ],
+    "hasAuthCheck": true,
+    "hasCloseGuard": true,
+    "saveDsName": ""
+}

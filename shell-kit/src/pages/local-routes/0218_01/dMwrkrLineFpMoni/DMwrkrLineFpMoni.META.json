@@ -1,0 +1,2152 @@
+{
+    "Form": {
+        "id": "D_MWRKR_LINE_FP_MONI",
+        "height": "2000",
+        "left": "0",
+        "onload": "Form_onload",
+        "titletext": "포장라인 공정 F/P 모니터링",
+        "top": "0",
+        "width": "1018"
+    },
+    "Datasets": [
+        {
+            "id": "ds_search",
+            "columns": [
+                {
+                    "id": "PLANT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "LANG_TYPE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PROC_ID",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CHNG_ID",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "USER_PRD_CI",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_DATE",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [
+                {}
+            ],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "false",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_SearchListResult042_Row",
+            "columns": [
+                {
+                    "id": "CODE_KOR_NAME",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "COMM_CODE",
+                    "size": "256",
+                    "type": "STRING"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_SearchListResult043_Row",
+            "columns": [
+                {
+                    "id": "CODE_KOR_NAME",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "COMM_CODE",
+                    "size": "256",
+                    "type": "STRING"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_SearchListResult044_Row",
+            "columns": [
+                {
+                    "id": "CODE_KOR_NAME",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "COMM_CODE",
+                    "size": "256",
+                    "type": "STRING"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_combo3",
+            "columns": [
+                {
+                    "id": "WRK_AREA_NAME_RE",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "WRK_AREA",
+                    "size": "256",
+                    "type": "STRING"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_headSet",
+            "columns": [
+                {
+                    "id": "WKNS_BYNM_NM",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "MES_FP_ITEM_CD",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CODE_KOR_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "COMM_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "HEAD_CNT",
+                    "type": "INT",
+                    "size": "256"
+                },
+                {
+                    "id": "CODE_KOR_ABR",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "false",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false",
+            "oncolumnchanged": "ds_search_oncolumnchanged"
+        },
+        {
+            "id": "ds_datagrid01",
+            "columns": [
+                {
+                    "id": "PLANT",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "WRK_CENTER",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "CENTER_FLAG",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "PAC_ORDER",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "PRD_CODE",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "CUR_PDT_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_ORDER_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_START_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_datagrid02",
+            "columns": [
+                {
+                    "id": "PLANT",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "WRK_CENTER",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "CENTER_FLAG",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "PAC_ORDER",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "PRD_CODE",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "CUR_PDT_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_ORDER_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_START_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_datagrid03",
+            "columns": [
+                {
+                    "id": "PLANT",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "WRK_CENTER",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "CENTER_FLAG",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "PAC_ORDER",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "PRD_CODE",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "CUR_PDT_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_ORDER_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_START_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_datagrid04",
+            "columns": [
+                {
+                    "id": "PLANT",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "WRK_CENTER",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "CENTER_FLAG",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "PAC_ORDER",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "PRD_CODE",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "CUR_PDT_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_ORDER_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_START_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_datagrid05",
+            "columns": [
+                {
+                    "id": "PLANT",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "WRK_CENTER",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "CENTER_FLAG",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "PAC_ORDER",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "PRD_CODE",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "CUR_PDT_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_ORDER_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_START_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_datagrid06",
+            "columns": [
+                {
+                    "id": "PLANT",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "WRK_CENTER",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "CENTER_FLAG",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "PAC_ORDER",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "PRD_CODE",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "CUR_PDT_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_ORDER_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WRK_START_TIME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_datagrid_main",
+            "columns": [
+                {
+                    "id": "PLANT",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "WRK_CENTER",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "CENTER_FLAG",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "PAC_ORDER",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "PRD_CODE",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "CUR_PDT_QTY",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SEQ",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_SearchListResult045_Row",
+            "columns": [
+                {
+                    "id": "CODE_KOR_NAME",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "COMM_CODE",
+                    "size": "256",
+                    "type": "STRING"
+                }
+            ],
+            "rows": []
+        },
+        {
+            "id": "ds_body_cnt",
+            "columns": [
+                {
+                    "id": "COMM_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CODE_KOR_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ROW_CNT",
+                    "type": "INT",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "false",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false",
+            "oncolumnchanged": "ds_search_oncolumnchanged"
+        }
+    ],
+    "Grids": [
+        {
+            "id": "datagrid2",
+            "binddataset": "ds_datagrid02",
+            "columns": [
+                {
+                    "id": "라인",
+                    "binding": "WRK_CENTER",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext",
+                    "size": 60
+                },
+                {
+                    "id": "",
+                    "binding": "GB2",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext",
+                    "size": 0
+                },
+                {
+                    "id": "제품 내역",
+                    "binding": "MATR_NAME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left middle;",
+                    "size": 150
+                },
+                {
+                    "id": "오더번호",
+                    "binding": "PAC_ORDER",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:center middle;",
+                    "size": 60
+                },
+                {
+                    "id": "시작시간",
+                    "binding": "WRK_START_TIME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:center middle;",
+                    "size": 60
+                },
+                {
+                    "id": "요청량",
+                    "binding": "WRK_ORDER_QTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "size": 60
+                },
+                {
+                    "id": "생산량",
+                    "binding": "CUR_PDT_QTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "size": 60
+                }
+            ],
+            "columnSizes": [
+                60,
+                0,
+                150,
+                60,
+                60,
+                60,
+                60
+            ],
+            "rows": [
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24"
+                }
+            ],
+            "headCells": [
+                {
+                    "rowspan": "2",
+                    "text": "라인"
+                },
+                {
+                    "col": "1",
+                    "rowspan": "2"
+                },
+                {
+                    "col": "2",
+                    "rowspan": "2",
+                    "text": "제품 내역"
+                },
+                {
+                    "col": "3",
+                    "rowspan": "2",
+                    "text": "오더번호"
+                },
+                {
+                    "col": "4",
+                    "rowspan": "2",
+                    "text": "시작시간"
+                },
+                {
+                    "col": "5",
+                    "rowspan": "2",
+                    "text": "요청량"
+                },
+                {
+                    "col": "6",
+                    "rowspan": "2",
+                    "text": "생산량"
+                }
+            ],
+            "bodyCells": [
+                {
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "text": "bind:WRK_CENTER",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext"
+                },
+                {
+                    "col": "1",
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "text": "bind:GB2",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext"
+                },
+                {
+                    "col": "2",
+                    "style": "align:left middle;",
+                    "text": "bind:MATR_NAME"
+                },
+                {
+                    "col": "3",
+                    "style": "align:center middle;",
+                    "text": "bind:PAC_ORDER"
+                },
+                {
+                    "col": "4",
+                    "style": "align:center middle;",
+                    "text": "bind:WRK_START_TIME"
+                },
+                {
+                    "col": "5",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "text": "bind:WRK_ORDER_QTY"
+                },
+                {
+                    "col": "6",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "text": "bind:CUR_PDT_QTY"
+                }
+            ],
+            "taborder": "44",
+            "useinputpanel": "false",
+            "visible": "true",
+            "left": "20",
+            "top": "581",
+            "right": "20",
+            "height": "172"
+        },
+        {
+            "id": "datagrid1",
+            "binddataset": "ds_datagrid01",
+            "columns": [
+                {
+                    "id": "라인",
+                    "binding": "WRK_CENTER",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext",
+                    "size": 60
+                },
+                {
+                    "id": "",
+                    "binding": "GB2",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext",
+                    "size": 0
+                },
+                {
+                    "id": "제품 내역",
+                    "binding": "MATR_NAME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left middle;",
+                    "size": 150
+                },
+                {
+                    "id": "오더번호",
+                    "binding": "PAC_ORDER",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:center middle;",
+                    "size": 60
+                },
+                {
+                    "id": "시작시간",
+                    "binding": "WRK_START_TIME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:center middle;",
+                    "size": 60
+                },
+                {
+                    "id": "요청량",
+                    "binding": "WRK_ORDER_QTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "size": 60
+                },
+                {
+                    "id": "생산량",
+                    "binding": "CUR_PDT_QTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "size": 60
+                }
+            ],
+            "columnSizes": [
+                60,
+                0,
+                150,
+                60,
+                60,
+                60,
+                60
+            ],
+            "rows": [
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24"
+                }
+            ],
+            "headCells": [
+                {
+                    "rowspan": "2",
+                    "text": "라인"
+                },
+                {
+                    "col": "1",
+                    "rowspan": "2"
+                },
+                {
+                    "col": "2",
+                    "rowspan": "2",
+                    "text": "제품 내역"
+                },
+                {
+                    "col": "3",
+                    "rowspan": "2",
+                    "text": "오더번호"
+                },
+                {
+                    "col": "4",
+                    "rowspan": "2",
+                    "text": "시작시간"
+                },
+                {
+                    "col": "5",
+                    "rowspan": "2",
+                    "text": "요청량"
+                },
+                {
+                    "col": "6",
+                    "rowspan": "2",
+                    "text": "생산량"
+                }
+            ],
+            "bodyCells": [
+                {
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "text": "bind:WRK_CENTER",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext"
+                },
+                {
+                    "col": "1",
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "text": "bind:GB2",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext"
+                },
+                {
+                    "col": "2",
+                    "style": "align:left middle;",
+                    "text": "bind:MATR_NAME"
+                },
+                {
+                    "col": "3",
+                    "style": "align:center middle;",
+                    "text": "bind:PAC_ORDER"
+                },
+                {
+                    "col": "4",
+                    "style": "align:center middle;",
+                    "text": "bind:WRK_START_TIME"
+                },
+                {
+                    "col": "5",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "text": "bind:WRK_ORDER_QTY"
+                },
+                {
+                    "col": "6",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "text": "bind:CUR_PDT_QTY"
+                }
+            ],
+            "taborder": "57",
+            "useinputpanel": "false",
+            "left": "20",
+            "top": "122",
+            "right": "20",
+            "height": "435"
+        },
+        {
+            "id": "datagrid3",
+            "binddataset": "ds_datagrid03",
+            "columns": [
+                {
+                    "id": "라인",
+                    "binding": "WRK_CENTER",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext",
+                    "size": 60
+                },
+                {
+                    "id": "",
+                    "binding": "GB2",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext",
+                    "size": 0
+                },
+                {
+                    "id": "제품 내역",
+                    "binding": "MATR_NAME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left middle;",
+                    "size": 150
+                },
+                {
+                    "id": "오더번호",
+                    "binding": "PAC_ORDER",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:center middle;",
+                    "size": 60
+                },
+                {
+                    "id": "시작시간",
+                    "binding": "WRK_START_TIME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:center middle;",
+                    "size": 60
+                },
+                {
+                    "id": "요청량",
+                    "binding": "WRK_ORDER_QTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "size": 60
+                },
+                {
+                    "id": "생산량",
+                    "binding": "CUR_PDT_QTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "size": 60
+                }
+            ],
+            "columnSizes": [
+                60,
+                0,
+                150,
+                60,
+                60,
+                60,
+                60
+            ],
+            "rows": [
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24"
+                }
+            ],
+            "headCells": [
+                {
+                    "rowspan": "2",
+                    "text": "라인"
+                },
+                {
+                    "col": "1",
+                    "rowspan": "2"
+                },
+                {
+                    "col": "2",
+                    "rowspan": "2",
+                    "text": "제품 내역"
+                },
+                {
+                    "col": "3",
+                    "rowspan": "2",
+                    "text": "오더번호"
+                },
+                {
+                    "col": "4",
+                    "rowspan": "2",
+                    "text": "시작시간"
+                },
+                {
+                    "col": "5",
+                    "rowspan": "2",
+                    "text": "요청량"
+                },
+                {
+                    "col": "6",
+                    "rowspan": "2",
+                    "text": "생산량"
+                }
+            ],
+            "bodyCells": [
+                {
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "text": "bind:WRK_CENTER",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext"
+                },
+                {
+                    "col": "1",
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "text": "bind:GB2",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext"
+                },
+                {
+                    "col": "2",
+                    "style": "align:left middle;",
+                    "text": "bind:MATR_NAME"
+                },
+                {
+                    "col": "3",
+                    "style": "align:center middle;",
+                    "text": "bind:PAC_ORDER"
+                },
+                {
+                    "col": "4",
+                    "style": "align:center middle;",
+                    "text": "bind:WRK_START_TIME"
+                },
+                {
+                    "col": "5",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "text": "bind:WRK_ORDER_QTY"
+                },
+                {
+                    "col": "6",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "text": "bind:CUR_PDT_QTY"
+                }
+            ],
+            "taborder": "58",
+            "useinputpanel": "false",
+            "left": "20",
+            "top": "778",
+            "right": "20",
+            "height": "180"
+        },
+        {
+            "id": "datagrid4",
+            "binddataset": "ds_datagrid04",
+            "columns": [
+                {
+                    "id": "라인",
+                    "binding": "WRK_CENTER",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext",
+                    "size": 60
+                },
+                {
+                    "id": "",
+                    "binding": "GB2",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext",
+                    "size": 0
+                },
+                {
+                    "id": "제품 내역",
+                    "binding": "MATR_NAME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left middle;",
+                    "size": 150
+                },
+                {
+                    "id": "오더번호",
+                    "binding": "PAC_ORDER",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:center middle;",
+                    "size": 60
+                },
+                {
+                    "id": "시작시간",
+                    "binding": "WRK_START_TIME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:center middle;",
+                    "size": 60
+                },
+                {
+                    "id": "요청량",
+                    "binding": "WRK_ORDER_QTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "size": 60
+                },
+                {
+                    "id": "생산량",
+                    "binding": "CUR_PDT_QTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "size": 60
+                }
+            ],
+            "columnSizes": [
+                60,
+                0,
+                150,
+                60,
+                60,
+                60,
+                60
+            ],
+            "rows": [
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24"
+                }
+            ],
+            "headCells": [
+                {
+                    "rowspan": "2",
+                    "text": "라인"
+                },
+                {
+                    "col": "1",
+                    "rowspan": "2"
+                },
+                {
+                    "col": "2",
+                    "rowspan": "2",
+                    "text": "제품 내역"
+                },
+                {
+                    "col": "3",
+                    "rowspan": "2",
+                    "text": "오더번호"
+                },
+                {
+                    "col": "4",
+                    "rowspan": "2",
+                    "text": "시작시간"
+                },
+                {
+                    "col": "5",
+                    "rowspan": "2",
+                    "text": "요청량"
+                },
+                {
+                    "col": "6",
+                    "rowspan": "2",
+                    "text": "생산량"
+                }
+            ],
+            "bodyCells": [
+                {
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "text": "bind:WRK_CENTER",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext"
+                },
+                {
+                    "col": "1",
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "text": "bind:GB2",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext"
+                },
+                {
+                    "col": "2",
+                    "style": "align:left middle;",
+                    "text": "bind:MATR_NAME"
+                },
+                {
+                    "col": "3",
+                    "style": "align:center middle;",
+                    "text": "bind:PAC_ORDER"
+                },
+                {
+                    "col": "4",
+                    "style": "align:center middle;",
+                    "text": "bind:WRK_START_TIME"
+                },
+                {
+                    "col": "5",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "text": "bind:WRK_ORDER_QTY"
+                },
+                {
+                    "col": "6",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "text": "bind:CUR_PDT_QTY"
+                }
+            ],
+            "taborder": "59",
+            "useinputpanel": "false",
+            "left": "20",
+            "top": "982",
+            "right": "20",
+            "height": "180"
+        },
+        {
+            "id": "datagrid5",
+            "binddataset": "ds_datagrid05",
+            "columns": [
+                {
+                    "id": "라인",
+                    "binding": "WRK_CENTER",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext",
+                    "size": 60
+                },
+                {
+                    "id": "",
+                    "binding": "GB2",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext",
+                    "size": 0
+                },
+                {
+                    "id": "제품 내역",
+                    "binding": "MATR_NAME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left middle;",
+                    "size": 150
+                },
+                {
+                    "id": "오더번호",
+                    "binding": "PAC_ORDER",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:center middle;",
+                    "size": 60
+                },
+                {
+                    "id": "시작시간",
+                    "binding": "WRK_START_TIME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:center middle;",
+                    "size": 60
+                },
+                {
+                    "id": "요청량",
+                    "binding": "WRK_ORDER_QTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "size": 60
+                },
+                {
+                    "id": "생산량",
+                    "binding": "CUR_PDT_QTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "size": 60
+                }
+            ],
+            "columnSizes": [
+                60,
+                0,
+                150,
+                60,
+                60,
+                60,
+                60
+            ],
+            "rows": [
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24"
+                }
+            ],
+            "headCells": [
+                {
+                    "rowspan": "2",
+                    "text": "라인"
+                },
+                {
+                    "col": "1",
+                    "rowspan": "2"
+                },
+                {
+                    "col": "2",
+                    "rowspan": "2",
+                    "text": "제품 내역"
+                },
+                {
+                    "col": "3",
+                    "rowspan": "2",
+                    "text": "오더번호"
+                },
+                {
+                    "col": "4",
+                    "rowspan": "2",
+                    "text": "시작시간"
+                },
+                {
+                    "col": "5",
+                    "rowspan": "2",
+                    "text": "요청량"
+                },
+                {
+                    "col": "6",
+                    "rowspan": "2",
+                    "text": "생산량"
+                }
+            ],
+            "bodyCells": [
+                {
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "text": "bind:WRK_CENTER",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext"
+                },
+                {
+                    "col": "1",
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "text": "bind:GB2",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext"
+                },
+                {
+                    "col": "2",
+                    "style": "align:left middle;",
+                    "text": "bind:MATR_NAME"
+                },
+                {
+                    "col": "3",
+                    "style": "align:center middle;",
+                    "text": "bind:PAC_ORDER"
+                },
+                {
+                    "col": "4",
+                    "style": "align:center middle;",
+                    "text": "bind:WRK_START_TIME"
+                },
+                {
+                    "col": "5",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "text": "bind:WRK_ORDER_QTY"
+                },
+                {
+                    "col": "6",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "text": "bind:CUR_PDT_QTY"
+                }
+            ],
+            "taborder": "60",
+            "useinputpanel": "false",
+            "left": "20",
+            "top": "1186",
+            "right": "20",
+            "height": "180"
+        },
+        {
+            "id": "datagrid6",
+            "binddataset": "ds_datagrid06",
+            "columns": [
+                {
+                    "id": "라인",
+                    "binding": "WRK_CENTER",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext",
+                    "size": 60
+                },
+                {
+                    "id": "",
+                    "binding": "GB2",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext",
+                    "size": 0
+                },
+                {
+                    "id": "제품 내역",
+                    "binding": "MATR_NAME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left middle;",
+                    "size": 150
+                },
+                {
+                    "id": "오더번호",
+                    "binding": "PAC_ORDER",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:center middle;",
+                    "size": 60
+                },
+                {
+                    "id": "시작시간",
+                    "binding": "WRK_START_TIME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:center middle;",
+                    "size": 60
+                },
+                {
+                    "id": "요청량",
+                    "binding": "WRK_ORDER_QTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "size": 60
+                },
+                {
+                    "id": "생산량",
+                    "binding": "CUR_PDT_QTY",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "size": 60
+                }
+            ],
+            "columnSizes": [
+                60,
+                0,
+                150,
+                60,
+                60,
+                60,
+                60
+            ],
+            "rows": [
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24"
+                }
+            ],
+            "headCells": [
+                {
+                    "rowspan": "2",
+                    "text": "라인"
+                },
+                {
+                    "col": "1",
+                    "rowspan": "2"
+                },
+                {
+                    "col": "2",
+                    "rowspan": "2",
+                    "text": "제품 내역"
+                },
+                {
+                    "col": "3",
+                    "rowspan": "2",
+                    "text": "오더번호"
+                },
+                {
+                    "col": "4",
+                    "rowspan": "2",
+                    "text": "시작시간"
+                },
+                {
+                    "col": "5",
+                    "rowspan": "2",
+                    "text": "요청량"
+                },
+                {
+                    "col": "6",
+                    "rowspan": "2",
+                    "text": "생산량"
+                }
+            ],
+            "bodyCells": [
+                {
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "text": "bind:WRK_CENTER",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext"
+                },
+                {
+                    "col": "1",
+                    "displaytype": "normal",
+                    "style": "align:center middle;",
+                    "text": "bind:GB2",
+                    "suppress": "0",
+                    "calendardisplaynulltype": "nulltext"
+                },
+                {
+                    "col": "2",
+                    "style": "align:left middle;",
+                    "text": "bind:MATR_NAME"
+                },
+                {
+                    "col": "3",
+                    "style": "align:center middle;",
+                    "text": "bind:PAC_ORDER"
+                },
+                {
+                    "col": "4",
+                    "style": "align:center middle;",
+                    "text": "bind:WRK_START_TIME"
+                },
+                {
+                    "col": "5",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "text": "bind:WRK_ORDER_QTY"
+                },
+                {
+                    "col": "6",
+                    "displaytype": "number",
+                    "style": "align:right middle;",
+                    "text": "bind:CUR_PDT_QTY"
+                }
+            ],
+            "taborder": "61",
+            "useinputpanel": "false",
+            "left": "20",
+            "top": "1390",
+            "right": "20",
+            "height": "180"
+        }
+    ],
+    "Buttons": [
+        {
+            "id": "button5",
+            "taborder": "8",
+            "text": "종료",
+            "onclick": "button5_onclick",
+            "cssclass": "btn_04",
+            "top": "20",
+            "right": "123",
+            "width": "70",
+            "height": "22"
+        },
+        {
+            "id": "button1",
+            "taborder": "9",
+            "text": "조회",
+            "onclick": "button1_onclick",
+            "cssclass": "btn_04",
+            "enable": "false",
+            "top": "20",
+            "right": "195",
+            "width": "70",
+            "height": "22"
+        },
+        {
+            "id": "button6",
+            "taborder": "33",
+            "text": "포장 F/P 설정",
+            "onclick": "button6_onclick",
+            "cssclass": "btn_grid07",
+            "top": "77",
+            "right": "20",
+            "width": "97",
+            "height": "20"
+        }
+    ],
+    "Combos": [
+        {
+            "id": "combo1",
+            "taborder": "22",
+            "innerdataset": "@ds_combo3",
+            "codecolumn": "WRK_AREA",
+            "datacolumn": "WRK_AREA_NAME_RE",
+            "type": "filter",
+            "onitemchanged": "combo1_onitemchanged",
+            "cssclass": "upperSelect",
+            "left": "346",
+            "top": "50",
+            "width": "156",
+            "height": "20",
+            "onchanged": "combo1_onchanged",
+            "visible": "false",
+            "namecolumn": "WRK_AREA_NAME_RE",
+            "label": "포장작업그룹"
+        },
+        {
+            "id": "combo00",
+            "taborder": "30",
+            "innerdataset": "@ds_SearchListResult044_Row",
+            "codecolumn": "COMM_CODE",
+            "datacolumn": "CODE_KOR_NAME",
+            "type": "dropdown",
+            "cssclass": "upperSelect",
+            "left": "616",
+            "top": "50",
+            "width": "212",
+            "height": "20",
+            "onchanged": "",
+            "visible": "false",
+            "namecolumn": "CODE_KOR_NAME",
+            "label": "작업장(별칭)"
+        }
+    ],
+    "Statics": [
+        {
+            "id": "caption05",
+            "taborder": "24",
+            "cssclass": "data_cell",
+            "visible": "true",
+            "left": "20",
+            "top": "72",
+            "right": "20",
+            "height": "26"
+        },
+        {
+            "id": "titleName",
+            "taborder": "11",
+            "text": "포장라인 공정 F/P 모니터링",
+            "cssclass": "title",
+            "left": "20",
+            "top": "20",
+            "width": "531",
+            "height": "22"
+        },
+        {
+            "id": "caption6",
+            "taborder": "1",
+            "cssclass": "data_cell",
+            "visible": "true",
+            "left": "20",
+            "top": "47",
+            "right": "20",
+            "height": "26"
+        },
+        {
+            "id": "caption1",
+            "taborder": "2",
+            "top": "78",
+            "width": "30",
+            "height": "15",
+            "style": "font:10pt middle;background:red;",
+            "left": "206"
+        },
+        {
+            "id": "caption4",
+            "taborder": "6",
+            "top": "78",
+            "width": "30",
+            "height": "15",
+            "style": "background:yellowgreen;font:10 middle;",
+            "left": "138"
+        },
+        {
+            "id": "Static12",
+            "taborder": "10",
+            "text": "h20",
+            "cssclass": "Guide_color2",
+            "visible": "false",
+            "left": "20",
+            "top": "0",
+            "right": "20",
+            "height": "20"
+        },
+        {
+            "id": "Static10",
+            "taborder": "12",
+            "text": "w20",
+            "cssclass": "Guide_color2",
+            "visible": "false",
+            "left": "0",
+            "top": "0",
+            "width": "20",
+            "height": "1890"
+        },
+        {
+            "id": "Static34",
+            "taborder": "14",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "42",
+            "width": "436",
+            "height": "4"
+        },
+        {
+            "id": "caption02",
+            "taborder": "15",
+            "text": "적합",
+            "cssclass": "rtnDataCnt",
+            "top": "75",
+            "width": "30",
+            "height": "20",
+            "style": "align:left middle;",
+            "left": "174"
+        },
+        {
+            "id": "caption04",
+            "taborder": "17",
+            "text": "미달",
+            "cssclass": "rtnDataCnt",
+            "top": "75",
+            "width": "52",
+            "height": "20",
+            "style": "align:left middle;",
+            "left": "242"
+        },
+        {
+            "id": "Static07",
+            "taborder": "18",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "98",
+            "right": "20",
+            "height": "4"
+        },
+        {
+            "id": "Static00",
+            "taborder": "19",
+            "text": "w20",
+            "cssclass": "Guide_color2",
+            "visible": "false",
+            "left": "998",
+            "top": "0",
+            "width": "20",
+            "height": "1890"
+        },
+        {
+            "id": "Static01",
+            "taborder": "20",
+            "text": "h20",
+            "cssclass": "Guide_color2",
+            "visible": "false",
+            "left": "20",
+            "top": "1870",
+            "right": "20",
+            "height": "20"
+        },
+        {
+            "id": "caption00",
+            "taborder": "21",
+            "text": "작업장구분",
+            "cssclass": "cell_title",
+            "left": "20",
+            "top": "48",
+            "width": "110",
+            "height": "26"
+        },
+        {
+            "id": "caption3",
+            "taborder": "23",
+            "text": "포장작업그룹",
+            "cssclass": "cell_title",
+            "left": "234",
+            "top": "48",
+            "width": "110",
+            "height": "25",
+            "visible": "false"
+        },
+        {
+            "id": "caption07",
+            "taborder": "25",
+            "top": "78",
+            "width": "30",
+            "height": "15",
+            "style": "background:pink;align:center middle;font:9 BOLD 10 middle;",
+            "left": "272"
+        },
+        {
+            "id": "caption08",
+            "taborder": "26",
+            "text": "F/P 미가동",
+            "cssclass": "rtnDataCnt",
+            "top": "75",
+            "width": "84",
+            "height": "20",
+            "style": "align:left middle;",
+            "left": "308"
+        },
+        {
+            "id": "caption09",
+            "taborder": "27",
+            "top": "78",
+            "width": "30",
+            "height": "15",
+            "style": "background:gainsboro;align:center middle;font:8 BOLD 10 middle;",
+            "left": "374",
+            "text": "-"
+        },
+        {
+            "id": "caption10",
+            "taborder": "28",
+            "text": "F/P 미보유",
+            "cssclass": "rtnDataCnt",
+            "top": "75",
+            "width": "68",
+            "height": "20",
+            "style": "align:left middle;",
+            "left": "410"
+        },
+        {
+            "id": "caption11",
+            "taborder": "29",
+            "text": "작업장(별칭)",
+            "cssclass": "cell_title",
+            "left": "504",
+            "top": "48",
+            "width": "110",
+            "height": "25",
+            "visible": "false"
+        },
+        {
+            "id": "caption12",
+            "taborder": "31",
+            "text": "상태",
+            "cssclass": "cell_title",
+            "left": "20",
+            "top": "72",
+            "width": "110",
+            "height": "26"
+        },
+        {
+            "id": "Static04",
+            "taborder": "13",
+            "cssclass": "sta_WF_schline",
+            "left": "20",
+            "top": "46",
+            "right": "20",
+            "height": "2"
+        },
+        {
+            "id": "titleName1",
+            "taborder": "34",
+            "text": "작업장(별칭)_1",
+            "cssclass": "title",
+            "left": "20",
+            "top": "99",
+            "width": "299",
+            "height": "22"
+        },
+        {
+            "id": "Static02",
+            "taborder": "35",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "118",
+            "width": "436",
+            "height": "4"
+        },
+        {
+            "id": "titleName2",
+            "taborder": "36",
+            "text": "작업장(별칭)_2",
+            "cssclass": "title",
+            "left": "20",
+            "top": "558",
+            "width": "299",
+            "height": "22"
+        },
+        {
+            "id": "Static03",
+            "taborder": "37",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "577",
+            "width": "436",
+            "height": "4"
+        },
+        {
+            "id": "Static05",
+            "taborder": "39",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "557",
+            "right": "20",
+            "height": "4"
+        },
+        {
+            "id": "titleName4",
+            "taborder": "40",
+            "text": "작업장(별칭)_4",
+            "cssclass": "title",
+            "left": "20",
+            "top": "959",
+            "width": "299",
+            "height": "22"
+        },
+        {
+            "id": "titleName3",
+            "taborder": "41",
+            "text": "작업장(별칭)_3",
+            "cssclass": "title",
+            "left": "20",
+            "top": "754",
+            "width": "299",
+            "height": "22"
+        },
+        {
+            "id": "titleName5",
+            "taborder": "42",
+            "text": "작업장(별칭)_5",
+            "cssclass": "title",
+            "left": "20",
+            "top": "1163",
+            "width": "299",
+            "height": "22"
+        },
+        {
+            "id": "titleName6",
+            "taborder": "43",
+            "text": "작업장(별칭)_6",
+            "cssclass": "title",
+            "left": "20",
+            "top": "1367",
+            "width": "299",
+            "height": "22"
+        },
+        {
+            "id": "Static06",
+            "taborder": "46",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "753",
+            "right": "20",
+            "height": "4"
+        },
+        {
+            "id": "Static08",
+            "taborder": "47",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "774",
+            "width": "436",
+            "height": "4"
+        },
+        {
+            "id": "Static09",
+            "taborder": "49",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "978",
+            "width": "436",
+            "height": "4"
+        },
+        {
+            "id": "Static11",
+            "taborder": "50",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "958",
+            "right": "20",
+            "height": "4"
+        },
+        {
+            "id": "Static13",
+            "taborder": "52",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "1162",
+            "right": "20",
+            "height": "4"
+        },
+        {
+            "id": "Static14",
+            "taborder": "53",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "1182",
+            "width": "436",
+            "height": "4"
+        },
+        {
+            "id": "Static15",
+            "taborder": "55",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "1366",
+            "right": "20",
+            "height": "4"
+        },
+        {
+            "id": "Static16",
+            "taborder": "56",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "1386",
+            "width": "436",
+            "height": "4"
+        }
+    ],
+    "Scripts": [],
+    "Splitters": [],
+    "Divs": [],
+    "Tabs": [],
+    "hasAuthCheck": true,
+    "hasCloseGuard": true,
+    "saveDsName": ""
+}

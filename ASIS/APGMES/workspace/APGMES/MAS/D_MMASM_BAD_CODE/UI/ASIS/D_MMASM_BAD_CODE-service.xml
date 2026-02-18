@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<service name="D_MMASM_BAD_CODE-service" initial="SetResultKeys">
+  <transaction-manager id="tx1" commit="true" />
+  <activity name="Search" class="com.Amore.MES.common.GridFilterProc">
+    <transition name="success" value="end" />
+    <property name="sql-key" value="D_MMASM_BAD_CODE.SELECT" />
+    <property name="result-key" value="SearchListResult" />
+    <property name="dao" value="apmes_dao" />
+    <property name="param0" value="PLANT" />
+    <property name="param1" value="COMM_CODE" />
+    <property name="param2" value="CUD_CI1" />
+    <property name="param3" value="CUD_CI2" />
+    <property name="param4" value="CUD_CI3" />
+    <property name="param5" value="PLANT" />
+    <property name="param6" value="USER_PRD_CI" />
+    <property name="param-count" value="7" />
+  </activity>
+  <activity name="EventRouter" class="com.Amore.MES.security.activity.SecureRouter">
+    <transition name="find" value="Search" />
+    <transition name="multi" value="SaveStates" />
+  </activity>
+  <activity name="SetResultKeys" class="com.Amore.MES.biz.AmoreSetResultKeyList">
+    <transition name="success" value="EventRouter" />
+    <property name="ResultKeyList" value="SearchListResult|UpdatedCount|InsertedCount|DeletedCount" />
+  </activity>
+  <activity name="SaveStates" class="com.Amore.MES.MAS.D_MMASM_BAD_CODE_SAVE">
+    <transition name="failure" value="Error" />
+    <transition name="success" value="end" />
+  </activity>
+  <activity name="Error" class="com.Amore.MES.GEN.MGENM_ERROR">
+    <transition name="success" value="end" />
+  </activity>
+</service>

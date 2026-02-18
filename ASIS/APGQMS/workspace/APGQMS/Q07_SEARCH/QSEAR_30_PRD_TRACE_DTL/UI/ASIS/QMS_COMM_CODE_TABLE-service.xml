@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service name="QMS_COMM_CODE_TABLE-service" initial="SetResultKeys" xmlns="http://www.poscoict.com/glueframework/service">
+    <transaction-manager id="tx1" commit="true"/>
+    <activity name="SetResultKeys" class="com.Amore.MES.biz.AmoreSetResultKeyList">
+        <transition name="success" value="EventRouter"/>
+        <property name="ResultKeyList" value="SearchListResult"/>
+    </activity>
+    <activity name="EventRouter" class="com.Amore.MES.security.activity.SecureRouter">
+        <transition name="find" value="Search_Code_Table"/>
+    </activity>
+    <activity name="Search_Code_Table" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="sql-key" value="CODE_TABLE_SELECT"/>
+        <property name="result-key" value="SearchListResult"/>
+        <property name="dao" value="apgqms_dao"/>
+    </activity>
+</service>

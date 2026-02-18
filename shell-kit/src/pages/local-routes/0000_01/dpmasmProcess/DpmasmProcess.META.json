@@ -1,0 +1,229 @@
+{
+  "Datasets": [
+    {
+      "id": "ds_Param",
+      "columns": [
+        { "id": "PLANT", "type": "STRING" },
+        { "id": "PROC_CODE", "type": "STRING" },
+        { "id": "CUD_CI", "type": "STRING" },
+        { "id": "PRD_CI", "type": "STRING" }
+      ]
+    },
+    {
+      "id": "ds_Proc",
+      "columns": [
+        { "id": "CUD_TYPE", "type": "STRING" },
+        { "id": "PLANT", "type": "STRING" },
+        { "id": "PRD_CI", "type": "STRING" },
+        { "id": "PROC_CODE", "type": "STRING" },
+        { "id": "PROC_NAME", "type": "STRING" },
+        { "id": "ROUTE_SEQ", "type": "STRING" },
+        { "id": "REMARK", "type": "STRING" },
+        { "id": "CUD_CI", "type": "STRING" },
+        { "id": "COLOR", "type": "STRING" }
+      ]
+    },
+    {
+      "id": "ds_ProcDtl",
+      "columns": [
+        { "id": "CUD_TYPE", "type": "STRING" },
+        { "id": "PLANT", "type": "STRING" },
+        { "id": "PRD_CI", "type": "STRING" },
+        { "id": "PROC_CODE", "type": "STRING" },
+        { "id": "PROC_DTL_CODE", "type": "STRING" },
+        { "id": "PROC_DTL_NAME", "type": "STRING" },
+        { "id": "ROUTE_SEQ", "type": "STRING" },
+        { "id": "PROC_TYPE", "type": "STRING" },
+        { "id": "CUD_CI", "type": "STRING" },
+        { "id": "REMARK", "type": "STRING" }
+      ]
+    },
+    {
+      "id": "ds_CudCi",
+      "columns": [
+        { "id": "COMM_CODE", "type": "STRING" },
+        { "id": "CODE_KOR_NAME", "type": "STRING" }
+      ]
+    },
+    {
+      "id": "ds_ProcCd",
+      "columns": [
+        { "id": "PROC_CODE", "type": "STRING" },
+        { "id": "PROC_NAME", "type": "STRING" }
+      ]
+    },
+    {
+      "id": "ds_PrdCi",
+      "columns": [
+        { "id": "COMM_CODE", "type": "STRING" },
+        { "id": "CODE_KOR_NAME", "type": "STRING" },
+        { "id": "CODE_KOR_NAME_RE", "type": "STRING" }
+      ]
+    },
+    {
+      "id": "ds_ProcType",
+      "columns": [
+        { "id": "COMM_CODE", "type": "STRING" },
+        { "id": "CODE_KOR_NAME", "type": "STRING" }
+      ]
+    },
+    {
+      "id": "ds_Plant",
+      "columns": [
+        { "id": "COMM_CODE", "type": "STRING" },
+        { "id": "CODE_KOR_NAME", "type": "STRING" }
+      ]
+    },
+    {
+      "id": "ds_Tab2",
+      "columns": [
+        { "id": "PLANT", "type": "STRING" },
+        { "id": "PRD_CI", "type": "STRING" },
+        { "id": "PROC_CODE", "type": "STRING" },
+        { "id": "PROC_NAME", "type": "STRING" },
+        { "id": "PROC_DTL_CODE", "type": "STRING" },
+        { "id": "PROC_DTL_NAME", "type": "STRING" },
+        { "id": "PROC_TYPE", "type": "STRING" },
+        { "id": "REMARK", "type": "STRING" }
+      ]
+    },
+    {
+      "id": "ds_ParamProcDtl",
+      "columns": [
+        { "id": "PLANT", "type": "STRING" },
+        { "id": "PROC_CODE", "type": "STRING" },
+        { "id": "CUD_CI", "type": "STRING" },
+        { "id": "PRD_CI", "type": "STRING" }
+      ]
+    }
+  ],
+  "Grids": [
+    {
+      "id": "grd_Proc",
+      "binddataset": "ds_Proc",
+      "columns": [
+        { "id": "유형", "binding": "_op", "edittype": "combo" },
+        { "id": "사업장", "binding": "plant", "edittype": "combo" },
+        { "id": "대공정 코드", "binding": "procCode", "edittype": "normal" },
+        { "id": "대공정", "binding": "procName", "edittype": "normal" },
+        { "id": "제품구분", "binding": "prdCi", "edittype": "combo" },
+        { "id": "순번", "binding": "routeSeq", "edittype": "normal" },
+        { "id": "사용유무", "binding": "cudCi", "edittype": "combo" },
+        { "id": "비고", "binding": "remark", "edittype": "normal" }
+      ]
+    },
+    {
+      "id": "grd_ProcDtl",
+      "binddataset": "ds_ProcDtl",
+      "columns": [
+        { "id": "유형", "binding": "_op", "edittype": "combo" },
+        { "id": "사업장", "binding": "plant", "edittype": "combo" },
+        { "id": "제품구분", "binding": "prdCi", "edittype": "combo" },
+        { "id": "대공정", "binding": "procCode", "edittype": "combo" },
+        { "id": "소공정 코드", "binding": "procDtlCode", "edittype": "normal" },
+        { "id": "소공정", "binding": "procDtlName", "edittype": "normal" },
+        { "id": "공정유형", "binding": "procType", "edittype": "combo" },
+        { "id": "순번", "binding": "routeSeq", "edittype": "normal" },
+        { "id": "작업내용", "binding": "remark", "edittype": "normal" },
+        { "id": "사용유무", "binding": "cudCi", "edittype": "combo" }
+      ]
+    },
+    {
+      "id": "grd_GridT2",
+      "binddataset": "ds_Tab2",
+      "columns": [
+        { "id": "사업장", "binding": "plant", "edittype": "none" },
+        { "id": "제품구분", "binding": "prdCi", "edittype": "none" },
+        { "id": "대공정 코드", "binding": "procCode", "edittype": "none" },
+        { "id": "대공정", "binding": "procName", "edittype": "none" },
+        { "id": "소공정 코드", "binding": "procDtlCode", "edittype": "none" },
+        { "id": "소공정", "binding": "procDtlName", "edittype": "none" },
+        { "id": "공정유형", "binding": "procType", "edittype": "none" },
+        { "id": "작업내용", "binding": "remark", "edittype": "none" }
+      ]
+    }
+  ],
+  "Buttons": [
+    { "id": "button1", "text": "조회" },
+    { "id": "button2", "text": "등록" },
+    { "id": "button3", "text": "저장" },
+    { "id": "button4", "text": "Excel" },
+    { "id": "button5", "text": "종료" }
+  ],
+  "Combos": [
+    {
+      "id": "combo_PrdCi",
+      "innerdataset": "ds_PrdCi",
+      "codecolumn": "COMM_CODE",
+      "namecolumn": "CODE_KOR_NAME_RE"
+    },
+    {
+      "id": "combo_ProcCd",
+      "innerdataset": "ds_ProcCd",
+      "codecolumn": "PROC_CODE",
+      "namecolumn": "PROC_NAME"
+    },
+    {
+      "id": "combo_CudCi",
+      "innerdataset": "ds_CudCi",
+      "codecolumn": "COMM_CODE",
+      "namecolumn": "CODE_KOR_NAME"
+    }
+  ],
+  "Scripts": [
+    {
+      "name": "gfn_DsSetTransaction",
+      "strSvcId": "find_proc_code",
+      "strTransition": "find_proc_code",
+      "strSvcNm": "PGENS_CODE-service",
+      "strInDatasets": "",
+      "strOutDatasets": "ds_ProcCd=dsr_SearchListResult",
+      "strCallbackFunc": "fn_CallBack"
+    },
+    {
+      "name": "gfn_DsSetTransaction",
+      "strSvcId": "find_proc",
+      "strTransition": "find_proc",
+      "strSvcNm": "D_PMASM_PROCESS-service",
+      "strInDatasets": "",
+      "strOutDatasets": "ds_Proc=dsr_SearchListResult_Proc",
+      "strCallbackFunc": "fn_CallBack"
+    },
+    {
+      "name": "gfn_DsSetTransaction",
+      "strSvcId": "find_proc_dtl",
+      "strTransition": "find_proc_dtl",
+      "strSvcNm": "D_PMASM_PROCESS-service",
+      "strInDatasets": "",
+      "strOutDatasets": "ds_ProcDtl=dsr_SearchListResult_ProcDtl",
+      "strCallbackFunc": "fn_CallBack"
+    },
+    {
+      "name": "gfn_DsSetTransaction",
+      "strSvcId": "save_proc",
+      "strTransition": "save_proc",
+      "strSvcNm": "D_PMASM_PROCESS-service",
+      "strInDatasets": "ds_Proc=ds_Proc",
+      "strOutDatasets": "",
+      "strCallbackFunc": "fn_CallBack"
+    },
+    {
+      "name": "gfn_DsSetTransaction",
+      "strSvcId": "save_proc_dtl",
+      "strTransition": "save_proc_dtl",
+      "strSvcNm": "D_PMASM_PROCESS-service",
+      "strInDatasets": "ds_ProcDtl=ds_ProcDtl",
+      "strOutDatasets": "",
+      "strCallbackFunc": "fn_CallBack"
+    },
+    {
+      "name": "gfn_DsSetTransaction",
+      "strSvcId": "find_t2",
+      "strTransition": "find_t2",
+      "strSvcNm": "D_PMASM_PROCESS-service",
+      "strInDatasets": "",
+      "strOutDatasets": "ds_Tab2=dsr_SearchListResult_T2",
+      "strCallbackFunc": "fn_CallBack"
+    }
+  ]
+}

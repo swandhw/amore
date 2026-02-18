@@ -1,0 +1,37 @@
+import type { Qcdvm10NewitemRow } from '../types/Qcdvm10NewitemTypes';
+
+export const createQcdvm10NewitemRow = (): Qcdvm10NewitemRow => {
+  return {
+    matrCode: '',
+    matrName: '',
+    rptDate: '',
+    researchUser: '',
+    codeName: '',
+    functionName: '',
+    shapeText: '',
+    resultFinalJudg: '',
+    innoPrdCi: '',
+    pilotSeq: '',
+    pilotDate: '',
+    mnuType: '',
+    mnuOrder: '',
+    mnuNo: '',
+    judg: '',
+    stabJudg: '',
+    nextdayJudg: '',
+    newMatr: '',
+    useLimit: '',
+    cnt: '',
+    connMatrCode: '',
+    downConnMatrCode: '',
+    cmnt: '',
+    sapUseLimit: '',
+    stabReqCi: '',
+    specYn: '',
+    stabYn: '',
+    prdChar: '',
+    etcInfo: '',
+    etc: '',
+    wk1QmsPlotStabJudgCd: '',
+  };
+};

@@ -1,0 +1,34 @@
+export type Qcdvm10NewitemRow = {
+  matrCode: string;
+  matrName: string;
+  rptDate: string;
+  researchUser: string;
+  codeName: string;
+  functionName: string;
+  shapeText: string;
+  resultFinalJudg: string;
+  innoPrdCi: string;
+  pilotSeq: string;
+  pilotDate: string;
+  mnuType: string;
+  mnuOrder: string;
+  mnuNo: string;
+  judg: string;
+  stabJudg: string;
+  nextdayJudg: string;
+  newMatr: string;
+  useLimit: string;
+  cnt: string;
+  connMatrCode: string;
+  downConnMatrCode: string;
+  cmnt: string;
+  sapUseLimit: string;
+  stabReqCi: string;
+  specYn: string;
+  stabYn: string;
+  prdChar: string;
+  etcInfo: string;
+  etc: string;
+  wk1QmsPlotStabJudgCd: string;
+};
+

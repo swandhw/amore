@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service name="D_MGENS_FP_MONI_SET-service" initial="SetResultKeys" xmlns="http://www.poscoict.com/glueframework/service">
+    <transaction-manager id="tx1" commit="true"/>
+    <activity name="SetResultKeys" class="com.Amore.MES.biz.AmoreSetResultKeyList">
+        <transition name="success" value="EventRouter"/>
+        <property name="ResultKeyList" value="SearchListResult"/>
+    </activity>
+    <activity name="EventRouter" class="com.Amore.MES.security.activity.SecureRouter">
+        <transition name="find02" value="Search2"/>
+        <transition name="multi2" value="SaveStates02"/>
+        <transition name="multi" value="SaveStates01"/>
+        <transition name="find_code_main" value="Search_Code_Main"/>
+        <transition name="find" value="Search"/>
+    </activity>
+    <activity name="Search" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="param-bindings" value="DEPTNO=DeptnoP"/>
+        <property name="sql-key" value="D_MGENS_FP_MONI_SET_MAIN.SELECT"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="result-key" value="SearchListResult"/>
+    </activity>
+    <activity name="SaveStates01" class="com.Amore.MES.GEN.D_MGENS_FP_MONI_SET_SAVE">
+        <transition name="failure" value="Error"/>
+        <transition name="success" value="end"/>
+    </activity>
+    <activity name="Error" class="com.Amore.MES.GEN.MGENM_ERROR">
+        <transition name="success" value="end"/>
+    </activity>
+    <activity name="Search_Code_Main" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="param-bindings" value="DEPTNO=DeptnoP"/>
+        <property name="sql-key" value="D_MGENS_FP_MONI_SET_CODE.SELECT"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="result-key" value="SearchListResult"/>
+    </activity>
+    <activity name="Search2" class="com.Amore.MES.common.GridFilterProc">
+        <transition name="success" value="end"/>
+        <property name="param-bindings" value="DEPTNO=DeptnoP"/>
+        <property name="sql-key" value="D_MGENS_FP_MONI_SET_CODE2.SELECT"/>
+        <property name="dao" value="apmes_dao"/>
+        <property name="result-key" value="SearchListResult"/>
+    </activity>
+    <activity name="SaveStates02" class="com.Amore.MES.GEN.D_MGENS_FP_MONI_SET_COMM">
+        <transition name="failure" value="Error"/>
+        <transition name="success" value="end"/>
+    </activity>
+</service>

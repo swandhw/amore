@@ -1,0 +1,1297 @@
+{
+    "Form": {
+        "id": "QCDVM_10_NEWITEM",
+        "classname": "QSOPM_20_SOP_CHANGE",
+        "left": "0",
+        "top": "0",
+        "width": "1240",
+        "height": "559",
+        "titletext": "(내용물) 신제품 관리",
+        "onload": "QCDVM_10_NEWITEM_onload",
+        "scrollbars": "none",
+        "onsetfocus": "QCDVM_10_NEWITEM_onsetfocus"
+    },
+    "Datasets": [
+        {
+            "id": "ds_NEWITEM_LIST",
+            "columns": [
+                {
+                    "id": "MATR_CODE",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "MATR_NAME",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "RPT_DATE",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "RESEARCH_USER",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "CODE_NAME",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "FUNCTION_NAME",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "SHAPE_TEXT",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "RESULT_FINAL_JUDG",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "INNO_PRD_CI",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "PILOT_SEQ",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "PILOT_DATE",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "MNU_TYPE",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "MNU_ORDER",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "MNU_NO",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "JUDG",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "STAB_JUDG",
+                    "size": "256",
+                    "type": "STRING"
+                },
+                {
+                    "id": "NEXTDAY_JUDG",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "NEW_MATR",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "USE_LIMIT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CNT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CONN_MATR_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "DOWN_CONN_MATR_CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CMNT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SAP_USE_LIMIT",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "STAB_REQ_CI",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "SPEC_YN",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "STAB_YN",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "PRD_CHAR",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ETC_INFO",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "ETC",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "WK1_QMS_PLOT_STAB_JUDG_CD",
+                    "size": "256",
+                    "type": "STRING"
+                }
+            ],
+            "rows": [],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_LIMIT",
+            "columns": [
+                {
+                    "id": "CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CODE_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [
+                {
+                    "CODE": "6",
+                    "CODE_NAME": "6M"
+                },
+                {
+                    "CODE": "12",
+                    "CODE_NAME": "12M"
+                },
+                {
+                    "CODE": "15",
+                    "CODE_NAME": "15M"
+                },
+                {
+                    "CODE": "18",
+                    "CODE_NAME": "18M"
+                },
+                {
+                    "CODE": "20",
+                    "CODE_NAME": "20M"
+                },
+                {
+                    "CODE": "24",
+                    "CODE_NAME": "24M"
+                },
+                {
+                    "CODE": "36",
+                    "CODE_NAME": "36M"
+                }
+            ],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        },
+        {
+            "id": "ds_STAB_REQ_CI",
+            "columns": [
+                {
+                    "id": "CODE",
+                    "type": "STRING",
+                    "size": "256"
+                },
+                {
+                    "id": "CODE_NAME",
+                    "type": "STRING",
+                    "size": "256"
+                }
+            ],
+            "rows": [],
+            "firefirstcount": "0",
+            "firenextcount": "0",
+            "useclientlayout": "true",
+            "updatecontrol": "true",
+            "enableevent": "true",
+            "loadkeymode": "keep",
+            "loadfiltermode": "keep",
+            "reversesubsum": "false"
+        }
+    ],
+    "Grids": [
+        {
+            "id": "grd_NEWITEM_LIST",
+            "binddataset": "ds_NEWITEM_LIST",
+            "columns": [
+                {
+                    "id": "rowIndex",
+                    "binding": "expr:currow+1",
+                    "edittype": "none",
+                    "head_rowspan": "2",
+                    "celltype": "head",
+                    "size": 40
+                },
+                {
+                    "id": "내용물코드",
+                    "binding": "MATR_CODE",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "suppress": "1",
+                    "size": 80
+                },
+                {
+                    "id": "내용물명",
+                    "binding": "MATR_NAME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left;",
+                    "suppress": "2",
+                    "size": 300
+                },
+                {
+                    "id": "발행일",
+                    "binding": "RPT_DATE",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "date",
+                    "suppress": "3",
+                    "calendardisplaynulltype": "none",
+                    "size": 80
+                },
+                {
+                    "id": "연구원",
+                    "binding": "RESEARCH_USER",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "suppress": "4",
+                    "size": 80
+                },
+                {
+                    "id": "제형",
+                    "binding": "CODE_NAME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left;",
+                    "suppress": "5",
+                    "size": 200
+                },
+                {
+                    "id": "기능성",
+                    "binding": "FUNCTION_NAME",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "suppress": "6",
+                    "size": 90
+                },
+                {
+                    "id": "성상",
+                    "binding": "SHAPE_TEXT",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left;",
+                    "suppress": "9",
+                    "size": 200
+                },
+                {
+                    "id": "신원료",
+                    "binding": "NEW_MATR",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left;",
+                    "suppress": "10",
+                    "size": 120
+                },
+                {
+                    "id": "종합판정",
+                    "binding": "RESULT_FINAL_JUDG",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "suppress": "11",
+                    "size": 70
+                },
+                {
+                    "id": "혁신상품\r\n특성분류",
+                    "binding": "INNO_PRD_CI",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "suppress": "12",
+                    "size": 70
+                },
+                {
+                    "id": "사용\r\n기한",
+                    "binding": "USE_LIMIT",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "combo",
+                    "suppress": "13",
+                    "combodataset": "ds_LIMIT",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME",
+                    "size": 60
+                },
+                {
+                    "id": "SAP\r\n사용기한",
+                    "binding": "SAP_USE_LIMIT",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "combo",
+                    "suppress": "14",
+                    "combodataset": "ds_LIMIT",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME",
+                    "size": 60
+                },
+                {
+                    "id": "규격서",
+                    "binding": "SPEC_YN",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "suppress": "15",
+                    "size": 50
+                },
+                {
+                    "id": "4주\r\n안정도",
+                    "binding": "STAB_YN",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "suppress": "16",
+                    "size": 50
+                },
+                {
+                    "id": "Pilot",
+                    "binding": "PILOT_SEQ",
+                    "edittype": "normal",
+                    "head_colspan": "10",
+                    "size": 50
+                },
+                {
+                    "id": "의뢰",
+                    "binding": "STAB_REQ_CI",
+                    "edittype": "normal",
+                    "displaytype": "combo",
+                    "combodataset": "ds_STAB_REQ_CI",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME",
+                    "size": 50
+                },
+                {
+                    "id": "일자",
+                    "binding": "PILOT_DATE",
+                    "edittype": "normal",
+                    "displaytype": "date",
+                    "calendardisplaynulltype": "none",
+                    "size": 80
+                },
+                {
+                    "id": "구분",
+                    "binding": "MNU_TYPE",
+                    "edittype": "normal",
+                    "size": 60
+                },
+                {
+                    "id": "오더번호",
+                    "binding": "MNU_ORDER",
+                    "edittype": "normal",
+                    "size": 80
+                },
+                {
+                    "id": "제조번호",
+                    "binding": "MNU_NO",
+                    "edittype": "normal",
+                    "size": 80
+                },
+                {
+                    "id": "익일판정",
+                    "binding": "NEXTDAY_JUDG",
+                    "edittype": "normal",
+                    "size": 80
+                },
+                {
+                    "id": "1주차 안정도판정",
+                    "binding": "WK1_QMS_PLOT_STAB_JUDG_CD",
+                    "edittype": "normal",
+                    "style": "align:center middle;",
+                    "size": 0
+                },
+                {
+                    "id": "안정도판정",
+                    "binding": "STAB_JUDG",
+                    "edittype": "normal",
+                    "style": "align:center middle;",
+                    "size": 100
+                },
+                {
+                    "id": "MES 진행사항",
+                    "binding": "ETC",
+                    "edittype": "normal",
+                    "displaytype": "text",
+                    "style": "align:left top;",
+                    "size": 200
+                },
+                {
+                    "id": "카운터",
+                    "binding": "CNT",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "style": "align:left middle;",
+                    "size": 250
+                },
+                {
+                    "id": "연계홋수",
+                    "binding": "CONN_MATR_CODE",
+                    "edittype": "normal",
+                    "head_colspan": "2",
+                    "size": 70
+                },
+                {
+                    "id": "하위",
+                    "binding": "DOWN_CONN_MATR_CODE",
+                    "edittype": "normal",
+                    "style": "align:left middle;",
+                    "size": 250
+                },
+                {
+                    "id": "기능성 원료리스트",
+                    "binding": "CMNT",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "text",
+                    "style": "align:left;",
+                    "size": 250
+                },
+                {
+                    "id": "제품특징",
+                    "binding": "PRD_CHAR",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "text",
+                    "style": "align:left top;",
+                    "suppress": "17",
+                    "suppressalign": "first,over",
+                    "size": 500
+                },
+                {
+                    "id": "기타정보",
+                    "binding": "ETC_INFO",
+                    "edittype": "normal",
+                    "head_rowspan": "2",
+                    "displaytype": "text",
+                    "style": "align:left top;",
+                    "suppress": "18",
+                    "suppressalign": "first,over",
+                    "size": 500
+                }
+            ],
+            "columnSizes": [
+                40,
+                80,
+                300,
+                80,
+                80,
+                200,
+                90,
+                200,
+                120,
+                70,
+                70,
+                60,
+                60,
+                50,
+                50,
+                50,
+                50,
+                80,
+                60,
+                80,
+                80,
+                80,
+                0,
+                100,
+                200,
+                250,
+                70,
+                250,
+                250,
+                500,
+                500
+            ],
+            "rows": [
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24",
+                    "band": "head"
+                },
+                {
+                    "size": "24"
+                }
+            ],
+            "headCells": [
+                {
+                    "rowspan": "2"
+                },
+                {
+                    "col": "1",
+                    "rowspan": "2",
+                    "text": "내용물코드"
+                },
+                {
+                    "col": "2",
+                    "rowspan": "2",
+                    "text": "내용물명"
+                },
+                {
+                    "col": "3",
+                    "rowspan": "2",
+                    "text": "발행일"
+                },
+                {
+                    "col": "4",
+                    "rowspan": "2",
+                    "text": "연구원"
+                },
+                {
+                    "col": "5",
+                    "rowspan": "2",
+                    "text": "제형"
+                },
+                {
+                    "col": "6",
+                    "rowspan": "2",
+                    "text": "기능성"
+                },
+                {
+                    "col": "7",
+                    "rowspan": "2",
+                    "text": "성상"
+                },
+                {
+                    "col": "8",
+                    "rowspan": "2",
+                    "text": "신원료"
+                },
+                {
+                    "col": "9",
+                    "rowspan": "2",
+                    "text": "종합판정"
+                },
+                {
+                    "col": "10",
+                    "rowspan": "2",
+                    "text": "혁신상품\r\n특성분류"
+                },
+                {
+                    "col": "11",
+                    "rowspan": "2",
+                    "text": "사용\r\n기한"
+                },
+                {
+                    "col": "12",
+                    "rowspan": "2",
+                    "text": "SAP\r\n사용기한"
+                },
+                {
+                    "col": "13",
+                    "rowspan": "2",
+                    "text": "규격서"
+                },
+                {
+                    "col": "14",
+                    "rowspan": "2",
+                    "text": "4주\r\n안정도"
+                },
+                {
+                    "col": "15",
+                    "colspan": "10",
+                    "text": "Pilot"
+                },
+                {
+                    "col": "25",
+                    "rowspan": "2",
+                    "text": "카운터"
+                },
+                {
+                    "col": "26",
+                    "colspan": "2",
+                    "text": "연계홋수"
+                },
+                {
+                    "col": "28",
+                    "rowspan": "2",
+                    "text": "기능성 원료리스트"
+                },
+                {
+                    "col": "29",
+                    "rowspan": "2",
+                    "text": "제품특징"
+                },
+                {
+                    "col": "30",
+                    "rowspan": "2",
+                    "text": "기타정보"
+                },
+                {
+                    "row": "1",
+                    "col": "15",
+                    "text": "차수"
+                },
+                {
+                    "row": "1",
+                    "col": "16",
+                    "text": "의뢰"
+                },
+                {
+                    "row": "1",
+                    "col": "17",
+                    "text": "일자"
+                },
+                {
+                    "row": "1",
+                    "col": "18",
+                    "text": "구분"
+                },
+                {
+                    "row": "1",
+                    "col": "19",
+                    "text": "오더번호"
+                },
+                {
+                    "row": "1",
+                    "col": "20",
+                    "text": "제조번호"
+                },
+                {
+                    "row": "1",
+                    "col": "21",
+                    "text": "익일판정"
+                },
+                {
+                    "row": "1",
+                    "col": "22",
+                    "text": "1주차 안정도판정"
+                },
+                {
+                    "row": "1",
+                    "col": "23",
+                    "text": "안정도판정"
+                },
+                {
+                    "row": "1",
+                    "col": "24",
+                    "text": "MES 진행사항"
+                },
+                {
+                    "row": "1",
+                    "col": "26",
+                    "text": "상위"
+                },
+                {
+                    "row": "1",
+                    "col": "27",
+                    "text": "하위"
+                }
+            ],
+            "bodyCells": [
+                {
+                    "celltype": "head",
+                    "expr": "currow+1"
+                },
+                {
+                    "col": "1",
+                    "text": "bind:MATR_CODE",
+                    "suppress": "1"
+                },
+                {
+                    "col": "2",
+                    "style": "align:left;",
+                    "text": "bind:MATR_NAME",
+                    "suppress": "2"
+                },
+                {
+                    "col": "3",
+                    "displaytype": "date",
+                    "text": "bind:RPT_DATE",
+                    "suppress": "3",
+                    "calendardisplaynulltype": "none"
+                },
+                {
+                    "col": "4",
+                    "text": "bind:RESEARCH_USER",
+                    "suppress": "4"
+                },
+                {
+                    "col": "5",
+                    "style": "align:left;",
+                    "text": "bind:CODE_NAME",
+                    "suppress": "5"
+                },
+                {
+                    "col": "6",
+                    "text": "bind:FUNCTION_NAME",
+                    "suppress": "6"
+                },
+                {
+                    "col": "7",
+                    "style": "align:left;",
+                    "text": "bind:SHAPE_TEXT",
+                    "suppress": "9"
+                },
+                {
+                    "col": "8",
+                    "style": "align:left;",
+                    "text": "bind:NEW_MATR",
+                    "suppress": "10"
+                },
+                {
+                    "col": "9",
+                    "text": "bind:RESULT_FINAL_JUDG",
+                    "suppress": "11"
+                },
+                {
+                    "col": "10",
+                    "text": "bind:INNO_PRD_CI",
+                    "suppress": "12"
+                },
+                {
+                    "col": "11",
+                    "displaytype": "combo",
+                    "text": "bind:USE_LIMIT",
+                    "suppress": "13",
+                    "combodataset": "ds_LIMIT",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME"
+                },
+                {
+                    "col": "12",
+                    "displaytype": "combo",
+                    "text": "bind:SAP_USE_LIMIT",
+                    "suppress": "14",
+                    "combodataset": "ds_LIMIT",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME"
+                },
+                {
+                    "col": "13",
+                    "text": "bind:SPEC_YN",
+                    "suppress": "15"
+                },
+                {
+                    "col": "14",
+                    "text": "bind:STAB_YN",
+                    "suppress": "16"
+                },
+                {
+                    "col": "15",
+                    "text": "bind:PILOT_SEQ"
+                },
+                {
+                    "col": "16",
+                    "displaytype": "combo",
+                    "text": "bind:STAB_REQ_CI",
+                    "combodataset": "ds_STAB_REQ_CI",
+                    "combocodecol": "CODE",
+                    "combodatacol": "CODE_NAME"
+                },
+                {
+                    "col": "17",
+                    "displaytype": "date",
+                    "text": "bind:PILOT_DATE",
+                    "calendardisplaynulltype": "none"
+                },
+                {
+                    "col": "18",
+                    "text": "bind:MNU_TYPE"
+                },
+                {
+                    "col": "19",
+                    "text": "bind:MNU_ORDER"
+                },
+                {
+                    "col": "20",
+                    "text": "bind:MNU_NO"
+                },
+                {
+                    "col": "21",
+                    "text": "bind:NEXTDAY_JUDG"
+                },
+                {
+                    "col": "22",
+                    "style": "align:center middle;",
+                    "text": "bind:WK1_QMS_PLOT_STAB_JUDG_CD"
+                },
+                {
+                    "col": "23",
+                    "style": "align:center middle;",
+                    "text": "bind:STAB_JUDG"
+                },
+                {
+                    "col": "24",
+                    "displaytype": "text",
+                    "style": "align:left top;",
+                    "text": "bind:ETC"
+                },
+                {
+                    "col": "25",
+                    "style": "align:left middle;",
+                    "text": "bind:CNT"
+                },
+                {
+                    "col": "26",
+                    "text": "bind:CONN_MATR_CODE"
+                },
+                {
+                    "col": "27",
+                    "style": "align:left middle;",
+                    "text": "bind:DOWN_CONN_MATR_CODE"
+                },
+                {
+                    "col": "28",
+                    "displaytype": "text",
+                    "style": "align:left;",
+                    "text": "bind:CMNT"
+                },
+                {
+                    "col": "29",
+                    "displaytype": "text",
+                    "style": "align:left top;",
+                    "text": "bind:PRD_CHAR",
+                    "suppress": "17",
+                    "suppressalign": "first,over"
+                },
+                {
+                    "col": "30",
+                    "displaytype": "text",
+                    "style": "align:left top;",
+                    "text": "bind:ETC_INFO",
+                    "suppress": "18",
+                    "suppressalign": "first,over"
+                }
+            ],
+            "taborder": "14",
+            "useinputpanel": "false",
+            "selecttype": "cell",
+            "left": "20",
+            "top": "114",
+            "right": "20",
+            "bottom": "20",
+            "oncelldblclick": "grd_NEWITEM_LIST_oncelldblclick"
+        }
+    ],
+    "Buttons": [
+        {
+            "id": "button4",
+            "taborder": "5",
+            "text": "Excel",
+            "onclick": "button4_onclick",
+            "cssclass": "btn_WF_CRUD",
+            "top": "20",
+            "right": "195",
+            "width": "70",
+            "height": "22"
+        },
+        {
+            "id": "button5",
+            "taborder": "6",
+            "text": "종료",
+            "onclick": "button5_onclick",
+            "cssclass": "btn_WF_CRUD",
+            "top": "20",
+            "right": "123",
+            "width": "70",
+            "height": "22"
+        },
+        {
+            "id": "button1",
+            "taborder": "7",
+            "text": "조회",
+            "onclick": "btnSearch_onclick",
+            "top": "20",
+            "right": "339",
+            "width": "70",
+            "height": "22",
+            "cssclass": "btn_WF_CRUD"
+        },
+        {
+            "id": "button2",
+            "taborder": "8",
+            "text": "등록",
+            "onclick": "btnReset_onclick",
+            "cssclass": "btn_WF_CRUD",
+            "top": "20",
+            "right": "267",
+            "width": "70",
+            "height": "22"
+        },
+        {
+            "id": "btnExpandSearch",
+            "taborder": "40",
+            "text": "확장검색",
+            "onclick": "btnExpandSearch_onclick",
+            "left": "550",
+            "top": "51",
+            "width": "65",
+            "height": "20"
+        }
+    ],
+    "Combos": [
+        {
+            "id": "cmbCUD_CI",
+            "taborder": "31",
+            "value": "C",
+            "text": "사용",
+            "codecolumn": "codecolumn",
+            "datacolumn": "datacolumn",
+            "index": "1",
+            "cssclass": "upperSelect",
+            "left": "894",
+            "top": "51",
+            "width": "80",
+            "height": "20",
+            "namecolumn": "datacolumn",
+            "innerdatasetRows": [
+                {
+                    "codecolumn": "",
+                    "datacolumn": "전체"
+                },
+                {
+                    "codecolumn": "C",
+                    "datacolumn": "사용"
+                },
+                {
+                    "codecolumn": "D",
+                    "datacolumn": "사용안함"
+                }
+            ],
+            "label": "사용여부"
+        },
+        {
+            "id": "cmbDATE_CI",
+            "taborder": "38",
+            "value": "NI.RPT_DATE",
+            "text": "발행일자",
+            "codecolumn": "codecolumn",
+            "datacolumn": "datacolumn",
+            "index": "0",
+            "left": "20",
+            "top": "47",
+            "width": "100",
+            "height": "27",
+            "style": "background:#f3f3f3ff;",
+            "namecolumn": "datacolumn",
+            "innerdatasetRows": [
+                {
+                    "codecolumn": "NI.RPT_DATE",
+                    "datacolumn": "발행일자"
+                },
+                {
+                    "codecolumn": "NP.PILOT_DATE",
+                    "datacolumn": "Pilot일자"
+                }
+            ]
+        }
+    ],
+    "Statics": [
+        {
+            "id": "Static11",
+            "taborder": "2",
+            "text": "w20",
+            "cssclass": "Guide_color2",
+            "visible": "false",
+            "left": "1220",
+            "top": "0",
+            "right": "0",
+            "height": "559"
+        },
+        {
+            "id": "Static10",
+            "taborder": "1",
+            "text": "w20",
+            "cssclass": "Guide_color2",
+            "visible": "false",
+            "left": "0",
+            "top": "0",
+            "width": "20",
+            "height": "559"
+        },
+        {
+            "id": "Static12",
+            "taborder": "0",
+            "text": "h20",
+            "cssclass": "Guide_color2",
+            "visible": "false",
+            "left": "20",
+            "top": "0",
+            "right": "20",
+            "height": "20"
+        },
+        {
+            "id": "titleName",
+            "taborder": "3",
+            "text": "(내용물) 신제품 관리",
+            "cssclass": "title",
+            "left": "20",
+            "top": "20",
+            "width": "249",
+            "height": "22"
+        },
+        {
+            "id": "Static34",
+            "taborder": "9",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "42",
+            "width": "436",
+            "height": "4"
+        },
+        {
+            "id": "Static05",
+            "taborder": "10",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "564",
+            "top": "42",
+            "width": "436",
+            "height": "4"
+        },
+        {
+            "id": "Static00",
+            "taborder": "33",
+            "text": "h8",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "73",
+            "width": "986",
+            "height": "8"
+        },
+        {
+            "id": "rectangle1",
+            "taborder": "47",
+            "cssclass": "spline",
+            "left": "20",
+            "top": "46",
+            "right": "20",
+            "height": "2"
+        },
+        {
+            "id": "caption00",
+            "taborder": "29",
+            "cssclass": "data_cell",
+            "left": "414",
+            "top": "48",
+            "right": "20",
+            "height": "26"
+        },
+        {
+            "id": "caption5",
+            "taborder": "28",
+            "cssclass": "data_cell",
+            "left": "109",
+            "top": "48",
+            "width": "868",
+            "height": "26"
+        },
+        {
+            "id": "caption04",
+            "taborder": "32",
+            "text": "사용여부",
+            "cssclass": "cell_title",
+            "left": "814",
+            "top": "48",
+            "width": "78",
+            "height": "26"
+        },
+        {
+            "id": "labMATR_CODE",
+            "taborder": "34",
+            "text": "내용물코드",
+            "cssclass": "cell_title",
+            "left": "373",
+            "top": "48",
+            "width": "93",
+            "height": "26"
+        },
+        {
+            "id": "caption7",
+            "taborder": "36",
+            "text": "~",
+            "cssclass": "cell_data",
+            "left": "247",
+            "top": "48",
+            "width": "20",
+            "height": "24",
+            "style": "align:center middle;"
+        },
+        {
+            "id": "labMATR_CODE00",
+            "taborder": "41",
+            "text": "내용물명",
+            "cssclass": "cell_title",
+            "left": "617",
+            "top": "48",
+            "width": "93",
+            "height": "26"
+        },
+        {
+            "id": "caption2",
+            "taborder": "11",
+            "text": "조회내역",
+            "cssclass": "sub_title",
+            "left": "20",
+            "top": "90",
+            "width": "436",
+            "height": "20"
+        },
+        {
+            "id": "Static07",
+            "taborder": "12",
+            "text": "h4",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "110",
+            "width": "979",
+            "height": "4"
+        },
+        {
+            "id": "Static06",
+            "taborder": "13",
+            "text": "h8",
+            "cssclass": "Guide_color",
+            "visible": "false",
+            "left": "20",
+            "top": "82",
+            "width": "979",
+            "height": "8"
+        },
+        {
+            "id": "txtSearch_Count",
+            "taborder": "15",
+            "text": "(조회건수 : 0건)",
+            "cssclass": "cell_title",
+            "top": "90",
+            "right": "28",
+            "width": "229",
+            "height": "20",
+            "style": "background:transparent;border:0 solid #d9d9d9ff ;align:right middle;"
+        }
+    ],
+    "Scripts": [],
+    "Splitters": [],
+    "Divs": [
+        {
+            "id": "DivS",
+            "left": "0",
+            "top": "48",
+            "right": "0",
+            "bottom": "",
+            "width": "",
+            "height": "34"
+        },
+        {
+            "id": "DivR",
+            "left": "0",
+            "top": "82",
+            "right": "0",
+            "bottom": "0",
+            "width": "",
+            "height": ""
+        },
+        {
+            "id": "bom_Div",
+            "left": "20",
+            "top": "82",
+            "right": "20",
+            "bottom": "20",
+            "width": "",
+            "height": ""
+        }
+    ],
+    "Tabs": [
+        {
+            "id": "Tab00",
+            "left": "20",
+            "top": "82",
+            "right": "20",
+            "bottom": "20",
+            "width": "",
+            "height": "",
+            "tabpages": [
+                {
+                    "id": "tabpage1",
+                    "text": "조회",
+                    "url": ""
+                },
+                {
+                    "id": "tabpage2",
+                    "text": "상세내역",
+                    "url": "Q02_CONT_DEV::QCDVM_10_NEWITEM_DTL.xfdl"
+                },
+                {
+                    "id": "tabpage3",
+                    "text": "안정성검사",
+                    "url": "Q02_CONT_DEV::QCDVM_11_NEWITEM_STAB_DTL.xfdl"
+                },
+                {
+                    "id": "tabpage4",
+                    "text": "BOM 연결",
+                    "url": ""
+                },
+                {
+                    "id": "tabpage5",
+                    "text": "변경이력",
+                    "url": "Q02_CONT_DEV::QCDVM_11_NEWITEM_CHNG_HISTORY.xfdl"
+                }
+            ]
+        }
+    ],
+    "hasAuthCheck": false,
+    "hasCloseGuard": false,
+    "saveDsName": ""
+}

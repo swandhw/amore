@@ -1,0 +1,3476 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="QSEAR_35_CONT_COLOR_CHART_N" left="0" top="0" width="2151" height="600" titletext="내용물별 원료 색차 - 차트(N)" onload="Form_onload" ondragmove="From_ondragmove" onlbuttonup="From_onlbuttonup">
+    <Layouts>
+      <Layout>
+        <Static id="titleName" taborder="3" text="내용물별 원료 색차 - 차트(N)" cssclass="title" left="20" top="20" width="300" height="22" onclick="titleName_onclick"/>
+        <Static id="Static10" taborder="0" text="w20" cssclass="Guide_color2" visible="false" left="0" top="0" bottom="0" width="20"/>
+        <Static id="Static12" taborder="1" text="h20" cssclass="Guide_color2" visible="false" left="20" top="0" right="20" height="20"/>
+        <Static id="Static11" taborder="2" text="w20" cssclass="Guide_color2" visible="false" top="0" right="0" bottom="0" width="20"/>
+        <Button id="button1" taborder="4" text="조회" onclick="button1_onclick" cssclass="btn_04" top="20" right="196" width="70" height="22"/>
+        <Button id="button5" taborder="5" text="종료" onclick="button5_onclick" cssclass="btn_04" top="20" right="123" width="70" height="22"/>
+        <Static id="Static34" taborder="6" text="h4" cssclass="Guide_color" visible="false" left="20" top="42" right="20" height="4"/>
+        <Static id="rectangle1" taborder="7" cssclass="spline" left="20" top="46" right="20" height="2"/>
+        <Div id="Div_CONT" taborder="11" left="20" top="55" width="517" style="border:0 solid #808080ff ;" height="2480">
+          <Layouts>
+            <Layout>
+              <Static id="caption5" taborder="0" cssclass="data_cell" left="0" top="0" right="0" height="26"/>
+              <Edit id="txt_CODE" taborder="2" onkeyup="txt_Search_onkeyup" left="3" top="3" width="57" height="20" readonly="false" enable="false"/>
+              <TextArea id="txt_CMNT" taborder="3" left="165" top="3" height="20" right="48" style="padding:0 4 0 4;"/>
+              <Button id="btnExpandSearch" taborder="4" text="확장검색" onclick="btnExpandSearch_onclick" left="0" top="30" width="60" height="22"/>
+              <Grid id="grd_MAIN_MATR" taborder="5" binddataset="ds_MAIN_MATR" left="0" top="55" oncellclick="Div_CONT_grd_MAIN_MATR_oncellclick" autofittype="col" right="2" bottom="20">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40" band="left"/>
+                      <Column size="70" band="left"/>
+                      <Column size="314"/>
+                      <Column size="40"/>
+                      <Column size="40"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="48" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell/>
+                      <Cell col="1" text="내용물코드"/>
+                      <Cell col="2" text="내용물명"/>
+                      <Cell col="3" text="로트&#13;&#10;건수"/>
+                      <Cell col="4" text="삭제"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell celltype="head" expr="currow+1"/>
+                      <Cell col="1" edittype="expr:(CUD_TYPE=='C')?'normal':'none'" style="background:EXPR((CUD_TYPE=='C')?'#dbebff':'');background2:EXPR((CUD_TYPE=='C')?'#dbebff':'');selectbackground:EXPR((CUD_TYPE=='C')?'#dbebff':'');" text="bind:MATR_CODE"/>
+                      <Cell col="2" style="align:left;padding:0 4 0 4;" text="bind:MATR_NAME"/>
+                      <Cell col="3" text="bind:BATCH_CNT"/>
+                      <Cell col="4" displaytype="button" edittype="button" text="bind:BTN_CANCEL"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Edit id="txt_CONT_CNT" taborder="6" left="63" top="3" width="100" height="20" readonly="false" enable="false"/>
+              <Button id="btn_ContList" taborder="9" text="저장된 리스트" left="63" top="30" width="100" height="22" onclick="Div_CONT_btn_ContList_onclick"/>
+              <Button id="btn_Save" taborder="10" text="저장" top="3" width="43" height="20" onclick="Div_CONT_btn_Save_onclick" enable="true" right="3"/>
+              <Button id="btnAdd" taborder="11" text="줄추가" top="30" width="43" height="22" right="3" onclick="Div_CONT_btnAdd_onclick"/>
+              <Button id="btnClear" taborder="12" text="Clear" top="30" width="38" height="22" left="166" onclick="Div_CONT_btnClear_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <PopupDiv id="Pdiv_CONT" text="PopupDiv00" left="0" top="785" width="610" height="328" style="background:#ffffffff;">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="2" left="1" top="1" right="1" bottom="1" style="border:2 solid #808080ff ;"/>
+              <Grid id="grd_CODE_TABLE" taborder="0" left="15" top="49" binddataset="ds_CODE_TABLE" right="15" bottom="15" autofittype="col" oncelldblclick="Pdiv_CONT_grd_CODE_TABLE_oncelldblclick" onlbuttonup="Pdiv_CONT_grd_CODE_TABLE_onlbuttonup">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40" band="left"/>
+                      <Column size="55"/>
+                      <Column size="162"/>
+                      <Column size="0"/>
+                      <Column size="281"/>
+                      <Column size="40" band="right"/>
+                      <Column size="40" band="right"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell/>
+                      <Cell col="1" text="CODE"/>
+                      <Cell col="2" text="내용물"/>
+                      <Cell col="3"/>
+                      <Cell col="4" text="비고"/>
+                      <Cell col="5" text="복사"/>
+                      <Cell col="6" text="삭제"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell celltype="head" expr="currow+1"/>
+                      <Cell col="1" text="bind:CODE"/>
+                      <Cell col="2" text="bind:CONT_CNT"/>
+                      <Cell col="3" text="bind:ADDQUEERYSTRING"/>
+                      <Cell col="4" text="bind:CMNT"/>
+                      <Cell col="5" displaytype="button" edittype="button" text="bind:BTN_COPY"/>
+                      <Cell col="6" displaytype="checkbox" edittype="checkbox" text="bind:CHK"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_Del" taborder="1" text="삭제" top="14" width="40" height="22" onclick="Pdiv_CONT_btn_Del_onclick" right="60"/>
+              <Static id="Static01" taborder="3" text="저장 내용물 코드" cssclass="sub_title" left="22" top="22" width="142" height="17"/>
+              <Button id="btnClose" taborder="4" text="닫기" top="14" width="40" height="22" right="18" onclick="Pdiv_CONT_btnClose_onclick"/>
+            </Layout>
+          </Layouts>
+        </PopupDiv>
+        <Div id="Div_CHART" taborder="12" left="550" top="55" style="border:0 solid #808080ff ;" right="20" height="2480">
+          <Layouts>
+            <Layout>
+              <Div id="Div_White_L" taborder="0" url="Q07_SEARCH::QSEAR_35_CONT_COLOR_CHART_GRAPH.xfdl" left="0" top="0" width="525" height="600" scrollbars="none"/>
+              <Div id="Div_White_A" taborder="1" url="Q07_SEARCH::QSEAR_35_CONT_COLOR_CHART_GRAPH.xfdl" left="530" top="0" width="525" height="600" scrollbars="none"/>
+              <Div id="Div_White_B" taborder="2" url="Q07_SEARCH::QSEAR_35_CONT_COLOR_CHART_GRAPH.xfdl" left="1060" top="0" width="525" height="600" scrollbars="none"/>
+              <Div id="Div_Yellow_L" taborder="3" url="Q07_SEARCH::QSEAR_35_CONT_COLOR_CHART_GRAPH.xfdl" left="0" top="620" width="525" height="600" scrollbars="none"/>
+              <Div id="Div_Yellow_A" taborder="4" url="Q07_SEARCH::QSEAR_35_CONT_COLOR_CHART_GRAPH.xfdl" left="530" top="620" width="525" height="600" scrollbars="none"/>
+              <Div id="Div_Yellow_B" taborder="5" url="Q07_SEARCH::QSEAR_35_CONT_COLOR_CHART_GRAPH.xfdl" left="1060" top="620" width="525" height="600" scrollbars="none"/>
+              <Div id="Div_Red_L" taborder="6" url="Q07_SEARCH::QSEAR_35_CONT_COLOR_CHART_GRAPH.xfdl" left="0" top="1240" width="525" height="600" scrollbars="none"/>
+              <Div id="Div_Red_A" taborder="7" url="Q07_SEARCH::QSEAR_35_CONT_COLOR_CHART_GRAPH.xfdl" left="530" top="1240" width="525" height="600" scrollbars="none"/>
+              <Div id="Div_Red_B" taborder="8" url="Q07_SEARCH::QSEAR_35_CONT_COLOR_CHART_GRAPH.xfdl" left="1060" top="1240" width="525" height="600" scrollbars="none"/>
+              <Div id="Div_Black_L" taborder="9" url="Q07_SEARCH::QSEAR_35_CONT_COLOR_CHART_GRAPH.xfdl" left="0" top="1860" width="525" height="600" scrollbars="none"/>
+              <Div id="Div_Black_A" taborder="10" url="Q07_SEARCH::QSEAR_35_CONT_COLOR_CHART_GRAPH.xfdl" left="530" top="1860" width="525" height="600" scrollbars="none"/>
+              <Div id="Div_Black_B" taborder="11" url="Q07_SEARCH::QSEAR_35_CONT_COLOR_CHART_GRAPH.xfdl" left="1060" top="1860" width="525" height="600" scrollbars="none"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Grid id="Grid02" taborder="17" width="432" binddataset="ds_MAIN_CHART_MINMAX" bottom="-45" left="20" height="93" visible="false" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+              </Columns>
+              <Rows>
+                <Row band="head" size="24"/>
+                <Row band="body" size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell col="0" disptype="normal" text="STAR_CI"/>
+                <Cell col="1" disptype="normal" text="COLOR_CI"/>
+                <Cell col="2" disptype="normal" text="XMIN"/>
+                <Cell col="3" disptype="normal" text="XMAX"/>
+                <Cell col="4" disptype="normal" text="YMIN"/>
+                <Cell col="5" disptype="normal" text="YMAX"/>
+              </Band>
+              <Band id="body">
+                <Cell col="0" disptype="normal" text="bind:STAR_CI"/>
+                <Cell col="1" disptype="normal" text="bind:COLOR_CI"/>
+                <Cell col="2" disptype="normal" text="bind:XMIN"/>
+                <Cell col="3" disptype="normal" text="bind:XMAX"/>
+                <Cell col="4" disptype="normal" text="bind:YMIN"/>
+                <Cell col="5" disptype="normal" text="bind:YMAX"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid03" taborder="18" left="20" height="429" binddataset="ds_rChart" bottom="55" visible="false" width="432">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+              </Columns>
+              <Rows>
+                <Row band="head" size="24"/>
+                <Row band="body" size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell col="0" disptype="normal" text="STAR_CI"/>
+                <Cell col="1" disptype="normal" text="COLOR_CI"/>
+                <Cell col="2" disptype="normal" text="RANKNUM"/>
+                <Cell col="3" disptype="normal" text="PX1"/>
+                <Cell col="4" disptype="normal" text="PX2"/>
+                <Cell col="5" disptype="normal" text="PX3"/>
+                <Cell col="6" disptype="normal" text="PX4"/>
+                <Cell col="7" disptype="normal" text="PX5"/>
+                <Cell col="8" disptype="normal" text="PX6"/>
+                <Cell col="9" disptype="normal" text="PX7"/>
+                <Cell col="10" disptype="normal" text="PX8"/>
+                <Cell col="11" disptype="normal" text="PX9"/>
+                <Cell col="12" disptype="normal" text="PX10"/>
+                <Cell col="13" disptype="normal" text="PX11"/>
+                <Cell col="14" disptype="normal" text="PX12"/>
+                <Cell col="15" disptype="normal" text="PX13"/>
+                <Cell col="16" disptype="normal" text="PX14"/>
+                <Cell col="17" disptype="normal" text="PX15"/>
+                <Cell col="18" disptype="normal" text="PX16"/>
+                <Cell col="19" disptype="normal" text="PX17"/>
+                <Cell col="20" disptype="normal" text="PX18"/>
+                <Cell col="21" disptype="normal" text="PX19"/>
+                <Cell col="22" disptype="normal" text="PX20"/>
+                <Cell col="23" disptype="normal" text="PX21"/>
+                <Cell col="24" disptype="normal" text="PX22"/>
+                <Cell col="25" disptype="normal" text="PX23"/>
+                <Cell col="26" disptype="normal" text="PX24"/>
+                <Cell col="27" disptype="normal" text="PX25"/>
+                <Cell col="28" disptype="normal" text="PX26"/>
+                <Cell col="29" disptype="normal" text="PX27"/>
+                <Cell col="30" disptype="normal" text="PX28"/>
+                <Cell col="31" disptype="normal" text="PX29"/>
+                <Cell col="32" disptype="normal" text="PX30"/>
+                <Cell col="33" disptype="normal" text="PX31"/>
+                <Cell col="34" disptype="normal" text="PX32"/>
+                <Cell col="35" disptype="normal" text="PX33"/>
+                <Cell col="36" disptype="normal" text="PX34"/>
+                <Cell col="37" disptype="normal" text="PX35"/>
+                <Cell col="38" disptype="normal" text="PX36"/>
+                <Cell col="39" disptype="normal" text="PX37"/>
+                <Cell col="40" disptype="normal" text="PX38"/>
+                <Cell col="41" disptype="normal" text="PX39"/>
+                <Cell col="42" disptype="normal" text="PX40"/>
+                <Cell col="43" disptype="normal" text="PX41"/>
+                <Cell col="44" disptype="normal" text="PX42"/>
+                <Cell col="45" disptype="normal" text="PX43"/>
+                <Cell col="46" disptype="normal" text="PX44"/>
+                <Cell col="47" disptype="normal" text="PX45"/>
+                <Cell col="48" disptype="normal" text="PX46"/>
+                <Cell col="49" disptype="normal" text="PX47"/>
+                <Cell col="50" disptype="normal" text="PX48"/>
+                <Cell col="51" disptype="normal" text="PX49"/>
+                <Cell col="52" disptype="normal" text="PX50"/>
+                <Cell col="53" disptype="normal" text="PX51"/>
+                <Cell col="54" disptype="normal" text="PX52"/>
+                <Cell col="55" disptype="normal" text="PX53"/>
+                <Cell col="56" disptype="normal" text="PX54"/>
+                <Cell col="57" disptype="normal" text="PX55"/>
+                <Cell col="58" disptype="normal" text="PX56"/>
+                <Cell col="59" disptype="normal" text="PX57"/>
+                <Cell col="60" disptype="normal" text="PX58"/>
+                <Cell col="61" disptype="normal" text="PX59"/>
+                <Cell col="62" disptype="normal" text="PX60"/>
+                <Cell col="63" disptype="normal" text="PX61"/>
+                <Cell col="64" disptype="normal" text="PX62"/>
+                <Cell col="65" disptype="normal" text="PX63"/>
+                <Cell col="66" disptype="normal" text="PX64"/>
+                <Cell col="67" disptype="normal" text="PX65"/>
+                <Cell col="68" disptype="normal" text="PX66"/>
+                <Cell col="69" disptype="normal" text="PX67"/>
+                <Cell col="70" disptype="normal" text="PX68"/>
+                <Cell col="71" disptype="normal" text="PX69"/>
+                <Cell col="72" disptype="normal" text="PX70"/>
+                <Cell col="73" disptype="normal" text="PX71"/>
+                <Cell col="74" disptype="normal" text="PX72"/>
+                <Cell col="75" disptype="normal" text="PX73"/>
+                <Cell col="76" disptype="normal" text="PX74"/>
+                <Cell col="77" disptype="normal" text="PX75"/>
+                <Cell col="78" disptype="normal" text="PX76"/>
+                <Cell col="79" disptype="normal" text="PX77"/>
+                <Cell col="80" disptype="normal" text="PX78"/>
+                <Cell col="81" disptype="normal" text="PX79"/>
+                <Cell col="82" disptype="normal" text="PX80"/>
+                <Cell col="83" disptype="normal" text="PX81"/>
+                <Cell col="84" disptype="normal" text="PX82"/>
+                <Cell col="85" disptype="normal" text="PX83"/>
+                <Cell col="86" disptype="normal" text="PX84"/>
+                <Cell col="87" disptype="normal" text="PX85"/>
+                <Cell col="88" disptype="normal" text="PX86"/>
+                <Cell col="89" disptype="normal" text="PX87"/>
+                <Cell col="90" disptype="normal" text="PX88"/>
+                <Cell col="91" disptype="normal" text="PX89"/>
+                <Cell col="92" disptype="normal" text="PX90"/>
+                <Cell col="93" disptype="normal" text="PX91"/>
+                <Cell col="94" disptype="normal" text="PX92"/>
+                <Cell col="95" disptype="normal" text="PX93"/>
+                <Cell col="96" disptype="normal" text="PX94"/>
+                <Cell col="97" disptype="normal" text="PX95"/>
+                <Cell col="98" disptype="normal" text="PX96"/>
+                <Cell col="99" disptype="normal" text="PX97"/>
+                <Cell col="100" disptype="normal" text="PX98"/>
+                <Cell col="101" disptype="normal" text="PX99"/>
+                <Cell col="102" disptype="normal" text="PX100"/>
+                <Cell col="103" disptype="normal" text="PY1"/>
+                <Cell col="104" disptype="normal" text="PY2"/>
+                <Cell col="105" disptype="normal" text="PY3"/>
+                <Cell col="106" disptype="normal" text="PY4"/>
+                <Cell col="107" disptype="normal" text="PY5"/>
+                <Cell col="108" disptype="normal" text="PY6"/>
+                <Cell col="109" disptype="normal" text="PY7"/>
+                <Cell col="110" disptype="normal" text="PY8"/>
+                <Cell col="111" disptype="normal" text="PY9"/>
+                <Cell col="112" disptype="normal" text="PY10"/>
+                <Cell col="113" disptype="normal" text="PY11"/>
+                <Cell col="114" disptype="normal" text="PY12"/>
+                <Cell col="115" disptype="normal" text="PY13"/>
+                <Cell col="116" disptype="normal" text="PY14"/>
+                <Cell col="117" disptype="normal" text="PY15"/>
+                <Cell col="118" disptype="normal" text="PY16"/>
+                <Cell col="119" disptype="normal" text="PY17"/>
+                <Cell col="120" disptype="normal" text="PY18"/>
+                <Cell col="121" disptype="normal" text="PY19"/>
+                <Cell col="122" disptype="normal" text="PY20"/>
+                <Cell col="123" disptype="normal" text="PY21"/>
+                <Cell col="124" disptype="normal" text="PY22"/>
+                <Cell col="125" disptype="normal" text="PY23"/>
+                <Cell col="126" disptype="normal" text="PY24"/>
+                <Cell col="127" disptype="normal" text="PY25"/>
+                <Cell col="128" disptype="normal" text="PY26"/>
+                <Cell col="129" disptype="normal" text="PY27"/>
+                <Cell col="130" disptype="normal" text="PY28"/>
+                <Cell col="131" disptype="normal" text="PY29"/>
+                <Cell col="132" disptype="normal" text="PY30"/>
+                <Cell col="133" disptype="normal" text="PY31"/>
+                <Cell col="134" disptype="normal" text="PY32"/>
+                <Cell col="135" disptype="normal" text="PY33"/>
+                <Cell col="136" disptype="normal" text="PY34"/>
+                <Cell col="137" disptype="normal" text="PY35"/>
+                <Cell col="138" disptype="normal" text="PY36"/>
+                <Cell col="139" disptype="normal" text="PY37"/>
+                <Cell col="140" disptype="normal" text="PY38"/>
+                <Cell col="141" disptype="normal" text="PY39"/>
+                <Cell col="142" disptype="normal" text="PY40"/>
+                <Cell col="143" disptype="normal" text="PY41"/>
+                <Cell col="144" disptype="normal" text="PY42"/>
+                <Cell col="145" disptype="normal" text="PY43"/>
+                <Cell col="146" disptype="normal" text="PY44"/>
+                <Cell col="147" disptype="normal" text="PY45"/>
+                <Cell col="148" disptype="normal" text="PY46"/>
+                <Cell col="149" disptype="normal" text="PY47"/>
+                <Cell col="150" disptype="normal" text="PY48"/>
+                <Cell col="151" disptype="normal" text="PY49"/>
+                <Cell col="152" disptype="normal" text="PY50"/>
+                <Cell col="153" disptype="normal" text="PY51"/>
+                <Cell col="154" disptype="normal" text="PY52"/>
+                <Cell col="155" disptype="normal" text="PY53"/>
+                <Cell col="156" disptype="normal" text="PY54"/>
+                <Cell col="157" disptype="normal" text="PY55"/>
+                <Cell col="158" disptype="normal" text="PY56"/>
+                <Cell col="159" disptype="normal" text="PY57"/>
+                <Cell col="160" disptype="normal" text="PY58"/>
+                <Cell col="161" disptype="normal" text="PY59"/>
+                <Cell col="162" disptype="normal" text="PY60"/>
+                <Cell col="163" disptype="normal" text="PY61"/>
+                <Cell col="164" disptype="normal" text="PY62"/>
+                <Cell col="165" disptype="normal" text="PY63"/>
+                <Cell col="166" disptype="normal" text="PY64"/>
+                <Cell col="167" disptype="normal" text="PY65"/>
+                <Cell col="168" disptype="normal" text="PY66"/>
+                <Cell col="169" disptype="normal" text="PY67"/>
+                <Cell col="170" disptype="normal" text="PY68"/>
+                <Cell col="171" disptype="normal" text="PY69"/>
+                <Cell col="172" disptype="normal" text="PY70"/>
+                <Cell col="173" disptype="normal" text="PY71"/>
+                <Cell col="174" disptype="normal" text="PY72"/>
+                <Cell col="175" disptype="normal" text="PY73"/>
+                <Cell col="176" disptype="normal" text="PY74"/>
+                <Cell col="177" disptype="normal" text="PY75"/>
+                <Cell col="178" disptype="normal" text="PY76"/>
+                <Cell col="179" disptype="normal" text="PY77"/>
+                <Cell col="180" disptype="normal" text="PY78"/>
+                <Cell col="181" disptype="normal" text="PY79"/>
+                <Cell col="182" disptype="normal" text="PY80"/>
+                <Cell col="183" disptype="normal" text="PY81"/>
+                <Cell col="184" disptype="normal" text="PY82"/>
+                <Cell col="185" disptype="normal" text="PY83"/>
+                <Cell col="186" disptype="normal" text="PY84"/>
+                <Cell col="187" disptype="normal" text="PY85"/>
+                <Cell col="188" disptype="normal" text="PY86"/>
+                <Cell col="189" disptype="normal" text="PY87"/>
+                <Cell col="190" disptype="normal" text="PY88"/>
+                <Cell col="191" disptype="normal" text="PY89"/>
+                <Cell col="192" disptype="normal" text="PY90"/>
+                <Cell col="193" disptype="normal" text="PY91"/>
+                <Cell col="194" disptype="normal" text="PY92"/>
+                <Cell col="195" disptype="normal" text="PY93"/>
+                <Cell col="196" disptype="normal" text="PY94"/>
+                <Cell col="197" disptype="normal" text="PY95"/>
+                <Cell col="198" disptype="normal" text="PY96"/>
+                <Cell col="199" disptype="normal" text="PY97"/>
+                <Cell col="200" disptype="normal" text="PY98"/>
+                <Cell col="201" disptype="normal" text="PY99"/>
+                <Cell col="202" disptype="normal" text="PY100"/>
+                <Cell col="203" disptype="normal" text="X1"/>
+                <Cell col="204" disptype="normal" text="X2"/>
+                <Cell col="205" disptype="normal" text="X3"/>
+                <Cell col="206" disptype="normal" text="X4"/>
+                <Cell col="207" disptype="normal" text="X5"/>
+                <Cell col="208" disptype="normal" text="X6"/>
+                <Cell col="209" disptype="normal" text="X7"/>
+                <Cell col="210" disptype="normal" text="X8"/>
+                <Cell col="211" disptype="normal" text="X9"/>
+                <Cell col="212" disptype="normal" text="X10"/>
+                <Cell col="213" disptype="normal" text="X11"/>
+                <Cell col="214" disptype="normal" text="X12"/>
+                <Cell col="215" disptype="normal" text="X13"/>
+                <Cell col="216" disptype="normal" text="X14"/>
+                <Cell col="217" disptype="normal" text="X15"/>
+                <Cell col="218" disptype="normal" text="X16"/>
+                <Cell col="219" disptype="normal" text="X17"/>
+                <Cell col="220" disptype="normal" text="X18"/>
+                <Cell col="221" disptype="normal" text="X19"/>
+                <Cell col="222" disptype="normal" text="X20"/>
+                <Cell col="223" disptype="normal" text="X21"/>
+                <Cell col="224" disptype="normal" text="X22"/>
+                <Cell col="225" disptype="normal" text="X23"/>
+                <Cell col="226" disptype="normal" text="X24"/>
+                <Cell col="227" disptype="normal" text="X25"/>
+                <Cell col="228" disptype="normal" text="X26"/>
+                <Cell col="229" disptype="normal" text="X27"/>
+                <Cell col="230" disptype="normal" text="X28"/>
+                <Cell col="231" disptype="normal" text="X29"/>
+                <Cell col="232" disptype="normal" text="X30"/>
+                <Cell col="233" disptype="normal" text="X31"/>
+                <Cell col="234" disptype="normal" text="X32"/>
+                <Cell col="235" disptype="normal" text="X33"/>
+                <Cell col="236" disptype="normal" text="X34"/>
+                <Cell col="237" disptype="normal" text="X35"/>
+                <Cell col="238" disptype="normal" text="X36"/>
+                <Cell col="239" disptype="normal" text="X37"/>
+                <Cell col="240" disptype="normal" text="X38"/>
+                <Cell col="241" disptype="normal" text="X39"/>
+                <Cell col="242" disptype="normal" text="X40"/>
+                <Cell col="243" disptype="normal" text="X41"/>
+                <Cell col="244" disptype="normal" text="X42"/>
+                <Cell col="245" disptype="normal" text="X43"/>
+                <Cell col="246" disptype="normal" text="X44"/>
+                <Cell col="247" disptype="normal" text="X45"/>
+                <Cell col="248" disptype="normal" text="X46"/>
+                <Cell col="249" disptype="normal" text="X47"/>
+                <Cell col="250" disptype="normal" text="X48"/>
+                <Cell col="251" disptype="normal" text="X49"/>
+                <Cell col="252" disptype="normal" text="X50"/>
+                <Cell col="253" disptype="normal" text="X51"/>
+                <Cell col="254" disptype="normal" text="X52"/>
+                <Cell col="255" disptype="normal" text="X53"/>
+                <Cell col="256" disptype="normal" text="X54"/>
+                <Cell col="257" disptype="normal" text="X55"/>
+                <Cell col="258" disptype="normal" text="X56"/>
+                <Cell col="259" disptype="normal" text="X57"/>
+                <Cell col="260" disptype="normal" text="X58"/>
+                <Cell col="261" disptype="normal" text="X59"/>
+                <Cell col="262" disptype="normal" text="X60"/>
+                <Cell col="263" disptype="normal" text="X61"/>
+                <Cell col="264" disptype="normal" text="X62"/>
+                <Cell col="265" disptype="normal" text="X63"/>
+                <Cell col="266" disptype="normal" text="X64"/>
+                <Cell col="267" disptype="normal" text="X65"/>
+                <Cell col="268" disptype="normal" text="X66"/>
+                <Cell col="269" disptype="normal" text="X67"/>
+                <Cell col="270" disptype="normal" text="X68"/>
+                <Cell col="271" disptype="normal" text="X69"/>
+                <Cell col="272" disptype="normal" text="X70"/>
+                <Cell col="273" disptype="normal" text="X71"/>
+                <Cell col="274" disptype="normal" text="X72"/>
+                <Cell col="275" disptype="normal" text="X73"/>
+                <Cell col="276" disptype="normal" text="X74"/>
+                <Cell col="277" disptype="normal" text="X75"/>
+                <Cell col="278" disptype="normal" text="X76"/>
+                <Cell col="279" disptype="normal" text="X77"/>
+                <Cell col="280" disptype="normal" text="X78"/>
+                <Cell col="281" disptype="normal" text="X79"/>
+                <Cell col="282" disptype="normal" text="X80"/>
+                <Cell col="283" disptype="normal" text="X81"/>
+                <Cell col="284" disptype="normal" text="X82"/>
+                <Cell col="285" disptype="normal" text="X83"/>
+                <Cell col="286" disptype="normal" text="X84"/>
+                <Cell col="287" disptype="normal" text="X85"/>
+                <Cell col="288" disptype="normal" text="X86"/>
+                <Cell col="289" disptype="normal" text="X87"/>
+                <Cell col="290" disptype="normal" text="X88"/>
+                <Cell col="291" disptype="normal" text="X89"/>
+                <Cell col="292" disptype="normal" text="X90"/>
+                <Cell col="293" disptype="normal" text="X91"/>
+                <Cell col="294" disptype="normal" text="X92"/>
+                <Cell col="295" disptype="normal" text="X93"/>
+                <Cell col="296" disptype="normal" text="X94"/>
+                <Cell col="297" disptype="normal" text="X95"/>
+                <Cell col="298" disptype="normal" text="X96"/>
+                <Cell col="299" disptype="normal" text="X97"/>
+                <Cell col="300" disptype="normal" text="X98"/>
+                <Cell col="301" disptype="normal" text="X99"/>
+                <Cell col="302" disptype="normal" text="X100"/>
+                <Cell col="303" disptype="normal" text="Y1"/>
+                <Cell col="304" disptype="normal" text="Y2"/>
+                <Cell col="305" disptype="normal" text="Y3"/>
+                <Cell col="306" disptype="normal" text="Y4"/>
+                <Cell col="307" disptype="normal" text="Y5"/>
+                <Cell col="308" disptype="normal" text="Y6"/>
+                <Cell col="309" disptype="normal" text="Y7"/>
+                <Cell col="310" disptype="normal" text="Y8"/>
+                <Cell col="311" disptype="normal" text="Y9"/>
+                <Cell col="312" disptype="normal" text="Y10"/>
+                <Cell col="313" disptype="normal" text="Y11"/>
+                <Cell col="314" disptype="normal" text="Y12"/>
+                <Cell col="315" disptype="normal" text="Y13"/>
+                <Cell col="316" disptype="normal" text="Y14"/>
+                <Cell col="317" disptype="normal" text="Y15"/>
+                <Cell col="318" disptype="normal" text="Y16"/>
+                <Cell col="319" disptype="normal" text="Y17"/>
+                <Cell col="320" disptype="normal" text="Y18"/>
+                <Cell col="321" disptype="normal" text="Y19"/>
+                <Cell col="322" disptype="normal" text="Y20"/>
+                <Cell col="323" disptype="normal" text="Y21"/>
+                <Cell col="324" disptype="normal" text="Y22"/>
+                <Cell col="325" disptype="normal" text="Y23"/>
+                <Cell col="326" disptype="normal" text="Y24"/>
+                <Cell col="327" disptype="normal" text="Y25"/>
+                <Cell col="328" disptype="normal" text="Y26"/>
+                <Cell col="329" disptype="normal" text="Y27"/>
+                <Cell col="330" disptype="normal" text="Y28"/>
+                <Cell col="331" disptype="normal" text="Y29"/>
+                <Cell col="332" disptype="normal" text="Y30"/>
+                <Cell col="333" disptype="normal" text="Y31"/>
+                <Cell col="334" disptype="normal" text="Y32"/>
+                <Cell col="335" disptype="normal" text="Y33"/>
+                <Cell col="336" disptype="normal" text="Y34"/>
+                <Cell col="337" disptype="normal" text="Y35"/>
+                <Cell col="338" disptype="normal" text="Y36"/>
+                <Cell col="339" disptype="normal" text="Y37"/>
+                <Cell col="340" disptype="normal" text="Y38"/>
+                <Cell col="341" disptype="normal" text="Y39"/>
+                <Cell col="342" disptype="normal" text="Y40"/>
+                <Cell col="343" disptype="normal" text="Y41"/>
+                <Cell col="344" disptype="normal" text="Y42"/>
+                <Cell col="345" disptype="normal" text="Y43"/>
+                <Cell col="346" disptype="normal" text="Y44"/>
+                <Cell col="347" disptype="normal" text="Y45"/>
+                <Cell col="348" disptype="normal" text="Y46"/>
+                <Cell col="349" disptype="normal" text="Y47"/>
+                <Cell col="350" disptype="normal" text="Y48"/>
+                <Cell col="351" disptype="normal" text="Y49"/>
+                <Cell col="352" disptype="normal" text="Y50"/>
+                <Cell col="353" disptype="normal" text="Y51"/>
+                <Cell col="354" disptype="normal" text="Y52"/>
+                <Cell col="355" disptype="normal" text="Y53"/>
+                <Cell col="356" disptype="normal" text="Y54"/>
+                <Cell col="357" disptype="normal" text="Y55"/>
+                <Cell col="358" disptype="normal" text="Y56"/>
+                <Cell col="359" disptype="normal" text="Y57"/>
+                <Cell col="360" disptype="normal" text="Y58"/>
+                <Cell col="361" disptype="normal" text="Y59"/>
+                <Cell col="362" disptype="normal" text="Y60"/>
+                <Cell col="363" disptype="normal" text="Y61"/>
+                <Cell col="364" disptype="normal" text="Y62"/>
+                <Cell col="365" disptype="normal" text="Y63"/>
+                <Cell col="366" disptype="normal" text="Y64"/>
+                <Cell col="367" disptype="normal" text="Y65"/>
+                <Cell col="368" disptype="normal" text="Y66"/>
+                <Cell col="369" disptype="normal" text="Y67"/>
+                <Cell col="370" disptype="normal" text="Y68"/>
+                <Cell col="371" disptype="normal" text="Y69"/>
+                <Cell col="372" disptype="normal" text="Y70"/>
+                <Cell col="373" disptype="normal" text="Y71"/>
+                <Cell col="374" disptype="normal" text="Y72"/>
+                <Cell col="375" disptype="normal" text="Y73"/>
+                <Cell col="376" disptype="normal" text="Y74"/>
+                <Cell col="377" disptype="normal" text="Y75"/>
+                <Cell col="378" disptype="normal" text="Y76"/>
+                <Cell col="379" disptype="normal" text="Y77"/>
+                <Cell col="380" disptype="normal" text="Y78"/>
+                <Cell col="381" disptype="normal" text="Y79"/>
+                <Cell col="382" disptype="normal" text="Y80"/>
+                <Cell col="383" disptype="normal" text="Y81"/>
+                <Cell col="384" disptype="normal" text="Y82"/>
+                <Cell col="385" disptype="normal" text="Y83"/>
+                <Cell col="386" disptype="normal" text="Y84"/>
+                <Cell col="387" disptype="normal" text="Y85"/>
+                <Cell col="388" disptype="normal" text="Y86"/>
+                <Cell col="389" disptype="normal" text="Y87"/>
+                <Cell col="390" disptype="normal" text="Y88"/>
+                <Cell col="391" disptype="normal" text="Y89"/>
+                <Cell col="392" disptype="normal" text="Y90"/>
+                <Cell col="393" disptype="normal" text="Y91"/>
+                <Cell col="394" disptype="normal" text="Y92"/>
+                <Cell col="395" disptype="normal" text="Y93"/>
+                <Cell col="396" disptype="normal" text="Y94"/>
+                <Cell col="397" disptype="normal" text="Y95"/>
+                <Cell col="398" disptype="normal" text="Y96"/>
+                <Cell col="399" disptype="normal" text="Y97"/>
+                <Cell col="400" disptype="normal" text="Y98"/>
+                <Cell col="401" disptype="normal" text="Y99"/>
+                <Cell col="402" disptype="normal" text="Y100"/>
+                <Cell col="403" disptype="normal" text="CONT_CODE1"/>
+                <Cell col="404" disptype="normal" text="CONT_CODE2"/>
+                <Cell col="405" disptype="normal" text="CONT_CODE3"/>
+                <Cell col="406" disptype="normal" text="CONT_CODE4"/>
+                <Cell col="407" disptype="normal" text="CONT_CODE5"/>
+                <Cell col="408" disptype="normal" text="CONT_CODE6"/>
+                <Cell col="409" disptype="normal" text="CONT_CODE7"/>
+                <Cell col="410" disptype="normal" text="CONT_CODE8"/>
+                <Cell col="411" disptype="normal" text="CONT_CODE9"/>
+                <Cell col="412" disptype="normal" text="CONT_CODE10"/>
+                <Cell col="413" disptype="normal" text="CONT_CODE11"/>
+                <Cell col="414" disptype="normal" text="CONT_CODE12"/>
+                <Cell col="415" disptype="normal" text="CONT_CODE13"/>
+                <Cell col="416" disptype="normal" text="CONT_CODE14"/>
+                <Cell col="417" disptype="normal" text="CONT_CODE15"/>
+                <Cell col="418" disptype="normal" text="CONT_CODE16"/>
+                <Cell col="419" disptype="normal" text="CONT_CODE17"/>
+                <Cell col="420" disptype="normal" text="CONT_CODE18"/>
+                <Cell col="421" disptype="normal" text="CONT_CODE19"/>
+                <Cell col="422" disptype="normal" text="CONT_CODE20"/>
+                <Cell col="423" disptype="normal" text="CONT_CODE21"/>
+                <Cell col="424" disptype="normal" text="CONT_CODE22"/>
+                <Cell col="425" disptype="normal" text="CONT_CODE23"/>
+                <Cell col="426" disptype="normal" text="CONT_CODE24"/>
+                <Cell col="427" disptype="normal" text="CONT_CODE25"/>
+                <Cell col="428" disptype="normal" text="CONT_CODE26"/>
+                <Cell col="429" disptype="normal" text="CONT_CODE27"/>
+                <Cell col="430" disptype="normal" text="CONT_CODE28"/>
+                <Cell col="431" disptype="normal" text="CONT_CODE29"/>
+                <Cell col="432" disptype="normal" text="CONT_CODE30"/>
+                <Cell col="433" disptype="normal" text="CONT_CODE31"/>
+                <Cell col="434" disptype="normal" text="CONT_CODE32"/>
+                <Cell col="435" disptype="normal" text="CONT_CODE33"/>
+                <Cell col="436" disptype="normal" text="CONT_CODE34"/>
+                <Cell col="437" disptype="normal" text="CONT_CODE35"/>
+                <Cell col="438" disptype="normal" text="CONT_CODE36"/>
+                <Cell col="439" disptype="normal" text="CONT_CODE37"/>
+                <Cell col="440" disptype="normal" text="CONT_CODE38"/>
+                <Cell col="441" disptype="normal" text="CONT_CODE39"/>
+                <Cell col="442" disptype="normal" text="CONT_CODE40"/>
+                <Cell col="443" disptype="normal" text="CONT_CODE41"/>
+                <Cell col="444" disptype="normal" text="CONT_CODE42"/>
+                <Cell col="445" disptype="normal" text="CONT_CODE43"/>
+                <Cell col="446" disptype="normal" text="CONT_CODE44"/>
+                <Cell col="447" disptype="normal" text="CONT_CODE45"/>
+                <Cell col="448" disptype="normal" text="CONT_CODE46"/>
+                <Cell col="449" disptype="normal" text="CONT_CODE47"/>
+                <Cell col="450" disptype="normal" text="CONT_CODE48"/>
+                <Cell col="451" disptype="normal" text="CONT_CODE49"/>
+                <Cell col="452" disptype="normal" text="CONT_CODE50"/>
+                <Cell col="453" disptype="normal" text="CONT_CODE51"/>
+                <Cell col="454" disptype="normal" text="CONT_CODE52"/>
+                <Cell col="455" disptype="normal" text="CONT_CODE53"/>
+                <Cell col="456" disptype="normal" text="CONT_CODE54"/>
+                <Cell col="457" disptype="normal" text="CONT_CODE55"/>
+                <Cell col="458" disptype="normal" text="CONT_CODE56"/>
+                <Cell col="459" disptype="normal" text="CONT_CODE57"/>
+                <Cell col="460" disptype="normal" text="CONT_CODE58"/>
+                <Cell col="461" disptype="normal" text="CONT_CODE59"/>
+                <Cell col="462" disptype="normal" text="CONT_CODE60"/>
+                <Cell col="463" disptype="normal" text="CONT_CODE61"/>
+                <Cell col="464" disptype="normal" text="CONT_CODE62"/>
+                <Cell col="465" disptype="normal" text="CONT_CODE63"/>
+                <Cell col="466" disptype="normal" text="CONT_CODE64"/>
+                <Cell col="467" disptype="normal" text="CONT_CODE65"/>
+                <Cell col="468" disptype="normal" text="CONT_CODE66"/>
+                <Cell col="469" disptype="normal" text="CONT_CODE67"/>
+                <Cell col="470" disptype="normal" text="CONT_CODE68"/>
+                <Cell col="471" disptype="normal" text="CONT_CODE69"/>
+                <Cell col="472" disptype="normal" text="CONT_CODE70"/>
+                <Cell col="473" disptype="normal" text="CONT_CODE71"/>
+                <Cell col="474" disptype="normal" text="CONT_CODE72"/>
+                <Cell col="475" disptype="normal" text="CONT_CODE73"/>
+                <Cell col="476" disptype="normal" text="CONT_CODE74"/>
+                <Cell col="477" disptype="normal" text="CONT_CODE75"/>
+                <Cell col="478" disptype="normal" text="CONT_CODE76"/>
+                <Cell col="479" disptype="normal" text="CONT_CODE77"/>
+                <Cell col="480" disptype="normal" text="CONT_CODE78"/>
+                <Cell col="481" disptype="normal" text="CONT_CODE79"/>
+                <Cell col="482" disptype="normal" text="CONT_CODE80"/>
+                <Cell col="483" disptype="normal" text="CONT_CODE81"/>
+                <Cell col="484" disptype="normal" text="CONT_CODE82"/>
+                <Cell col="485" disptype="normal" text="CONT_CODE83"/>
+                <Cell col="486" disptype="normal" text="CONT_CODE84"/>
+                <Cell col="487" disptype="normal" text="CONT_CODE85"/>
+                <Cell col="488" disptype="normal" text="CONT_CODE86"/>
+                <Cell col="489" disptype="normal" text="CONT_CODE87"/>
+                <Cell col="490" disptype="normal" text="CONT_CODE88"/>
+                <Cell col="491" disptype="normal" text="CONT_CODE89"/>
+                <Cell col="492" disptype="normal" text="CONT_CODE90"/>
+                <Cell col="493" disptype="normal" text="CONT_CODE91"/>
+                <Cell col="494" disptype="normal" text="CONT_CODE92"/>
+                <Cell col="495" disptype="normal" text="CONT_CODE93"/>
+                <Cell col="496" disptype="normal" text="CONT_CODE94"/>
+                <Cell col="497" disptype="normal" text="CONT_CODE95"/>
+                <Cell col="498" disptype="normal" text="CONT_CODE96"/>
+                <Cell col="499" disptype="normal" text="CONT_CODE97"/>
+                <Cell col="500" disptype="normal" text="CONT_CODE98"/>
+                <Cell col="501" disptype="normal" text="CONT_CODE99"/>
+                <Cell col="502" disptype="normal" text="CONT_CODE100"/>
+              </Band>
+              <Band id="body">
+                <Cell col="0" disptype="normal" text="bind:STAR_CI"/>
+                <Cell col="1" disptype="normal" text="bind:COLOR_CI"/>
+                <Cell col="2" disptype="normal" text="bind:RANKNUM"/>
+                <Cell col="3" disptype="normal" text="bind:PX1"/>
+                <Cell col="4" disptype="normal" text="bind:PX2"/>
+                <Cell col="5" disptype="normal" text="bind:PX3"/>
+                <Cell col="6" disptype="normal" text="bind:PX4"/>
+                <Cell col="7" disptype="normal" text="bind:PX5"/>
+                <Cell col="8" disptype="normal" text="bind:PX6"/>
+                <Cell col="9" disptype="normal" text="bind:PX7"/>
+                <Cell col="10" disptype="normal" text="bind:PX8"/>
+                <Cell col="11" disptype="normal" text="bind:PX9"/>
+                <Cell col="12" disptype="normal" text="bind:PX10"/>
+                <Cell col="13" disptype="normal" text="bind:PX11"/>
+                <Cell col="14" disptype="normal" text="bind:PX12"/>
+                <Cell col="15" disptype="normal" text="bind:PX13"/>
+                <Cell col="16" disptype="normal" text="bind:PX14"/>
+                <Cell col="17" disptype="normal" text="bind:PX15"/>
+                <Cell col="18" disptype="normal" text="bind:PX16"/>
+                <Cell col="19" disptype="normal" text="bind:PX17"/>
+                <Cell col="20" disptype="normal" text="bind:PX18"/>
+                <Cell col="21" disptype="normal" text="bind:PX19"/>
+                <Cell col="22" disptype="normal" text="bind:PX20"/>
+                <Cell col="23" disptype="normal" text="bind:PX21"/>
+                <Cell col="24" disptype="normal" text="bind:PX22"/>
+                <Cell col="25" disptype="normal" text="bind:PX23"/>
+                <Cell col="26" disptype="normal" text="bind:PX24"/>
+                <Cell col="27" disptype="normal" text="bind:PX25"/>
+                <Cell col="28" disptype="normal" text="bind:PX26"/>
+                <Cell col="29" disptype="normal" text="bind:PX27"/>
+                <Cell col="30" disptype="normal" text="bind:PX28"/>
+                <Cell col="31" disptype="normal" text="bind:PX29"/>
+                <Cell col="32" disptype="normal" text="bind:PX30"/>
+                <Cell col="33" disptype="normal" text="bind:PX31"/>
+                <Cell col="34" disptype="normal" text="bind:PX32"/>
+                <Cell col="35" disptype="normal" text="bind:PX33"/>
+                <Cell col="36" disptype="normal" text="bind:PX34"/>
+                <Cell col="37" disptype="normal" text="bind:PX35"/>
+                <Cell col="38" disptype="normal" text="bind:PX36"/>
+                <Cell col="39" disptype="normal" text="bind:PX37"/>
+                <Cell col="40" disptype="normal" text="bind:PX38"/>
+                <Cell col="41" disptype="normal" text="bind:PX39"/>
+                <Cell col="42" disptype="normal" text="bind:PX40"/>
+                <Cell col="43" disptype="normal" text="bind:PX41"/>
+                <Cell col="44" disptype="normal" text="bind:PX42"/>
+                <Cell col="45" disptype="normal" text="bind:PX43"/>
+                <Cell col="46" disptype="normal" text="bind:PX44"/>
+                <Cell col="47" disptype="normal" text="bind:PX45"/>
+                <Cell col="48" disptype="normal" text="bind:PX46"/>
+                <Cell col="49" disptype="normal" text="bind:PX47"/>
+                <Cell col="50" disptype="normal" text="bind:PX48"/>
+                <Cell col="51" disptype="normal" text="bind:PX49"/>
+                <Cell col="52" disptype="normal" text="bind:PX50"/>
+                <Cell col="53" disptype="normal" text="bind:PX51"/>
+                <Cell col="54" disptype="normal" text="bind:PX52"/>
+                <Cell col="55" disptype="normal" text="bind:PX53"/>
+                <Cell col="56" disptype="normal" text="bind:PX54"/>
+                <Cell col="57" disptype="normal" text="bind:PX55"/>
+                <Cell col="58" disptype="normal" text="bind:PX56"/>
+                <Cell col="59" disptype="normal" text="bind:PX57"/>
+                <Cell col="60" disptype="normal" text="bind:PX58"/>
+                <Cell col="61" disptype="normal" text="bind:PX59"/>
+                <Cell col="62" disptype="normal" text="bind:PX60"/>
+                <Cell col="63" disptype="normal" text="bind:PX61"/>
+                <Cell col="64" disptype="normal" text="bind:PX62"/>
+                <Cell col="65" disptype="normal" text="bind:PX63"/>
+                <Cell col="66" disptype="normal" text="bind:PX64"/>
+                <Cell col="67" disptype="normal" text="bind:PX65"/>
+                <Cell col="68" disptype="normal" text="bind:PX66"/>
+                <Cell col="69" disptype="normal" text="bind:PX67"/>
+                <Cell col="70" disptype="normal" text="bind:PX68"/>
+                <Cell col="71" disptype="normal" text="bind:PX69"/>
+                <Cell col="72" disptype="normal" text="bind:PX70"/>
+                <Cell col="73" disptype="normal" text="bind:PX71"/>
+                <Cell col="74" disptype="normal" text="bind:PX72"/>
+                <Cell col="75" disptype="normal" text="bind:PX73"/>
+                <Cell col="76" disptype="normal" text="bind:PX74"/>
+                <Cell col="77" disptype="normal" text="bind:PX75"/>
+                <Cell col="78" disptype="normal" text="bind:PX76"/>
+                <Cell col="79" disptype="normal" text="bind:PX77"/>
+                <Cell col="80" disptype="normal" text="bind:PX78"/>
+                <Cell col="81" disptype="normal" text="bind:PX79"/>
+                <Cell col="82" disptype="normal" text="bind:PX80"/>
+                <Cell col="83" disptype="normal" text="bind:PX81"/>
+                <Cell col="84" disptype="normal" text="bind:PX82"/>
+                <Cell col="85" disptype="normal" text="bind:PX83"/>
+                <Cell col="86" disptype="normal" text="bind:PX84"/>
+                <Cell col="87" disptype="normal" text="bind:PX85"/>
+                <Cell col="88" disptype="normal" text="bind:PX86"/>
+                <Cell col="89" disptype="normal" text="bind:PX87"/>
+                <Cell col="90" disptype="normal" text="bind:PX88"/>
+                <Cell col="91" disptype="normal" text="bind:PX89"/>
+                <Cell col="92" disptype="normal" text="bind:PX90"/>
+                <Cell col="93" disptype="normal" text="bind:PX91"/>
+                <Cell col="94" disptype="normal" text="bind:PX92"/>
+                <Cell col="95" disptype="normal" text="bind:PX93"/>
+                <Cell col="96" disptype="normal" text="bind:PX94"/>
+                <Cell col="97" disptype="normal" text="bind:PX95"/>
+                <Cell col="98" disptype="normal" text="bind:PX96"/>
+                <Cell col="99" disptype="normal" text="bind:PX97"/>
+                <Cell col="100" disptype="normal" text="bind:PX98"/>
+                <Cell col="101" disptype="normal" text="bind:PX99"/>
+                <Cell col="102" disptype="normal" text="bind:PX100"/>
+                <Cell col="103" disptype="normal" text="bind:PY1"/>
+                <Cell col="104" disptype="normal" text="bind:PY2"/>
+                <Cell col="105" disptype="normal" text="bind:PY3"/>
+                <Cell col="106" disptype="normal" text="bind:PY4"/>
+                <Cell col="107" disptype="normal" text="bind:PY5"/>
+                <Cell col="108" disptype="normal" text="bind:PY6"/>
+                <Cell col="109" disptype="normal" text="bind:PY7"/>
+                <Cell col="110" disptype="normal" text="bind:PY8"/>
+                <Cell col="111" disptype="normal" text="bind:PY9"/>
+                <Cell col="112" disptype="normal" text="bind:PY10"/>
+                <Cell col="113" disptype="normal" text="bind:PY11"/>
+                <Cell col="114" disptype="normal" text="bind:PY12"/>
+                <Cell col="115" disptype="normal" text="bind:PY13"/>
+                <Cell col="116" disptype="normal" text="bind:PY14"/>
+                <Cell col="117" disptype="normal" text="bind:PY15"/>
+                <Cell col="118" disptype="normal" text="bind:PY16"/>
+                <Cell col="119" disptype="normal" text="bind:PY17"/>
+                <Cell col="120" disptype="normal" text="bind:PY18"/>
+                <Cell col="121" disptype="normal" text="bind:PY19"/>
+                <Cell col="122" disptype="normal" text="bind:PY20"/>
+                <Cell col="123" disptype="normal" text="bind:PY21"/>
+                <Cell col="124" disptype="normal" text="bind:PY22"/>
+                <Cell col="125" disptype="normal" text="bind:PY23"/>
+                <Cell col="126" disptype="normal" text="bind:PY24"/>
+                <Cell col="127" disptype="normal" text="bind:PY25"/>
+                <Cell col="128" disptype="normal" text="bind:PY26"/>
+                <Cell col="129" disptype="normal" text="bind:PY27"/>
+                <Cell col="130" disptype="normal" text="bind:PY28"/>
+                <Cell col="131" disptype="normal" text="bind:PY29"/>
+                <Cell col="132" disptype="normal" text="bind:PY30"/>
+                <Cell col="133" disptype="normal" text="bind:PY31"/>
+                <Cell col="134" disptype="normal" text="bind:PY32"/>
+                <Cell col="135" disptype="normal" text="bind:PY33"/>
+                <Cell col="136" disptype="normal" text="bind:PY34"/>
+                <Cell col="137" disptype="normal" text="bind:PY35"/>
+                <Cell col="138" disptype="normal" text="bind:PY36"/>
+                <Cell col="139" disptype="normal" text="bind:PY37"/>
+                <Cell col="140" disptype="normal" text="bind:PY38"/>
+                <Cell col="141" disptype="normal" text="bind:PY39"/>
+                <Cell col="142" disptype="normal" text="bind:PY40"/>
+                <Cell col="143" disptype="normal" text="bind:PY41"/>
+                <Cell col="144" disptype="normal" text="bind:PY42"/>
+                <Cell col="145" disptype="normal" text="bind:PY43"/>
+                <Cell col="146" disptype="normal" text="bind:PY44"/>
+                <Cell col="147" disptype="normal" text="bind:PY45"/>
+                <Cell col="148" disptype="normal" text="bind:PY46"/>
+                <Cell col="149" disptype="normal" text="bind:PY47"/>
+                <Cell col="150" disptype="normal" text="bind:PY48"/>
+                <Cell col="151" disptype="normal" text="bind:PY49"/>
+                <Cell col="152" disptype="normal" text="bind:PY50"/>
+                <Cell col="153" disptype="normal" text="bind:PY51"/>
+                <Cell col="154" disptype="normal" text="bind:PY52"/>
+                <Cell col="155" disptype="normal" text="bind:PY53"/>
+                <Cell col="156" disptype="normal" text="bind:PY54"/>
+                <Cell col="157" disptype="normal" text="bind:PY55"/>
+                <Cell col="158" disptype="normal" text="bind:PY56"/>
+                <Cell col="159" disptype="normal" text="bind:PY57"/>
+                <Cell col="160" disptype="normal" text="bind:PY58"/>
+                <Cell col="161" disptype="normal" text="bind:PY59"/>
+                <Cell col="162" disptype="normal" text="bind:PY60"/>
+                <Cell col="163" disptype="normal" text="bind:PY61"/>
+                <Cell col="164" disptype="normal" text="bind:PY62"/>
+                <Cell col="165" disptype="normal" text="bind:PY63"/>
+                <Cell col="166" disptype="normal" text="bind:PY64"/>
+                <Cell col="167" disptype="normal" text="bind:PY65"/>
+                <Cell col="168" disptype="normal" text="bind:PY66"/>
+                <Cell col="169" disptype="normal" text="bind:PY67"/>
+                <Cell col="170" disptype="normal" text="bind:PY68"/>
+                <Cell col="171" disptype="normal" text="bind:PY69"/>
+                <Cell col="172" disptype="normal" text="bind:PY70"/>
+                <Cell col="173" disptype="normal" text="bind:PY71"/>
+                <Cell col="174" disptype="normal" text="bind:PY72"/>
+                <Cell col="175" disptype="normal" text="bind:PY73"/>
+                <Cell col="176" disptype="normal" text="bind:PY74"/>
+                <Cell col="177" disptype="normal" text="bind:PY75"/>
+                <Cell col="178" disptype="normal" text="bind:PY76"/>
+                <Cell col="179" disptype="normal" text="bind:PY77"/>
+                <Cell col="180" disptype="normal" text="bind:PY78"/>
+                <Cell col="181" disptype="normal" text="bind:PY79"/>
+                <Cell col="182" disptype="normal" text="bind:PY80"/>
+                <Cell col="183" disptype="normal" text="bind:PY81"/>
+                <Cell col="184" disptype="normal" text="bind:PY82"/>
+                <Cell col="185" disptype="normal" text="bind:PY83"/>
+                <Cell col="186" disptype="normal" text="bind:PY84"/>
+                <Cell col="187" disptype="normal" text="bind:PY85"/>
+                <Cell col="188" disptype="normal" text="bind:PY86"/>
+                <Cell col="189" disptype="normal" text="bind:PY87"/>
+                <Cell col="190" disptype="normal" text="bind:PY88"/>
+                <Cell col="191" disptype="normal" text="bind:PY89"/>
+                <Cell col="192" disptype="normal" text="bind:PY90"/>
+                <Cell col="193" disptype="normal" text="bind:PY91"/>
+                <Cell col="194" disptype="normal" text="bind:PY92"/>
+                <Cell col="195" disptype="normal" text="bind:PY93"/>
+                <Cell col="196" disptype="normal" text="bind:PY94"/>
+                <Cell col="197" disptype="normal" text="bind:PY95"/>
+                <Cell col="198" disptype="normal" text="bind:PY96"/>
+                <Cell col="199" disptype="normal" text="bind:PY97"/>
+                <Cell col="200" disptype="normal" text="bind:PY98"/>
+                <Cell col="201" disptype="normal" text="bind:PY99"/>
+                <Cell col="202" disptype="normal" text="bind:PY100"/>
+                <Cell col="203" disptype="normal" text="bind:X1"/>
+                <Cell col="204" disptype="normal" text="bind:X2"/>
+                <Cell col="205" disptype="normal" text="bind:X3"/>
+                <Cell col="206" disptype="normal" text="bind:X4"/>
+                <Cell col="207" disptype="normal" text="bind:X5"/>
+                <Cell col="208" disptype="normal" text="bind:X6"/>
+                <Cell col="209" disptype="normal" text="bind:X7"/>
+                <Cell col="210" disptype="normal" text="bind:X8"/>
+                <Cell col="211" disptype="normal" text="bind:X9"/>
+                <Cell col="212" disptype="normal" text="bind:X10"/>
+                <Cell col="213" disptype="normal" text="bind:X11"/>
+                <Cell col="214" disptype="normal" text="bind:X12"/>
+                <Cell col="215" disptype="normal" text="bind:X13"/>
+                <Cell col="216" disptype="normal" text="bind:X14"/>
+                <Cell col="217" disptype="normal" text="bind:X15"/>
+                <Cell col="218" disptype="normal" text="bind:X16"/>
+                <Cell col="219" disptype="normal" text="bind:X17"/>
+                <Cell col="220" disptype="normal" text="bind:X18"/>
+                <Cell col="221" disptype="normal" text="bind:X19"/>
+                <Cell col="222" disptype="normal" text="bind:X20"/>
+                <Cell col="223" disptype="normal" text="bind:X21"/>
+                <Cell col="224" disptype="normal" text="bind:X22"/>
+                <Cell col="225" disptype="normal" text="bind:X23"/>
+                <Cell col="226" disptype="normal" text="bind:X24"/>
+                <Cell col="227" disptype="normal" text="bind:X25"/>
+                <Cell col="228" disptype="normal" text="bind:X26"/>
+                <Cell col="229" disptype="normal" text="bind:X27"/>
+                <Cell col="230" disptype="normal" text="bind:X28"/>
+                <Cell col="231" disptype="normal" text="bind:X29"/>
+                <Cell col="232" disptype="normal" text="bind:X30"/>
+                <Cell col="233" disptype="normal" text="bind:X31"/>
+                <Cell col="234" disptype="normal" text="bind:X32"/>
+                <Cell col="235" disptype="normal" text="bind:X33"/>
+                <Cell col="236" disptype="normal" text="bind:X34"/>
+                <Cell col="237" disptype="normal" text="bind:X35"/>
+                <Cell col="238" disptype="normal" text="bind:X36"/>
+                <Cell col="239" disptype="normal" text="bind:X37"/>
+                <Cell col="240" disptype="normal" text="bind:X38"/>
+                <Cell col="241" disptype="normal" text="bind:X39"/>
+                <Cell col="242" disptype="normal" text="bind:X40"/>
+                <Cell col="243" disptype="normal" text="bind:X41"/>
+                <Cell col="244" disptype="normal" text="bind:X42"/>
+                <Cell col="245" disptype="normal" text="bind:X43"/>
+                <Cell col="246" disptype="normal" text="bind:X44"/>
+                <Cell col="247" disptype="normal" text="bind:X45"/>
+                <Cell col="248" disptype="normal" text="bind:X46"/>
+                <Cell col="249" disptype="normal" text="bind:X47"/>
+                <Cell col="250" disptype="normal" text="bind:X48"/>
+                <Cell col="251" disptype="normal" text="bind:X49"/>
+                <Cell col="252" disptype="normal" text="bind:X50"/>
+                <Cell col="253" disptype="normal" text="bind:X51"/>
+                <Cell col="254" disptype="normal" text="bind:X52"/>
+                <Cell col="255" disptype="normal" text="bind:X53"/>
+                <Cell col="256" disptype="normal" text="bind:X54"/>
+                <Cell col="257" disptype="normal" text="bind:X55"/>
+                <Cell col="258" disptype="normal" text="bind:X56"/>
+                <Cell col="259" disptype="normal" text="bind:X57"/>
+                <Cell col="260" disptype="normal" text="bind:X58"/>
+                <Cell col="261" disptype="normal" text="bind:X59"/>
+                <Cell col="262" disptype="normal" text="bind:X60"/>
+                <Cell col="263" disptype="normal" text="bind:X61"/>
+                <Cell col="264" disptype="normal" text="bind:X62"/>
+                <Cell col="265" disptype="normal" text="bind:X63"/>
+                <Cell col="266" disptype="normal" text="bind:X64"/>
+                <Cell col="267" disptype="normal" text="bind:X65"/>
+                <Cell col="268" disptype="normal" text="bind:X66"/>
+                <Cell col="269" disptype="normal" text="bind:X67"/>
+                <Cell col="270" disptype="normal" text="bind:X68"/>
+                <Cell col="271" disptype="normal" text="bind:X69"/>
+                <Cell col="272" disptype="normal" text="bind:X70"/>
+                <Cell col="273" disptype="normal" text="bind:X71"/>
+                <Cell col="274" disptype="normal" text="bind:X72"/>
+                <Cell col="275" disptype="normal" text="bind:X73"/>
+                <Cell col="276" disptype="normal" text="bind:X74"/>
+                <Cell col="277" disptype="normal" text="bind:X75"/>
+                <Cell col="278" disptype="normal" text="bind:X76"/>
+                <Cell col="279" disptype="normal" text="bind:X77"/>
+                <Cell col="280" disptype="normal" text="bind:X78"/>
+                <Cell col="281" disptype="normal" text="bind:X79"/>
+                <Cell col="282" disptype="normal" text="bind:X80"/>
+                <Cell col="283" disptype="normal" text="bind:X81"/>
+                <Cell col="284" disptype="normal" text="bind:X82"/>
+                <Cell col="285" disptype="normal" text="bind:X83"/>
+                <Cell col="286" disptype="normal" text="bind:X84"/>
+                <Cell col="287" disptype="normal" text="bind:X85"/>
+                <Cell col="288" disptype="normal" text="bind:X86"/>
+                <Cell col="289" disptype="normal" text="bind:X87"/>
+                <Cell col="290" disptype="normal" text="bind:X88"/>
+                <Cell col="291" disptype="normal" text="bind:X89"/>
+                <Cell col="292" disptype="normal" text="bind:X90"/>
+                <Cell col="293" disptype="normal" text="bind:X91"/>
+                <Cell col="294" disptype="normal" text="bind:X92"/>
+                <Cell col="295" disptype="normal" text="bind:X93"/>
+                <Cell col="296" disptype="normal" text="bind:X94"/>
+                <Cell col="297" disptype="normal" text="bind:X95"/>
+                <Cell col="298" disptype="normal" text="bind:X96"/>
+                <Cell col="299" disptype="normal" text="bind:X97"/>
+                <Cell col="300" disptype="normal" text="bind:X98"/>
+                <Cell col="301" disptype="normal" text="bind:X99"/>
+                <Cell col="302" disptype="normal" text="bind:X100"/>
+                <Cell col="303" disptype="normal" text="bind:Y1"/>
+                <Cell col="304" disptype="normal" text="bind:Y2"/>
+                <Cell col="305" disptype="normal" text="bind:Y3"/>
+                <Cell col="306" disptype="normal" text="bind:Y4"/>
+                <Cell col="307" disptype="normal" text="bind:Y5"/>
+                <Cell col="308" disptype="normal" text="bind:Y6"/>
+                <Cell col="309" disptype="normal" text="bind:Y7"/>
+                <Cell col="310" disptype="normal" text="bind:Y8"/>
+                <Cell col="311" disptype="normal" text="bind:Y9"/>
+                <Cell col="312" disptype="normal" text="bind:Y10"/>
+                <Cell col="313" disptype="normal" text="bind:Y11"/>
+                <Cell col="314" disptype="normal" text="bind:Y12"/>
+                <Cell col="315" disptype="normal" text="bind:Y13"/>
+                <Cell col="316" disptype="normal" text="bind:Y14"/>
+                <Cell col="317" disptype="normal" text="bind:Y15"/>
+                <Cell col="318" disptype="normal" text="bind:Y16"/>
+                <Cell col="319" disptype="normal" text="bind:Y17"/>
+                <Cell col="320" disptype="normal" text="bind:Y18"/>
+                <Cell col="321" disptype="normal" text="bind:Y19"/>
+                <Cell col="322" disptype="normal" text="bind:Y20"/>
+                <Cell col="323" disptype="normal" text="bind:Y21"/>
+                <Cell col="324" disptype="normal" text="bind:Y22"/>
+                <Cell col="325" disptype="normal" text="bind:Y23"/>
+                <Cell col="326" disptype="normal" text="bind:Y24"/>
+                <Cell col="327" disptype="normal" text="bind:Y25"/>
+                <Cell col="328" disptype="normal" text="bind:Y26"/>
+                <Cell col="329" disptype="normal" text="bind:Y27"/>
+                <Cell col="330" disptype="normal" text="bind:Y28"/>
+                <Cell col="331" disptype="normal" text="bind:Y29"/>
+                <Cell col="332" disptype="normal" text="bind:Y30"/>
+                <Cell col="333" disptype="normal" text="bind:Y31"/>
+                <Cell col="334" disptype="normal" text="bind:Y32"/>
+                <Cell col="335" disptype="normal" text="bind:Y33"/>
+                <Cell col="336" disptype="normal" text="bind:Y34"/>
+                <Cell col="337" disptype="normal" text="bind:Y35"/>
+                <Cell col="338" disptype="normal" text="bind:Y36"/>
+                <Cell col="339" disptype="normal" text="bind:Y37"/>
+                <Cell col="340" disptype="normal" text="bind:Y38"/>
+                <Cell col="341" disptype="normal" text="bind:Y39"/>
+                <Cell col="342" disptype="normal" text="bind:Y40"/>
+                <Cell col="343" disptype="normal" text="bind:Y41"/>
+                <Cell col="344" disptype="normal" text="bind:Y42"/>
+                <Cell col="345" disptype="normal" text="bind:Y43"/>
+                <Cell col="346" disptype="normal" text="bind:Y44"/>
+                <Cell col="347" disptype="normal" text="bind:Y45"/>
+                <Cell col="348" disptype="normal" text="bind:Y46"/>
+                <Cell col="349" disptype="normal" text="bind:Y47"/>
+                <Cell col="350" disptype="normal" text="bind:Y48"/>
+                <Cell col="351" disptype="normal" text="bind:Y49"/>
+                <Cell col="352" disptype="normal" text="bind:Y50"/>
+                <Cell col="353" disptype="normal" text="bind:Y51"/>
+                <Cell col="354" disptype="normal" text="bind:Y52"/>
+                <Cell col="355" disptype="normal" text="bind:Y53"/>
+                <Cell col="356" disptype="normal" text="bind:Y54"/>
+                <Cell col="357" disptype="normal" text="bind:Y55"/>
+                <Cell col="358" disptype="normal" text="bind:Y56"/>
+                <Cell col="359" disptype="normal" text="bind:Y57"/>
+                <Cell col="360" disptype="normal" text="bind:Y58"/>
+                <Cell col="361" disptype="normal" text="bind:Y59"/>
+                <Cell col="362" disptype="normal" text="bind:Y60"/>
+                <Cell col="363" disptype="normal" text="bind:Y61"/>
+                <Cell col="364" disptype="normal" text="bind:Y62"/>
+                <Cell col="365" disptype="normal" text="bind:Y63"/>
+                <Cell col="366" disptype="normal" text="bind:Y64"/>
+                <Cell col="367" disptype="normal" text="bind:Y65"/>
+                <Cell col="368" disptype="normal" text="bind:Y66"/>
+                <Cell col="369" disptype="normal" text="bind:Y67"/>
+                <Cell col="370" disptype="normal" text="bind:Y68"/>
+                <Cell col="371" disptype="normal" text="bind:Y69"/>
+                <Cell col="372" disptype="normal" text="bind:Y70"/>
+                <Cell col="373" disptype="normal" text="bind:Y71"/>
+                <Cell col="374" disptype="normal" text="bind:Y72"/>
+                <Cell col="375" disptype="normal" text="bind:Y73"/>
+                <Cell col="376" disptype="normal" text="bind:Y74"/>
+                <Cell col="377" disptype="normal" text="bind:Y75"/>
+                <Cell col="378" disptype="normal" text="bind:Y76"/>
+                <Cell col="379" disptype="normal" text="bind:Y77"/>
+                <Cell col="380" disptype="normal" text="bind:Y78"/>
+                <Cell col="381" disptype="normal" text="bind:Y79"/>
+                <Cell col="382" disptype="normal" text="bind:Y80"/>
+                <Cell col="383" disptype="normal" text="bind:Y81"/>
+                <Cell col="384" disptype="normal" text="bind:Y82"/>
+                <Cell col="385" disptype="normal" text="bind:Y83"/>
+                <Cell col="386" disptype="normal" text="bind:Y84"/>
+                <Cell col="387" disptype="normal" text="bind:Y85"/>
+                <Cell col="388" disptype="normal" text="bind:Y86"/>
+                <Cell col="389" disptype="normal" text="bind:Y87"/>
+                <Cell col="390" disptype="normal" text="bind:Y88"/>
+                <Cell col="391" disptype="normal" text="bind:Y89"/>
+                <Cell col="392" disptype="normal" text="bind:Y90"/>
+                <Cell col="393" disptype="normal" text="bind:Y91"/>
+                <Cell col="394" disptype="normal" text="bind:Y92"/>
+                <Cell col="395" disptype="normal" text="bind:Y93"/>
+                <Cell col="396" disptype="normal" text="bind:Y94"/>
+                <Cell col="397" disptype="normal" text="bind:Y95"/>
+                <Cell col="398" disptype="normal" text="bind:Y96"/>
+                <Cell col="399" disptype="normal" text="bind:Y97"/>
+                <Cell col="400" disptype="normal" text="bind:Y98"/>
+                <Cell col="401" disptype="normal" text="bind:Y99"/>
+                <Cell col="402" disptype="normal" text="bind:Y100"/>
+                <Cell col="403" disptype="normal" text="bind:CONT_CODE1"/>
+                <Cell col="404" disptype="normal" text="bind:CONT_CODE2"/>
+                <Cell col="405" disptype="normal" text="bind:CONT_CODE3"/>
+                <Cell col="406" disptype="normal" text="bind:CONT_CODE4"/>
+                <Cell col="407" disptype="normal" text="bind:CONT_CODE5"/>
+                <Cell col="408" disptype="normal" text="bind:CONT_CODE6"/>
+                <Cell col="409" disptype="normal" text="bind:CONT_CODE7"/>
+                <Cell col="410" disptype="normal" text="bind:CONT_CODE8"/>
+                <Cell col="411" disptype="normal" text="bind:CONT_CODE9"/>
+                <Cell col="412" disptype="normal" text="bind:CONT_CODE10"/>
+                <Cell col="413" disptype="normal" text="bind:CONT_CODE11"/>
+                <Cell col="414" disptype="normal" text="bind:CONT_CODE12"/>
+                <Cell col="415" disptype="normal" text="bind:CONT_CODE13"/>
+                <Cell col="416" disptype="normal" text="bind:CONT_CODE14"/>
+                <Cell col="417" disptype="normal" text="bind:CONT_CODE15"/>
+                <Cell col="418" disptype="normal" text="bind:CONT_CODE16"/>
+                <Cell col="419" disptype="normal" text="bind:CONT_CODE17"/>
+                <Cell col="420" disptype="normal" text="bind:CONT_CODE18"/>
+                <Cell col="421" disptype="normal" text="bind:CONT_CODE19"/>
+                <Cell col="422" disptype="normal" text="bind:CONT_CODE20"/>
+                <Cell col="423" disptype="normal" text="bind:CONT_CODE21"/>
+                <Cell col="424" disptype="normal" text="bind:CONT_CODE22"/>
+                <Cell col="425" disptype="normal" text="bind:CONT_CODE23"/>
+                <Cell col="426" disptype="normal" text="bind:CONT_CODE24"/>
+                <Cell col="427" disptype="normal" text="bind:CONT_CODE25"/>
+                <Cell col="428" disptype="normal" text="bind:CONT_CODE26"/>
+                <Cell col="429" disptype="normal" text="bind:CONT_CODE27"/>
+                <Cell col="430" disptype="normal" text="bind:CONT_CODE28"/>
+                <Cell col="431" disptype="normal" text="bind:CONT_CODE29"/>
+                <Cell col="432" disptype="normal" text="bind:CONT_CODE30"/>
+                <Cell col="433" disptype="normal" text="bind:CONT_CODE31"/>
+                <Cell col="434" disptype="normal" text="bind:CONT_CODE32"/>
+                <Cell col="435" disptype="normal" text="bind:CONT_CODE33"/>
+                <Cell col="436" disptype="normal" text="bind:CONT_CODE34"/>
+                <Cell col="437" disptype="normal" text="bind:CONT_CODE35"/>
+                <Cell col="438" disptype="normal" text="bind:CONT_CODE36"/>
+                <Cell col="439" disptype="normal" text="bind:CONT_CODE37"/>
+                <Cell col="440" disptype="normal" text="bind:CONT_CODE38"/>
+                <Cell col="441" disptype="normal" text="bind:CONT_CODE39"/>
+                <Cell col="442" disptype="normal" text="bind:CONT_CODE40"/>
+                <Cell col="443" disptype="normal" text="bind:CONT_CODE41"/>
+                <Cell col="444" disptype="normal" text="bind:CONT_CODE42"/>
+                <Cell col="445" disptype="normal" text="bind:CONT_CODE43"/>
+                <Cell col="446" disptype="normal" text="bind:CONT_CODE44"/>
+                <Cell col="447" disptype="normal" text="bind:CONT_CODE45"/>
+                <Cell col="448" disptype="normal" text="bind:CONT_CODE46"/>
+                <Cell col="449" disptype="normal" text="bind:CONT_CODE47"/>
+                <Cell col="450" disptype="normal" text="bind:CONT_CODE48"/>
+                <Cell col="451" disptype="normal" text="bind:CONT_CODE49"/>
+                <Cell col="452" disptype="normal" text="bind:CONT_CODE50"/>
+                <Cell col="453" disptype="normal" text="bind:CONT_CODE51"/>
+                <Cell col="454" disptype="normal" text="bind:CONT_CODE52"/>
+                <Cell col="455" disptype="normal" text="bind:CONT_CODE53"/>
+                <Cell col="456" disptype="normal" text="bind:CONT_CODE54"/>
+                <Cell col="457" disptype="normal" text="bind:CONT_CODE55"/>
+                <Cell col="458" disptype="normal" text="bind:CONT_CODE56"/>
+                <Cell col="459" disptype="normal" text="bind:CONT_CODE57"/>
+                <Cell col="460" disptype="normal" text="bind:CONT_CODE58"/>
+                <Cell col="461" disptype="normal" text="bind:CONT_CODE59"/>
+                <Cell col="462" disptype="normal" text="bind:CONT_CODE60"/>
+                <Cell col="463" disptype="normal" text="bind:CONT_CODE61"/>
+                <Cell col="464" disptype="normal" text="bind:CONT_CODE62"/>
+                <Cell col="465" disptype="normal" text="bind:CONT_CODE63"/>
+                <Cell col="466" disptype="normal" text="bind:CONT_CODE64"/>
+                <Cell col="467" disptype="normal" text="bind:CONT_CODE65"/>
+                <Cell col="468" disptype="normal" text="bind:CONT_CODE66"/>
+                <Cell col="469" disptype="normal" text="bind:CONT_CODE67"/>
+                <Cell col="470" disptype="normal" text="bind:CONT_CODE68"/>
+                <Cell col="471" disptype="normal" text="bind:CONT_CODE69"/>
+                <Cell col="472" disptype="normal" text="bind:CONT_CODE70"/>
+                <Cell col="473" disptype="normal" text="bind:CONT_CODE71"/>
+                <Cell col="474" disptype="normal" text="bind:CONT_CODE72"/>
+                <Cell col="475" disptype="normal" text="bind:CONT_CODE73"/>
+                <Cell col="476" disptype="normal" text="bind:CONT_CODE74"/>
+                <Cell col="477" disptype="normal" text="bind:CONT_CODE75"/>
+                <Cell col="478" disptype="normal" text="bind:CONT_CODE76"/>
+                <Cell col="479" disptype="normal" text="bind:CONT_CODE77"/>
+                <Cell col="480" disptype="normal" text="bind:CONT_CODE78"/>
+                <Cell col="481" disptype="normal" text="bind:CONT_CODE79"/>
+                <Cell col="482" disptype="normal" text="bind:CONT_CODE80"/>
+                <Cell col="483" disptype="normal" text="bind:CONT_CODE81"/>
+                <Cell col="484" disptype="normal" text="bind:CONT_CODE82"/>
+                <Cell col="485" disptype="normal" text="bind:CONT_CODE83"/>
+                <Cell col="486" disptype="normal" text="bind:CONT_CODE84"/>
+                <Cell col="487" disptype="normal" text="bind:CONT_CODE85"/>
+                <Cell col="488" disptype="normal" text="bind:CONT_CODE86"/>
+                <Cell col="489" disptype="normal" text="bind:CONT_CODE87"/>
+                <Cell col="490" disptype="normal" text="bind:CONT_CODE88"/>
+                <Cell col="491" disptype="normal" text="bind:CONT_CODE89"/>
+                <Cell col="492" disptype="normal" text="bind:CONT_CODE90"/>
+                <Cell col="493" disptype="normal" text="bind:CONT_CODE91"/>
+                <Cell col="494" disptype="normal" text="bind:CONT_CODE92"/>
+                <Cell col="495" disptype="normal" text="bind:CONT_CODE93"/>
+                <Cell col="496" disptype="normal" text="bind:CONT_CODE94"/>
+                <Cell col="497" disptype="normal" text="bind:CONT_CODE95"/>
+                <Cell col="498" disptype="normal" text="bind:CONT_CODE96"/>
+                <Cell col="499" disptype="normal" text="bind:CONT_CODE97"/>
+                <Cell col="500" disptype="normal" text="bind:CONT_CODE98"/>
+                <Cell col="501" disptype="normal" text="bind:CONT_CODE99"/>
+                <Cell col="502" disptype="normal" text="bind:CONT_CODE100"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_Left" taborder="19" left="519" top="21" width="20" height="20" style="image:URL('theme://images/btn_prev_N.png');font:8 Malgun Gothic, Tahoma, Arial;" onclick="btn_Left_onclick"/>
+        <Button id="btn_Right" taborder="20" left="542" top="21" width="20" height="20" style="image:URL('theme://images/btn_next_N.png');font:8 Malgun Gothic, Tahoma, Arial;" onclick="btn_Right_onclick"/>
+        <TextArea id="txt_CMNT" taborder="21" left="287" top="21" height="20" style="padding:0 4 0 4;" width="230" visible="false" enable="false"/>
+        <ImageViewer id="div_verticalBar_move" taborder="13" image="URL('theme://images\btn_MDI_hM.png')" cssclass="img_GWF_SplitterV" left="540" top="55" width="5" style="background:#eeeeeeff;border:0 solid #e0e0e0ff ;cursor:e-resize;" ondrag="div_verticalBar_move_ondrag" height="2475"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_Service" firefirstcount="0" firenextcount="0" useclientlayout="true">
+        <ColumnInfo>
+          <Column id="Transition" type="STRING" size="256"/>
+          <Column id="SvcId" type="STRING" size="256"/>
+          <Column id="SvcNm" type="STRING" size="256"/>
+          <Column id="InDatasets" type="STRING" size="256"/>
+          <Column id="OutDatasets" type="STRING" size="256"/>
+          <Column id="CallbackFunc" type="STRING" size="256"/>
+          <Column id="Async" type="STRING" size="256"/>
+          <Column id="Compress" type="STRING" size="256"/>
+          <Column id="TraceLog" type="STRING" size="256"/>
+          <Column id="ShowLoadingForSync" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Transition">find_matr</Col>
+            <Col id="SvcId">find_matr</Col>
+            <Col id="SvcNm">QSEAR_35_CONT_COLOR_CHART_N-service</Col>
+            <Col id="CallbackFunc">fn_CallBack</Col>
+            <Col id="OutDatasets">ds_MATR=dsr_SearchResult</Col>
+          </Row>
+          <Row>
+            <Col id="Transition">find_main</Col>
+            <Col id="SvcId">find_main</Col>
+            <Col id="SvcNm">QSEAR_35_CONT_COLOR_CHART_N-service</Col>
+            <Col id="CallbackFunc">fn_CallBack</Col>
+            <Col id="OutDatasets">ds_MAIN_MATR=dsr_SearchResult</Col>
+          </Row>
+          <Row>
+            <Col id="Transition">find_main_chart</Col>
+            <Col id="SvcId">find_main_chart</Col>
+            <Col id="SvcNm">QSEAR_35_CONT_COLOR_CHART_N-service</Col>
+            <Col id="CallbackFunc">fn_CallBack</Col>
+            <Col id="OutDatasets">ds_MAIN_CHART=dsr_SearchResult</Col>
+          </Row>
+          <Row>
+            <Col id="Transition">find_main_chart_line</Col>
+            <Col id="SvcId">find_main_chart_line</Col>
+            <Col id="SvcNm">QSEAR_35_CONT_COLOR_CHART_N-service</Col>
+            <Col id="OutDatasets">ds_MAIN_CHART_LINE=dsr_SearchResult</Col>
+            <Col id="CallbackFunc">fn_CallBack</Col>
+          </Row>
+          <Row>
+            <Col id="Transition">find_chart_minmax</Col>
+            <Col id="SvcId">find_chart_minmax</Col>
+            <Col id="SvcNm">QSEAR_35_CONT_COLOR_CHART_N-service</Col>
+            <Col id="CallbackFunc">fn_CallBack</Col>
+            <Col id="OutDatasets">ds_MAIN_CHART_MINMAX=dsr_SearchResult</Col>
+          </Row>
+          <Row>
+            <Col id="Transition">find_code_table</Col>
+            <Col id="SvcId">find_code_table</Col>
+            <Col id="OutDatasets">ds_CODE_TABLE=dsr_SearchResult</Col>
+            <Col id="CallbackFunc">fn_CallBack</Col>
+            <Col id="SvcNm">QSEAR_35_CONT_COLOR_CHART_N-service</Col>
+          </Row>
+          <Row>
+            <Col id="Transition">save_code_table</Col>
+            <Col id="SvcId">save_code_table</Col>
+            <Col id="SvcNm">QSEAR_35_CONT_COLOR_CHART_N-service</Col>
+            <Col id="CallbackFunc">fn_CallBack</Col>
+            <Col id="InDatasets">ds_CODE_TABLE_SAVE=ds_CODE_TABLE_SAVE</Col>
+          </Row>
+          <Row>
+            <Col id="Transition">delete_code_table</Col>
+            <Col id="SvcId">delete_code_table</Col>
+            <Col id="SvcNm">QSEAR_35_CONT_COLOR_CHART_N-service</Col>
+            <Col id="InDatasets">ds_CODE_TABLE=ds_CODE_TABLE</Col>
+            <Col id="CallbackFunc">fn_CallBack</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Param" useclientlayout="true">
+        <ColumnInfo>
+          <Column id="PLANT" type="STRING" size="256"/>
+          <Column id="ADDQUEERYSTRING" type="STRING" size="256"/>
+          <Column id="ADDQUEERYSTRING2" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Param_chart" useclientlayout="true">
+        <ColumnInfo>
+          <Column id="PLANT" type="STRING" size="256"/>
+          <Column id="ADDQUEERYSTRING" type="STRING" size="256"/>
+          <Column id="ADDQUEERYSTRING2" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_CODE_TABLE" useclientlayout="true">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="CONT_CNT" type="STRING" size="256"/>
+          <Column id="ADDQUEERYSTRING" type="STRING" size="256"/>
+          <Column id="CMNT" type="STRING" size="256"/>
+          <Column id="BTN_COPY" type="STRING" size="256"/>
+          <Column id="CHK" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_CODE_TABLE_SAVE" useclientlayout="true">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="CONT_CNT" type="STRING" size="256"/>
+          <Column id="ADDQUEERYSTRING" type="STRING" size="256"/>
+          <Column id="CMNT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_MAIN_MATR" useclientlayout="true" oncolumnchanged="ds_MAIN_MATR_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="PLANT" type="STRING" size="256"/>
+          <Column id="MATR_CODE" type="STRING" size="256"/>
+          <Column id="MATR_NAME" type="STRING" size="256"/>
+          <Column id="BATCH_CNT" type="STRING" size="256"/>
+          <Column id="BTN_CANCEL" type="STRING" size="256"/>
+          <Column id="CUD_TYPE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_MAIN_CHART" useclientlayout="true">
+        <ColumnInfo>
+          <Column id="STAR_CI" type="STRING" size="256"/>
+          <Column id="COLOR_CI" type="STRING" size="256"/>
+          <Column id="RANKNUM" type="STRING" size="256"/>
+          <Column id="PX1" type="FLOAT" size="256"/>
+          <Column id="PX2" type="FLOAT" size="256"/>
+          <Column id="PX3" type="FLOAT" size="256"/>
+          <Column id="PX4" type="FLOAT" size="256"/>
+          <Column id="PX5" type="FLOAT" size="256"/>
+          <Column id="PX6" type="FLOAT" size="256"/>
+          <Column id="PX7" type="FLOAT" size="256"/>
+          <Column id="PX8" type="FLOAT" size="256"/>
+          <Column id="PX9" type="FLOAT" size="256"/>
+          <Column id="PX10" type="FLOAT" size="256"/>
+          <Column id="PX11" type="FLOAT" size="256"/>
+          <Column id="PX12" type="FLOAT" size="256"/>
+          <Column id="PX13" type="FLOAT" size="256"/>
+          <Column id="PX14" type="FLOAT" size="256"/>
+          <Column id="PX15" type="FLOAT" size="256"/>
+          <Column id="PX16" type="FLOAT" size="256"/>
+          <Column id="PX17" type="FLOAT" size="256"/>
+          <Column id="PX18" type="FLOAT" size="256"/>
+          <Column id="PX19" type="FLOAT" size="256"/>
+          <Column id="PX20" type="FLOAT" size="256"/>
+          <Column id="PX21" type="FLOAT" size="256"/>
+          <Column id="PX22" type="FLOAT" size="256"/>
+          <Column id="PX23" type="FLOAT" size="256"/>
+          <Column id="PX24" type="FLOAT" size="256"/>
+          <Column id="PX25" type="FLOAT" size="256"/>
+          <Column id="PX26" type="FLOAT" size="256"/>
+          <Column id="PX27" type="FLOAT" size="256"/>
+          <Column id="PX28" type="FLOAT" size="256"/>
+          <Column id="PX29" type="FLOAT" size="256"/>
+          <Column id="PX30" type="FLOAT" size="256"/>
+          <Column id="PX31" type="FLOAT" size="256"/>
+          <Column id="PX32" type="FLOAT" size="256"/>
+          <Column id="PX33" type="FLOAT" size="256"/>
+          <Column id="PX34" type="FLOAT" size="256"/>
+          <Column id="PX35" type="FLOAT" size="256"/>
+          <Column id="PX36" type="FLOAT" size="256"/>
+          <Column id="PX37" type="FLOAT" size="256"/>
+          <Column id="PX38" type="FLOAT" size="256"/>
+          <Column id="PX39" type="FLOAT" size="256"/>
+          <Column id="PX40" type="FLOAT" size="256"/>
+          <Column id="PX41" type="FLOAT" size="256"/>
+          <Column id="PX42" type="FLOAT" size="256"/>
+          <Column id="PX43" type="FLOAT" size="256"/>
+          <Column id="PX44" type="FLOAT" size="256"/>
+          <Column id="PX45" type="FLOAT" size="256"/>
+          <Column id="PX46" type="FLOAT" size="256"/>
+          <Column id="PX47" type="FLOAT" size="256"/>
+          <Column id="PX48" type="FLOAT" size="256"/>
+          <Column id="PX49" type="FLOAT" size="256"/>
+          <Column id="PX50" type="FLOAT" size="256"/>
+          <Column id="PX51" type="FLOAT" size="256"/>
+          <Column id="PX52" type="FLOAT" size="256"/>
+          <Column id="PX53" type="FLOAT" size="256"/>
+          <Column id="PX54" type="FLOAT" size="256"/>
+          <Column id="PX55" type="FLOAT" size="256"/>
+          <Column id="PX56" type="FLOAT" size="256"/>
+          <Column id="PX57" type="FLOAT" size="256"/>
+          <Column id="PX58" type="FLOAT" size="256"/>
+          <Column id="PX59" type="FLOAT" size="256"/>
+          <Column id="PX60" type="FLOAT" size="256"/>
+          <Column id="PX61" type="FLOAT" size="256"/>
+          <Column id="PX62" type="FLOAT" size="256"/>
+          <Column id="PX63" type="FLOAT" size="256"/>
+          <Column id="PX64" type="FLOAT" size="256"/>
+          <Column id="PX65" type="FLOAT" size="256"/>
+          <Column id="PX66" type="FLOAT" size="256"/>
+          <Column id="PX67" type="FLOAT" size="256"/>
+          <Column id="PX68" type="FLOAT" size="256"/>
+          <Column id="PX69" type="FLOAT" size="256"/>
+          <Column id="PX70" type="FLOAT" size="256"/>
+          <Column id="PX71" type="FLOAT" size="256"/>
+          <Column id="PX72" type="FLOAT" size="256"/>
+          <Column id="PX73" type="FLOAT" size="256"/>
+          <Column id="PX74" type="FLOAT" size="256"/>
+          <Column id="PX75" type="FLOAT" size="256"/>
+          <Column id="PX76" type="FLOAT" size="256"/>
+          <Column id="PX77" type="FLOAT" size="256"/>
+          <Column id="PX78" type="FLOAT" size="256"/>
+          <Column id="PX79" type="FLOAT" size="256"/>
+          <Column id="PX80" type="FLOAT" size="256"/>
+          <Column id="PX81" type="FLOAT" size="256"/>
+          <Column id="PX82" type="FLOAT" size="256"/>
+          <Column id="PX83" type="FLOAT" size="256"/>
+          <Column id="PX84" type="FLOAT" size="256"/>
+          <Column id="PX85" type="FLOAT" size="256"/>
+          <Column id="PX86" type="FLOAT" size="256"/>
+          <Column id="PX87" type="FLOAT" size="256"/>
+          <Column id="PX88" type="FLOAT" size="256"/>
+          <Column id="PX89" type="FLOAT" size="256"/>
+          <Column id="PX90" type="FLOAT" size="256"/>
+          <Column id="PX91" type="FLOAT" size="256"/>
+          <Column id="PX92" type="FLOAT" size="256"/>
+          <Column id="PX93" type="FLOAT" size="256"/>
+          <Column id="PX94" type="FLOAT" size="256"/>
+          <Column id="PX95" type="FLOAT" size="256"/>
+          <Column id="PX96" type="FLOAT" size="256"/>
+          <Column id="PX97" type="FLOAT" size="256"/>
+          <Column id="PX98" type="FLOAT" size="256"/>
+          <Column id="PX99" type="FLOAT" size="256"/>
+          <Column id="PX100" type="FLOAT" size="256"/>
+          <Column id="PY1" type="FLOAT" size="256"/>
+          <Column id="PY2" type="FLOAT" size="256"/>
+          <Column id="PY3" type="FLOAT" size="256"/>
+          <Column id="PY4" type="FLOAT" size="256"/>
+          <Column id="PY5" type="FLOAT" size="256"/>
+          <Column id="PY6" type="FLOAT" size="256"/>
+          <Column id="PY7" type="FLOAT" size="256"/>
+          <Column id="PY8" type="FLOAT" size="256"/>
+          <Column id="PY9" type="FLOAT" size="256"/>
+          <Column id="PY10" type="FLOAT" size="256"/>
+          <Column id="PY11" type="FLOAT" size="256"/>
+          <Column id="PY12" type="FLOAT" size="256"/>
+          <Column id="PY13" type="FLOAT" size="256"/>
+          <Column id="PY14" type="FLOAT" size="256"/>
+          <Column id="PY15" type="FLOAT" size="256"/>
+          <Column id="PY16" type="FLOAT" size="256"/>
+          <Column id="PY17" type="FLOAT" size="256"/>
+          <Column id="PY18" type="FLOAT" size="256"/>
+          <Column id="PY19" type="FLOAT" size="256"/>
+          <Column id="PY20" type="FLOAT" size="256"/>
+          <Column id="PY21" type="FLOAT" size="256"/>
+          <Column id="PY22" type="FLOAT" size="256"/>
+          <Column id="PY23" type="FLOAT" size="256"/>
+          <Column id="PY24" type="FLOAT" size="256"/>
+          <Column id="PY25" type="FLOAT" size="256"/>
+          <Column id="PY26" type="FLOAT" size="256"/>
+          <Column id="PY27" type="FLOAT" size="256"/>
+          <Column id="PY28" type="FLOAT" size="256"/>
+          <Column id="PY29" type="FLOAT" size="256"/>
+          <Column id="PY30" type="FLOAT" size="256"/>
+          <Column id="PY31" type="FLOAT" size="256"/>
+          <Column id="PY32" type="FLOAT" size="256"/>
+          <Column id="PY33" type="FLOAT" size="256"/>
+          <Column id="PY34" type="FLOAT" size="256"/>
+          <Column id="PY35" type="FLOAT" size="256"/>
+          <Column id="PY36" type="FLOAT" size="256"/>
+          <Column id="PY37" type="FLOAT" size="256"/>
+          <Column id="PY38" type="FLOAT" size="256"/>
+          <Column id="PY39" type="FLOAT" size="256"/>
+          <Column id="PY40" type="FLOAT" size="256"/>
+          <Column id="PY41" type="FLOAT" size="256"/>
+          <Column id="PY42" type="FLOAT" size="256"/>
+          <Column id="PY43" type="FLOAT" size="256"/>
+          <Column id="PY44" type="FLOAT" size="256"/>
+          <Column id="PY45" type="FLOAT" size="256"/>
+          <Column id="PY46" type="FLOAT" size="256"/>
+          <Column id="PY47" type="FLOAT" size="256"/>
+          <Column id="PY48" type="FLOAT" size="256"/>
+          <Column id="PY49" type="FLOAT" size="256"/>
+          <Column id="PY50" type="FLOAT" size="256"/>
+          <Column id="PY51" type="FLOAT" size="256"/>
+          <Column id="PY52" type="FLOAT" size="256"/>
+          <Column id="PY53" type="FLOAT" size="256"/>
+          <Column id="PY54" type="FLOAT" size="256"/>
+          <Column id="PY55" type="FLOAT" size="256"/>
+          <Column id="PY56" type="FLOAT" size="256"/>
+          <Column id="PY57" type="FLOAT" size="256"/>
+          <Column id="PY58" type="FLOAT" size="256"/>
+          <Column id="PY59" type="FLOAT" size="256"/>
+          <Column id="PY60" type="FLOAT" size="256"/>
+          <Column id="PY61" type="FLOAT" size="256"/>
+          <Column id="PY62" type="FLOAT" size="256"/>
+          <Column id="PY63" type="FLOAT" size="256"/>
+          <Column id="PY64" type="FLOAT" size="256"/>
+          <Column id="PY65" type="FLOAT" size="256"/>
+          <Column id="PY66" type="FLOAT" size="256"/>
+          <Column id="PY67" type="FLOAT" size="256"/>
+          <Column id="PY68" type="FLOAT" size="256"/>
+          <Column id="PY69" type="FLOAT" size="256"/>
+          <Column id="PY70" type="FLOAT" size="256"/>
+          <Column id="PY71" type="FLOAT" size="256"/>
+          <Column id="PY72" type="FLOAT" size="256"/>
+          <Column id="PY73" type="FLOAT" size="256"/>
+          <Column id="PY74" type="FLOAT" size="256"/>
+          <Column id="PY75" type="FLOAT" size="256"/>
+          <Column id="PY76" type="FLOAT" size="256"/>
+          <Column id="PY77" type="FLOAT" size="256"/>
+          <Column id="PY78" type="FLOAT" size="256"/>
+          <Column id="PY79" type="FLOAT" size="256"/>
+          <Column id="PY80" type="FLOAT" size="256"/>
+          <Column id="PY81" type="FLOAT" size="256"/>
+          <Column id="PY82" type="FLOAT" size="256"/>
+          <Column id="PY83" type="FLOAT" size="256"/>
+          <Column id="PY84" type="FLOAT" size="256"/>
+          <Column id="PY85" type="FLOAT" size="256"/>
+          <Column id="PY86" type="FLOAT" size="256"/>
+          <Column id="PY87" type="FLOAT" size="256"/>
+          <Column id="PY88" type="FLOAT" size="256"/>
+          <Column id="PY89" type="FLOAT" size="256"/>
+          <Column id="PY90" type="FLOAT" size="256"/>
+          <Column id="PY91" type="FLOAT" size="256"/>
+          <Column id="PY92" type="FLOAT" size="256"/>
+          <Column id="PY93" type="FLOAT" size="256"/>
+          <Column id="PY94" type="FLOAT" size="256"/>
+          <Column id="PY95" type="FLOAT" size="256"/>
+          <Column id="PY96" type="FLOAT" size="256"/>
+          <Column id="PY97" type="FLOAT" size="256"/>
+          <Column id="PY98" type="FLOAT" size="256"/>
+          <Column id="PY99" type="FLOAT" size="256"/>
+          <Column id="PY100" type="FLOAT" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_MAIN_CHART_LINE" useclientlayout="true">
+        <ColumnInfo>
+          <Column id="STAR_CI" type="STRING" size="256"/>
+          <Column id="COLOR_CI" type="STRING" size="256"/>
+          <Column id="RANKNUM" type="STRING" size="256"/>
+          <Column id="CONT_CODE1" type="STRING" size="256"/>
+          <Column id="CONT_CODE2" type="STRING" size="256"/>
+          <Column id="CONT_CODE3" type="STRING" size="256"/>
+          <Column id="CONT_CODE4" type="STRING" size="256"/>
+          <Column id="CONT_CODE5" type="STRING" size="256"/>
+          <Column id="CONT_CODE6" type="STRING" size="256"/>
+          <Column id="CONT_CODE7" type="STRING" size="256"/>
+          <Column id="CONT_CODE8" type="STRING" size="256"/>
+          <Column id="CONT_CODE9" type="STRING" size="256"/>
+          <Column id="CONT_CODE10" type="STRING" size="256"/>
+          <Column id="CONT_CODE11" type="STRING" size="256"/>
+          <Column id="CONT_CODE12" type="STRING" size="256"/>
+          <Column id="CONT_CODE13" type="STRING" size="256"/>
+          <Column id="CONT_CODE14" type="STRING" size="256"/>
+          <Column id="CONT_CODE15" type="STRING" size="256"/>
+          <Column id="CONT_CODE16" type="STRING" size="256"/>
+          <Column id="CONT_CODE17" type="STRING" size="256"/>
+          <Column id="CONT_CODE18" type="STRING" size="256"/>
+          <Column id="CONT_CODE19" type="STRING" size="256"/>
+          <Column id="CONT_CODE20" type="STRING" size="256"/>
+          <Column id="CONT_CODE21" type="STRING" size="256"/>
+          <Column id="CONT_CODE22" type="STRING" size="256"/>
+          <Column id="CONT_CODE23" type="STRING" size="256"/>
+          <Column id="CONT_CODE24" type="STRING" size="256"/>
+          <Column id="CONT_CODE25" type="STRING" size="256"/>
+          <Column id="CONT_CODE26" type="STRING" size="256"/>
+          <Column id="CONT_CODE27" type="STRING" size="256"/>
+          <Column id="CONT_CODE28" type="STRING" size="256"/>
+          <Column id="CONT_CODE29" type="STRING" size="256"/>
+          <Column id="CONT_CODE30" type="STRING" size="256"/>
+          <Column id="CONT_CODE31" type="STRING" size="256"/>
+          <Column id="CONT_CODE32" type="STRING" size="256"/>
+          <Column id="CONT_CODE33" type="STRING" size="256"/>
+          <Column id="CONT_CODE34" type="STRING" size="256"/>
+          <Column id="CONT_CODE35" type="STRING" size="256"/>
+          <Column id="CONT_CODE36" type="STRING" size="256"/>
+          <Column id="CONT_CODE37" type="STRING" size="256"/>
+          <Column id="CONT_CODE38" type="STRING" size="256"/>
+          <Column id="CONT_CODE39" type="STRING" size="256"/>
+          <Column id="CONT_CODE40" type="STRING" size="256"/>
+          <Column id="CONT_CODE41" type="STRING" size="256"/>
+          <Column id="CONT_CODE42" type="STRING" size="256"/>
+          <Column id="CONT_CODE43" type="STRING" size="256"/>
+          <Column id="CONT_CODE44" type="STRING" size="256"/>
+          <Column id="CONT_CODE45" type="STRING" size="256"/>
+          <Column id="CONT_CODE46" type="STRING" size="256"/>
+          <Column id="CONT_CODE47" type="STRING" size="256"/>
+          <Column id="CONT_CODE48" type="STRING" size="256"/>
+          <Column id="CONT_CODE49" type="STRING" size="256"/>
+          <Column id="CONT_CODE50" type="STRING" size="256"/>
+          <Column id="CONT_CODE51" type="STRING" size="256"/>
+          <Column id="CONT_CODE52" type="STRING" size="256"/>
+          <Column id="CONT_CODE53" type="STRING" size="256"/>
+          <Column id="CONT_CODE54" type="STRING" size="256"/>
+          <Column id="CONT_CODE55" type="STRING" size="256"/>
+          <Column id="CONT_CODE56" type="STRING" size="256"/>
+          <Column id="CONT_CODE57" type="STRING" size="256"/>
+          <Column id="CONT_CODE58" type="STRING" size="256"/>
+          <Column id="CONT_CODE59" type="STRING" size="256"/>
+          <Column id="CONT_CODE60" type="STRING" size="256"/>
+          <Column id="CONT_CODE61" type="STRING" size="256"/>
+          <Column id="CONT_CODE62" type="STRING" size="256"/>
+          <Column id="CONT_CODE63" type="STRING" size="256"/>
+          <Column id="CONT_CODE64" type="STRING" size="256"/>
+          <Column id="CONT_CODE65" type="STRING" size="256"/>
+          <Column id="CONT_CODE66" type="STRING" size="256"/>
+          <Column id="CONT_CODE67" type="STRING" size="256"/>
+          <Column id="CONT_CODE68" type="STRING" size="256"/>
+          <Column id="CONT_CODE69" type="STRING" size="256"/>
+          <Column id="CONT_CODE70" type="STRING" size="256"/>
+          <Column id="CONT_CODE71" type="STRING" size="256"/>
+          <Column id="CONT_CODE72" type="STRING" size="256"/>
+          <Column id="CONT_CODE73" type="STRING" size="256"/>
+          <Column id="CONT_CODE74" type="STRING" size="256"/>
+          <Column id="CONT_CODE75" type="STRING" size="256"/>
+          <Column id="CONT_CODE76" type="STRING" size="256"/>
+          <Column id="CONT_CODE77" type="STRING" size="256"/>
+          <Column id="CONT_CODE78" type="STRING" size="256"/>
+          <Column id="CONT_CODE79" type="STRING" size="256"/>
+          <Column id="CONT_CODE80" type="STRING" size="256"/>
+          <Column id="CONT_CODE81" type="STRING" size="256"/>
+          <Column id="CONT_CODE82" type="STRING" size="256"/>
+          <Column id="CONT_CODE83" type="STRING" size="256"/>
+          <Column id="CONT_CODE84" type="STRING" size="256"/>
+          <Column id="CONT_CODE85" type="STRING" size="256"/>
+          <Column id="CONT_CODE86" type="STRING" size="256"/>
+          <Column id="CONT_CODE87" type="STRING" size="256"/>
+          <Column id="CONT_CODE88" type="STRING" size="256"/>
+          <Column id="CONT_CODE89" type="STRING" size="256"/>
+          <Column id="CONT_CODE90" type="STRING" size="256"/>
+          <Column id="CONT_CODE91" type="STRING" size="256"/>
+          <Column id="CONT_CODE92" type="STRING" size="256"/>
+          <Column id="CONT_CODE93" type="STRING" size="256"/>
+          <Column id="CONT_CODE94" type="STRING" size="256"/>
+          <Column id="CONT_CODE95" type="STRING" size="256"/>
+          <Column id="CONT_CODE96" type="STRING" size="256"/>
+          <Column id="CONT_CODE97" type="STRING" size="256"/>
+          <Column id="CONT_CODE98" type="STRING" size="256"/>
+          <Column id="CONT_CODE99" type="STRING" size="256"/>
+          <Column id="CONT_CODE100" type="STRING" size="256"/>
+          <Column id="X1" type="FLOAT" size="256"/>
+          <Column id="X2" type="FLOAT" size="256"/>
+          <Column id="X3" type="FLOAT" size="256"/>
+          <Column id="X4" type="FLOAT" size="256"/>
+          <Column id="X5" type="FLOAT" size="256"/>
+          <Column id="X6" type="FLOAT" size="256"/>
+          <Column id="X7" type="FLOAT" size="256"/>
+          <Column id="X8" type="FLOAT" size="256"/>
+          <Column id="X9" type="FLOAT" size="256"/>
+          <Column id="X10" type="FLOAT" size="256"/>
+          <Column id="X11" type="FLOAT" size="256"/>
+          <Column id="X12" type="FLOAT" size="256"/>
+          <Column id="X13" type="FLOAT" size="256"/>
+          <Column id="X14" type="FLOAT" size="256"/>
+          <Column id="X15" type="FLOAT" size="256"/>
+          <Column id="X16" type="FLOAT" size="256"/>
+          <Column id="X17" type="FLOAT" size="256"/>
+          <Column id="X18" type="FLOAT" size="256"/>
+          <Column id="X19" type="FLOAT" size="256"/>
+          <Column id="X20" type="FLOAT" size="256"/>
+          <Column id="X21" type="FLOAT" size="256"/>
+          <Column id="X22" type="FLOAT" size="256"/>
+          <Column id="X23" type="FLOAT" size="256"/>
+          <Column id="X24" type="FLOAT" size="256"/>
+          <Column id="X25" type="FLOAT" size="256"/>
+          <Column id="X26" type="FLOAT" size="256"/>
+          <Column id="X27" type="FLOAT" size="256"/>
+          <Column id="X28" type="FLOAT" size="256"/>
+          <Column id="X29" type="FLOAT" size="256"/>
+          <Column id="X30" type="FLOAT" size="256"/>
+          <Column id="X31" type="FLOAT" size="256"/>
+          <Column id="X32" type="FLOAT" size="256"/>
+          <Column id="X33" type="FLOAT" size="256"/>
+          <Column id="X34" type="FLOAT" size="256"/>
+          <Column id="X35" type="FLOAT" size="256"/>
+          <Column id="X36" type="FLOAT" size="256"/>
+          <Column id="X37" type="FLOAT" size="256"/>
+          <Column id="X38" type="FLOAT" size="256"/>
+          <Column id="X39" type="FLOAT" size="256"/>
+          <Column id="X40" type="FLOAT" size="256"/>
+          <Column id="X41" type="FLOAT" size="256"/>
+          <Column id="X42" type="FLOAT" size="256"/>
+          <Column id="X43" type="FLOAT" size="256"/>
+          <Column id="X44" type="FLOAT" size="256"/>
+          <Column id="X45" type="FLOAT" size="256"/>
+          <Column id="X46" type="FLOAT" size="256"/>
+          <Column id="X47" type="FLOAT" size="256"/>
+          <Column id="X48" type="FLOAT" size="256"/>
+          <Column id="X49" type="FLOAT" size="256"/>
+          <Column id="X50" type="FLOAT" size="256"/>
+          <Column id="X51" type="FLOAT" size="256"/>
+          <Column id="X52" type="FLOAT" size="256"/>
+          <Column id="X53" type="FLOAT" size="256"/>
+          <Column id="X54" type="FLOAT" size="256"/>
+          <Column id="X55" type="FLOAT" size="256"/>
+          <Column id="X56" type="FLOAT" size="256"/>
+          <Column id="X57" type="FLOAT" size="256"/>
+          <Column id="X58" type="FLOAT" size="256"/>
+          <Column id="X59" type="FLOAT" size="256"/>
+          <Column id="X60" type="FLOAT" size="256"/>
+          <Column id="X61" type="FLOAT" size="256"/>
+          <Column id="X62" type="FLOAT" size="256"/>
+          <Column id="X63" type="FLOAT" size="256"/>
+          <Column id="X64" type="FLOAT" size="256"/>
+          <Column id="X65" type="FLOAT" size="256"/>
+          <Column id="X66" type="FLOAT" size="256"/>
+          <Column id="X67" type="FLOAT" size="256"/>
+          <Column id="X68" type="FLOAT" size="256"/>
+          <Column id="X69" type="FLOAT" size="256"/>
+          <Column id="X70" type="FLOAT" size="256"/>
+          <Column id="X71" type="FLOAT" size="256"/>
+          <Column id="X72" type="FLOAT" size="256"/>
+          <Column id="X73" type="FLOAT" size="256"/>
+          <Column id="X74" type="FLOAT" size="256"/>
+          <Column id="X75" type="FLOAT" size="256"/>
+          <Column id="X76" type="FLOAT" size="256"/>
+          <Column id="X77" type="FLOAT" size="256"/>
+          <Column id="X78" type="FLOAT" size="256"/>
+          <Column id="X79" type="FLOAT" size="256"/>
+          <Column id="X80" type="FLOAT" size="256"/>
+          <Column id="X81" type="FLOAT" size="256"/>
+          <Column id="X82" type="FLOAT" size="256"/>
+          <Column id="X83" type="FLOAT" size="256"/>
+          <Column id="X84" type="FLOAT" size="256"/>
+          <Column id="X85" type="FLOAT" size="256"/>
+          <Column id="X86" type="FLOAT" size="256"/>
+          <Column id="X87" type="FLOAT" size="256"/>
+          <Column id="X88" type="FLOAT" size="256"/>
+          <Column id="X89" type="FLOAT" size="256"/>
+          <Column id="X90" type="FLOAT" size="256"/>
+          <Column id="X91" type="FLOAT" size="256"/>
+          <Column id="X92" type="FLOAT" size="256"/>
+          <Column id="X93" type="FLOAT" size="256"/>
+          <Column id="X94" type="FLOAT" size="256"/>
+          <Column id="X95" type="FLOAT" size="256"/>
+          <Column id="X96" type="FLOAT" size="256"/>
+          <Column id="X97" type="FLOAT" size="256"/>
+          <Column id="X98" type="FLOAT" size="256"/>
+          <Column id="X99" type="FLOAT" size="256"/>
+          <Column id="X100" type="FLOAT" size="256"/>
+          <Column id="Y1" type="FLOAT" size="256"/>
+          <Column id="Y2" type="FLOAT" size="256"/>
+          <Column id="Y3" type="FLOAT" size="256"/>
+          <Column id="Y4" type="FLOAT" size="256"/>
+          <Column id="Y5" type="FLOAT" size="256"/>
+          <Column id="Y6" type="FLOAT" size="256"/>
+          <Column id="Y7" type="FLOAT" size="256"/>
+          <Column id="Y8" type="FLOAT" size="256"/>
+          <Column id="Y9" type="FLOAT" size="256"/>
+          <Column id="Y10" type="FLOAT" size="256"/>
+          <Column id="Y11" type="FLOAT" size="256"/>
+          <Column id="Y12" type="FLOAT" size="256"/>
+          <Column id="Y13" type="FLOAT" size="256"/>
+          <Column id="Y14" type="FLOAT" size="256"/>
+          <Column id="Y15" type="FLOAT" size="256"/>
+          <Column id="Y16" type="FLOAT" size="256"/>
+          <Column id="Y17" type="FLOAT" size="256"/>
+          <Column id="Y18" type="FLOAT" size="256"/>
+          <Column id="Y19" type="FLOAT" size="256"/>
+          <Column id="Y20" type="FLOAT" size="256"/>
+          <Column id="Y21" type="FLOAT" size="256"/>
+          <Column id="Y22" type="FLOAT" size="256"/>
+          <Column id="Y23" type="FLOAT" size="256"/>
+          <Column id="Y24" type="FLOAT" size="256"/>
+          <Column id="Y25" type="FLOAT" size="256"/>
+          <Column id="Y26" type="FLOAT" size="256"/>
+          <Column id="Y27" type="FLOAT" size="256"/>
+          <Column id="Y28" type="FLOAT" size="256"/>
+          <Column id="Y29" type="FLOAT" size="256"/>
+          <Column id="Y30" type="FLOAT" size="256"/>
+          <Column id="Y31" type="FLOAT" size="256"/>
+          <Column id="Y32" type="FLOAT" size="256"/>
+          <Column id="Y33" type="FLOAT" size="256"/>
+          <Column id="Y34" type="FLOAT" size="256"/>
+          <Column id="Y35" type="FLOAT" size="256"/>
+          <Column id="Y36" type="FLOAT" size="256"/>
+          <Column id="Y37" type="FLOAT" size="256"/>
+          <Column id="Y38" type="FLOAT" size="256"/>
+          <Column id="Y39" type="FLOAT" size="256"/>
+          <Column id="Y40" type="FLOAT" size="256"/>
+          <Column id="Y41" type="FLOAT" size="256"/>
+          <Column id="Y42" type="FLOAT" size="256"/>
+          <Column id="Y43" type="FLOAT" size="256"/>
+          <Column id="Y44" type="FLOAT" size="256"/>
+          <Column id="Y45" type="FLOAT" size="256"/>
+          <Column id="Y46" type="FLOAT" size="256"/>
+          <Column id="Y47" type="FLOAT" size="256"/>
+          <Column id="Y48" type="FLOAT" size="256"/>
+          <Column id="Y49" type="FLOAT" size="256"/>
+          <Column id="Y50" type="FLOAT" size="256"/>
+          <Column id="Y51" type="FLOAT" size="256"/>
+          <Column id="Y52" type="FLOAT" size="256"/>
+          <Column id="Y53" type="FLOAT" size="256"/>
+          <Column id="Y54" type="FLOAT" size="256"/>
+          <Column id="Y55" type="FLOAT" size="256"/>
+          <Column id="Y56" type="FLOAT" size="256"/>
+          <Column id="Y57" type="FLOAT" size="256"/>
+          <Column id="Y58" type="FLOAT" size="256"/>
+          <Column id="Y59" type="FLOAT" size="256"/>
+          <Column id="Y60" type="FLOAT" size="256"/>
+          <Column id="Y61" type="FLOAT" size="256"/>
+          <Column id="Y62" type="FLOAT" size="256"/>
+          <Column id="Y63" type="FLOAT" size="256"/>
+          <Column id="Y64" type="FLOAT" size="256"/>
+          <Column id="Y65" type="FLOAT" size="256"/>
+          <Column id="Y66" type="FLOAT" size="256"/>
+          <Column id="Y67" type="FLOAT" size="256"/>
+          <Column id="Y68" type="FLOAT" size="256"/>
+          <Column id="Y69" type="FLOAT" size="256"/>
+          <Column id="Y70" type="FLOAT" size="256"/>
+          <Column id="Y71" type="FLOAT" size="256"/>
+          <Column id="Y72" type="FLOAT" size="256"/>
+          <Column id="Y73" type="FLOAT" size="256"/>
+          <Column id="Y74" type="FLOAT" size="256"/>
+          <Column id="Y75" type="FLOAT" size="256"/>
+          <Column id="Y76" type="FLOAT" size="256"/>
+          <Column id="Y77" type="FLOAT" size="256"/>
+          <Column id="Y78" type="FLOAT" size="256"/>
+          <Column id="Y79" type="FLOAT" size="256"/>
+          <Column id="Y80" type="FLOAT" size="256"/>
+          <Column id="Y81" type="FLOAT" size="256"/>
+          <Column id="Y82" type="FLOAT" size="256"/>
+          <Column id="Y83" type="FLOAT" size="256"/>
+          <Column id="Y84" type="FLOAT" size="256"/>
+          <Column id="Y85" type="FLOAT" size="256"/>
+          <Column id="Y86" type="FLOAT" size="256"/>
+          <Column id="Y87" type="FLOAT" size="256"/>
+          <Column id="Y88" type="FLOAT" size="256"/>
+          <Column id="Y89" type="FLOAT" size="256"/>
+          <Column id="Y90" type="FLOAT" size="256"/>
+          <Column id="Y91" type="FLOAT" size="256"/>
+          <Column id="Y92" type="FLOAT" size="256"/>
+          <Column id="Y93" type="FLOAT" size="256"/>
+          <Column id="Y94" type="FLOAT" size="256"/>
+          <Column id="Y95" type="FLOAT" size="256"/>
+          <Column id="Y96" type="FLOAT" size="256"/>
+          <Column id="Y97" type="FLOAT" size="256"/>
+          <Column id="Y98" type="FLOAT" size="256"/>
+          <Column id="Y99" type="FLOAT" size="256"/>
+          <Column id="Y100" type="FLOAT" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_MAIN_CHART_MINMAX" useclientlayout="true">
+        <ColumnInfo>
+          <Column id="STAR_CI" type="STRING" size="256"/>
+          <Column id="COLOR_CI" type="STRING" size="256"/>
+          <Column id="XMIN" type="STRING" size="256"/>
+          <Column id="XMAX" type="STRING" size="256"/>
+          <Column id="YMIN" type="STRING" size="256"/>
+          <Column id="YMAX" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_MATR" useclientlayout="true">
+        <ColumnInfo>
+          <Column id="PLANT" type="STRING" size="256"/>
+          <Column id="MATR_CODE" type="STRING" size="256"/>
+          <Column id="MATR_NAME" type="STRING" size="256"/>
+          <Column id="BATCH_CNT" type="STRING" size="256"/>
+          <Column id="BTN_CANCEL" type="STRING" size="256"/>
+          <Column id="CUD_TYPE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_rChart" useclientlayout="true">
+        <ColumnInfo>
+          <Column id="STAR_CI" type="STRING" size="256"/>
+          <Column id="COLOR_CI" type="STRING" size="256"/>
+          <Column id="RANKNUM" type="STRING" size="256"/>
+          <Column id="PX1" type="FLOAT" size="256"/>
+          <Column id="PX2" type="FLOAT" size="256"/>
+          <Column id="PX3" type="FLOAT" size="256"/>
+          <Column id="PX4" type="FLOAT" size="256"/>
+          <Column id="PX5" type="FLOAT" size="256"/>
+          <Column id="PX6" type="FLOAT" size="256"/>
+          <Column id="PX7" type="FLOAT" size="256"/>
+          <Column id="PX8" type="FLOAT" size="256"/>
+          <Column id="PX9" type="FLOAT" size="256"/>
+          <Column id="PX10" type="FLOAT" size="256"/>
+          <Column id="PX11" type="FLOAT" size="256"/>
+          <Column id="PX12" type="FLOAT" size="256"/>
+          <Column id="PX13" type="FLOAT" size="256"/>
+          <Column id="PX14" type="FLOAT" size="256"/>
+          <Column id="PX15" type="FLOAT" size="256"/>
+          <Column id="PX16" type="FLOAT" size="256"/>
+          <Column id="PX17" type="FLOAT" size="256"/>
+          <Column id="PX18" type="FLOAT" size="256"/>
+          <Column id="PX19" type="FLOAT" size="256"/>
+          <Column id="PX20" type="FLOAT" size="256"/>
+          <Column id="PX21" type="FLOAT" size="256"/>
+          <Column id="PX22" type="FLOAT" size="256"/>
+          <Column id="PX23" type="FLOAT" size="256"/>
+          <Column id="PX24" type="FLOAT" size="256"/>
+          <Column id="PX25" type="FLOAT" size="256"/>
+          <Column id="PX26" type="FLOAT" size="256"/>
+          <Column id="PX27" type="FLOAT" size="256"/>
+          <Column id="PX28" type="FLOAT" size="256"/>
+          <Column id="PX29" type="FLOAT" size="256"/>
+          <Column id="PX30" type="FLOAT" size="256"/>
+          <Column id="PX31" type="FLOAT" size="256"/>
+          <Column id="PX32" type="FLOAT" size="256"/>
+          <Column id="PX33" type="FLOAT" size="256"/>
+          <Column id="PX34" type="FLOAT" size="256"/>
+          <Column id="PX35" type="FLOAT" size="256"/>
+          <Column id="PX36" type="FLOAT" size="256"/>
+          <Column id="PX37" type="FLOAT" size="256"/>
+          <Column id="PX38" type="FLOAT" size="256"/>
+          <Column id="PX39" type="FLOAT" size="256"/>
+          <Column id="PX40" type="FLOAT" size="256"/>
+          <Column id="PX41" type="FLOAT" size="256"/>
+          <Column id="PX42" type="FLOAT" size="256"/>
+          <Column id="PX43" type="FLOAT" size="256"/>
+          <Column id="PX44" type="FLOAT" size="256"/>
+          <Column id="PX45" type="FLOAT" size="256"/>
+          <Column id="PX46" type="FLOAT" size="256"/>
+          <Column id="PX47" type="FLOAT" size="256"/>
+          <Column id="PX48" type="FLOAT" size="256"/>
+          <Column id="PX49" type="FLOAT" size="256"/>
+          <Column id="PX50" type="FLOAT" size="256"/>
+          <Column id="PX51" type="FLOAT" size="256"/>
+          <Column id="PX52" type="FLOAT" size="256"/>
+          <Column id="PX53" type="FLOAT" size="256"/>
+          <Column id="PX54" type="FLOAT" size="256"/>
+          <Column id="PX55" type="FLOAT" size="256"/>
+          <Column id="PX56" type="FLOAT" size="256"/>
+          <Column id="PX57" type="FLOAT" size="256"/>
+          <Column id="PX58" type="FLOAT" size="256"/>
+          <Column id="PX59" type="FLOAT" size="256"/>
+          <Column id="PX60" type="FLOAT" size="256"/>
+          <Column id="PX61" type="FLOAT" size="256"/>
+          <Column id="PX62" type="FLOAT" size="256"/>
+          <Column id="PX63" type="FLOAT" size="256"/>
+          <Column id="PX64" type="FLOAT" size="256"/>
+          <Column id="PX65" type="FLOAT" size="256"/>
+          <Column id="PX66" type="FLOAT" size="256"/>
+          <Column id="PX67" type="FLOAT" size="256"/>
+          <Column id="PX68" type="FLOAT" size="256"/>
+          <Column id="PX69" type="FLOAT" size="256"/>
+          <Column id="PX70" type="FLOAT" size="256"/>
+          <Column id="PX71" type="FLOAT" size="256"/>
+          <Column id="PX72" type="FLOAT" size="256"/>
+          <Column id="PX73" type="FLOAT" size="256"/>
+          <Column id="PX74" type="FLOAT" size="256"/>
+          <Column id="PX75" type="FLOAT" size="256"/>
+          <Column id="PX76" type="FLOAT" size="256"/>
+          <Column id="PX77" type="FLOAT" size="256"/>
+          <Column id="PX78" type="FLOAT" size="256"/>
+          <Column id="PX79" type="FLOAT" size="256"/>
+          <Column id="PX80" type="FLOAT" size="256"/>
+          <Column id="PX81" type="FLOAT" size="256"/>
+          <Column id="PX82" type="FLOAT" size="256"/>
+          <Column id="PX83" type="FLOAT" size="256"/>
+          <Column id="PX84" type="FLOAT" size="256"/>
+          <Column id="PX85" type="FLOAT" size="256"/>
+          <Column id="PX86" type="FLOAT" size="256"/>
+          <Column id="PX87" type="FLOAT" size="256"/>
+          <Column id="PX88" type="FLOAT" size="256"/>
+          <Column id="PX89" type="FLOAT" size="256"/>
+          <Column id="PX90" type="FLOAT" size="256"/>
+          <Column id="PX91" type="FLOAT" size="256"/>
+          <Column id="PX92" type="FLOAT" size="256"/>
+          <Column id="PX93" type="FLOAT" size="256"/>
+          <Column id="PX94" type="FLOAT" size="256"/>
+          <Column id="PX95" type="FLOAT" size="256"/>
+          <Column id="PX96" type="FLOAT" size="256"/>
+          <Column id="PX97" type="FLOAT" size="256"/>
+          <Column id="PX98" type="FLOAT" size="256"/>
+          <Column id="PX99" type="FLOAT" size="256"/>
+          <Column id="PX100" type="FLOAT" size="256"/>
+          <Column id="PY1" type="FLOAT" size="256"/>
+          <Column id="PY2" type="FLOAT" size="256"/>
+          <Column id="PY3" type="FLOAT" size="256"/>
+          <Column id="PY4" type="FLOAT" size="256"/>
+          <Column id="PY5" type="FLOAT" size="256"/>
+          <Column id="PY6" type="FLOAT" size="256"/>
+          <Column id="PY7" type="FLOAT" size="256"/>
+          <Column id="PY8" type="FLOAT" size="256"/>
+          <Column id="PY9" type="FLOAT" size="256"/>
+          <Column id="PY10" type="FLOAT" size="256"/>
+          <Column id="PY11" type="FLOAT" size="256"/>
+          <Column id="PY12" type="FLOAT" size="256"/>
+          <Column id="PY13" type="FLOAT" size="256"/>
+          <Column id="PY14" type="FLOAT" size="256"/>
+          <Column id="PY15" type="FLOAT" size="256"/>
+          <Column id="PY16" type="FLOAT" size="256"/>
+          <Column id="PY17" type="FLOAT" size="256"/>
+          <Column id="PY18" type="FLOAT" size="256"/>
+          <Column id="PY19" type="FLOAT" size="256"/>
+          <Column id="PY20" type="FLOAT" size="256"/>
+          <Column id="PY21" type="FLOAT" size="256"/>
+          <Column id="PY22" type="FLOAT" size="256"/>
+          <Column id="PY23" type="FLOAT" size="256"/>
+          <Column id="PY24" type="FLOAT" size="256"/>
+          <Column id="PY25" type="FLOAT" size="256"/>
+          <Column id="PY26" type="FLOAT" size="256"/>
+          <Column id="PY27" type="FLOAT" size="256"/>
+          <Column id="PY28" type="FLOAT" size="256"/>
+          <Column id="PY29" type="FLOAT" size="256"/>
+          <Column id="PY30" type="FLOAT" size="256"/>
+          <Column id="PY31" type="FLOAT" size="256"/>
+          <Column id="PY32" type="FLOAT" size="256"/>
+          <Column id="PY33" type="FLOAT" size="256"/>
+          <Column id="PY34" type="FLOAT" size="256"/>
+          <Column id="PY35" type="FLOAT" size="256"/>
+          <Column id="PY36" type="FLOAT" size="256"/>
+          <Column id="PY37" type="FLOAT" size="256"/>
+          <Column id="PY38" type="FLOAT" size="256"/>
+          <Column id="PY39" type="FLOAT" size="256"/>
+          <Column id="PY40" type="FLOAT" size="256"/>
+          <Column id="PY41" type="FLOAT" size="256"/>
+          <Column id="PY42" type="FLOAT" size="256"/>
+          <Column id="PY43" type="FLOAT" size="256"/>
+          <Column id="PY44" type="FLOAT" size="256"/>
+          <Column id="PY45" type="FLOAT" size="256"/>
+          <Column id="PY46" type="FLOAT" size="256"/>
+          <Column id="PY47" type="FLOAT" size="256"/>
+          <Column id="PY48" type="FLOAT" size="256"/>
+          <Column id="PY49" type="FLOAT" size="256"/>
+          <Column id="PY50" type="FLOAT" size="256"/>
+          <Column id="PY51" type="FLOAT" size="256"/>
+          <Column id="PY52" type="FLOAT" size="256"/>
+          <Column id="PY53" type="FLOAT" size="256"/>
+          <Column id="PY54" type="FLOAT" size="256"/>
+          <Column id="PY55" type="FLOAT" size="256"/>
+          <Column id="PY56" type="FLOAT" size="256"/>
+          <Column id="PY57" type="FLOAT" size="256"/>
+          <Column id="PY58" type="FLOAT" size="256"/>
+          <Column id="PY59" type="FLOAT" size="256"/>
+          <Column id="PY60" type="FLOAT" size="256"/>
+          <Column id="PY61" type="FLOAT" size="256"/>
+          <Column id="PY62" type="FLOAT" size="256"/>
+          <Column id="PY63" type="FLOAT" size="256"/>
+          <Column id="PY64" type="FLOAT" size="256"/>
+          <Column id="PY65" type="FLOAT" size="256"/>
+          <Column id="PY66" type="FLOAT" size="256"/>
+          <Column id="PY67" type="FLOAT" size="256"/>
+          <Column id="PY68" type="FLOAT" size="256"/>
+          <Column id="PY69" type="FLOAT" size="256"/>
+          <Column id="PY70" type="FLOAT" size="256"/>
+          <Column id="PY71" type="FLOAT" size="256"/>
+          <Column id="PY72" type="FLOAT" size="256"/>
+          <Column id="PY73" type="FLOAT" size="256"/>
+          <Column id="PY74" type="FLOAT" size="256"/>
+          <Column id="PY75" type="FLOAT" size="256"/>
+          <Column id="PY76" type="FLOAT" size="256"/>
+          <Column id="PY77" type="FLOAT" size="256"/>
+          <Column id="PY78" type="FLOAT" size="256"/>
+          <Column id="PY79" type="FLOAT" size="256"/>
+          <Column id="PY80" type="FLOAT" size="256"/>
+          <Column id="PY81" type="FLOAT" size="256"/>
+          <Column id="PY82" type="FLOAT" size="256"/>
+          <Column id="PY83" type="FLOAT" size="256"/>
+          <Column id="PY84" type="FLOAT" size="256"/>
+          <Column id="PY85" type="FLOAT" size="256"/>
+          <Column id="PY86" type="FLOAT" size="256"/>
+          <Column id="PY87" type="FLOAT" size="256"/>
+          <Column id="PY88" type="FLOAT" size="256"/>
+          <Column id="PY89" type="FLOAT" size="256"/>
+          <Column id="PY90" type="FLOAT" size="256"/>
+          <Column id="PY91" type="FLOAT" size="256"/>
+          <Column id="PY92" type="FLOAT" size="256"/>
+          <Column id="PY93" type="FLOAT" size="256"/>
+          <Column id="PY94" type="FLOAT" size="256"/>
+          <Column id="PY95" type="FLOAT" size="256"/>
+          <Column id="PY96" type="FLOAT" size="256"/>
+          <Column id="PY97" type="FLOAT" size="256"/>
+          <Column id="PY98" type="FLOAT" size="256"/>
+          <Column id="PY99" type="FLOAT" size="256"/>
+          <Column id="PY100" type="FLOAT" size="256"/>
+          <Column id="X1" type="FLOAT" size="256"/>
+          <Column id="X2" type="FLOAT" size="256"/>
+          <Column id="X3" type="FLOAT" size="256"/>
+          <Column id="X4" type="FLOAT" size="256"/>
+          <Column id="X5" type="FLOAT" size="256"/>
+          <Column id="X6" type="FLOAT" size="256"/>
+          <Column id="X7" type="FLOAT" size="256"/>
+          <Column id="X8" type="FLOAT" size="256"/>
+          <Column id="X9" type="FLOAT" size="256"/>
+          <Column id="X10" type="FLOAT" size="256"/>
+          <Column id="X11" type="FLOAT" size="256"/>
+          <Column id="X12" type="FLOAT" size="256"/>
+          <Column id="X13" type="FLOAT" size="256"/>
+          <Column id="X14" type="FLOAT" size="256"/>
+          <Column id="X15" type="FLOAT" size="256"/>
+          <Column id="X16" type="FLOAT" size="256"/>
+          <Column id="X17" type="FLOAT" size="256"/>
+          <Column id="X18" type="FLOAT" size="256"/>
+          <Column id="X19" type="FLOAT" size="256"/>
+          <Column id="X20" type="FLOAT" size="256"/>
+          <Column id="X21" type="FLOAT" size="256"/>
+          <Column id="X22" type="FLOAT" size="256"/>
+          <Column id="X23" type="FLOAT" size="256"/>
+          <Column id="X24" type="FLOAT" size="256"/>
+          <Column id="X25" type="FLOAT" size="256"/>
+          <Column id="X26" type="FLOAT" size="256"/>
+          <Column id="X27" type="FLOAT" size="256"/>
+          <Column id="X28" type="FLOAT" size="256"/>
+          <Column id="X29" type="FLOAT" size="256"/>
+          <Column id="X30" type="FLOAT" size="256"/>
+          <Column id="X31" type="FLOAT" size="256"/>
+          <Column id="X32" type="FLOAT" size="256"/>
+          <Column id="X33" type="FLOAT" size="256"/>
+          <Column id="X34" type="FLOAT" size="256"/>
+          <Column id="X35" type="FLOAT" size="256"/>
+          <Column id="X36" type="FLOAT" size="256"/>
+          <Column id="X37" type="FLOAT" size="256"/>
+          <Column id="X38" type="FLOAT" size="256"/>
+          <Column id="X39" type="FLOAT" size="256"/>
+          <Column id="X40" type="FLOAT" size="256"/>
+          <Column id="X41" type="FLOAT" size="256"/>
+          <Column id="X42" type="FLOAT" size="256"/>
+          <Column id="X43" type="FLOAT" size="256"/>
+          <Column id="X44" type="FLOAT" size="256"/>
+          <Column id="X45" type="FLOAT" size="256"/>
+          <Column id="X46" type="FLOAT" size="256"/>
+          <Column id="X47" type="FLOAT" size="256"/>
+          <Column id="X48" type="FLOAT" size="256"/>
+          <Column id="X49" type="FLOAT" size="256"/>
+          <Column id="X50" type="FLOAT" size="256"/>
+          <Column id="X51" type="FLOAT" size="256"/>
+          <Column id="X52" type="FLOAT" size="256"/>
+          <Column id="X53" type="FLOAT" size="256"/>
+          <Column id="X54" type="FLOAT" size="256"/>
+          <Column id="X55" type="FLOAT" size="256"/>
+          <Column id="X56" type="FLOAT" size="256"/>
+          <Column id="X57" type="FLOAT" size="256"/>
+          <Column id="X58" type="FLOAT" size="256"/>
+          <Column id="X59" type="FLOAT" size="256"/>
+          <Column id="X60" type="FLOAT" size="256"/>
+          <Column id="X61" type="FLOAT" size="256"/>
+          <Column id="X62" type="FLOAT" size="256"/>
+          <Column id="X63" type="FLOAT" size="256"/>
+          <Column id="X64" type="FLOAT" size="256"/>
+          <Column id="X65" type="FLOAT" size="256"/>
+          <Column id="X66" type="FLOAT" size="256"/>
+          <Column id="X67" type="FLOAT" size="256"/>
+          <Column id="X68" type="FLOAT" size="256"/>
+          <Column id="X69" type="FLOAT" size="256"/>
+          <Column id="X70" type="FLOAT" size="256"/>
+          <Column id="X71" type="FLOAT" size="256"/>
+          <Column id="X72" type="FLOAT" size="256"/>
+          <Column id="X73" type="FLOAT" size="256"/>
+          <Column id="X74" type="FLOAT" size="256"/>
+          <Column id="X75" type="FLOAT" size="256"/>
+          <Column id="X76" type="FLOAT" size="256"/>
+          <Column id="X77" type="FLOAT" size="256"/>
+          <Column id="X78" type="FLOAT" size="256"/>
+          <Column id="X79" type="FLOAT" size="256"/>
+          <Column id="X80" type="FLOAT" size="256"/>
+          <Column id="X81" type="FLOAT" size="256"/>
+          <Column id="X82" type="FLOAT" size="256"/>
+          <Column id="X83" type="FLOAT" size="256"/>
+          <Column id="X84" type="FLOAT" size="256"/>
+          <Column id="X85" type="FLOAT" size="256"/>
+          <Column id="X86" type="FLOAT" size="256"/>
+          <Column id="X87" type="FLOAT" size="256"/>
+          <Column id="X88" type="FLOAT" size="256"/>
+          <Column id="X89" type="FLOAT" size="256"/>
+          <Column id="X90" type="FLOAT" size="256"/>
+          <Column id="X91" type="FLOAT" size="256"/>
+          <Column id="X92" type="FLOAT" size="256"/>
+          <Column id="X93" type="FLOAT" size="256"/>
+          <Column id="X94" type="FLOAT" size="256"/>
+          <Column id="X95" type="FLOAT" size="256"/>
+          <Column id="X96" type="FLOAT" size="256"/>
+          <Column id="X97" type="FLOAT" size="256"/>
+          <Column id="X98" type="FLOAT" size="256"/>
+          <Column id="X99" type="FLOAT" size="256"/>
+          <Column id="X100" type="FLOAT" size="256"/>
+          <Column id="Y1" type="FLOAT" size="256"/>
+          <Column id="Y2" type="FLOAT" size="256"/>
+          <Column id="Y3" type="FLOAT" size="256"/>
+          <Column id="Y4" type="FLOAT" size="256"/>
+          <Column id="Y5" type="FLOAT" size="256"/>
+          <Column id="Y6" type="FLOAT" size="256"/>
+          <Column id="Y7" type="FLOAT" size="256"/>
+          <Column id="Y8" type="FLOAT" size="256"/>
+          <Column id="Y9" type="FLOAT" size="256"/>
+          <Column id="Y10" type="FLOAT" size="256"/>
+          <Column id="Y11" type="FLOAT" size="256"/>
+          <Column id="Y12" type="FLOAT" size="256"/>
+          <Column id="Y13" type="FLOAT" size="256"/>
+          <Column id="Y14" type="FLOAT" size="256"/>
+          <Column id="Y15" type="FLOAT" size="256"/>
+          <Column id="Y16" type="FLOAT" size="256"/>
+          <Column id="Y17" type="FLOAT" size="256"/>
+          <Column id="Y18" type="FLOAT" size="256"/>
+          <Column id="Y19" type="FLOAT" size="256"/>
+          <Column id="Y20" type="FLOAT" size="256"/>
+          <Column id="Y21" type="FLOAT" size="256"/>
+          <Column id="Y22" type="FLOAT" size="256"/>
+          <Column id="Y23" type="FLOAT" size="256"/>
+          <Column id="Y24" type="FLOAT" size="256"/>
+          <Column id="Y25" type="FLOAT" size="256"/>
+          <Column id="Y26" type="FLOAT" size="256"/>
+          <Column id="Y27" type="FLOAT" size="256"/>
+          <Column id="Y28" type="FLOAT" size="256"/>
+          <Column id="Y29" type="FLOAT" size="256"/>
+          <Column id="Y30" type="FLOAT" size="256"/>
+          <Column id="Y31" type="FLOAT" size="256"/>
+          <Column id="Y32" type="FLOAT" size="256"/>
+          <Column id="Y33" type="FLOAT" size="256"/>
+          <Column id="Y34" type="FLOAT" size="256"/>
+          <Column id="Y35" type="FLOAT" size="256"/>
+          <Column id="Y36" type="FLOAT" size="256"/>
+          <Column id="Y37" type="FLOAT" size="256"/>
+          <Column id="Y38" type="FLOAT" size="256"/>
+          <Column id="Y39" type="FLOAT" size="256"/>
+          <Column id="Y40" type="FLOAT" size="256"/>
+          <Column id="Y41" type="FLOAT" size="256"/>
+          <Column id="Y42" type="FLOAT" size="256"/>
+          <Column id="Y43" type="FLOAT" size="256"/>
+          <Column id="Y44" type="FLOAT" size="256"/>
+          <Column id="Y45" type="FLOAT" size="256"/>
+          <Column id="Y46" type="FLOAT" size="256"/>
+          <Column id="Y47" type="FLOAT" size="256"/>
+          <Column id="Y48" type="FLOAT" size="256"/>
+          <Column id="Y49" type="FLOAT" size="256"/>
+          <Column id="Y50" type="FLOAT" size="256"/>
+          <Column id="Y51" type="FLOAT" size="256"/>
+          <Column id="Y52" type="FLOAT" size="256"/>
+          <Column id="Y53" type="FLOAT" size="256"/>
+          <Column id="Y54" type="FLOAT" size="256"/>
+          <Column id="Y55" type="FLOAT" size="256"/>
+          <Column id="Y56" type="FLOAT" size="256"/>
+          <Column id="Y57" type="FLOAT" size="256"/>
+          <Column id="Y58" type="FLOAT" size="256"/>
+          <Column id="Y59" type="FLOAT" size="256"/>
+          <Column id="Y60" type="FLOAT" size="256"/>
+          <Column id="Y61" type="FLOAT" size="256"/>
+          <Column id="Y62" type="FLOAT" size="256"/>
+          <Column id="Y63" type="FLOAT" size="256"/>
+          <Column id="Y64" type="FLOAT" size="256"/>
+          <Column id="Y65" type="FLOAT" size="256"/>
+          <Column id="Y66" type="FLOAT" size="256"/>
+          <Column id="Y67" type="FLOAT" size="256"/>
+          <Column id="Y68" type="FLOAT" size="256"/>
+          <Column id="Y69" type="FLOAT" size="256"/>
+          <Column id="Y70" type="FLOAT" size="256"/>
+          <Column id="Y71" type="FLOAT" size="256"/>
+          <Column id="Y72" type="FLOAT" size="256"/>
+          <Column id="Y73" type="FLOAT" size="256"/>
+          <Column id="Y74" type="FLOAT" size="256"/>
+          <Column id="Y75" type="FLOAT" size="256"/>
+          <Column id="Y76" type="FLOAT" size="256"/>
+          <Column id="Y77" type="FLOAT" size="256"/>
+          <Column id="Y78" type="FLOAT" size="256"/>
+          <Column id="Y79" type="FLOAT" size="256"/>
+          <Column id="Y80" type="FLOAT" size="256"/>
+          <Column id="Y81" type="FLOAT" size="256"/>
+          <Column id="Y82" type="FLOAT" size="256"/>
+          <Column id="Y83" type="FLOAT" size="256"/>
+          <Column id="Y84" type="FLOAT" size="256"/>
+          <Column id="Y85" type="FLOAT" size="256"/>
+          <Column id="Y86" type="FLOAT" size="256"/>
+          <Column id="Y87" type="FLOAT" size="256"/>
+          <Column id="Y88" type="FLOAT" size="256"/>
+          <Column id="Y89" type="FLOAT" size="256"/>
+          <Column id="Y90" type="FLOAT" size="256"/>
+          <Column id="Y91" type="FLOAT" size="256"/>
+          <Column id="Y92" type="FLOAT" size="256"/>
+          <Column id="Y93" type="FLOAT" size="256"/>
+          <Column id="Y94" type="FLOAT" size="256"/>
+          <Column id="Y95" type="FLOAT" size="256"/>
+          <Column id="Y96" type="FLOAT" size="256"/>
+          <Column id="Y97" type="FLOAT" size="256"/>
+          <Column id="Y98" type="FLOAT" size="256"/>
+          <Column id="Y99" type="FLOAT" size="256"/>
+          <Column id="Y100" type="FLOAT" size="256"/>
+          <Column id="CONT_CODE1" type="STRING" size="256"/>
+          <Column id="CONT_CODE2" type="STRING" size="256"/>
+          <Column id="CONT_CODE3" type="STRING" size="256"/>
+          <Column id="CONT_CODE4" type="STRING" size="256"/>
+          <Column id="CONT_CODE5" type="STRING" size="256"/>
+          <Column id="CONT_CODE6" type="STRING" size="256"/>
+          <Column id="CONT_CODE7" type="STRING" size="256"/>
+          <Column id="CONT_CODE8" type="STRING" size="256"/>
+          <Column id="CONT_CODE9" type="STRING" size="256"/>
+          <Column id="CONT_CODE10" type="STRING" size="256"/>
+          <Column id="CONT_CODE11" type="STRING" size="256"/>
+          <Column id="CONT_CODE12" type="STRING" size="256"/>
+          <Column id="CONT_CODE13" type="STRING" size="256"/>
+          <Column id="CONT_CODE14" type="STRING" size="256"/>
+          <Column id="CONT_CODE15" type="STRING" size="256"/>
+          <Column id="CONT_CODE16" type="STRING" size="256"/>
+          <Column id="CONT_CODE17" type="STRING" size="256"/>
+          <Column id="CONT_CODE18" type="STRING" size="256"/>
+          <Column id="CONT_CODE19" type="STRING" size="256"/>
+          <Column id="CONT_CODE20" type="STRING" size="256"/>
+          <Column id="CONT_CODE21" type="STRING" size="256"/>
+          <Column id="CONT_CODE22" type="STRING" size="256"/>
+          <Column id="CONT_CODE23" type="STRING" size="256"/>
+          <Column id="CONT_CODE24" type="STRING" size="256"/>
+          <Column id="CONT_CODE25" type="STRING" size="256"/>
+          <Column id="CONT_CODE26" type="STRING" size="256"/>
+          <Column id="CONT_CODE27" type="STRING" size="256"/>
+          <Column id="CONT_CODE28" type="STRING" size="256"/>
+          <Column id="CONT_CODE29" type="STRING" size="256"/>
+          <Column id="CONT_CODE30" type="STRING" size="256"/>
+          <Column id="CONT_CODE31" type="STRING" size="256"/>
+          <Column id="CONT_CODE32" type="STRING" size="256"/>
+          <Column id="CONT_CODE33" type="STRING" size="256"/>
+          <Column id="CONT_CODE34" type="STRING" size="256"/>
+          <Column id="CONT_CODE35" type="STRING" size="256"/>
+          <Column id="CONT_CODE36" type="STRING" size="256"/>
+          <Column id="CONT_CODE37" type="STRING" size="256"/>
+          <Column id="CONT_CODE38" type="STRING" size="256"/>
+          <Column id="CONT_CODE39" type="STRING" size="256"/>
+          <Column id="CONT_CODE40" type="STRING" size="256"/>
+          <Column id="CONT_CODE41" type="STRING" size="256"/>
+          <Column id="CONT_CODE42" type="STRING" size="256"/>
+          <Column id="CONT_CODE43" type="STRING" size="256"/>
+          <Column id="CONT_CODE44" type="STRING" size="256"/>
+          <Column id="CONT_CODE45" type="STRING" size="256"/>
+          <Column id="CONT_CODE46" type="STRING" size="256"/>
+          <Column id="CONT_CODE47" type="STRING" size="256"/>
+          <Column id="CONT_CODE48" type="STRING" size="256"/>
+          <Column id="CONT_CODE49" type="STRING" size="256"/>
+          <Column id="CONT_CODE50" type="STRING" size="256"/>
+          <Column id="CONT_CODE51" type="STRING" size="256"/>
+          <Column id="CONT_CODE52" type="STRING" size="256"/>
+          <Column id="CONT_CODE53" type="STRING" size="256"/>
+          <Column id="CONT_CODE54" type="STRING" size="256"/>
+          <Column id="CONT_CODE55" type="STRING" size="256"/>
+          <Column id="CONT_CODE56" type="STRING" size="256"/>
+          <Column id="CONT_CODE57" type="STRING" size="256"/>
+          <Column id="CONT_CODE58" type="STRING" size="256"/>
+          <Column id="CONT_CODE59" type="STRING" size="256"/>
+          <Column id="CONT_CODE60" type="STRING" size="256"/>
+          <Column id="CONT_CODE61" type="STRING" size="256"/>
+          <Column id="CONT_CODE62" type="STRING" size="256"/>
+          <Column id="CONT_CODE63" type="STRING" size="256"/>
+          <Column id="CONT_CODE64" type="STRING" size="256"/>
+          <Column id="CONT_CODE65" type="STRING" size="256"/>
+          <Column id="CONT_CODE66" type="STRING" size="256"/>
+          <Column id="CONT_CODE67" type="STRING" size="256"/>
+          <Column id="CONT_CODE68" type="STRING" size="256"/>
+          <Column id="CONT_CODE69" type="STRING" size="256"/>
+          <Column id="CONT_CODE70" type="STRING" size="256"/>
+          <Column id="CONT_CODE71" type="STRING" size="256"/>
+          <Column id="CONT_CODE72" type="STRING" size="256"/>
+          <Column id="CONT_CODE73" type="STRING" size="256"/>
+          <Column id="CONT_CODE74" type="STRING" size="256"/>
+          <Column id="CONT_CODE75" type="STRING" size="256"/>
+          <Column id="CONT_CODE76" type="STRING" size="256"/>
+          <Column id="CONT_CODE77" type="STRING" size="256"/>
+          <Column id="CONT_CODE78" type="STRING" size="256"/>
+          <Column id="CONT_CODE79" type="STRING" size="256"/>
+          <Column id="CONT_CODE80" type="STRING" size="256"/>
+          <Column id="CONT_CODE81" type="STRING" size="256"/>
+          <Column id="CONT_CODE82" type="STRING" size="256"/>
+          <Column id="CONT_CODE83" type="STRING" size="256"/>
+          <Column id="CONT_CODE84" type="STRING" size="256"/>
+          <Column id="CONT_CODE85" type="STRING" size="256"/>
+          <Column id="CONT_CODE86" type="STRING" size="256"/>
+          <Column id="CONT_CODE87" type="STRING" size="256"/>
+          <Column id="CONT_CODE88" type="STRING" size="256"/>
+          <Column id="CONT_CODE89" type="STRING" size="256"/>
+          <Column id="CONT_CODE90" type="STRING" size="256"/>
+          <Column id="CONT_CODE91" type="STRING" size="256"/>
+          <Column id="CONT_CODE92" type="STRING" size="256"/>
+          <Column id="CONT_CODE93" type="STRING" size="256"/>
+          <Column id="CONT_CODE94" type="STRING" size="256"/>
+          <Column id="CONT_CODE95" type="STRING" size="256"/>
+          <Column id="CONT_CODE96" type="STRING" size="256"/>
+          <Column id="CONT_CODE97" type="STRING" size="256"/>
+          <Column id="CONT_CODE98" type="STRING" size="256"/>
+          <Column id="CONT_CODE99" type="STRING" size="256"/>
+          <Column id="CONT_CODE100" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Div00.txt_CODE" propid="value" datasetid="ds_CODE_TABLE_SAVE" columnid="CODE"/>
+      <BindItem id="item1" compid="Div00.TextArea00" propid="value" datasetid="ds_CODE_TABLE_SAVE" columnid="COMMENT"/>
+      <BindItem id="item2" compid="Div00.txt_CONT_CNT" propid="value" datasetid="ds_CODE_TABLE_SAVE" columnid="CONT_CNT"/>
+      <BindItem id="item3" compid="Div00.txt_ADDQUERYSTRING" propid="value" datasetid="ds_CODE_TABLE_SAVE" columnid="USER_DEFINE10"/>
+      <BindItem id="item4" compid="Div_CONT.txt_CMNT" propid="value" datasetid="ds_CODE_TABLE_SAVE" columnid="CMNT"/>
+      <BindItem id="item6" compid="Div_CONT.txt_CONT_CNT" propid="value" datasetid="ds_CODE_TABLE_SAVE" columnid="CONT_CNT"/>
+      <BindItem id="item7" compid="Div_CONT.txt_CODE" propid="value" datasetid="ds_CODE_TABLE_SAVE" columnid="CODE"/>
+      <BindItem id="item5" compid="Div_CONT.txt_CMNT" propid="tooltiptext" datasetid="ds_CODE_TABLE_SAVE" columnid="CMNT"/>
+      <BindItem id="item8" compid="txt_CMNT" propid="value" datasetid="ds_CODE_TABLE_SAVE" columnid="CMNT"/>
+      <BindItem id="item9" compid="txt_CMNT" propid="tooltiptext" datasetid="ds_CODE_TABLE_SAVE" columnid="CMNT"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/*************************   Program description   ****************************
+ File Name      : QSEAR_35_CONT_COLOR_CHART_N
+ File Desc.     : 내용물별 원료 색차 - 차트(내용물(N)개 조회)
+ Author         : SMKWON
+ Create Date    : 2024/01/25
+ Change History :
+*******************************************************************************/
+
+/*****************************
+ *  공통 Script Include      *
+ ****************************/
+include "js::QMS_COMMON.xjs"
+
+/*****************************
+ *  화면 변수 선언부       *
+ ****************************/
+this.vsSaveflag;
+this.vsRow;
+this.vsChartCnt;
+/***************************************************************************************************
+ *                                   화면 공통 Event 처리 부분                                    *
+ ***************************************************************************************************/
+this.Form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_FormLoadSetting(obj ); 
+	this.gfn_GridSetting(this.Div_CONT);
+	this.gfn_QmsCommL3AuthChk(true , "1");
+
+	this.ds_Param.setColumn(0,"PLANT", application.g_ds_Session.getColumn(0,"PLANT"));	
+	this.ds_Param_chart.setColumn(0,"PLANT", application.g_ds_Session.getColumn(0,"PLANT"));
+	this.fn_Find("find_code_table",this.ds_Param);	
+	
+	this.vscrollbar.set_pos(0);
+	this.Div_CHART.hscrollbar.set_pos(0);
+	
+}
+
+this.fn_Search = function(sExpandSearch) {
+	var addQueryString="";
+	//확장검색
+	if( sExpandSearch == "ok" ){		
+		if(application.g_ds_Param.rowcount > 0){
+			var addString = this.gfn_dsParamQuarryStr(application.g_ds_Param);
+			addQueryString = "(" + addString + ")";	
+		}
+	}
+	
+	this.ds_Param.setColumn(0,"ADDQUEERYSTRING", addQueryString);
+	this.ds_Param.setColumn(0,"ADDQUEERYSTRING2", addQueryString);
+	this.fn_Find("find_main",this.ds_Param);	// 내용물 리스트 조회
+}
+// 줄 추가 
+this.Div_CONT_btnAdd_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.ds_MAIN_MATR.set_enableevent(false);
+		
+	var row = this.ds_MAIN_MATR.addRow();	
+	this.ds_MAIN_MATR.setColumn(row,"CUD_TYPE","C");
+	this.ds_MAIN_MATR.setColumn(row,"BTN_CANCEL","삭제");
+	
+	this.ds_MAIN_MATR.set_enableevent(true);
+}
+
+// 자재리스트 Clear
+this.Div_CONT_btnClear_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.ds_CODE_TABLE_SAVE.set_enableevent(false);
+	this.ds_CODE_TABLE_SAVE.setColumn(0,"CODE", "");		 	// CODE 
+	this.ds_CODE_TABLE_SAVE.setColumn(0,"CONT_CNT", "");		// 건수 
+	this.ds_CODE_TABLE_SAVE.setColumn(0,"ADDQUEERYSTRING",""); 	// addQueryString
+	this.ds_CODE_TABLE_SAVE.setColumn(0,"CMNT",""); 			// CMNT
+	this.ds_CODE_TABLE_SAVE.set_enableevent(true);
+	
+	this.ds_MAIN_MATR.set_enableevent(false);
+	this.ds_MAIN_MATR.clearData();
+	this.ds_MAIN_MATR.set_enableevent(true);
+	
+	this.fn_ChartClear("White");
+	this.fn_ChartClear("Yellow");
+	this.fn_ChartClear("Red");
+	this.fn_ChartClear("Black");
+}
+// Clear
+this.fn_ChartClear = function(sCOLOR){
+
+
+	var stringLAB = "L/A/B/";
+	var arrLAB = new Array();
+		arrLAB = stringLAB.split("/"); 
+		
+	for(var a=0; a< arrLAB.length-1; a++){ 
+		this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_MATR.clearData();
+		this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_rChart.clearData();
+		this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_ChartSet.setColumn(0,"Y_MIN","");
+		this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_ChartSet.setColumn(0,"Y_MAX","");
+		this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_ChartSet.setColumn(0,"X_MIN","");
+		this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_ChartSet.setColumn(0,"X_MAX","");
+		this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].btnChange_onclick();
+	}
+
+}
+
+// 자재코드 1건 조회
+this.ds_MAIN_MATR_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	if(e.columnid=="MATR_CODE"){
+		if( this.gfn_Length(e.newvalue)==7){
+			this.vsRow =e.row;
+			this.ds_Param.setColumn(0,"ADDQUEERYSTRING",  "(^" + e.newvalue + "^)");
+			this.ds_Param.setColumn(0,"ADDQUEERYSTRING2", "(^" + e.newvalue + "^)");
+			this.fn_Find("find_matr",this.ds_Param);	// 내용물 리스트 조회
+		}
+	}
+}
+
+
+
+// chart 조회
+this.button1_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if( this.ds_MAIN_MATR.rowcount==0) return;
+	
+	var addString= "";
+	for(var i=0; i<this.ds_MAIN_MATR.rowcount; i++)
+	{ 
+		if(!this.gfn_IsEmpty(this.ds_MAIN_MATR.getColumn(i,"MATR_CODE")) ){
+			if(i==0){
+				addString = "^" + this.gfn_Trim( this.ds_MAIN_MATR.getColumn(i,"MATR_CODE") ) + "^";
+			}else{
+				addString = addString + ",^" + this.gfn_Trim( this.ds_MAIN_MATR.getColumn(i,"MATR_CODE") )+ "^";
+			}
+		}
+	}
+	this.ds_Param_chart.setColumn(0,"ADDQUEERYSTRING",addString); // addQueryString
+	this.ds_Param_chart.setColumn(0,"ADDQUEERYSTRING2",addString); // addQueryString
+	
+	this.vsChartCnt=0;
+	this.fn_Find("find_main_chart", this.ds_Param_chart);
+	this.fn_Find("find_main_chart_line", this.ds_Param_chart);
+	this.fn_Find("find_chart_minmax", this.ds_Param_chart);
+}
+
+
+
+
+/***************************************************************************************************
+ *								div_horizontalBar_move_ondrag										*
+ ***************************************************************************************************/
+this.f_drag;
+this.div_verticalBar_move_ondrag = function(obj:ImageViewer, e:nexacro.DragEventInfo)
+{
+	this.currArrange = "vertical";
+	
+	this.nMoveX = nexacro.toNumber(obj.left);
+	this.nMoveY = nexacro.toNumber(obj.top);
+
+	this.f_drag = true;
+	return true;
+}
+
+this.From_ondragmove = function(obj:Form, e:nexacro.DragEventInfo)
+{
+	if(!this.f_drag) return;
+
+	var nPosX, nPosY;
+
+	if ( e.button == "lbutton" ){	
+		if( this.currArrange == "vertical" ){
+			nPosX = nexacro.toNumber(e.clientX);
+		}
+		
+		try{
+			if( this.currArrange == "vertical" ){
+				this.div_verticalBar_move.setOffsetLeft(nPosX);
+			}
+		}
+		catch(ex){
+		}
+	}
+}
+this.From_onlbuttonup = function(obj:Form, e:nexacro.MouseEventInfo)
+{
+	if(!this.f_drag) return;
+	
+	this.f_drag = false;
+
+	var nMoveValue;
+	var sDivObjLeft = this.Div_CONT;
+	var sDivObjRight = this.Div_CHART;
+	
+	if ( this.currArrange == "vertical" ){		
+		this.div_verticalBar_move.setOffsetLeft(e.clientX);
+		nMoveValue = nexacro.toNumber(nexacro.toNumber(this.div_verticalBar_move.left) - this.nMoveX);
+
+		sDivObjLeft.set_width(nexacro.toNumber(sDivObjLeft.width) + nMoveValue);	
+		sDivObjRight.set_left(nexacro.toNumber(sDivObjRight.left) + nMoveValue);
+		//sDivObjRight2.set_left(nexacro.toNumber(sDivObjRight2.left) + nMoveValue);
+		
+		if(this.div_verticalBar_move.getOffsetLeft(e.clientX) <= this.getOffsetLeft()){
+			this.div_verticalBar_move.set_left(this.getOffsetLeft()+10);
+			sDivObjLeft.setOffsetRight(this.div_verticalBar_move.getOffsetLeft()-3);
+			sDivObjRight.setOffsetLeft(this.div_verticalBar_move.getOffsetLeft()+8);
+			//sDivObjRight2.setOffsetLeft(this.div_verticalBar_move.getOffsetLeft()+8);
+		}
+		else if (this.div_verticalBar_move.getOffsetRight(e.clientX) >= this.getOffsetRight()){
+			this.div_verticalBar_move.setOffsetLeft(this.Tab.tabpage1.getOffsetRight()-10);
+			sDivObjLeft.setOffsetRight(this.div_verticalBar_move.getOffsetLeft()-3);
+			sDivObjRight.setOffsetLeft(this.div_verticalBar_move.getOffsetLeft()+8);
+			//sDivObjRight2.setOffsetLeft(this.div_verticalBar_move.getOffsetLeft()+8);
+		}
+	}
+	
+}
+/***************************************************************************************************
+ *                                 팝업 Callback                               *
+ ***************************************************************************************************/
+this.fn_popupAfter = function(sPopupId, Variant)
+{
+	// 반환받은 문자열데이타 형변환(String, Array, Object) 처리
+	var rtn = this.gfn_GetPopupRtn();
+	
+	switch(sPopupId){
+		
+		case "comExpandSearch": 
+			if(rtn=="ok"){
+				if(application.g_ds_Param.rowcount > 0){
+					this.fn_Search("ok");
+				}
+			}
+		break; 
+	}
+}
+
+/***************************************************************************************************
+ *                                 화면 공통 Function 처리 부분                                   *
+ ***************************************************************************************************/
+// Transaction 후 처리 해야 할 내용!
+this.fn_CallBack = function (sSvcID, nErrorCode, sErrorMsg) {
+	
+
+	if(!this.gfn_CheckTranResult(this, sSvcID, nErrorCode, sErrorMsg)) return;	
+	switch(this.gfn_GetSvcId(sSvcID)) {//get service id 
+		 
+		case "find_main_chart":
+			this.vsChartCnt++;
+			this.fn_ChartDataMerge();
+			break;
+		case "find_main_chart_line":
+			this.vsChartCnt++;
+			this.fn_ChartDataMerge();
+			break;
+		case "find_chart_minmax":
+			this.vsChartCnt++;
+			this.fn_ChartDataMerge();
+			break;
+		 
+	
+		case "find_matr":
+			if(this.ds_MATR.rowcount==0){
+				this.ds_MAIN_MATR.setColumn(this.vsRow,"MATR_NAME", "자재코드를 정확하게 입력하세요");
+			}else{
+				this.ds_MAIN_MATR.set_enableevent(false);
+				this.ds_MAIN_MATR.setColumn(this.vsRow,"PLANT", this.ds_MATR.getColumn(0,"PLANT"));
+				this.ds_MAIN_MATR.setColumn(this.vsRow,"MATR_NAME", this.ds_MATR.getColumn(0,"MATR_NAME"));
+				this.ds_MAIN_MATR.setColumn(this.vsRow,"BATCH_CNT", this.ds_MATR.getColumn(0,"BATCH_CNT"));
+				this.ds_MAIN_MATR.setColumn(this.vsRow,"CUD_TYPE","");
+				this.ds_MAIN_MATR.set_enableevent(true);
+			}
+			break;
+			
+		case "find_code_table":
+			if( this.vsSaveflag == true){
+				if( this.gfn_IsEmpty(this.ds_CODE_TABLE_SAVE.getColumn(0,"CODE")) ){
+					var row = this.ds_CODE_TABLE.rowcount-1;
+					this.ds_CODE_TABLE_SAVE.setColumn(0,"CODE", this.ds_CODE_TABLE.getColumn(row,"CODE"));
+				}
+			}
+			this.vsSaveflag = false;
+			break;
+		
+		case "save_code_table":
+			this.vsSaveflag = true;
+			this.fn_Find("find_code_table",this.ds_Param);
+			break;
+		case "delete_code_table":
+			this.fn_Find("find_code_table",this.ds_Param);
+			this.Div_CONT_btn_ContList_onclick();
+			break;
+		default:
+			break;
+	}
+}
+/***************************************************************************************************
+ *                                사용자 정의  Function 처리 부분                                *
+ ***************************************************************************************************/
+
+//조회
+this.fn_Find = function(sTransition, oDsSet)
+{
+	this.gfn_DsSetTransaction(this, sTransition, this.ds_Service, this.gfn_GetDatasetToPram(this,oDsSet));
+}
+//저장
+this.fn_Save = function(sTransition, sArgument){
+	this.gfn_DsSetTransaction(this, sTransition, this.ds_Service, this.gfn_GetTranInfo("CHNG_ID|PROC_ID|LANG_TYPE|PLANT|PRD_CI")+sArgument);
+}
+
+
+//확장검색 팝업창
+this.btnExpandSearch_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_OpenPopup("comExpandSearch","COMMON::comExpandSearch.xfdl",{title: "내용물코드"},"fn_popupAfter");
+}
+ 
+// 내용물 리스트 저장   
+this.Div_CONT_btn_Save_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+
+	if( this.ds_MAIN_MATR.rowcount==0){
+		// 1118 내용물 코드 정보가 없습니다..
+		this.gfn_Message("1118", "OK");
+		return;
+	}
+	
+	// 코멘트 필수입력
+	if(this.gfn_IsEmpty(this.ds_CODE_TABLE_SAVE.getColumn(0,"CMNT")) ){
+		// 5819 {@}를 입력하여 주십시오.
+		this.gfn_Message("5045", "OK", "코멘트");
+		this.Div_CONT.txt_CMNT.setFocus();
+		return;
+	}
+	
+	
+
+	var addString= "";
+	for(var i=0; i<this.ds_MAIN_MATR.rowcount; i++)
+	{ 
+		if(!this.gfn_IsEmpty(this.ds_MAIN_MATR.getColumn(i,"MATR_CODE")) ){
+			if(i==0){
+				addString = "^" + this.gfn_Trim( this.ds_MAIN_MATR.getColumn(i,"MATR_CODE") ) + "^";
+			}else{
+				addString = addString + ",^" + this.gfn_Trim( this.ds_MAIN_MATR.getColumn(i,"MATR_CODE") )+ "^";
+			}
+		}
+	}
+	
+	var sCONT_CNT = this.gfn_Trim(this.ds_MAIN_MATR.getColumn(0,"MATR_CODE")) +"외 "+ this.gfn_Trim(this.ds_MAIN_MATR.rowcount-1)+"건";
+	
+	this.ds_CODE_TABLE_SAVE.setColumn(0,"CONT_CNT", sCONT_CNT);		 // 건수 
+	this.ds_CODE_TABLE_SAVE.setColumn(0,"ADDQUEERYSTRING",addString); // addQueryString
+	this.fn_Save("save_code_table");
+}
+// 내용물코드 리스트
+this.Div_CONT_grd_MAIN_MATR_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	// 제거 
+	if( this.gfn_getColId(obj, e.col) == "BTN_CANCEL"){
+		
+		this.ds_MAIN_MATR.set_enableevent(false);
+		this.ds_MAIN_MATR.deleteRow(e.row);
+		this.ds_MAIN_MATR.set_enableevent(true);
+		
+		var addString= "";
+		for(var i=0; i<this.ds_MAIN_MATR.rowcount; i++)
+		{ 
+			if(!this.gfn_IsEmpty(this.ds_MAIN_MATR.getColumn(i,"MATR_CODE")) ){
+				if(i==0){
+					addString = "^" + this.gfn_Trim( this.ds_MAIN_MATR.getColumn(i,"MATR_CODE") ) + "^";
+				}else{
+					addString = addString + ",^" + this.gfn_Trim( this.ds_MAIN_MATR.getColumn(i,"MATR_CODE") )+ "^";
+				}
+			}
+		}
+		this.ds_CODE_TABLE_SAVE.setColumn(0,"ADDQUERYSTRING",addString); // addQueryString
+	}
+}
+
+// 저장된 리스트 팝업창 닫기 
+this.Pdiv_CONT_btnClose_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.Pdiv_CONT.closePopup();
+}
+
+// 저장된 리스트 
+this.Div_CONT_btn_ContList_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+
+	//팝업띄움
+	this.Pdiv_CONT.trackPopupByComponent(this.Div_CONT.grd_MAIN_MATR, 510, 0);		
+	//팝업창에 포커스
+	this.Pdiv_CONT.grd_CODE_TABLE.setFocus();
+	
+}
+// 저장된 리스트 삭제
+this.Pdiv_CONT_btn_Del_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	
+	var row1 = this.ds_CODE_TABLE.findRow("CHK", "1"); 
+	if(row1==-1){
+		//5477 삭제할 항목을 선택하여 주십시오.
+		this.gfn_Message("5477", "OK");
+		this.Div_CONT_btn_ContList_onclick();
+		return;
+	} 
+	
+	// 1302 선택된 데이터를 삭제 하시겠습니까?
+	if(this.gfn_Message("1302","YESNO")){
+		this.fn_Save("delete_code_table");
+	}else{		
+		this.Div_CONT_btn_ContList_onclick();
+	}
+}
+// 저장된 리스트 선택 
+this.Pdiv_CONT_grd_CODE_TABLE_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.ds_CODE_TABLE_SAVE.setColumn(0,"CODE", this.ds_CODE_TABLE.getColumn(e.row, "CODE"));
+	this.ds_CODE_TABLE_SAVE.setColumn(0,"CONT_CNT", this.ds_CODE_TABLE.getColumn(e.row, "CONT_CNT"));
+	this.ds_CODE_TABLE_SAVE.setColumn(0,"ADDQUEERYSTRING", this.ds_CODE_TABLE.getColumn(e.row, "ADDQUEERYSTRING"));
+	this.ds_CODE_TABLE_SAVE.setColumn(0,"CMNT", this.ds_CODE_TABLE.getColumn(e.row, "CMNT"));
+	
+	
+	this.ds_Param.setColumn(0,"ADDQUEERYSTRING",  "(" +this.ds_CODE_TABLE.getColumn(e.row, "ADDQUEERYSTRING")+")");
+	this.ds_Param.setColumn(0,"ADDQUEERYSTRING2", "(" +this.ds_CODE_TABLE.getColumn(e.row, "ADDQUEERYSTRING")+")");
+	this.fn_Find("find_main",this.ds_Param);	 
+}
+// 저장된 리스트 복사(신규추가)
+this.Pdiv_CONT_grd_CODE_TABLE_onlbuttonup = function(obj:Grid, e:nexacro.GridMouseEventInfo)
+{
+	if( this.gfn_getColId(obj, e.col) == "BTN_COPY"){
+		this.ds_CODE_TABLE_SAVE.setColumn(0,"CODE", "");
+		this.ds_CODE_TABLE_SAVE.setColumn(0,"CONT_CNT", this.ds_CODE_TABLE.getColumn(e.row, "CONT_CNT"));
+		this.ds_CODE_TABLE_SAVE.setColumn(0,"ADDQUEERYSTRING", this.ds_CODE_TABLE.getColumn(e.row, "ADDQUEERYSTRING"));
+		this.ds_CODE_TABLE_SAVE.setColumn(0,"CMNT", this.ds_CODE_TABLE.getColumn(e.row, "CMNT"));
+		
+		this.ds_Param.setColumn(0,"ADDQUEERYSTRING",  "(" +this.ds_CODE_TABLE.getColumn(e.row, "ADDQUEERYSTRING")+")");
+		this.ds_Param.setColumn(0,"ADDQUEERYSTRING2", "(" +this.ds_CODE_TABLE.getColumn(e.row, "ADDQUEERYSTRING")+")");
+		this.fn_Find("find_main",this.ds_Param);
+		this.fn_Save("save_code_table");
+	}
+}
+
+this.titleName_onclick = function(obj:Static, e:nexacro.ClickEventInfo)
+{
+	if(this.Grid03.visible){ 
+		this.Grid02.set_visible(false);
+		this.Grid03.set_visible(false);
+	}else{ 
+		this.Grid02.set_visible(true);
+		this.Grid03.set_visible(true);
+	}
+}
+this.btn_Left_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.div_verticalBar_move.setOffsetLeft(10);
+	this.Div_CONT.setOffsetRight(10);
+	this.Div_CHART.setOffsetLeft(20);
+	this.txt_CMNT.set_visible(true);
+}
+
+this.btn_Right_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.div_verticalBar_move.setOffsetLeft(540);
+	this.Div_CONT.setOffsetRight(535);
+	this.Div_CHART.setOffsetLeft(550);
+	this.txt_CMNT.set_visible(false);
+}
+
+
+
+this.fn_ChartDataMerge = function(){
+	if(this.vsChartCnt==3){
+		 
+		this.ds_rChart.set_enableevent(false);
+		this.ds_rChart.clearData();
+		this.ds_rChart.appendData(this.ds_MAIN_CHART);
+		
+		var sSTAR_CI="";
+		var sCOLOR_CI="";
+		var sRANKNUM="";
+		var sfindRow=-1;
+		for(var i=0; i<this.ds_MAIN_CHART_LINE.rowcount; i++)
+		{ 
+			sSTAR_CI = this.gfn_Trim(this.ds_MAIN_CHART_LINE.getColumn(i, "STAR_CI"));
+			sCOLOR_CI = this.gfn_Trim(this.ds_MAIN_CHART_LINE.getColumn(i, "COLOR_CI"));
+			sRANKNUM = this.gfn_Trim(this.ds_MAIN_CHART_LINE.getColumn(i, "RANKNUM"));
+			
+			sfindRow= this.ds_rChart.findRowExpr("STAR_CI=='"+sSTAR_CI+"' && COLOR_CI=='"+sCOLOR_CI+"' && RANKNUM=='"+sRANKNUM+"'");
+			
+			if( sfindRow>-1){
+				for(var a=1; a<100; a++){
+					this.ds_rChart.setColumn(sfindRow, "X"+a, this.ds_MAIN_CHART_LINE.getColumn(i, "X"+a));
+					this.ds_rChart.setColumn(sfindRow, "Y"+a, this.ds_MAIN_CHART_LINE.getColumn(i, "Y"+a));
+					this.ds_rChart.setColumn(sfindRow, "CONT_CODE"+a, this.ds_MAIN_CHART_LINE.getColumn(i, "CONT_CODE"+a));
+				}
+			}
+		}
+		this.ds_rChart.set_enableevent(true);
+	}
+	
+					
+		var stringCOLOR = "White/Yellow/Red/Black/";
+		var arrCOLOR = new Array();
+			arrCOLOR = stringCOLOR.split("/"); 
+		
+		for(var i=0; i< arrCOLOR.length-1; i++){ 
+			var sCOLOR = arrCOLOR[i];
+			var sCOLOR_CI = this.gfn_Left(arrCOLOR[i],1);		
+	
+			var stringLAB = "L/A/B/";
+			var arrLAB = new Array();
+				arrLAB = stringLAB.split("/"); 
+				
+
+			for(var a=0; a< arrLAB.length-1; a++){ 
+				var sSTAR_CI = arrLAB[a];
+				
+				var sMinMaxRow = this.ds_MAIN_CHART_MINMAX.findRowExpr("STAR_CI=='"+sSTAR_CI+"' && COLOR_CI=='"+sCOLOR_CI+"'");
+				
+				if(sMinMaxRow>-1){
+					var nXMin = nexacro.round(nexacro.toNumber(this.ds_MAIN_CHART_MINMAX.getColumn(sMinMaxRow,"XMIN"))-0.5,2);
+					var nXMax = nexacro.round(nexacro.toNumber(this.ds_MAIN_CHART_MINMAX.getColumn(sMinMaxRow,"XMAX"))+0.5,2);
+					if(nXMin<0){
+						nXMin=0;
+					}
+					var nYMin = nexacro.round(nexacro.toNumber(this.ds_MAIN_CHART_MINMAX.getColumn(sMinMaxRow,"YMIN"))-3,2);
+					var nYMax = nexacro.round(nexacro.toNumber(this.ds_MAIN_CHART_MINMAX.getColumn(sMinMaxRow,"YMAX"))+3,2);
+					
+					
+					this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_ChartSet.set_enableevent(false);
+
+					this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_ChartSet.setColumn(0,"CHART_TITLE",sCOLOR);
+					this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_ChartSet.setColumn(0,"SUB_TITLE",arrLAB[a]+"*");
+					this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_ChartSet.setColumn(0,"Y_MIN",nYMin);
+					this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_ChartSet.setColumn(0,"Y_MAX",nYMax);
+					this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_ChartSet.setColumn(0,"X_MIN",nXMin);
+					this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_ChartSet.setColumn(0,"X_MAX",nXMax);
+					this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_ChartSet.set_enableevent(true);
+					
+					
+					this.ds_rChart.set_enableevent(false);
+					this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_rChart.set_enableevent(false);
+					
+					this.ds_rChart.filter("STAR_CI=='"+sSTAR_CI+"' && COLOR_CI=='"+sCOLOR_CI+"'");
+					this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_rChart.copyData(this.ds_rChart, true);	
+				
+					this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_rChart.set_enableevent(true);
+					this.ds_rChart.set_enableevent(true);
+					
+					
+					this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_MATR.set_enableevent(false);
+					this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_MATR.clearData();
+					this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_MATR.copyData(this.ds_MAIN_MATR);
+					this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_MATR.set_enableevent(true);
+					
+					this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].btnChange_onclick();
+				}
+			}
+		}		
+	this.ds_rChart.set_enableevent(false);
+	this.ds_rChart.filter("");
+	this.ds_rChart.set_enableevent(true);		
+}
+
+// 다른색상의 동일색차(L,a,b) Y축 변화 
+this.fn_ChartSetting_LAB = function(sChartName, sColumId, eValue){
+
+	var arrStr = sChartName.split("_");
+	var sCOLOR = arrStr[1];
+	var sLAB   = arrStr[2];
+	
+	var stringCOLOR = "White/Yellow/Red/Black/";
+	var arrCOLOR = new Array();
+		arrCOLOR = stringCOLOR.split("/"); 
+	
+	for(var i=0; i< arrCOLOR.length-1; i++){ 
+		if( sCOLOR != arrCOLOR[i]){
+			this["Div_CHART"]["Div_"+arrCOLOR[i]+"_"+sLAB].ds_ChartSet.set_enableevent(false);
+			this["Div_CHART"]["Div_"+arrCOLOR[i]+"_"+sLAB].ds_ChartSet.setColumn(0,sColumId,eValue);
+			this["Div_CHART"]["Div_"+arrCOLOR[i]+"_"+sLAB].ds_ChartSet.set_enableevent(true);
+		}
+		this["Div_CHART"]["Div_"+arrCOLOR[i]+"_"+sLAB].btnChange_onclick();
+	}
+}
+
+
+// 동일 color(White,Yellow,Red,Black) X축 변화 
+this.fn_ChartSetting_COLOR = function(sChartName, sColumId, eValue){
+	var arrStr = sChartName.split("_");
+	var sCOLOR = arrStr[1];
+	var sLAB   = arrStr[2];	
+
+	var stringLAB = "L/A/B/";
+	var arrLAB = new Array();
+		arrLAB = stringLAB.split("/"); 		
+
+	for(var a=0; a< arrLAB.length-1; a++){  
+		if( sLAB != arrLAB[a]){
+			this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_ChartSet.set_enableevent(false);
+			this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_ChartSet.setColumn(0,sColumId,eValue);
+			this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].ds_ChartSet.set_enableevent(true);
+		}
+		this["Div_CHART"]["Div_"+sCOLOR+"_"+arrLAB[a]].btnChange_onclick();
+	}
+}]]></Script>
+  </Form>
+</FDL>

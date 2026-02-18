@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service name="QSEAR_30_PRD_TRACE-service" initial="SetResultKeys" xmlns="http://www.poscoict.com/glueframework/service">
+    <transaction-manager id="tx1" commit="true"/>
+    <activity name="SetResultKeys" class="com.Amore.MES.biz.AmoreSetResultKeyList">
+        <transition name="success" value="EventRouter"/>
+        <property name="ResultKeyList" value="SearchResultFER1|SearchResultHAL3|SearchResultROH6|RetrunSeq|SearchResultHAL1_2"/>
+    </activity>
+    <activity name="EventRouter" class="com.Amore.MES.security.activity.SecureRouter">
+        <transition name="save_PRT_INSERT" value="Save_PRT_INSERT"/>
+        <transition name="find_ROH6" value="Search_ROH6"/>
+        <transition name="find_HAL1_2" value="Search_HAL1_2"/>
+        <transition name="find_HAL3" value="Search_HAL3"/>
+        <transition name="find_FER1" value="Search_FER1"/>
+    </activity>
+    <activity name="Search_HAL3" class="com.Amore.MES.common.GridFilterMybatisProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="mybatis-dao"/>
+        <property name="sql-key" value="Q07.SEARCH.QSEAR_30_PRD_TRACE_SEARCH_HAL3"/>
+        <property name="result-key" value="SearchResultHAL3"/>
+    </activity>
+    <activity name="Search_ROH6" class="com.Amore.MES.common.GridFilterMybatisProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="mybatis-dao"/>
+        <property name="sql-key" value="Q07.SEARCH.QSEAR_30_PRD_TRACE_SEARCH_ROH6"/>
+        <property name="result-key" value="SearchResultROH6"/>
+    </activity>
+    <activity name="Error" class="com.Amore.MES.GEN.MGENM_ERROR">
+        <transition name="success" value="end"/>
+    </activity>
+    <activity name="Save_PRT_INSERT" class="com.Amore.MES.Q07_SEARCH.QSEAR_30_PRD_TRACE_PRT_SAVE">
+        <transition name="success" value="end"/>
+        <property name="result-key" value="RetrunSeq"/>
+    </activity>
+    <activity name="Search_FER1" class="com.Amore.MES.common.GridFilterMybatisProc">
+        <transition name="success" value="end"/>
+        <property name="dao" value="mybatis-dao"/>
+        <property name="sql-key" value="Q07.SEARCH.QSEAR_30_PRD_TRACE_SEARCH_FER1"/>
+        <property name="result-key" value="SearchResultFER1"/>
+    </activity>
+    <activity name="Search_HAL1_2" class="com.Amore.MES.common.GridFilterMybatisProc">
+        <transition name="success" value="end"/>
+        <property name="sql-key" value="Q07.SEARCH.QSEAR_30_PRD_TRACE_SEARCH_HAL1_2"/>
+        <property name="result-key" value="SearchResultHAL1_2"/>
+        <property name="dao" value="mybatis-dao"/>
+    </activity>
+</service>

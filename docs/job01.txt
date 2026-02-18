@@ -1,0 +1,17 @@
+1. 출력 경로: shell-kit\src\pages\local-routes\0218_01\{screenFolder}\ (8개 화면 모두 한 폴더)
+
+원하는 폴더 구조
+
+d:\projects\amore\XmlToJsxParser\shell-kit\src\pages\local-routes\0218_01\ 아래에 
+badCodeRegister, dMmasmBadCode, dMmasmMenu 이런 각각의 폴도
+
+이런 방식으로 1번부터 4번 까지 진행해주고
+
+
+d:\projects\amore\XmlToJsxParser\docs\0209_01.md 도 참조하고 
+py 내용 모두 파악해서 
+
+d:\projects\amore\XmlToJsxParser\작업지시서\ 안에 
+작업지시서_0208_01.md 로 지금 py 전체 내용 기술해줘
+
+앞으로 중간중간 작업지시서도 새로만들예정이야 
