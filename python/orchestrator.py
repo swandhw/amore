@@ -30,11 +30,13 @@ from typing import List, Optional
 from db_utils import upsert_menu, upsert_file
 
 
-# 경로 설정 (스크립트 위치 기준으로 동적 계산)
+# 경로 설정
 SCRIPTS_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPTS_DIR)
-ASIS_BASE_DIR = os.path.join(PROJECT_ROOT, "ASIS")
-TOBE_BASE_ROOT = os.path.join(PROJECT_ROOT, "shell-kit", "src", "pages", "local-routes")
+
+# 환경변수 우선, 없으면 기본 경로 사용
+ASIS_BASE_DIR = os.environ.get("ASIS_BASE_DIR", r"D:\AMORE\react\asis")
+TOBE_BASE_ROOT = os.environ.get("TOBE_BASE_DIR", r"D:\AMORE\shell-kit\src\pages\local-routes")
 
 # 제외할 화면 목록
 EXCLUDE_SCREENS = {'FILE_MANAGER'}

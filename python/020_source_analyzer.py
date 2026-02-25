@@ -284,8 +284,51 @@ def parse_dataset(ds_element):
     return ds_info
 
 
+def _resolve_str_argument_var(normalized_text, var_name, call_pos):
+    """변수 참조를 해결하여 gfn 패턴 추출
+
+    submitData 등의 변수에서 gfn_GetTranInfo, gfn_GetFilterParam,
+    gfn_GetDatasetToPram 패턴을 추출하여 간소화된 표현 반환.
+
+    예: "CODE_TYPE=020"+this.gfn_GetTranInfo("PLANT|LANG_TYPE")
+      → 'this.gfn_GetTranInfo("PLANT|LANG_TYPE")'
+    """
+    # call_pos 이전에서 마지막 할당문 찾기
+    pattern = rf'(?:var\s+)?{re.escape(var_name)}\s*=\s*(.+?);'
+    text_before = normalized_text[:call_pos]
+    matches = list(re.finditer(pattern, text_before))
+    if not matches:
+        return ''
+
+    expr = matches[-1].group(1).strip()
+
+    # gfn 함수 패턴 추출
+    parts = []
+
+    for m in re.finditer(r'this\.gfn_GetTranInfo\s*\(\s*"([^"]*)"\s*\)', expr):
+        parts.append(f'this.gfn_GetTranInfo("{m.group(1)}")')
+
+    for m in re.finditer(r'this\.gfn_GetFilterParam\s*\(\s*(this\.\w+)\s*\)', expr):
+        parts.append(f'this.gfn_GetFilterParam({m.group(1)})')
+
+    for m in re.finditer(r'this\.gfn_GetDatasetToPram\s*\(\s*this\s*,\s*(\w+)\s*\)', expr):
+        parts.append(f'this.gfn_GetDatasetToPram(this,{m.group(1)})')
+
+    if parts:
+        return '+'.join(parts)
+
+    # 알려진 패턴이 없으면 원본 표현식 반환
+    return expr
+
+
 def parse_transactions(script_text):
-    """gfn_Transaction 호출 파싱 - v0.2 format"""
+    """gfn_Transaction 계열 호출 파싱 - v0.3 format
+
+    지원:
+    - gfn_Transaction: 개별 트랜잭션 (strArgument 원문 보존)
+    - gfn_DsSetTransaction: ds_Service 기반 배치 트랜잭션
+    - gfn_Code_Transaction: 공통코드 조회 (codeArr 배열)
+    """
     transactions = []
 
     # 주석 제거
@@ -295,11 +338,28 @@ def parse_transactions(script_text):
     # 공백 정규화
     normalized = re.sub(r'\s+', ' ', no_comments)
 
-    # gfn_Transaction 파싱
-    pattern = r'this\.gfn_Transaction\s*\(\s*this\s*,\s*"([^"]*)"\s*,\s*"([^"]*)"\s*,\s*"([^"]*)"\s*,\s*"([^"]*)"\s*,\s*"([^"]*)"'
+    # 1) gfn_Transaction 파싱 (strArgument: 문자열 리터럴 또는 변수 참조)
+    pattern = (
+        r'this\.gfn_Transaction\s*\(\s*this\s*,'
+        r'\s*"([^"]*)"\s*,'     # strSvcId
+        r'\s*"([^"]*)"\s*,'     # strTransition
+        r'\s*"([^"]*)"\s*,'     # strSvcNm
+        r'\s*"([^"]*)"\s*,'     # strInDatasets
+        r'\s*"([^"]*)"'        # strOutDatasets
+        r'(?:\s*,\s*(?:"([^"]*)"|(\w+)))?'  # strArgument (string literal or variable)
+    )
 
-    matches = re.finditer(pattern, normalized)
-    for m in matches:
+    for m in re.finditer(pattern, normalized):
+        str_arg_literal = m.group(6) or ''
+        str_arg_var = m.group(7) if not str_arg_literal else None
+
+        if str_arg_literal:
+            str_argument = str_arg_literal
+        elif str_arg_var and str_arg_var not in ('true', 'false', 'null', 'undefined'):
+            str_argument = _resolve_str_argument_var(normalized, str_arg_var, m.start())
+        else:
+            str_argument = ''
+
         transactions.append({
             'name': 'gfn_Transaction',
             'objForm': 'this',
@@ -308,14 +368,141 @@ def parse_transactions(script_text):
             'strSvcNm': m.group(3),
             'strInDatasets': m.group(4),
             'strOutDatasets': m.group(5),
-            'strArgument': 'submitData',
+            'strArgument': str_argument,
             'strCallbackFunc': 'fn_CallBack',
-            'bAsync': '',
-            'bCompress': '',
-            'bTraceLog': True
+        })
+
+    # 2) gfn_DsSetTransaction 파싱 (괄호 균형 매칭으로 strArgument 추출)
+    ds_set_prefix = (
+        r'(?:this\.)?gfn_DsSetTransaction\s*\(\s*this\s*,'
+        r'\s*(?:"([^"]*)"|(\w+))\s*,'     # group 1,2: strTransition
+        r'\s*(?:this\.)?(\w+)'             # group 3: objDsSet
+    )
+
+    for m in re.finditer(ds_set_prefix, normalized):
+        transition_val = m.group(1) or m.group(2) or ''
+        ds_set_name = m.group(3) or ''
+        arg_val = ''
+
+        # m.end() 이후: 쉼표+strArgument 또는 바로 닫는 괄호
+        rest = normalized[m.end():].lstrip()
+        if rest.startswith(','):
+            after_comma = rest[1:].lstrip()
+            # 괄호 깊이 추적: gfn_DsSetTransaction( 의 depth=1
+            depth = 1
+            end_idx = -1
+            for i, ch in enumerate(after_comma):
+                if ch == '(':
+                    depth += 1
+                elif ch == ')':
+                    depth -= 1
+                    if depth == 0:
+                        end_idx = i
+                        break
+            if end_idx >= 0:
+                arg_val = after_comma[:end_idx].strip()
+
+        # 단순 문자열 리터럴이면 따옴표 제거
+        if arg_val.startswith('"') and arg_val.endswith('"'):
+            arg_val = arg_val[1:-1]
+        elif arg_val.startswith("'") and arg_val.endswith("'"):
+            arg_val = arg_val[1:-1]
+
+        transactions.append({
+            'name': 'gfn_DsSetTransaction',
+            'objForm': 'this',
+            'strTransition': transition_val,
+            'objDsSet': ds_set_name,
+            'strArgument': arg_val,
+        })
+
+    # 3) gfn_Code_Transaction 파싱 (strArgument 포함)
+    code_tx_prefix = r'this\.gfn_Code_Transaction\s*\(\s*this\s*,\s*(\w+)'
+
+    for m in re.finditer(code_tx_prefix, normalized):
+        var_name = m.group(1)
+        code_entries = _parse_code_arr(no_comments, var_name)
+
+        # 후속 인자에서 strArgument 추출 (괄호 균형 매칭)
+        code_str_arg = ''
+        rest = normalized[m.end():].lstrip()
+        # codeArr 뒤: , "X", this.gfn_GetTranInfo(...))  등
+        # 괄호 깊이 추적으로 마지막 닫는 괄호까지의 모든 인자 수집
+        if rest.startswith(','):
+            depth = 1  # gfn_Code_Transaction( 의 depth
+            trailing = rest[1:]  # 첫 번째 쉼표 이후
+            end_idx = -1
+            for i, ch in enumerate(trailing):
+                if ch == '(':
+                    depth += 1
+                elif ch == ')':
+                    depth -= 1
+                    if depth == 0:
+                        end_idx = i
+                        break
+            if end_idx >= 0:
+                remaining_args = trailing[:end_idx].strip()
+                # 마지막 쉼표 뒤 인자가 strArgument
+                # "X", this.gfn_GetTranInfo(...) → 마지막이 strArgument
+                parts = []
+                arg_depth = 0
+                start = 0
+                for i, ch in enumerate(remaining_args):
+                    if ch == '(':
+                        arg_depth += 1
+                    elif ch == ')':
+                        arg_depth -= 1
+                    elif ch == ',' and arg_depth == 0:
+                        parts.append(remaining_args[start:i].strip())
+                        start = i + 1
+                parts.append(remaining_args[start:].strip())
+                # 마지막 파트가 strArgument (보통 3번째 이후)
+                if len(parts) >= 2:
+                    code_str_arg = parts[-1].strip().strip('"').strip("'")
+                    # gfn 함수 호출이면 원본 유지
+                    if 'gfn_' in parts[-1]:
+                        code_str_arg = parts[-1].strip()
+
+        transactions.append({
+            'name': 'gfn_Code_Transaction',
+            'objForm': 'this',
+            'codeArrVar': var_name,
+            'codeArr': code_entries,
+            'strArgument': code_str_arg,
         })
 
     return transactions
+
+
+def _parse_code_arr(script_text, var_name):
+    """codeArr 변수에서 배열 항목 파싱
+
+    형식: [서비스명, CODE_TYPE, sTransition, 받을Dataset명, 조회된Dataset명]
+    """
+    entries = []
+
+    # 배열 변수 선언 찾기
+    pattern = rf'(?:var|let|const)\s+{re.escape(var_name)}\s*=\s*\[(.*?)\]\s*;'
+    match = re.search(pattern, script_text, re.DOTALL)
+
+    if not match:
+        return entries
+
+    arr_content = match.group(1)
+
+    # 각 배열 항목 파싱
+    item_pattern = r'\[\s*"([^"]*)"\s*,\s*"([^"]*)"\s*,\s*"([^"]*)"\s*,\s*"([^"]*)"\s*,\s*"([^"]*)"\s*\]'
+
+    for item_match in re.finditer(item_pattern, arr_content):
+        entries.append({
+            'serviceName': item_match.group(1),
+            'codeType': item_match.group(2),
+            'transition': item_match.group(3),
+            'targetDataset': item_match.group(4),
+            'sourceDataset': item_match.group(5),
+        })
+
+    return entries
 
 
 def link_static_to_combo(statics, combos):
@@ -677,6 +864,29 @@ def parse_xfdl(file_path, parsed_files=None):
         script = form.find('Script')
         if script is not None and script.text:
             meta['Scripts'] = parse_transactions(script.text)
+
+            # gfn_DsSetTransaction → ds_Service rows 해석
+            ds_set_txns = [s for s in meta['Scripts'] if s.get('name') == 'gfn_DsSetTransaction']
+            if ds_set_txns:
+                ds_service = next((ds for ds in meta['Datasets'] if ds['id'] == 'ds_Service'), None)
+                if ds_service and ds_service.get('rows'):
+                    str_argument = ds_set_txns[0].get('strArgument', '')
+                    for row in ds_service['rows']:
+                        transition = row.get('Transition', '')
+                        if not transition:
+                            continue
+                        meta['Scripts'].append({
+                            'name': 'gfn_DsSetTransaction',
+                            'strSvcId': row.get('SvcId', transition),
+                            'strTransition': transition,
+                            'strSvcNm': row.get('SvcNm', ''),
+                            'strInDatasets': row.get('InDatasets') or '',
+                            'strOutDatasets': row.get('OutDatasets') or '',
+                            'strCallbackFunc': row.get('CallbackFunc', 'fn_CallBack'),
+                            'strArgument': str_argument,
+                        })
+                    # ds_Service 자체는 생성 대상이 아니므로 Datasets에서 제거
+                    meta['Datasets'] = [ds for ds in meta['Datasets'] if ds['id'] != 'ds_Service']
 
             # 추가 메타데이터 추출 (원본 xfdl script 기반)
             script_text = script.text

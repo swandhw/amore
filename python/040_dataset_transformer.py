@@ -57,6 +57,81 @@ def to_var_name(ds_id):
     return tn[0].lower() + tn[1:] if tn else ''
 
 
+def ds_id_to_row_type_name(ds_id):
+    """데이터셋 ID에서 Row 타입명 생성 (멀티 그리드용)
+    ds_Proc -> DsProcRow
+    ds_ProcDtl -> DsProcDtlRow
+    ds_Tab2 -> DsTab2Row
+    """
+    return to_type_name(ds_id) + 'Row'
+
+
+def ds_id_to_create_func_name(ds_id):
+    """데이터셋 ID에서 create 함수명 생성 (멀티 그리드용)
+    ds_Proc -> createProcRow
+    ds_ProcDtl -> createProcDtlRow
+    ds_Tab2 -> createTab2Row
+    """
+    clean = ds_id.replace('ds_', '') if ds_id.startswith('ds_') else ds_id
+    return f"create{clean}Row"
+
+
+def ds_id_to_option_type_name(ds_id):
+    """보조 데이터셋 ID에서 Option 타입명 생성 (멀티 그리드용)
+    ds_CudCi -> DsCudCiOption
+    ds_Plant -> DsPlantOption
+    ds_PrdCi -> DsPrdCiOption
+    """
+    return to_type_name(ds_id) + 'Option'
+
+
+def ds_id_to_option_var_name(ds_id):
+    """보조 데이터셋 ID에서 Option 변수명 생성 (멀티 그리드용)
+    ds_CudCi -> dsCudCiOptions
+    ds_Plant -> dsPlantOptions
+    """
+    return to_var_name(ds_id) + 'Options'
+
+
+def is_multi_grid(meta_data):
+    """멀티 그리드 화면인지 확인"""
+    return len(meta_data.get('Grids', [])) > 1
+
+
+def is_grid_all_readonly(grid):
+    """그리드의 모든 body 컬럼의 edittype이 'none'인지 확인"""
+    columns = grid.get('columns', [])
+    # expr: 컬럼과 CUD_TYPE은 제외하고 판단
+    editable_columns = [
+        col for col in columns
+        if col.get('binding', '') and not col.get('binding', '').startswith('expr:')
+        and col.get('binding', '') != 'CUD_TYPE'
+    ]
+    if not editable_columns:
+        return False
+    return all(col.get('edittype', 'normal') == 'none' for col in editable_columns)
+
+
+def resolve_combo_search_field_name(combo, datasets):
+    """콤보의 SearchParams 필드명 결정 (멀티 그리드용)
+
+    규칙:
+    - codecolumn이 COMM_CODE면 → innerdataset 이름에서 ds_ 제거 후 camelCase
+    - codecolumn이 특수하면(PROC_CODE 등) → codecolumn을 camelCase
+    """
+    codecolumn = combo.get('codecolumn', 'COMM_CODE')
+    if codecolumn and codecolumn != 'COMM_CODE':
+        return to_camel_case(codecolumn)
+
+    inner_ds = combo.get('innerdataset', '').lstrip('@')
+    if inner_ds:
+        clean = inner_ds.replace('ds_', '') if inner_ds.startswith('ds_') else inner_ds
+        # Preserve internal casing (PrdCi → prdCi, not prdci)
+        return clean[0].lower() + clean[1:] if clean else ''
+
+    return to_camel_case(combo.get('id', ''))
+
+
 def get_type_mapping(nexacro_type):
     """Nexacro 타입을 TypeScript 타입으로 변환"""
     if not nexacro_type:
@@ -138,21 +213,28 @@ def _parse_position(val):
 
 
 def generate_types_file(meta_data, output_dir, screen_name):
-    """단일 Types 파일 생성 (v2.1)
+    """단일 Types 파일 생성 (v3.0)
     types/{ScreenName}Types.ts
-    순서: Row → SearchParams → 보조 타입 (combo 참조 dataset만)
+    순서: SearchParams → Row(s) → 보조 타입 (combo 참조 dataset만)
+
+    멀티 그리드: 데이터셋 ID 기반 Row 타입명 (DsProcRow, DsProcDtlRow, ...)
+    단일 그리드: 기존 {ScreenName}Row 패턴 유지
     """
     datasets = meta_data.get('Datasets', [])
     main_ds_id = get_main_grid_dataset(meta_data)
     combos = meta_data.get('Combos', [])
     grids = meta_data.get('Grids', [])
     statics = meta_data.get('Statics', [])
+    multi = is_multi_grid(meta_data)
+
+    # 그리드에 바인딩된 데이터셋 ID 집합
+    grid_ds_ids = {g.get('binddataset', '') for g in grids if g.get('binddataset', '')}
 
     # combo에서 참조하는 dataset ID 수집 (그리드 combo + 검색 combo)
     referenced_ds_ids = set()
     for grid in grids:
         for col in grid.get('columns', []):
-            if col.get('edittype') == 'combo':
+            if col.get('edittype') == 'combo' or col.get('displaytype') == 'combo':
                 combo_ds = col.get('combodataset', '')
                 if combo_ds and not combo_ds.startswith('g_'):
                     referenced_ds_ids.add(combo_ds)
@@ -163,13 +245,38 @@ def generate_types_file(meta_data, output_dir, screen_name):
 
     content = ""
 
-    # 1) Row 타입 (CUD_TYPE 제외)
-    has_main_row = False
-    for ds_info in datasets:
-        if ds_info.get('id') == main_ds_id:
-            has_main_row = True
+    # 1) SearchParams 타입 (innerdataset이 있는 Combos만)
+    search_combos = [c for c in combos if c.get('innerdataset', '').lstrip('@')]
+    if search_combos:
+        # 멀티 그리드: left 오름차순 정렬
+        if multi:
+            search_combos_sorted = sorted(search_combos, key=lambda c: _parse_position(c.get('left', '0')))
+        else:
+            search_combos_sorted = search_combos
+
+        content += f"export type {screen_name}SearchParams = {{\n"
+        for combo in search_combos_sorted:
+            label = resolve_combo_label(combo, statics)
+            if multi:
+                field_name = resolve_combo_search_field_name(combo, datasets)
+            else:
+                field_name = to_camel_case(combo.get('id', ''))
+            content += f"  {field_name}?: string | null;  // {label}\n"
+        content += "};\n\n"
+
+    # 2) Row 타입 (CUD_TYPE 제외)
+    if multi:
+        # 멀티 그리드: 각 그리드의 binddataset별 Row 타입 생성
+        for grid in grids:
+            ds_id = grid.get('binddataset', '')
+            if not ds_id:
+                continue
+            ds_info = next((ds for ds in datasets if ds.get('id') == ds_id), None)
+            if not ds_info:
+                continue
+            row_type_name = ds_id_to_row_type_name(ds_id)
             columns = ds_info.get('columns', [])
-            content += f"export type {screen_name}Row = {{\n"
+            content += f"export type {row_type_name} = {{\n"
             for col in columns:
                 col_id = col.get('id', '')
                 if col_id and col_id != 'CUD_TYPE':
@@ -177,30 +284,36 @@ def generate_types_file(meta_data, output_dir, screen_name):
                     camel_name = to_camel_case(col_id)
                     content += f"  {camel_name}: {ts_type};\n"
             content += "};\n\n"
-            break
-
-    if not has_main_row:
-        content += f"// Placeholder type (no main dataset found)\n"
-        content += f"export type {screen_name}Row = Record<string, unknown>;\n\n"
-
-    # 2) SearchParams 타입 (innerdataset이 있는 Combos만)
-    search_combos = [c for c in combos if c.get('innerdataset', '').lstrip('@')]
-    if search_combos:
-        content += f"export type {screen_name}SearchParams = {{\n"
-        for combo in search_combos:
-            combo_id = combo.get('id', '')
-            label = resolve_combo_label(combo, statics)
-            camel_id = to_camel_case(combo_id)
-            content += f"  {camel_id}?: string | null;  // {label}\n"
-        content += "};\n\n"
+    else:
+        # 단일 그리드: 기존 패턴
+        has_main_row = False
+        for ds_info in datasets:
+            if ds_info.get('id') == main_ds_id:
+                has_main_row = True
+                columns = ds_info.get('columns', [])
+                content += f"export type {screen_name}Row = {{\n"
+                for col in columns:
+                    col_id = col.get('id', '')
+                    if col_id and col_id != 'CUD_TYPE':
+                        ts_type = get_type_mapping(col.get('type'))
+                        camel_name = to_camel_case(col_id)
+                        content += f"  {camel_name}: {ts_type};\n"
+                content += "};\n\n"
+                break
+        if not has_main_row:
+            content += f"// Placeholder type (no main dataset found)\n"
+            content += f"export type {screen_name}Row = Record<string, unknown>;\n\n"
 
     # 3) 보조 타입 (combo에서 참조하는 dataset만)
     for ds_info in datasets:
         ds_id = ds_info.get('id', '')
-        if ds_id == main_ds_id or ds_id not in referenced_ds_ids:
+        if ds_id in grid_ds_ids or ds_id not in referenced_ds_ids:
             continue
         columns = ds_info.get('columns', [])
-        type_name = to_type_name(ds_id)
+        if multi:
+            type_name = ds_id_to_option_type_name(ds_id)
+        else:
+            type_name = to_type_name(ds_id)
         content += f"export type {type_name} = {{\n"
         for col in columns:
             col_id = col.get('id', '')
@@ -220,44 +333,80 @@ def generate_types_file(meta_data, output_dir, screen_name):
 
 
 def generate_create_row_hook(meta_data, output_dir, screen_name):
-    """useCreate{ScreenName}Row.ts 생성 (v0.2.2)"""
+    """useCreate{ScreenName}Row.ts 또는 useCreateRows.ts 생성 (v3.0)
+
+    멀티 그리드: 각 그리드 데이터셋별 팩토리 함수 → useCreateRows.ts
+    단일 그리드: 기존 useCreate{ScreenName}Row.ts 유지
+    """
     hooks_dir = os.path.join(output_dir, "hooks")
     os.makedirs(hooks_dir, exist_ok=True)
 
-    main_ds_id = get_main_grid_dataset(meta_data)
     datasets = meta_data.get('Datasets', [])
+    grids = meta_data.get('Grids', [])
+    multi = is_multi_grid(meta_data)
 
-    # 메인 데이터셋의 컬럼 찾기
-    main_columns = []
-    for ds_info in datasets:
-        if ds_info.get('id') == main_ds_id:
-            main_columns = ds_info.get('columns', [])
-            break
+    def _generate_row_fields(columns):
+        lines = ""
+        for col in columns:
+            col_id = col.get('id', '')
+            if col_id and col_id != 'CUD_TYPE':
+                camel_name = to_camel_case(col_id)
+                if col_id in ['CUD_CI', 'USE_YN', 'USE_STATUS']:
+                    lines += f"    {camel_name}: 'Y',\n"
+                else:
+                    lines += f"    {camel_name}: '',\n"
+        return lines
 
-    content = f"""import type {{ {screen_name}Row }} from '../types/{screen_name}Types';
+    if multi:
+        # 멀티 그리드: useCreateRows.ts (복수형)
+        type_imports = []
+        for grid in grids:
+            ds_id = grid.get('binddataset', '')
+            if ds_id:
+                type_imports.append(ds_id_to_row_type_name(ds_id))
 
-export const create{screen_name}Row = (): {screen_name}Row => {{
-  return {{
-"""
+        content = f"import type {{ {', '.join(type_imports)} }} from '../types/{screen_name}Types';\n\n"
 
-    for col in main_columns:
-        col_id = col.get('id', '')
-        if col_id and col_id != 'CUD_TYPE':
-            camel_name = to_camel_case(col_id)
-            # CUD_CI나 USE_YN 같은 컬럼은 기본값 'Y'
-            if col_id in ['CUD_CI', 'USE_YN', 'USE_STATUS']:
-                content += f"    {camel_name}: 'Y',\n"
-            else:
-                content += f"    {camel_name}: '',\n"
+        for grid in grids:
+            ds_id = grid.get('binddataset', '')
+            if not ds_id:
+                continue
+            ds_info = next((ds for ds in datasets if ds.get('id') == ds_id), None)
+            if not ds_info:
+                continue
+            row_type = ds_id_to_row_type_name(ds_id)
+            func_name = ds_id_to_create_func_name(ds_id)
+            columns = ds_info.get('columns', [])
 
-    content += """  };
-};
-"""
+            content += f"export const {func_name} = (): {row_type} => {{\n"
+            content += "  return {\n"
+            content += _generate_row_fields(columns)
+            content += "  };\n"
+            content += "};\n\n"
 
-    hook_file = os.path.join(hooks_dir, f"useCreate{screen_name}Row.ts")
+        hook_filename = "useCreateRows.ts"
+    else:
+        # 단일 그리드: 기존 패턴
+        main_ds_id = get_main_grid_dataset(meta_data)
+        main_columns = []
+        for ds_info in datasets:
+            if ds_info.get('id') == main_ds_id:
+                main_columns = ds_info.get('columns', [])
+                break
+
+        content = f"import type {{ {screen_name}Row }} from '../types/{screen_name}Types';\n\n"
+        content += f"export const create{screen_name}Row = (): {screen_name}Row => {{\n"
+        content += "  return {\n"
+        content += _generate_row_fields(main_columns)
+        content += "  };\n"
+        content += "};\n"
+
+        hook_filename = f"useCreate{screen_name}Row.ts"
+
+    hook_file = os.path.join(hooks_dir, hook_filename)
     with open(hook_file, 'w', encoding='utf-8') as f:
         f.write(content)
-    print(f"Generated Hook: hooks/useCreate{screen_name}Row.ts")
+    print(f"Generated Hook: hooks/{hook_filename}")
 
 
 def get_dataset_columns(datasets, ds_id):
@@ -337,14 +486,16 @@ def extract_align_from_style(style_str):
 
 
 def generate_grid_column_hook(meta_data, output_dir, screen_name):
-    """useCreateGridColumn.ts 생성 - v2.0 HeaderTree 포함
+    """useCreateGridColumn.ts 또는 useCreateGridColumns.ts 생성 - v3.0
 
-    변경점:
-    - headerRowSpan, isRowIndex 속성 제거
-    - expr: 바인딩 컬럼 전체 제거
-    - width → 항상 '*'
-    - 모든 컬럼에 dataType: 'String' 추가
-    - HeaderTree import 및 상수 추가
+    멀티 그리드:
+    - 각 그리드별 Row 타입 적용 (DsProcRow, DsProcDtlRow, ...)
+    - Option 타입명 사용 (DsPlantOption, ...)
+    - all-none edittype 그리드는 isReadOnly: true
+    - displaytype == 'combo'인 컬럼도 dataMap 추가
+    - 파일명: useCreateGridColumns.ts (복수형)
+
+    단일 그리드: 기존 패턴 유지 (useCreateGridColumn.ts)
     """
     hooks_dir = os.path.join(output_dir, "hooks")
     os.makedirs(hooks_dir, exist_ok=True)
@@ -352,6 +503,7 @@ def generate_grid_column_hook(meta_data, output_dir, screen_name):
     grids = meta_data.get('Grids', [])
     datasets = meta_data.get('Datasets', [])
     form_id = meta_data.get('Form', {}).get('id', screen_name)
+    multi = is_multi_grid(meta_data)
 
     if not grids:
         return
@@ -361,11 +513,15 @@ def generate_grid_column_hook(meta_data, output_dir, screen_name):
     for grid in grids:
         columns = grid.get('columns', [])
         for col in columns:
-            if col.get('edittype') == 'combo':
-                combo_ds = col.get('combodataset', '')
-                if combo_ds and not combo_ds.startswith('g_'):
-                    type_name = to_type_name(combo_ds)
-                    param_name = to_var_name(combo_ds)
+            combo_ds = col.get('combodataset', '')
+            if combo_ds and not combo_ds.startswith('g_'):
+                if col.get('edittype') == 'combo' or col.get('displaytype') == 'combo':
+                    if multi:
+                        type_name = ds_id_to_option_type_name(combo_ds)
+                        param_name = ds_id_to_option_var_name(combo_ds)
+                    else:
+                        type_name = to_type_name(combo_ds)
+                        param_name = to_var_name(combo_ds)
                     codecol = col.get('combocodecol', 'COMM_CODE')
                     specified_datacol = col.get('combodatacol', 'CODE_KOR_NAME')
 
@@ -382,28 +538,43 @@ def generate_grid_column_hook(meta_data, output_dir, screen_name):
 
     # Import 생성
     content = 'import type { GridColumnDef } from "@/components/ap-wijmo/grid/GridTypes";\n'
-    content += 'import {\n'
-    content += '  createGroupNode,\n'
-    content += '  createLeafNode,\n'
-    content += '  type HeaderNode,\n'
-    content += '} from "@/components/ap-wijmo/grid/HeaderTree";\n'
 
-    type_imports = [f"{screen_name}Row"]
+    if all_combo_datasets:
+        content += 'import { createDataMap } from "@/components/ap-wijmo/grid/Util";\n'
+
+    # Type imports
+    type_imports = []
+    if multi:
+        for grid in grids:
+            ds_id = grid.get('binddataset', '')
+            if ds_id:
+                row_type = ds_id_to_row_type_name(ds_id)
+                if row_type not in type_imports:
+                    type_imports.append(row_type)
+    else:
+        type_imports.append(f"{screen_name}Row")
+
     for ds_info in all_combo_datasets.values():
         if ds_info['type'] not in type_imports:
             type_imports.append(ds_info['type'])
 
-    content += f'import type {{ {", ".join(type_imports)} }} from "../types/{screen_name}Types";\n'
-
-    # combo_datasets가 있을 때만 createDataMap import
-    if all_combo_datasets:
-        content += 'import { createDataMap } from "@/components/ap-wijmo/grid/Util";\n'
-    content += '\n'
+    content += f'\nimport type {{\n'
+    for ti in sorted(type_imports):
+        content += f'  {ti},\n'
+    content += f"}} from '../types/{screen_name}Types';\n\n"
 
     # 각 그리드별로 컬럼 정의 함수 생성
     for grid in grids:
         grid_id = grid.get('id', 'datagrid1')
+        ds_id = grid.get('binddataset', '')
         columns = grid.get('columns', [])
+        grid_readonly = is_grid_all_readonly(grid)
+
+        # Row 타입 결정
+        if multi and ds_id:
+            row_type = ds_id_to_row_type_name(ds_id)
+        else:
+            row_type = f"{screen_name}Row"
 
         # expr: 바인딩 컬럼, 빈 binding, CUD_TYPE 필터링 (제거)
         non_expr_columns = [
@@ -412,27 +583,39 @@ def generate_grid_column_hook(meta_data, output_dir, screen_name):
             and col.get('binding', '') != 'CUD_TYPE'
         ]
 
-        # 이 그리드에서 사용되는 combo dataset 수집
+        # 이 그리드에서 사용되는 combo dataset 수집 (edittype='combo' OR displaytype='combo')
         grid_combo_datasets = {}
         for col in non_expr_columns:
-            if col.get('edittype') == 'combo':
-                combo_ds = col.get('combodataset', '')
-                if combo_ds and not combo_ds.startswith('g_') and combo_ds in all_combo_datasets:
+            combo_ds = col.get('combodataset', '')
+            if combo_ds and not combo_ds.startswith('g_') and combo_ds in all_combo_datasets:
+                if col.get('edittype') == 'combo' or col.get('displaytype') == 'combo':
                     grid_combo_datasets[combo_ds] = all_combo_datasets[combo_ds]
 
-        func_name = f"create{to_pascal_case(grid_id)}ColumnDefinition"
+        # 멀티 그리드: grid ID 기반 함수명 (createProcGridColumns 패턴)
+        if multi:
+            # grd_Proc -> createProcGridColumns, grd_ProcDtl -> createProcDtlGridColumns
+            clean_grid_id = grid_id.replace('grd_', '') if grid_id.startswith('grd_') else grid_id
+            # grd_GridT2 -> Tab2 (특수 처리: GridT2의 T2는 Tab2와 매칭)
+            if clean_grid_id.startswith('Grid'):
+                # ds_Tab2 → Tab2GridColumns
+                ds_clean = ds_id.replace('ds_', '') if ds_id and ds_id.startswith('ds_') else clean_grid_id
+                func_name = f"create{ds_clean}GridColumns"
+            else:
+                func_name = f"create{clean_grid_id}GridColumns"
+        else:
+            func_name = f"create{to_pascal_case(grid_id)}ColumnDefinition"
 
         # 함수 시그니처 (파라미터 포함)
         if grid_combo_datasets:
             content += f"export const {func_name} = ({{\n"
-            for ds_id, ds_info in grid_combo_datasets.items():
-                content += f"    {ds_info['param']},\n"
-            content += f"}} : {{\n"
-            for ds_id, ds_info in grid_combo_datasets.items():
-                content += f"    {ds_info['param']}: {ds_info['type']}[],\n"
-            content += f"}}): GridColumnDef<{screen_name}Row>[] => {{\n"
+            for ds_id_key, ds_info in grid_combo_datasets.items():
+                content += f"  {ds_info['param']},\n"
+            content += f"}}: {{\n"
+            for ds_id_key, ds_info in grid_combo_datasets.items():
+                content += f"  {ds_info['param']}: {ds_info['type']}[];\n"
+            content += f"}}): GridColumnDef<{row_type}>[] => {{\n"
         else:
-            content += f"export const {func_name} = (): GridColumnDef<{screen_name}Row>[] => {{\n"
+            content += f"export const {func_name} = (): GridColumnDef<{row_type}>[] => {{\n"
 
         content += "  return [\n"
 
@@ -441,11 +624,10 @@ def generate_grid_column_hook(meta_data, output_dir, screen_name):
             binding = col.get('binding', '')
             header = col.get('id', '')
             edittype = col.get('edittype', 'normal')
+            displaytype = col.get('displaytype', '')
             combo_ds = col.get('combodataset', '')
 
-            # 헤더 텍스트에서 개행문자 제거 및 특수문자 이스케이프
             header_sanitized = header.replace('\n', ' ').replace('\r', '').replace("'", "\\'")
-
             camel_binding = to_camel_case(binding)
 
             col_size = col.get('size', None)
@@ -457,14 +639,19 @@ def generate_grid_column_hook(meta_data, output_dir, screen_name):
             content += f"      binding: '{camel_binding}',\n"
             content += "      dataType: 'String',\n"
 
-            # align 속성 (원본 xfdl body cell style에서 추출)
+            # isReadOnly for all-readonly grids
+            if grid_readonly:
+                content += "      isReadOnly: true,\n"
+
+            # align 속성
             style_str = col.get('style', '')
             align_val = extract_align_from_style(style_str)
             if align_val:
                 content += f"      align: '{align_val}',\n"
 
-            # combo 컬럼인 경우 dataMap 추가
-            if edittype == 'combo' and combo_ds and not combo_ds.startswith('g_'):
+            # combo 컬럼인 경우 dataMap 추가 (edittype='combo' OR displaytype='combo')
+            has_combo = (edittype == 'combo' or displaytype == 'combo')
+            if has_combo and combo_ds and not combo_ds.startswith('g_'):
                 ds_info = all_combo_datasets.get(combo_ds)
                 if ds_info:
                     codecol = to_camel_case(ds_info['codecol'])
@@ -474,7 +661,7 @@ def generate_grid_column_hook(meta_data, output_dir, screen_name):
             content += "    },\n"
 
         content += "  ];\n"
-        content += "}\n\n"
+        content += "};\n\n"
 
     # HeaderTree 상수는 첫 번째(메인) 그리드 기준으로 1번만 생성
     main_grid = grids[0]
@@ -482,7 +669,7 @@ def generate_grid_column_hook(meta_data, output_dir, screen_name):
     head_cells = main_grid.get('headCells', [])
     body_cells = main_grid.get('bodyCells', [])
 
-    # row=1 headCells에서 서브헤더 텍스트 맵 구축 (colspan 그룹의 첫 번째 자식용)
+    # row=1 headCells에서 서브헤더 텍스트 맵 구축
     sub_header_map = {}
     for hc in head_cells:
         if hc.get('row') == '1':
@@ -497,11 +684,9 @@ def generate_grid_column_hook(meta_data, output_dir, screen_name):
             col_idx = body_cells[idx].get('col', str(idx)) if idx < len(body_cells) else str(idx)
             column_with_pos.append((col_idx, col))
 
-    # 그룹핑 전략 결정: head_colspan 유무 확인
     has_colspan = any(col.get('head_colspan', '') for _, col in column_with_pos)
     head_row_count = sum(1 for r in main_grid.get('rows', []) if r.get('band') == 'head')
 
-    # head_colspan이 없고 head row가 2줄 이상이면 이름 기반 그룹핑 적용
     name_groups = {}
     if not has_colspan and head_row_count >= 2:
         name_groups = _detect_name_groups(column_with_pos)
@@ -518,7 +703,6 @@ def generate_grid_column_hook(meta_data, output_dir, screen_name):
         head_colspan = col.get('head_colspan', '')
 
         if head_colspan and int(head_colspan) > 1:
-            # colspan 기반 그룹 노드 생성
             group_count = min(int(head_colspan), len(column_with_pos) - i)
             group_label = header.replace('\n', ' ').replace('\r', '').replace('"', '\\"')
             group_id = f"{camel_binding}Group"
@@ -531,7 +715,6 @@ def generate_grid_column_hook(meta_data, output_dir, screen_name):
                 child_header = child_col.get('id', '')
                 child_camel = to_camel_case(child_binding)
 
-                # 그룹 첫 번째 자식: id가 부모 텍스트이므로 row=1 서브헤더 사용
                 if j == 0 and child_col_idx in sub_header_map:
                     child_header = sub_header_map[child_col_idx]
 
@@ -542,11 +725,9 @@ def generate_grid_column_hook(meta_data, output_dir, screen_name):
             i += group_count
 
         elif i in name_groups:
-            # 이름 기반 그룹 노드 생성 (head row 2줄 + 공통 접두사)
             group_count, group_label = name_groups[i]
             group_label_sanitized = group_label.replace('\n', ' ').replace('\r', '').replace('"', '\\"')
 
-            # 그룹 ID: 헤더 텍스트가 그룹명과 일치하는 컬럼의 binding 사용
             group_binding = binding
             for j in range(group_count):
                 _, c = column_with_pos[i + j]
@@ -575,10 +756,21 @@ def generate_grid_column_hook(meta_data, output_dir, screen_name):
 
     content += "];\n"
 
-    hook_file = os.path.join(hooks_dir, "useCreateGridColumn.ts")
+    # Need HeaderTree imports at the top - prepend them
+    header_tree_imports = 'import {\n'
+    header_tree_imports += '  createGroupNode,\n'
+    header_tree_imports += '  createLeafNode,\n'
+    header_tree_imports += '  type HeaderNode,\n'
+    header_tree_imports += '} from "@/components/ap-wijmo/grid/HeaderTree";\n'
+    # Insert after first import line
+    first_newline = content.index('\n') + 1
+    content = content[:first_newline] + header_tree_imports + content[first_newline:]
+
+    filename = "useCreateGridColumns.ts" if multi else "useCreateGridColumn.ts"
+    hook_file = os.path.join(hooks_dir, filename)
     with open(hook_file, 'w', encoding='utf-8') as f:
         f.write(content)
-    print(f"Generated Hook: hooks/useCreateGridColumn.ts")
+    print(f"Generated Hook: hooks/{filename}")
 
 
 def generate_datasets(screen_name=None):
